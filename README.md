@@ -1,6 +1,6 @@
-## Team Name: VPB Game Studio
+# Team Name: VPB Game Studio
 
-## Team Members: Baltej Toor, Prajvin Jalan, Vatsal Shukla
+#### Team Members: Baltej Toor, Prajvin Jalan, Vatsal Shukla
 
 This project is a reimplementation of the classic arcade game PacMan. 
 

@@ -23,9 +23,10 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-September 30, 2016 & Prajvin Jalan & Update Team Meeting Plan and Git Workflow Plan sections\\
-September 30, 2016 & Vatsal Shukla & Update Team Member Roles and Technology sections \\
-September 30, 2016 & Prajvin Jalan & Update Revision History and Header\\
+2016-09-30 & Prajvin Jalan & Update Team Meeting Plan and Git Workflow Plan sections\\
+2016-09-30 & Vatsal Shukla & Update Team Member Roles and Technology sections \\
+2016-09-30 & Prajvin Jalan & Update Revision History and Header\\
+2016-09-30 & Baltej Toor & Update of Team Communication and Proof of Concept Demo. plans\\
 ... & ... & ...\\
 \bottomrule
 \end{tabularx}
@@ -44,6 +45,9 @@ Team meetings will occur once per week for about thirty minutes after our first 
 
 \section{Team Communication Plan}
 
+\paragraph{}
+External communication will primarily be through the online tool, Google Hangouts. The team will utilize the mobile and desktop versions to make contact in real-time in regards to documentation, technical issues, and the discussion of upcoming deliverables.\par Secondary communication will be through email. This form of communication will be reserved specifically for instances where research material/external resources are being looked into for use in the redevelopment process.
+
 \section{Team Member Roles}
 
 \paragraph{}
@@ -55,6 +59,14 @@ Our team has agreed on rotating team roles per meeting. One person will lead the
 Our team will be developing our program using the Centralized Workflow plan, keeping a central repository to serve as a single point-of-entry for any and all changes made to the project (changes will be committed to the default \textit{master} branch). Since we are all relatively new to using Git, this will help us easily keep track of each other's changes to our project files. We will use tags to keep track of important deliverables and personal milestones for the project, such as when major portions of our program may be implemented to work. Tracking these commits will ensure that we can fallback should we come across issues with our game, and that we can have separate releases if we are able to implement extra features.
 
 \section{Proof of Concept Demonstration Plan}
+
+\paragraph{}
+In terms of the redevelopment, there are difficulties involved with recreating the mechanics of the game. Developing actions in regards to movement, scoring, and collisions between the main character and various entities in the game will require the most work. Since the original project (JavaPacman) has poor documentation and code organization, the redevelopment will have to focus on the correction and modularization of the code and file structures while redeveloping the core game mechanics.\par Since the application will be written in Java, GUI functionality and testing will rely on built-in libraries and classes. Testing specifically will involve automation through certain built-in classes to emulate user input. Due to Java’s platform-independence the majority of issues, again, stems from the redevelopment of the mechanics of the core gameplay.\par In order to demonstrate that the possible risks involved with game mechanic redevelopment can be overcome, the project will, again, focus on the correction and modularization of the code and file structures along with a proof of concept demonstration for the mechanics. Specifically, the demo will:
+\begin{itemize}
+\item Demo movement capabilities through a square track (showing turning and doubling-back character direction)
+\item Demo scoring through a display which increments score on character collision with score-related entities
+\item Demo collision with enemy character released from a holding area along the square track to show appropriate response
+\end{itemize}   
 
 \section{Technology}
 

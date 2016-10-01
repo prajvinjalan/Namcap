@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="NAMCAP Gantt Project" company="VPB Game Studios" webLink="http://" view-date="2016-10-09" view-index="0" gantt-divider-location="453" resource-divider-location="300" version="2.8.1" locale="en_CA">
+<?xml version="1.0" encoding="UTF-8"?><project name="NAMCAP Gantt Project" company="VPB Game Studios" webLink="http://" view-date="2016-09-24" view-index="0" gantt-divider-location="428" resource-divider-location="300" version="2.8.1" locale="en_CA">
     <description/>
-    <view zooming-state="default:4" id="gantt-chart">
-        <field id="tpd3" name="Name" width="283" order="0"/>
-        <field id="tpd4" name="Begin date" width="81" order="1"/>
-        <field id="tpd5" name="End date" width="85" order="2"/>
+    <view zooming-state="default:0" id="gantt-chart">
+        <field id="tpd3" name="Name" width="255" order="0"/>
+        <field id="tpd4" name="Begin date" width="76" order="1"/>
+        <field id="tpd5" name="End date" width="78" order="2"/>
         <timeline><![CDATA[10]]></timeline>
-        <option id="color.recent"><![CDATA[#ff0033 #0033ff #f4f4f4]]></option>
+        <option id="color.recent"><![CDATA[#33ff33 #ff0033 #0033ff #f4f4f4]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Name" width="199" order="0"/>
@@ -17,7 +17,7 @@
             <day-type id="0"/>
             <day-type id="1"/>
             <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
-            <only-show-weekends value="false"/>
+            <only-show-weekends value="true"/>
             <overriden-day-types/>
             <days/>
         </day-types>
@@ -37,8 +37,8 @@
         </taskproperties>
         <task id="0" name="Team Formation" color="#8cb6ce" meeting="false" start="2016-09-12" duration="5" complete="0" expand="true"/>
         <task id="3" name="Project Approval" color="#8cb6ce" meeting="false" start="2016-09-19" duration="5" complete="0" expand="true"/>
-        <task id="5" name="Problem Statement" color="#8cb6ce" meeting="true" start="2016-09-23" duration="0" complete="0" priority="2" expand="true"/>
-        <task id="10" name="Development Plan" color="#0033ff" meeting="false" start="2016-09-26" duration="5" complete="0" expand="true">
+        <task id="5" name="Problem Statement" color="#8cb6ce" meeting="false" start="2016-09-21" duration="3" complete="0" priority="2" expand="true"/>
+        <task id="10" name="Development Plan" color="#8cb6ce" meeting="false" start="2016-09-26" duration="5" complete="0" expand="true">
             <task id="61" name="Team Meeting Plan" color="#8cb6ce" meeting="false" start="2016-09-26" duration="1" complete="0" expand="true"/>
             <task id="64" name="Team Member Roles" color="#8cb6ce" meeting="false" start="2016-09-26" duration="1" complete="0" expand="true"/>
             <task id="65" name="Team Communication Plan" color="#8cb6ce" meeting="false" start="2016-09-27" duration="1" complete="0" expand="true"/>
@@ -48,18 +48,28 @@
             <task id="70" name="Technology" color="#8cb6ce" meeting="false" start="2016-09-27" duration="1" complete="0" expand="true"/>
             <task id="71" name="Project Schedule" color="#8cb6ce" meeting="false" start="2016-09-29" duration="2" complete="0" expand="true"/>
         </task>
-        <task id="24" name="Requirements Document R0" color="#8cb6ce" meeting="false" start="2016-10-03" duration="5" complete="0" priority="2" expand="true"/>
-        <task id="27" name="Proof of Concept Demonstration" color="#0033ff" meeting="false" start="2016-10-10" duration="10" complete="0" expand="true">
-            <task id="89" name="GUI Programming" color="#ff0033" meeting="false" start="2016-10-10" duration="10" complete="0" expand="true"/>
-            <task id="123" name="Scoring Mechanic Programming" color="#ff0033" meeting="false" start="2016-10-10" duration="1" complete="0" expand="true"/>
-            <task id="119" name="Movement Programming" color="#ff0033" meeting="false" start="2016-10-13" duration="2" complete="0" expand="true"/>
-            <task id="125" name="Collision Mechanics Programming" color="#ff0033" meeting="false" start="2016-10-10" duration="8" complete="0" expand="true"/>
+        <task id="143" name="Team Meeting 01" color="#33ff33" meeting="false" start="2016-09-27" duration="1" complete="0" expand="true"/>
+        <task id="24" name="Requirements Document R0" color="#8cb6ce" meeting="false" start="2016-10-01" duration="7" complete="0" priority="2" expand="true"/>
+        <task id="27" name="Proof of Concept Demonstration" color="#8cb6ce" meeting="false" start="2016-10-10" duration="10" complete="0" expand="true">
+            <task id="89" name="GUI Programming" color="#8cb6ce" meeting="false" start="2016-10-10" duration="10" complete="0" expand="true"/>
+            <task id="123" name="Scoring Mechanic Programming" color="#8cb6ce" meeting="false" start="2016-10-10" duration="1" complete="0" expand="true"/>
+            <task id="119" name="Movement Programming" color="#8cb6ce" meeting="false" start="2016-10-13" duration="2" complete="0" expand="true"/>
+            <task id="125" name="Collision Mechanics Programming" color="#8cb6ce" meeting="false" start="2016-10-10" duration="8" complete="0" expand="true"/>
         </task>
+        <task id="145" name="Team Meeting 02" color="#33ff33" meeting="false" start="2016-10-04" duration="1" complete="0" expand="true"/>
+        <task id="147" name="Team Meeting 03" color="#33ff33" meeting="false" start="2016-10-18" duration="1" complete="0" expand="true"/>
         <task id="29" name="Test Plan R0" color="#8cb6ce" meeting="false" start="2016-10-19" duration="8" complete="0" expand="true"/>
+        <task id="150" name="Team Meeting 04" color="#33ff33" meeting="false" start="2016-10-25" duration="1" complete="0" expand="true"/>
+        <task id="153" name="Team Meeting 05" color="#33ff33" meeting="false" start="2016-11-01" duration="1" complete="0" expand="true"/>
         <task id="31" name="Design Document R0" color="#8cb6ce" meeting="false" start="2016-11-02" duration="8" complete="0" expand="true"/>
         <task id="33" name="R0 Demonstration" color="#8cb6ce" meeting="false" start="2016-11-07" duration="5" complete="0" expand="true"/>
+        <task id="155" name="Team Meeting 06" color="#8cb6ce" meeting="false" start="2016-11-08" duration="1" complete="0" expand="true"/>
+        <task id="157" name="Team Meeting 07" color="#33ff33" meeting="false" start="2016-11-15" duration="1" complete="0" expand="true"/>
+        <task id="158" name="Team Meeting 08" color="#33ff33" meeting="false" start="2016-11-22" duration="1" complete="0" expand="true"/>
         <task id="36" name="Final Demo (R1)" color="#8cb6ce" meeting="false" start="2016-11-28" duration="5" complete="0" expand="true"/>
         <task id="38" name="Peer Evaluation" color="#8cb6ce" meeting="false" start="2016-11-28" duration="5" complete="0" expand="true"/>
+        <task id="161" name="Team Meeting 09" color="#33ff33" meeting="false" start="2016-11-29" duration="1" complete="0" expand="true"/>
+        <task id="163" name="Team Meeting 10" color="#33ff33" meeting="false" start="2016-12-06" duration="1" complete="0" expand="true"/>
         <task id="40" name="Final Documentation R1" color="#8cb6ce" meeting="true" start="2016-12-07" duration="0" complete="0" expand="true"/>
     </tasks>
     <resources>

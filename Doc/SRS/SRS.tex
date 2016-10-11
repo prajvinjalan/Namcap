@@ -11,13 +11,14 @@
     urlcolor=blue
 }
 \usepackage[round]{natbib}
+\usepackage{enumerate}
 
-\title{SE 3XA3: Development Plan\\Title of Project}
+\title{SE 3XA3: Development Plan\\Namcap}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team 2, VPB Game Studio
+		\\ Prajvin Jalan (jalanp)
+		\\ Vatsal Shukla (shuklv2)
+		\\ Baltej Toor (toorbs)
 }
 
 \date{\today}
@@ -38,7 +39,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
+2016-10-11 & 1.0 & Addition of content to Project Drivers sections excluding Naming Conventions and Terminology\\
 Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
@@ -48,7 +49,7 @@ Date 2 & 1.1 & Notes\\
 
 \pagenumbering{arabic}
 
-This document describes the requirements for ....  The template for the Software
+This document describes the requirements for the redevelopment project Namcap.  The template for the Software
 Requirements Specification (SRS) is a subset of the Volere
 template~\citep{RobertsonAndRobertson2012}.  If you make further modifications
 to the template, you should explicity state what modifications were made.
@@ -56,22 +57,82 @@ to the template, you should explicity state what modifications were made.
 \section{Project Drivers}
 
 \subsection{The Purpose of the Project}
+\paragraph{}
+The purpose of this project is to redevelop the classic arcade game Pacman based on an unstructured open-source development. The Pacman conceptual redevelopment, ‘Namcap’ aims to provide the classic arcade-style experience to a broader player base. The project will be geared towards a computer implementation to provide the most access for the classical gaming interaction without having to pay large amounts for additional hardware. The project will focus on redeveloping the reference open-source project with correct programming standards, modularization, and an emphasis on formal documentation.
 
 \subsection{The Stakeholders}
 
 \subsubsection{The Client}
+\paragraph{}
+The project is being developed for an external entity that has final say on the acceptance of the redevelopment and will review the project before deployment. The external entity shows interest in the redevelopment of open source projects with emphasis on improvement of programming structure and documentation.
 
 \subsubsection{The Customers}
+\paragraph{}
+The general gaming population are customers for this project. A typical gamer would have access to the internet and have the computer experience to download and run the application. 
 
 \subsubsection{Other Stakeholders}
+\paragraph{}
+Another stakeholder of this project is the redevelopment team. VPB Game Studio is responsible for the development of Namcap, with emphasis on the utilization of correct programming principles and formalization of documentation throughout development.
 
 \subsection{Mandated Constraints}
+
+\subsubsection{Solution Constraints}
+\paragraph{}
+The implementation shall be based on the same mechanics as the original implementation. Mechanics such as sprit movement, collision with various in-game entities, and scoring should reflect Pacman. The project is a redevelopment and aims to stay true to the retro-arcade gaming interaction that Pacman utilized. 
+
+\subsubsection{Implementation Environment of the Current System}
+\begin{enumerate}[i]
+\item All controls associated with the game mechanics shall be integrated to work with any keyboard configuration.
+\item The application shall be executable on both Mac, Windows, and Linux operating systems.
+\end{enumerate} 
+
+\subsubsection{Partner or Collaborative Applications}
+\paragraph{}
+The implementation does not require any partner or collaborative applications to execute. The application runs independently of any external or pre-existing applications.
+
+\subsubsection{Off-the-Shelf Software}
+\paragraph{}
+The implementation is self-contained and therefore requires no addition OTS software to be incorporated into the project.
+
+\subsubsection{Anticipated Workplace Environment}
+\paragraph{}
+The application shall be usable on desktop and laptop computer platforms. This allows users, once the application is downloaded locally, to run the game virtually anywhere with a laptop. The implementation does not affect the workplace environment externally as no audio functionality is built-in. The execution of the implementation is only limited to the extent of laptop portability.
+ 
+\subsubsection{Schedule Constraints}
+\paragraph{}
+Scheduling constraints are not applicable to this redevelopment project. However, self-imposed scheduling guidelines have been put in place for the development process. Specifically, the development team is aiming to have the initial implementation fully functioning by December 2016.
+
+\subsubsection{Budget Constraints}
+\paragraph{}
+Strict budget constraints are not applicable for this project. Any possible budgeting considerations for this redevelopment project focus around the team’s time management and availability. Since the redevelopment is based on an open-source implementation, any and all additional resources for the project are readily and freely available.
+
+\subsubsection{Enterprise Constraints}
+\paragraph{}
+The redeveloped implementation shall follow the correct programming and development standards as well as emphasis the creation of formalized documentation.
 
 \subsection{Naming Conventions and Terminology}
 
 \subsection{Relevant Facts and Assumptions}
 
-User characteristics should go under assumptions.
+\subsubsection{Relevant Facts}
+\begin{enumerate}[i]
+\item The existing base implementation is approximately 1600 lines of Java code.
+\item The original project is to be used as a source to conceptualize based on the requirements. No code will be used from the original project.
+\end{enumerate}
+
+\subsubsection{Business Rules}
+\paragraph{}
+The redevelopment team shall delegate work as to equalize the amount taken on by each member. This allows for an efficient development process and is mandated by the client of the project.
+
+\subsubsection{Assumptions}
+\paragraph{}
+The redevelopment project assumes that:
+\begin{enumerate}[i]
+\item All required software components (IDEs, Image Editing Software) will be readily available.
+\item Audio functionality shall not be implemented initially (may be implemented in the future following the appropriate decision process).
+\item The implementation will be executed in a verified instance of either the Mac, Windows, or Linux operating systems.
+\item The majority of users will have basic computer knowledge and experience.
+\end{enumerate}
 
 \section{Functional Requirements}
 

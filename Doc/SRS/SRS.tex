@@ -40,7 +40,8 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 2016-10-11 & 1.0 & Addition of content to Project Drivers sections excluding Naming Conventions and Terminology\\
-Date 2 & 1.1 & Notes\\
+2016-10-11 & 1.1 & Addition of content to Project Issues sections excluding Open Issues and Ideas for Solutions\\
+Date 3 & 1.2 & Notes\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -104,7 +105,7 @@ Scheduling constraints are not applicable to this redevelopment project. However
 
 \subsubsection{Budget Constraints}
 \paragraph{}
-Strict budget constraints are not applicable for this project. Any possible budgeting considerations for this redevelopment project focus around the team’s time management and availability. Since the redevelopment is based on an open-source implementation, any and all additional resources for the project are readily and freely available.
+Strict budget constraints are not applicable for this project. Any possible budgeting considerations for this redevelopment project focus around the team's time management and availability. Since the redevelopment is based on an open-source implementation, any and all additional resources for the project are readily and freely available.
 
 \subsubsection{Enterprise Constraints}
 \paragraph{}
@@ -175,19 +176,89 @@ issues that should be considered for every engineering project.
 
 \subsection{Off-the-Shelf Solutions}
 
+\subsubsection{Ready-Made Products}
+\paragraph{}
+As this project is a redevelopment of Pacman, the emphasis is on the use of correct programming and documentation standards of an existing ready-made product (arcade Pacman).
+
+\subsubsection{Reusable Components}
+\paragraph{}
+The Java Swing and Robot libraries will be used for graphical and testing components of the implementation.
+
+\subsubsection{Products That Can Be Copied}
+\paragraph{}
+The original project contains the graphical assets for the original Pacman. These assets are easily modifiable for legal use in the redeveloped Namcap.
+
 \subsection{New Problems}
+
+\subsubsection{Effects on the Current Environment}
+\paragraph{}
+Assuming the user is using modern computer technology with default processing capability, the application will not affect any existing systems/environment.
+
+\subsubsection{Effects on the Installed System}
+\paragraph{}
+The application is self-contained and will not coexist with any existing system.
+
+\subsubsection{Potential User Problems}
+\paragraph{}
+Users of an existing system will not be affected by the introduction of this redeveloped implementation as it is meant to stand-alone from any prior implementation.
+
+\subsubsection{Limitations in the Anticipated Implementation Environment That May Inhibit the New Product}
+\paragraph{}
+Inadequate processing power (minimal required) would inhibit the application from running optimally as it utilizes a graphical interface that drives the functionality.
+
+\subsubsection{Follow-Up Problems}
+\paragraph{}
+Due to the implementation's minimal hardware and system requirements, future iterations of the hardware or software used to run the application will not affect the execution/functionality of the application. Since the project will be built-off of an open-source implementation and readily available online, demand and legality concerns are minimal.
 
 \subsection{Tasks}
 
+\subsubsection{Project Planning}
+\paragraph{}
+The redevelopment team will be responsible to allocate the appropriate resources to the completion of processes required for the final implementation.\\
+\begin{tabular}{| l | l |}
+\hline
+\textbf{Task} & \textbf{Estimated Timeline} \\ \hline
+Implementation Model Development & October 15 \\ \hline
+Revision of Implementation Model & October 17 \\ \hline
+Java Implementation Development & November 10 \\ \hline
+Revision of Java Implementation & November 12 \\ \hline
+Maintenance & Ongoing Semi-Annually \\
+\hline
+\end{tabular}
+
+\subsubsection{Planning of the Development Process}
+\paragraph{Phase 1 - Model Development:}
+This phase of the redevelopment project will focus on the creation of a suitable model to blueprint the implementation process. The model development will mainly consists of conceptual design, cover all applicable functionalities of the program, and must be operational (revised) as of October 17.
+\paragraph{Phase 2 - Program Development:}
+This phase will focus on the actual programming of the modelled implementation in Java. This phase will require the availability of the IDE and corresponding Java packages to be utilized. Functionality and other testing will occur during this period for the operational deadline of November 12.
+\paragraph{Phase 3 - Application Maintenance:}
+This phase will encapsulate the ongoing maintenance and updates to the application in order to remain flexible with any issues that arise in the future. The emphasis will be on implementation optimality to ensure the game runs smoothly as hardware and software environments change over time.
+
 \subsection{Migration to the New Product}
+\paragraph{}
+The game will be self-contained and therefore no applicable migration requirements and/or modifications of data need to occur for the introduction of the new implementation.
 
 \subsection{Risks}
+\paragraph{}
+Since this project aims to redevelop a game, there are minimal risks involved with the execution or maintenance of a self-contained implementation.
 
 \subsection{Costs}
+\paragraph{}
+Development assets will be modified/conceptualized from an open-source project with use of freely available programming and image editing software. Therefore there are no foreseen costs to the client associated with the development of this project.
 
 \subsection{User Documentation and Training}
 
+\subsubsection{User Documentation Requirements}
+\paragraph{}
+A user manual detailing the control set and in-game entity uses will be included with the final implementation. The document will list the controls required to play the game and will detail what each entity in the game does and how it affects the overall gameplay. If additional gameplay mechanics are integrated into the design in the future, the user manual will have to be updated to encapsulate the changes made such that the user has up-to-date information on how the game works.
+
+\subsubsection{Training Requirements}
+\paragraph{}
+Training requirements are not applicable to this project. The user manual will include all information needed by the user to play the game.
+
 \subsection{Waiting Room}
+\paragraph{}
+In-game audio, save and load game, and additional level creation functionalities will not be a part of the initial development release but may be revisited for future iterations.
 
 \subsection{Ideas for Solutions}
 

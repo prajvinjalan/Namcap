@@ -118,6 +118,21 @@ Strict budget constraints are not applicable for this project. Any possible budg
 The redeveloped implementation shall follow the correct programming and development standards as well as emphasis the creation of formalized documentation.
 
 \subsection{Naming Conventions and Terminology}
+\begin{table}[H]
+\caption{Terminology} \label{tab:terms}
+\begin{center}
+\begin{tabular}{| c | l |}
+\hline
+\textbf{Terminology Used} & \textbf{Meaning/Reference To} \\ \hline
+OTS & 'Off-The-Shelf' solution \\ \hline
+UI & 'User Interface' \\ \hline
+AI & 'Artificial Intelligence' \\ \hline
+NF/F & 'Non-Functional/Functional' \\ \hline
+Project/Redevelopment & Recreation of Pacman, Namcap \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \subsection{Relevant Facts and Assumptions}
 
@@ -164,18 +179,18 @@ The context diagram of the work is given in \hyperref[fig:gamecontext]{Figure~\r
 
 \begin{table}[H]
 \caption{List of events} \label{tab:events}
-\begin{tabularx}{\textwidth}{p{3cm}p{4cm}X}
+\begin{tabularx}{\textwidth}{| p{3cm} | p{4cm} | X |}
 \toprule {\bf Event Name} & {\bf Inputs/Outputs} & {\bf Summary}\\
 \midrule
-Start Game & Keyboard (Spacebar) & The game is started\\
-Move Pacman & Keyboard(arrow keys)/UI(ouput) & Pacman moves through the map\\
-Enemies Move & UI(output) & The enemies move through the map\\
-Pacman hits wall & Keyboard(arrow keys)/UI(output) & Pacman is stops moving unless a valid move is made\\
-Pacman collects dots & Keyboard(arrow keys)/UI(output) & Pacman collects dots which increases the game points.\\
-Pacman hits enemy & Keyboard(arrow keys)/UI(output) & Points are reset and UI changes to Main Menu\\
-Pacman collects big dot & Keyboard(arrow keys)/UI(output) & Pacman collects big dot, enemies change colour and Pacman is able to hit the enemies and send them back to their cage. Points are incremented as Pacman hits enemies\\
-Pacman collects all dots & Keyboard(arrow keys)/UI(output) & Once Pacman collects all dots, the points are reset and UI switches back to main menu.\\
-Enemy hits wall & UI(output) & When enemies hit a wall, they will turn and start moving to a valid path\\
+Start Game & Keyboard (Spacebar) & The game is started.\\ \hline
+Move Pacman & Keyboard(arrow keys)/UI(ouput) & Pacman moves through the map.\\ \hline
+Enemies Move & UI(output) & The enemies move through the map.\\ \hline
+Pacman hits wall & Keyboard(arrow keys)/UI(output) & Pacman is stops moving unless a valid move is made.\\ \hline
+Pacman collects dots & Keyboard(arrow keys)/UI(output) & Pacman collects dots which increases the game points.\\ \hline
+Pacman hits enemy & Keyboard(arrow keys)/UI(output) & Points are reset and UI changes to main menu.\\ \hline
+Pacman collects big dot & Keyboard(arrow keys)/UI(output) & Pacman collects big dot, enemies change colour and Pacman is able to hit the enemies and send them back to their cage. Points are incremented as Pacman hits enemies.\\ \hline
+Pacman collects all dots & Keyboard(arrow keys)/UI(output) & Once Pacman collects all dots, the points are reset and UI switches back to main menu.\\ \hline
+Enemy hits wall & UI(output) & When enemies hit a wall, they will turn and start moving to a valid path.\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -190,7 +205,7 @@ Trigger: The user starts a new game
 
 Precondition: The main menu is open
 
-Postcondition: The In-Game UI is shown and the game is started
+Postcondition: The in-game UI is shown and the game is started
 
 \end{itemize}
 
@@ -202,7 +217,7 @@ Name: Move Pacman
 
 Trigger: User presses arrow keys from the keyboard
 
-Precondition: In-Game UI is active
+Precondition: In-game UI is active
 
 Postcondition: Pacman moves according to the arrow pressed
 \end{itemize}
@@ -304,7 +319,7 @@ Postcondition: The game application is terminated
 
 \begin{itemize}
 \item
-Requirement Number: 1
+Requirement Number: F1
 
 Requirement Type: 2.2
 
@@ -323,7 +338,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 2
+Requirement Number: F2
 
 Requirement Type: 2.2
 
@@ -342,7 +357,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 3 
+Requirement Number: F3 
 
 Requirement Type: 2.2
 
@@ -361,7 +376,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 4
+Requirement Number: F4
 
 Requirement Type: 2.2
 
@@ -380,7 +395,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 5
+Requirement Number: F5
 
 Requirement Type: 2.2
 
@@ -399,7 +414,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 6
+Requirement Number: F6
 
 Requirement Type: 2.2
 
@@ -418,7 +433,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 7
+Requirement Number: F7
 
 Requirement Type: 2.2
 
@@ -437,7 +452,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 8
+Requirement Number: F8
 
 Requirement Type: 2.2
 
@@ -456,7 +471,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 9
+Requirement Number: F9
 
 Requirement Type: 2.2
 
@@ -475,7 +490,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 10
+Requirement Number: F10
 
 Requirement Type: 2.2
 
@@ -494,7 +509,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 11
+Requirement Number: F11
 
 Requirement Type: 2.2
 
@@ -513,7 +528,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 12
+Requirement Number: F12
 
 Requirement Type: 2.2
 
@@ -532,7 +547,7 @@ Conflicts: None
 
 \begin{itemize}
 \item
-Requirement Number: 13
+Requirement Number: F13
 
 Requirement Type: 2.2
 
@@ -749,6 +764,9 @@ There are no legal requirements in relation to this project.
 \section{Project Issues}
 
 \subsection{Open Issues}
+\paragraph{}
+As the implementation will be a self-contained Java application, at this stage in development the only open issue would be testing. Testing of the implementation has not yet occured on both Windows and Linux based operating systems. 
+This may result in unforeseen complications in the future, however the issues would most likely be easily dealt with as a characteristic of the type of application being built and the programming language being used for development.
 
 \subsection{Off-the-Shelf Solutions}
 
@@ -842,6 +860,10 @@ Training requirements are not applicable to this project. The user manual will i
 In-game audio, save and load game, and additional level creation functionalities will not be a part of the initial development release but may be revisited for future iterations.
 
 \subsection{Ideas for Solutions}
+\paragraph{NF12}
+Possible solution would involve verification that all source files compile as an executable .jar file. This would ensure that any system with the Java Virtual Machine would be able to run the application.
+
+\newpage
 
 \bibliographystyle{plainnat}
 
@@ -850,9 +872,6 @@ In-game audio, save and load game, and additional level creation functionalities
 \newpage
 
 \section{Appendix}
-
-This section has been added to the Volere template.  This is where you can place
-additional information.
 
 \subsection{Symbolic Parameters}
 

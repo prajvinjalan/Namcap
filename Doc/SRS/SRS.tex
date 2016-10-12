@@ -3,6 +3,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -141,12 +142,409 @@ The redevelopment project assumes that:
 \subsection{The Scope of the Work and the Product}
 
 \subsubsection{The Context of the Work}
+The context diagram of the work is given in \hyperref[fig:gamecontext]{Figure~\ref*{fig:gamecontext}}.
+\begin{figure}[hb]
+\includegraphics[width=\textwidth]{gamecontext}
+\caption{Context Diagram of the Work} \label{fig:gamecontext}
+\end{figure}
 
 \subsubsection{Work Partitioning}
+\hyperref[fig:flow-3]{Figure~\ref*{fig:flow-3}} demonstrates a rough representation of the mechanics of the game. The user interface contains a main menu, a game over screen and the in-game interface where all of the gameplay will occur.
+
+\begin{figure}[hb]
+\includegraphics[width=\textwidth]{flow-3}
+\caption{Flow Diagram of the Game} \label{fig:flow-3}
+\end{figure}
 
 \subsubsection{Individual Product Use Cases}
 
+\begin{table}
+\caption{List of events} \label{tab:events}
+\begin{tabularx}{\textwidth}{p{3cm}p{4cm}p{7cm}X}
+\toprule {\bf Event Name} & {\bf Inputs/Outputs} & {\bf Summary}\\
+\midrule
+Start Game & Keyboard (Spacebar) & The game is started\\
+Move Pacman & Keyboard(arrow keys)/UI(ouput) & Pacman moves through the map\\
+Enemies Move & UI(output) & The enemies move through the map\\
+Pacman hits wall & Keyboard(arrow keys)/UI(output) & Pacman is stops moving unless a valid move is made\\
+Pacman collects dots & Keyboard(arrow keys)/UI(output) & Pacman collects dots which increases the game points.\\
+Pacman hits enemy & Keyboard(arrow keys)/UI(output) & Points are reset and UI changes to Main Menu\\
+Pacman collects big dot & Keyboard(arrow keys)/UI(output) & Pacman collects big dot, enemies change colour and Pacman is able to hit the enemies and send them back to their cage. Points are incremented as Pacman hits enemies\\
+Pacman collects all dots & Keyboard(arrow keys)/UI(output) & Once Pacman collects all dots, the points are reset and UI switches back to main menu.\\
+Enemy hits wall & UI(output) & When enemies hit a wall, they will turn and start moving to a valid path\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{itemize}
+\item
+Use Case Number: 1
+
+Name: Start Game
+
+Trigger: The user starts a new game
+
+Precondition: The main menu is open
+
+Postcondition: The In-Game UI is shown and the game is started
+
+\end{itemize}
+
+\begin{itemize}
+\item
+Use Case Number: 2
+
+Name: Move Pacman
+
+Trigger: User presses arrow keys from the keyboard
+
+Precondition: In-Game UI is active
+
+Postcondition: Pacman moves according to the arrow pressed
+\end{itemize}
+
+\begin{itemize}
+\item
+Use Case Number: 3
+
+Name: Pacman contacts wall
+
+Trigger: Pacman moves towards a wall
+
+Precondition: In-Game UI is active
+
+Postcondition: User presses an arrow key to move Pacman away from wall
+
+\end{itemize}
+
+\begin{itemize}
+\item
+Use Case Number: 4
+
+Name: Pacman contacts enemy
+
+Trigger: Pacman and enemy collide
+
+Precondition: In-Game UI is active
+
+Postcondition: Points are reset and Main Menu UI is active
+\end{itemize}
+
+\begin{itemize}
+\item
+Use Case Number: 5
+
+Name: Enemies move
+
+Trigger: Enemies collide with wall
+
+Precondition: In-Game UI is active
+
+Postcondition: Enemies move according to their AI
+\end{itemize}
+
+\begin{itemize}
+\item
+Use Case Number: 6
+
+Name: Pacman collects dots
+
+Trigger: User moves Pacman towards dots
+
+Precondition: Dots exist and In-Game UI is active
+
+Postcondition: Points are incremented and the collected dot is no longer visible
+\end{itemize}
+
+\begin{itemize}
+\item
+Use Case Number: 7
+
+Name: Pacman collects big dot
+
+Trigger: User moves Pacman towards big dot
+
+Precondition: Big dot exists and In-Game UI is active
+
+Postcondition: Enemies change colour and Pacman is able to collide with enemies
+\end{itemize}
+
+\begin{itemize}
+\item
+Use Case Number: 8
+
+Name: Pacman collects last dot
+
+Trigger: User moves Pacman towards last dot
+
+Precondition: In-Game UI is active
+
+Postcondition: Points are rest and Game Over UI is active
+\end{itemize}
+
+\begin{itemize}
+\item
+Use Case Number: 9
+
+Name: Name: Quit game
+
+Trigger: User presses Escape on the keyboard
+
+Precondition: Main Menu UI is active
+
+Postcondition: The game application is terminated
+\end{itemize}
+
+
 \subsection{Functional Requirements}
+
+\begin{itemize}
+\item
+Requirement Number: 1
+
+Requirement Type: 2.2
+
+Use Case: 1
+
+Description: User must have the ability to start a new game
+
+Rationale: The user needs to have this ability in order to play the game
+
+Fit Criterion: The game is able to be started
+
+Priority: High
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 2
+
+Requirement Type: 2.2
+
+Use Case: 2
+
+Description: The user must have the ability to move Pacman up, down, left or right.
+
+Rationale: The user must have this ability to collect points and dodge enemies.
+
+Fit Criterion: Pacman moves correctly based on the user’s input.
+
+Priority: High
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 3 
+
+Requirement Type: 2.2
+
+Use Case: 3
+
+Description: Pacman must stop moving when coming in contact with a wall.
+
+Rationale: Pacman must stop when touching a wall to make the game more challenging and fair.
+
+Fit Criterion: Pacman is unable to pass through walls.
+
+Priority: High
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 4
+
+Requirement Type: 2.2
+
+Use Case: 4
+
+Description: The game must come to an end when Pacman comes in contact with an enemy.
+
+Rationale: Pacman must ``die`` when coming in contact with an enemy to make the game more challenging and fair.
+
+Fit Criterion: Pacman is unable to pass through enemies.
+
+Priority: High
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 5
+
+Requirement Type: 2.2
+
+Use Case: 5
+
+Description: The enemies must be able to move on a valid path.
+
+Rationale: Enemies must be able to move in order for the game to be more challenging and fair.
+
+Fit Criterion: Enemies move correctly based on their AI.
+
+Priority: Medium
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 6
+
+Requirement Type: 2.2
+
+Use Case: 5
+
+Description: The enemies must not be able to pass through walls.
+
+Rationale: Enemies must not pass through walls in order to keep the game fair.
+
+Fit Criterion: Enemies move according to their AI.
+
+Priority: High
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 7
+
+Requirement Type: 2.2
+
+Use Case: 6
+
+Description: User must be able to collect dots. Dots must disappear after collection.
+
+Rationale: User must be able to collect dots in order to gain points in the game.
+
+Fit Criterion: The user`s points are increased upon collecting dots
+
+Priority: Medium
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 8
+
+Requirement Type: 2.2
+
+Use Case: 7
+
+Description: The user must be able to collect the big dot
+
+Rationale: The user must be able to collect the big dot in order to collide with the enemy
+
+Fit Criterion: The user`s ability to collide with enemies is enabled upon collecting big dot
+
+Priority: Medium
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 9
+
+Requirement Type: 2.2
+
+Use Case: 7
+
+Description: User must be able to collide with enemies upon collecting big dot
+
+Rationale: In order to knock the enemies back to their cage, user must collide with enemies
+
+Fit Criterion: User is able to collide with enemies to gain extra points
+
+Priority: Medium
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 10
+
+Requirement Type: 2.2
+
+Use Case: 7
+
+Description: Enemies must be able to run away from user upon collecting big dot
+
+Rationale: Enemies will try to avoid being eaten by the user
+
+Fit Criterion: The enemy`s AI will determine how they will run away from the user
+
+Priority: Low
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 11
+
+Requirement Type: 2.2
+
+Use Case: 8
+
+Description: The user must be able to win the game.
+
+Rationale: The user needs a reason to play the game.
+
+Fit Criterion: The user collects the last dot to win the game.
+
+Priority: High
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 12
+
+Requirement Type: 2.2
+
+Use Case: 9
+
+Description: The user must be able to quit the game.
+
+Rationale: The user must have the option to terminate the game.
+
+Fit Criterion: The user must press Escape on the Main Menu to terminate the game.
+
+Priority: High
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: 13
+
+Requirement Type: 2.2
+
+Use Case: 6
+
+Description: User`s points must increase when dots are collected.
+
+Rationale: Points must be increased in order to give user a reason to play the game.
+
+Fit Criterion: User must collect dots in order for points to increase.
+
+Priority: High
+
+Conflicts: None
+\end{itemize}
+
 
 \section{Non-functional Requirements}
 

@@ -41,7 +41,8 @@
 \midrule
 2016-10-11 & 1.0 & Addition of content to Project Drivers sections excluding Naming Conventions and Terminology\\
 2016-10-11 & 1.1 & Addition of content to Project Issues sections excluding Open Issues and Ideas for Solutions\\
-Date 3 & 1.2 & Notes\\
+2016-10-11 & 1.2 & Addition of content to Non-functional Requirements section\\
+Date 3 & 1.3 & Notes\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -150,25 +151,198 @@ The redevelopment project assumes that:
 \section{Non-functional Requirements}
 
 \subsection{Look and Feel Requirements}
+\begin{itemize}
+	\item
+	Requirement Number: NF1
+
+	Description: The application layout shall be similar to that of the original Pacman arcade game
+
+	Rationale: The application is intended to make the enjoyable arcade-style game of Pacman accessible to users without arcade machines (so the layout should comply with those standards)
+
+	Fit Criterion: Testers will make a comparison between the application and the original Pacman arcade game to ensure the layout looks consistent
+
+	Priority: High
+
+	\item
+	Requirement Number: NF2
+
+	Description: The application color scheme shall be similar to that of the original Pacman arcade game
+
+	Rationale: The application is intended to make the enjoyable arcade-style game of Pacman accessible to users without arcade machines (so the colors should match the original game)
+
+	Fit Criterion: Testers will make a comparison between the application and the original Pacman arcade game to ensure the colors of the games are consistent
+
+	Priority: High
+\end{itemize}
 
 \subsection{Usability and Humanity Requirements}
+\begin{itemize}
+	\item
+	Requirement Number: NF3
+
+	Description: The application shall be easy for any individual above the age of 10 to use
+
+	Rationale: The original arcade game was accessible to all ages and was simple to understand even for elementary school students - this application should reflect that ease of use
+
+	Fit Criterion: Part of the testers for the application will be younger children, who shoudl be able to successfully maneuver Pacman through the map (collecting points and dodging enemies)
+
+	Priority: High
+
+	\item
+	Requirement Number: NF4
+
+	Description: The application interface shall be in English
+
+	Rationale: The game is intended for use by anyone who speaks English
+
+	Fit Criterion: Testers will ensure that all parts of the application (instructions, game interface, etc.) are clearly understandable in English
+
+	Priority: High
+
+	\item
+	Requirement Number: NF5
+
+	Description: The game shall be easy for any player to learn within their first playthrough
+
+	Rationale: Much of the popularity of the original arcade Pacman was in the simplicity of the game, so this redevelopment should reflect that
+
+	Fit Criterion: Majority of testers should be able to understand how to play the game within their first playthrough (3 lives)
+
+	Priority: High
+
+	\item
+	Requirement Number: NF6
+
+	Description: The application shall only provide information to users that is necessary for them to enjoy the game
+
+	Rationale: In order to keep maintain simplicity in this game as per NF7, it should be easily understandable and anything not relevant to the user's experience should be kept away from them
+
+	Fit Criterion: Testers should not have trouble understanding the objectives of the game within their first playthrough (3 lives)
+
+	Priority: Moderate
+\end{itemize}
 
 \subsection{Performance Requirements}
+\begin{itemize}
+	\item
+	Requirement Number: NF7
+
+	Description: The response time between user actions and in-game operations shall be within 1 second
+
+	Rationale: If there is a delay in response time then users will not be able to enjoy the game to a full extent
+
+	Fit Criterion: 90\% of tests for response time will have a delay of less than 0.5 seconds
+
+	Priority: High
+
+	\item
+	Requirement Number: NF8
+
+	Description: The application shall not have unexpected failures
+
+	Rationale: The application needs to be reliable so that users can spend time enjoying the game without worrying about downtime due to internal errors
+
+	Fit Criterion: Unexpected crashes of the application will be within 1\% of application tests
+
+	Priority: High
+
+	\item
+	Requirement Number: NF9
+
+	Description: The application shall be expected to operate indefinitely
+
+	Rationale: The game is provided for free as a redevelopment of the original arcade Pacman and longetivity of the application is necessary to fulfill the product's goal - lifetime enjoyment of a classic arcade game without the need for an arcade machine
+
+	Fit Criterion: The application is available for use as a jar file, so once the initial release is downloaded then the game shall be available to play at the user's leisure
+
+	Priority: Moderate
+
+\end{itemize}
 
 \subsection{Operational and Environmental Requirements}
+\begin{itemize}
+	\item
+	Requirement Number: NF10
+
+	Description: Application releases shall be offered to users once per year
+
+	Rationale: In the future there may be additional features added to the game (such as sounds, more levels, more interactions, customizable options, etc.) so releases should be kept in mind
+
+	Fit Criterion: When new releases are provided to users, previous releases shall not be updated and there shall be no maintenance on the user's part apart from downloading the update
+
+	Priority: Low
+
+\end{itemize}
 
 \subsection{Maintainability and Support Requirements}
+\begin{itemize}
+	\item
+	Requirement Number: NF11
+
+	Description: Bugfixes shall be provided within a few days to ensure application usability
+
+	Rationale: Since the application code is open source, any unexpected errors in the game can be fixed by any developers so that users don't have to worry about the game crashing or behaving incorrectly (and decreasing enjoyment)
+
+	Fit Criterion: The code for the game is updated within one business week of an error being reported
+
+	Priority: Moderate
+
+	\item
+	Requirement Number: NF12
+
+	Description: The application is expected to run on all operating systems that have a JVM
+
+	Rationale: This game is being redeveloped as an application that is accessible to all users, so it should run independently of the user's platform in order to fulfill this goal
+
+	Fit Criterion: The applicaiton will be tested on multiple platforms to ensure that it can be accessible to all users
+
+	Priority: Moderate
+\end{itemize}
 
 \subsection{Security Requirements}
+\begin{itemize}
+	\item
+	Requirement Number: NF13
+
+	Description: Access to application code shall be made available through an open-source repository
+
+	Rationale: Open-source code allows for easy maintainability of the application; any developer can efficiently fix errors in the code and improve on the design
+
+	Fit Criterion: Changes for the code can be requested through the open-source repository, with final confirmation for changes being made by the original developers of the product (VPB Game Studio)
+
+	Priority: Moderate
+\end{itemize}
 
 \subsection{Cultural Requirements}
+\begin{itemize}
+	\item
+	Requirement Number: NF14
+
+	Description: The application shall not contain symbols or text that can be seen as potentially offensive to religious or ethnic groups
+
+	Rationale: The game is intended for use by anyone worldwide and shall not discriminate against its users, especially since this would result in a decline in user satisfaction
+
+	Fit Criterion: During testing, application shall be verified to not contain any offensive symbols or text
+
+	Priority: High
+\end{itemize}
 
 \subsection{Legal Requirements}
+There are no legal requirements in relation to this project.
 
 \subsection{Health and Safety Requirements}
+\begin{itemize}
+	\item
+	Requirement Number: NF15
 
-This section is not in the original Volere template, but health and safety are
-issues that should be considered for every engineering project.
+	Description: The application shall remind the user not to play without breaks
+
+	Rationale: One's health comes into question whenever any software application is being used continuously for a long period of time, so it is important for users not to keep playing after a certain amount of time without taking a break in order to stay healthy
+
+	Fit Criterion: Every 2 hours of continuous playtime will pause the application and prompt the user to take a break
+
+	Priority: Low
+\end{itemize}
 
 \section{Project Issues}
 

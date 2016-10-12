@@ -47,7 +47,9 @@
 2016-10-11 & 1.1 & Addition of content to Project Issues sections excluding Open Issues and Ideas for Solutions\\
 2016-10-11 & 1.2 & Addition of content to Non-functional Requirements section\\
 2016-10-11 & 1.3 & Formatting fixes to figure and table locations\\
-Date 4 & 1.4 & Notes\\
+2016-10-11 & 1.4 & Further formatting and content additions to 1.4 and 4.10\\
+2016-10-11 & 1.5 & Revision of linguistics and use of 'Pacman' in the document\\
+Date 7 & 1.5 & Notes\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -58,14 +60,13 @@ Date 4 & 1.4 & Notes\\
 
 This document describes the requirements for the redevelopment project Namcap.  The template for the Software
 Requirements Specification (SRS) is a subset of the Volere
-template~\citep{RobertsonAndRobertson2012}.  If you make further modifications
-to the template, you should explicity state what modifications were made.
+template~\citep{RobertsonAndRobertson2012}.
 
 \section{Project Drivers}
 
 \subsection{The Purpose of the Project}
 \paragraph{}
-The purpose of this project is to redevelop the classic arcade game Pacman based on an unstructured open-source development. The Pacman conceptual redevelopment, ‘Namcap’ aims to provide the classic arcade-style experience to a broader player base. The project will be geared towards a computer implementation to provide the most access for the classical gaming interaction without having to pay large amounts for additional hardware. The project will focus on redeveloping the reference open-source project with correct programming standards, modularization, and an emphasis on formal documentation.
+The purpose of this project is to redevelop the classic arcade game Pacman based on an unstructured open-source development. The Pacman conceptual redevelopment, '‘Namcap' aims to provide the classic arcade-style experience to a broader player base. The project will be geared towards a computer implementation to provide the most access for the classical gaming interaction without having to pay large amounts for additional hardware. The project will focus on redeveloping the reference open-source project with correct programming standards, modularization, and an emphasis on formal documentation.
 
 \subsection{The Stakeholders}
 
@@ -128,7 +129,8 @@ OTS & 'Off-The-Shelf' solution \\ \hline
 UI & 'User Interface' \\ \hline
 AI & 'Artificial Intelligence' \\ \hline
 NF/F & 'Non-Functional/Functional' \\ \hline
-Project/Redevelopment & Recreation of Pacman, Namcap \\
+Project/Redevelopment & Recreation of Pacman, Namcap \\ \hline
+Player & In-game player entity (character icon)\\
 \hline
 \end{tabular}
 \end{center}
@@ -183,13 +185,13 @@ The context diagram of the work is given in \hyperref[fig:gamecontext]{Figure~\r
 \toprule {\bf Event Name} & {\bf Inputs/Outputs} & {\bf Summary}\\
 \midrule
 Start Game & Keyboard (Spacebar) & The game is started.\\ \hline
-Move Pacman & Keyboard(arrow keys)/UI(ouput) & Pacman moves through the map.\\ \hline
+Move Player & Keyboard(arrow keys)/UI(ouput) & Player moves through the map.\\ \hline
 Enemies Move & UI(output) & The enemies move through the map.\\ \hline
-Pacman hits wall & Keyboard(arrow keys)/UI(output) & Pacman is stops moving unless a valid move is made.\\ \hline
-Pacman collects dots & Keyboard(arrow keys)/UI(output) & Pacman collects dots which increases the game points.\\ \hline
-Pacman hits enemy & Keyboard(arrow keys)/UI(output) & Points are reset and UI changes to main menu.\\ \hline
-Pacman collects big dot & Keyboard(arrow keys)/UI(output) & Pacman collects big dot, enemies change colour and Pacman is able to hit the enemies and send them back to their cage. Points are incremented as Pacman hits enemies.\\ \hline
-Pacman collects all dots & Keyboard(arrow keys)/UI(output) & Once Pacman collects all dots, the points are reset and UI switches back to main menu.\\ \hline
+Player hits wall & Keyboard(arrow keys)/UI(output) & Player stops moving unless a valid move is made.\\ \hline
+Player collects dots & Keyboard(arrow keys)/UI(output) & Player collects dots which increases the game points.\\ \hline
+Player hits enemy & Keyboard(arrow keys)/UI(output) & Points are reset and UI changes to main menu.\\ \hline
+Player collects big dot & Keyboard(arrow keys)/UI(output) & Player collects big dot, enemies change colour and Player is able to hit the enemies and send them back to their cage. Points are incremented as Player hits enemies.\\ \hline
+Player collects all dots & Keyboard(arrow keys)/UI(output) & Once Player collects all dots, the points are reset and UI switches back to main menu.\\ \hline
 Enemy hits wall & UI(output) & When enemies hit a wall, they will turn and start moving to a valid path.\\
 \bottomrule
 \end{tabularx}
@@ -213,26 +215,26 @@ Postcondition: The in-game UI is shown and the game is started
 \item
 Use Case Number: 2
 
-Name: Move Pacman
+Name: Move Player
 
 Trigger: User presses arrow keys from the keyboard
 
 Precondition: In-game UI is active
 
-Postcondition: Pacman moves according to the arrow pressed
+Postcondition: Player moves according to the arrow pressed
 \end{itemize}
 
 \begin{itemize}
 \item
 Use Case Number: 3
 
-Name: Pacman contacts wall
+Name: Player contacts wall
 
-Trigger: Pacman moves towards a wall
+Trigger: Player moves towards a wall
 
-Precondition: In-Game UI is active
+Precondition: In-game UI is active
 
-Postcondition: User presses an arrow key to move Pacman away from wall
+Postcondition: User presses an arrow key to move Player away from wall
 
 \end{itemize}
 
@@ -240,13 +242,13 @@ Postcondition: User presses an arrow key to move Pacman away from wall
 \item
 Use Case Number: 4
 
-Name: Pacman contacts enemy
+Name: Player contacts enemy
 
-Trigger: Pacman and enemy collide
+Trigger: Player and enemy collide
 
-Precondition: In-Game UI is active
+Precondition: In-game UI is active
 
-Postcondition: Points are reset and Main Menu UI is active
+Postcondition: Points are reset and main menu UI is active
 \end{itemize}
 
 \begin{itemize}
@@ -257,7 +259,7 @@ Name: Enemies move
 
 Trigger: Enemies collide with wall
 
-Precondition: In-Game UI is active
+Precondition: In-game UI is active
 
 Postcondition: Enemies move according to their AI
 \end{itemize}
@@ -266,11 +268,11 @@ Postcondition: Enemies move according to their AI
 \item
 Use Case Number: 6
 
-Name: Pacman collects dots
+Name: Player collects dots
 
-Trigger: User moves Pacman towards dots
+Trigger: User moves Player towards dots
 
-Precondition: Dots exist and In-Game UI is active
+Precondition: Dots exist and in-game UI is active
 
 Postcondition: Points are incremented and the collected dot is no longer visible
 \end{itemize}
@@ -279,26 +281,26 @@ Postcondition: Points are incremented and the collected dot is no longer visible
 \item
 Use Case Number: 7
 
-Name: Pacman collects big dot
+Name: Player collects big dot
 
-Trigger: User moves Pacman towards big dot
+Trigger: User moves Player towards big dot
 
-Precondition: Big dot exists and In-Game UI is active
+Precondition: Big dot exists and in-game UI is active
 
-Postcondition: Enemies change colour and Pacman is able to collide with enemies
+Postcondition: Enemies change colour and Player is able to collide with enemies
 \end{itemize}
 
 \begin{itemize}
 \item
 Use Case Number: 8
 
-Name: Pacman collects last dot
+Name: Player collects last dot
 
-Trigger: User moves Pacman towards last dot
+Trigger: User moves Player towards last dot
 
-Precondition: In-Game UI is active
+Precondition: In-game UI is active
 
-Postcondition: Points are rest and Game Over UI is active
+Postcondition: Points are rest and game over UI is active
 \end{itemize}
 
 \begin{itemize}
@@ -309,7 +311,7 @@ Name: Name: Quit game
 
 Trigger: User presses Escape on the keyboard
 
-Precondition: Main Menu UI is active
+Precondition: Main menu UI is active
 
 Postcondition: The game application is terminated
 \end{itemize}
@@ -344,11 +346,11 @@ Requirement Type: 2.2
 
 Use Case: 2
 
-Description: The user must have the ability to move Pacman up, down, left or right.
+Description: The user must have the ability to move Player up, down, left or right.
 
 Rationale: The user must have this ability to collect points and dodge enemies.
 
-Fit Criterion: Pacman moves correctly based on the user’s input.
+Fit Criterion: Player moves correctly based on the user’s input.
 
 Priority: High
 
@@ -363,11 +365,11 @@ Requirement Type: 2.2
 
 Use Case: 3
 
-Description: Pacman must stop moving when coming in contact with a wall.
+Description: Player must stop moving when coming in contact with a wall.
 
-Rationale: Pacman must stop when touching a wall to make the game more challenging and fair.
+Rationale: Player must stop when touching a wall to make the game more challenging and fair.
 
-Fit Criterion: Pacman is unable to pass through walls.
+Fit Criterion: Player is unable to pass through walls.
 
 Priority: High
 
@@ -382,11 +384,11 @@ Requirement Type: 2.2
 
 Use Case: 4
 
-Description: The game must come to an end when Pacman comes in contact with an enemy.
+Description: The game must come to an end when Player comes in contact with an enemy.
 
-Rationale: Pacman must ``die`` when coming in contact with an enemy to make the game more challenging and fair.
+Rationale: Player must ''die'' when coming in contact with an enemy to make the game more challenging and fair.
 
-Fit Criterion: Pacman is unable to pass through enemies.
+Fit Criterion: Player is unable to pass through enemies.
 
 Priority: High
 
@@ -443,7 +445,7 @@ Description: User must be able to collect dots. Dots must disappear after collec
 
 Rationale: User must be able to collect dots in order to gain points in the game.
 
-Fit Criterion: The user`s points are increased upon collecting dots
+Fit Criterion: The user's points are increased upon collecting dots
 
 Priority: Medium
 
@@ -462,7 +464,7 @@ Description: The user must be able to collect the big dot
 
 Rationale: The user must be able to collect the big dot in order to collide with the enemy
 
-Fit Criterion: The user`s ability to collide with enemies is enabled upon collecting big dot
+Fit Criterion: The user's ability to collide with enemies is enabled upon collecting big dot
 
 Priority: Medium
 
@@ -500,7 +502,7 @@ Description: Enemies must be able to run away from user upon collecting big dot
 
 Rationale: Enemies will try to avoid being eaten by the user
 
-Fit Criterion: The enemy`s AI will determine how they will run away from the user
+Fit Criterion: The enemy's AI will determine how they will run away from the user
 
 Priority: Low
 
@@ -538,7 +540,7 @@ Description: The user must be able to quit the game.
 
 Rationale: The user must have the option to terminate the game.
 
-Fit Criterion: The user must press Escape on the Main Menu to terminate the game.
+Fit Criterion: The user must press Escape on the main menu to terminate the game.
 
 Priority: High
 
@@ -553,7 +555,7 @@ Requirement Type: 2.2
 
 Use Case: 6
 
-Description: User`s points must increase when dots are collected.
+Description: User's points must increase when dots are collected.
 
 Rationale: Points must be increased in order to give user a reason to play the game.
 
@@ -574,7 +576,7 @@ Conflicts: None
 
 	Description: The application layout shall be similar to that of the original Pacman arcade game
 
-	Rationale: The application is intended to make the enjoyable arcade-style game of Pacman accessible to users without arcade machines (so the layout should comply with those standards)
+	Rationale: The application is intended to make the enjoyable arcade-style of Pacman accessible to users without arcade machines (so the layout should comply with those standards)
 
 	Fit Criterion: Testers will make a comparison between the application and the original Pacman arcade game to ensure the layout looks consistent
 
@@ -585,7 +587,7 @@ Conflicts: None
 
 	Description: The application color scheme shall be similar to that of the original Pacman arcade game
 
-	Rationale: The application is intended to make the enjoyable arcade-style game of Pacman accessible to users without arcade machines (so the colors should match the original game)
+	Rationale: The application is intended to make the enjoyable arcade-style of Pacman accessible to users without arcade machines (so the colors should match the original game)
 
 	Fit Criterion: Testers will make a comparison between the application and the original Pacman arcade game to ensure the colors of the games are consistent
 
@@ -601,7 +603,7 @@ Conflicts: None
 
 	Rationale: The original arcade game was accessible to all ages and was simple to understand even for elementary school students - this application should reflect that ease of use
 
-	Fit Criterion: Part of the testers for the application will be younger children, who shoudl be able to successfully maneuver Pacman through the map (collecting points and dodging enemies)
+	Fit Criterion: Part of the testers for the application will be younger children, who should be able to successfully maneuver the Player through the map (collecting points and dodging enemies)
 
 	Priority: High
 

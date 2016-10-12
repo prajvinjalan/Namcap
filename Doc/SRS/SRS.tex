@@ -13,6 +13,7 @@
 }
 \usepackage[round]{natbib}
 \usepackage{enumerate}
+\usepackage{float}
 
 \title{SE 3XA3: Development Plan\\Namcap}
 
@@ -35,7 +36,9 @@
 \listoftables
 \listoffigures
 
-\begin{table}[bp]
+\newpage
+
+\begin{table}[H]
 \caption{\bf Revision History}
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
@@ -43,7 +46,8 @@
 2016-10-11 & 1.0 & Addition of content to Project Drivers sections excluding Naming Conventions and Terminology\\
 2016-10-11 & 1.1 & Addition of content to Project Issues sections excluding Open Issues and Ideas for Solutions\\
 2016-10-11 & 1.2 & Addition of content to Non-functional Requirements section\\
-Date 3 & 1.3 & Notes\\
+2016-10-11 & 1.3 & Formatting fixes to figure and table locations\\
+Date 4 & 1.4 & Notes\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -143,7 +147,7 @@ The redevelopment project assumes that:
 
 \subsubsection{The Context of the Work}
 The context diagram of the work is given in \hyperref[fig:gamecontext]{Figure~\ref*{fig:gamecontext}}.
-\begin{figure}[hb]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{gamecontext}
 \caption{Context Diagram of the Work} \label{fig:gamecontext}
 \end{figure}
@@ -151,16 +155,16 @@ The context diagram of the work is given in \hyperref[fig:gamecontext]{Figure~\r
 \subsubsection{Work Partitioning}
 \hyperref[fig:flow-3]{Figure~\ref*{fig:flow-3}} demonstrates a rough representation of the mechanics of the game. The user interface contains a main menu, a game over screen and the in-game interface where all of the gameplay will occur.
 
-\begin{figure}[hb]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{flow-3}
 \caption{Flow Diagram of the Game} \label{fig:flow-3}
 \end{figure}
 
 \subsubsection{Individual Product Use Cases}
 
-\begin{table}
+\begin{table}[H]
 \caption{List of events} \label{tab:events}
-\begin{tabularx}{\textwidth}{p{3cm}p{4cm}p{7cm}X}
+\begin{tabularx}{\textwidth}{p{3cm}p{4cm}X}
 \toprule {\bf Event Name} & {\bf Inputs/Outputs} & {\bf Summary}\\
 \midrule
 Start Game & Keyboard (Spacebar) & The game is started\\
@@ -787,6 +791,9 @@ Due to the implementation's minimal hardware and system requirements, future ite
 \subsubsection{Project Planning}
 \paragraph{}
 The redevelopment team will be responsible to allocate the appropriate resources to the completion of processes required for the final implementation.\\
+\begin{table}[H]
+\caption{Project Plan} \label{tab:plan}
+\begin{center}
 \begin{tabular}{| l | l |}
 \hline
 \textbf{Task} & \textbf{Estimated Timeline} \\ \hline
@@ -797,6 +804,8 @@ Revision of Java Implementation & November 12 \\ \hline
 Maintenance & Ongoing Semi-Annually \\
 \hline
 \end{tabular}
+\end{center}
+\end{table}
 
 \subsubsection{Planning of the Development Process}
 \paragraph{Phase 1 - Model Development:}

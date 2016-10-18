@@ -1,21 +1,29 @@
 package view;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import model.Board;
+import model.Player;
 
-public class BoardView extends JPanel {
+public class BoardView extends JPanel implements KeyListener {
 
 	Board board;
 	int sq;
+	Image playerLeft, playerRight, playerUp, playerDown;
+	javax.swing.Timer frameTimer;
 	
 	public static void main(String[] args){
 		JFrame frame = new JFrame("Namcap");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		Board board = new Board();
 		BoardView boardGUI = new BoardView(board);
+		Player player = new Player(board);
 		frame.setContentPane(boardGUI);
 		frame.setPreferredSize(new Dimension(437,520));
 		frame.pack();
@@ -25,9 +33,34 @@ public class BoardView extends JPanel {
 	public BoardView(Board board){
 		this.board = board;
 		this.board.setView(this);
-		
+		this.setFocusable(true);
 		//grid is 21x21 (19x19 with extra this.squares for thin borders)
 		this.sq = 20; //square size on the grid
+		/*
+		playerLeft = Toolkit.getDefaultToolkit().getImage(Player.class.getResource("assets/player_left.jpeg"));
+		playerRight = Toolkit.getDefaultToolkit().getImage(Player.class.getResource("assets/player_right.jpeg"));
+		playerUp = Toolkit.getDefaultToolkit().getImage(Player.class.getResource("assets/player_up.jpeg"));
+		playerDown = Toolkit.getDefaultToolkit().getImage(Player.class.getResource("assets/player_down.jpeg"));
+		*/
+		this.addKeyListener(this);
+		playerLeft = Toolkit.getDefaultToolkit().getImage("assets/player_left.jpeg");
+		playerRight = Toolkit.getDefaultToolkit().getImage("assets/player_right.jpeg");
+		playerUp = Toolkit.getDefaultToolkit().getImage("assets/player_up.jpeg");
+		playerDown = Toolkit.getDefaultToolkit().getImage("assets/player_down.jpeg");
+		frameTimer = new javax.swing.Timer(30, new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				stepFrame();
+			}
+		});
+		
+		
+		frameTimer.start();
+		
+	}
+	
+	public void stepFrame(){
+		this.board.getPlayer().move();
+		this.repaint();
 	}
 	
 	public void drawMap(Graphics g){
@@ -180,10 +213,65 @@ public class BoardView extends JPanel {
 		}
 	}
 	
+	public void drawPlayer(Graphics g){
+		switch(board.getPlayer().getCurrDirection()){
+		case 'L':
+			g.drawImage(playerLeft, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);
+			break;
+		case 'R':
+			g.drawImage(playerRight, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);
+			break;
+		case 'U':
+			g.drawImage(playerUp, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);
+			break;
+		case 'D':
+			g.drawImage(playerDown, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);
+			break;
+		}
+	}
+	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		
 		this.drawMap(g);
 		this.drawDots(g);
+		this.drawPlayer(g);
+		
+	}
+	
+	public void repaint(Graphics g){
+		//this.drawPlayer(g);
+		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		switch(e.getKeyCode()){
+		case KeyEvent.VK_LEFT:
+			board.getPlayer().setNewDirection('L');
+			break;
+		case KeyEvent.VK_RIGHT:
+			board.getPlayer().setNewDirection('R');
+			break;
+		case KeyEvent.VK_UP:
+			board.getPlayer().setNewDirection('U');
+			break;
+		case KeyEvent.VK_DOWN:
+			board.getPlayer().setNewDirection('D');
+			break;
+		}
+		this.repaint();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

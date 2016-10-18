@@ -11,6 +11,8 @@ public class Board {
 	//array for grid which defines the type of dot a square has (if any)
 	int[][] dots; //0 - no dot, 1 - regular dot, other numbers for future functionality
 	
+	Player player;
+	
 	public Board(){
 		this.barriers = new boolean[21][21];
 		this.dots = new int[21][21];
@@ -21,6 +23,11 @@ public class Board {
 				this.dots[i][j] = 1;
 			}
 		}
+	}
+	
+	
+	public void setPlayer(Player player){
+		this.player = player;
 	}
 	
 	public void setView(BoardView view){
@@ -38,6 +45,7 @@ public class Board {
 			}
 		}
 	}
+	
 	
 	public boolean getBarrier(int x, int y){
 		return this.barriers[x][y];
@@ -57,5 +65,9 @@ public class Board {
 	
 	public int getDot(int x, int y){
 		return this.dots[x][y];
+	}
+	
+	public Player getPlayer(){
+		return this.player;
 	}
 }

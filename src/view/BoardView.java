@@ -149,9 +149,41 @@ public class BoardView extends JPanel {
 		this.board.updateBarrier(polyPoints);
 	}
 	
+	public void drawDots(Graphics g){
+		Graphics2D g2 = (Graphics2D) g;
+		
+		for (int i = 0; i < 21; i++){
+			for (int j = 0; j < 21; j++){
+				if (this.board.getBarrier(i, j)){
+					this.board.updateDot(i, j, 0);
+				}
+			}
+		}
+		
+		ArrayList<int[][]> dots = new ArrayList<int[][]>();
+		dots.add(new int[][]{{9,6},{11,6},{7,7},{8,7},{9,7},
+			{10,7},{11,7},{12,7},{13,7},{7,8},{10,8},{13,8},
+			{6,9},{7,9},{9,9},{10,9},{11,9},{13,9},{14,9},{7,10},
+			{13,10},{7,11},{8,11},{9,11},{10,11},{11,11},{12,11},
+			{13,11},{7,12},{13,12},{1,9},{2,9},{3,9},{4,9},
+			{16,9},{17,9},{18,9},{19,9}});
+		this.board.updateDot(dots);
+		
+		g.setColor(new Color(255,184,151));
+		for (int i = 0; i < 21; i++){
+			for (int j = 0; j < 21; j++){
+				if (this.board.getDot(i, j) != 0){
+					g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+					g2.fillOval(i*this.sq + 9, j*this.sq + 9, 4, 4);
+				}
+			}
+		}
+	}
+	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		
 		this.drawMap(g);
+		this.drawDots(g);
 	}
 }

@@ -11,7 +11,7 @@ public class BoardView extends JPanel {
 	int sq;
 	
 	public static void main(String[] args){
-		JFrame frame = new JFrame("Six Men's Morris");
+		JFrame frame = new JFrame("Namcap");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Board board = new Board();

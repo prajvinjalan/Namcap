@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import view.BoardView;
 
 public class Board {
@@ -22,6 +23,14 @@ public class Board {
 	}
 	
 	public void updateBarrier(int x, int y){
-		this.barriers[x][y] = false;
+		this.barriers[x][y] = true;
+	}
+	
+	public void updateBarrier(ArrayList<int[][]> points){
+		for (int[][] list : points){
+			for (int[] location : list){
+				this.barriers[location[0]][location[1]] = true;
+			}
+		}
 	}
 }

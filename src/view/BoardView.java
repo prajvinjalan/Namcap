@@ -41,21 +41,21 @@ public class BoardView extends JPanel implements KeyListener {
 		this.frame = frame;
 		//grid is 21x21 (19x19 with extra this.squares for thin borders)
 		this.sq = 20; //square size on the grid
-		/*
-		playerLeft = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/player_left.jpeg"));
-		playerRight = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/player_right.jpeg"));
-		playerUp = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/player_up.jpeg"));
-		playerDown = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/player_down.jpeg"));
-		this.ghost = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/ghost_red.png"));
-		*/
-		this.addKeyListener(this);
 		
+		playerLeft = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_left.jpeg"));
+		playerRight = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_right.jpeg"));
+		playerUp = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_up.jpeg"));
+		playerDown = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_down.jpeg"));
+		this.ghost = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/ghost_red.png"));
+		
+		this.addKeyListener(this);
+		/*
 		this.playerLeft = Toolkit.getDefaultToolkit().getImage("assets/player_left.jpeg");
 		this.playerRight = Toolkit.getDefaultToolkit().getImage("assets/player_right.jpeg");
 		this.playerUp = Toolkit.getDefaultToolkit().getImage("assets/player_up.jpeg");
 		this.playerDown = Toolkit.getDefaultToolkit().getImage("assets/player_down.jpeg");
 		this.ghost = Toolkit.getDefaultToolkit().getImage("assets/ghost_red.png");
-		
+		*/
 		this.frameTimer = new javax.swing.Timer(30, new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				stepFrame();

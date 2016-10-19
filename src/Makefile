@@ -10,7 +10,7 @@ manifest: $(classes)
 run: $(classes)
 	echo "#!/bin/bash" > run
 	echo "java -jar view/BoardView.jar" >> run
-	jar cfm view/BoardView.jar Manifest.txt view/*.class model/*.class
+	jar cfm view/BoardView.jar Manifest.txt view/*.class model/*.class assets
 	chmod 754 run
 
 clean:

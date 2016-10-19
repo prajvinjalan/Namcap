@@ -12,10 +12,12 @@ public class Board {
 	int[][] dots; //0 - no dot, 1 - regular dot, other numbers for future functionality
 	
 	Player player;
+	Score score;
 	
 	public Board(){
 		this.barriers = new boolean[21][21];
 		this.dots = new int[21][21];
+		this.score = new Score();
 		
 		for (int i = 0; i < 21; i++){
 			for (int j = 0; j < 21; j++){
@@ -69,5 +71,9 @@ public class Board {
 	
 	public Player getPlayer(){
 		return this.player;
+	}
+
+	public int getScore(){
+		return this.score.getScore();
 	}
 }

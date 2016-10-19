@@ -16,6 +16,7 @@ public class BoardView extends JPanel implements KeyListener {
 	int sq;
 	Image playerLeft, playerRight, playerUp, playerDown;
 	javax.swing.Timer frameTimer;
+	JLabel scoreLabel, pointsLabel;
 	
 	public static void main(String[] args){
 		JFrame frame = new JFrame("Namcap");
@@ -25,7 +26,7 @@ public class BoardView extends JPanel implements KeyListener {
 		BoardView boardGUI = new BoardView(board);
 		Player player = new Player(board);
 		frame.setContentPane(boardGUI);
-		frame.setPreferredSize(new Dimension(437,520));
+		frame.setPreferredSize(new Dimension(437,450));
 		frame.pack();
 		frame.setVisible(true);
 	}
@@ -55,7 +56,16 @@ public class BoardView extends JPanel implements KeyListener {
 		
 		
 		frameTimer.start();
-		
+	
+		scoreLabel = new JLabel("SCORE:");
+		scoreLabel.setLocation(100,470);
+		scoreLabel.setForeground(Color.white);
+		this.add(scoreLabel);
+
+		pointsLabel = new JLabel(this.board.getScore() + "");
+		pointsLabel.setLocation(150,470);
+		pointsLabel.setForeground(Color.white);
+		this.add(pointsLabel);
 	}
 	
 	public void stepFrame(){
@@ -181,6 +191,8 @@ public class BoardView extends JPanel implements KeyListener {
 		polyPoints.add(new int[][]{{10,8}}); //blocks off enemy spawn
 		
 		this.board.updateBarrier(polyPoints);
+
+		
 	}
 	
 	public void drawDots(Graphics g){
@@ -230,7 +242,7 @@ public class BoardView extends JPanel implements KeyListener {
 			break;
 		}
 	}
-	
+
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		
@@ -243,6 +255,7 @@ public class BoardView extends JPanel implements KeyListener {
 	public void repaint(Graphics g){
 		//this.drawPlayer(g);
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
+		pointsLabel.setText(this.board.getScore() + "");
 	}
 
 	@Override

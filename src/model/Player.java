@@ -5,7 +5,7 @@ public class Player {
 	char prevDirection, newDirection;
 	int prevX, prevY, currX, currY, sq;
 	boolean stop;
-	int pixelInc = 2;
+	int pixelInc = 4;
 	Board board;
 	
 	public Player(Board board){
@@ -23,7 +23,7 @@ public class Player {
 	}
 	
 	public boolean isBarrier(int x, int y){
-		if (x<=380 && y<=380 && x>=20 && y>=20 /*!this.board.getBarrier(x/20-1, y/20-1)*/){
+		if (this.board.getBarrier(x/this.sq, y/this.sq)){
 			return true;
 		}
 		return false;
@@ -41,22 +41,22 @@ public class Player {
 			
 			switch(this.newDirection){
 			case 'L':
-				if (this.isBarrier(this.currX - pixelInc, this.currY)){
+				if (!this.isBarrier(this.currX - this.pixelInc, this.currY)){
 					this.currX -= this.pixelInc;
 				}
 				break;
 			case 'R':
-				if (this.isBarrier(this.currX + pixelInc, this.currY)){
+				if (!this.isBarrier(this.currX + this.sq, this.currY)){
 					this.currX += this.pixelInc;
 				}
 				break;
 			case 'U':
-				if (this.isBarrier(this.currX, this.currY - this.pixelInc)){
+				if (!this.isBarrier(this.currX, this.currY - this.pixelInc)){
 					this.currY -= this.pixelInc;
 				}
 				break;
 			case 'D':
-				if (this.isBarrier(this.currX, this.currY + this.pixelInc)){
+				if (!this.isBarrier(this.currX, this.currY + this.sq)){
 					this.currY += this.pixelInc;
 				}
 				break;
@@ -67,22 +67,22 @@ public class Player {
 		if (this.prevX == this.currX && this.prevY == this.currY){
 			switch(this.prevDirection){
 				case 'L':
-					if (this.isBarrier(this.currX - pixelInc, this.currY)){
+					if (!this.isBarrier(this.currX - this.pixelInc, this.currY)){
 						this.currX -= this.pixelInc;
 					}
 					break;
 				case 'R':
-					if (this.isBarrier(this.currX + pixelInc, this.currY)){
+					if (!this.isBarrier(this.currX + this.sq, this.currY)){
 						this.currX += this.pixelInc;
 					}
 					break;
 				case 'U':
-					if (this.isBarrier(this.currX, this.currY - this.pixelInc)){
+					if (!this.isBarrier(this.currX, this.currY - this.pixelInc)){
 						this.currY -= this.pixelInc;
 					}
 					break;
 				case 'D':
-					if (this.isBarrier(this.currX, this.currY + this.pixelInc)){
+					if (!this.isBarrier(this.currX, this.currY + this.sq)){
 						this.currY += this.pixelInc;
 					}
 					break;

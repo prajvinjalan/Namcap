@@ -178,6 +178,7 @@ public class BoardView extends JPanel implements KeyListener {
 		polyPoints.add(new int[][]{{2,14},{3,14},{4,14},{4,15},{4,16}}); //left upside down L
 		polyPoints.add(new int[][]{{18,14},{17,14},{16,14},{16,15},{16,16}}); //right upside down L
 		polyPoints.add(new int[][]{{9,8},{8,8},{8,9},{8,10},{9,10},{10,10},{11,10},{12,10},{12,9},{12,8},{11,8}}); //left upside down T
+		polyPoints.add(new int[][]{{10,8}}); //blocks off enemy spawn
 		
 		this.board.updateBarrier(polyPoints);
 	}

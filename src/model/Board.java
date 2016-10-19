@@ -13,6 +13,7 @@ public class Board {
 	
 	Player player;
 	Score score;
+	Ghost ghost;
 	
 	public Board(){
 		this.barriers = new boolean[21][21];
@@ -27,6 +28,9 @@ public class Board {
 		}
 	}
 	
+	public void setGhost(Ghost ghost){
+		this.ghost = ghost;
+	}
 	
 	public void setPlayer(Player player){
 		this.player = player;
@@ -71,6 +75,10 @@ public class Board {
 	
 	public Player getPlayer(){
 		return this.player;
+	}
+	
+	public Ghost getGhost(){
+		return this.ghost;
 	}
 
 	//public int getScore(){

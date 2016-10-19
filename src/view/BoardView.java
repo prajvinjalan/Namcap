@@ -8,54 +8,62 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import model.Board;
+import model.Ghost;
 import model.Player;
 
 public class BoardView extends JPanel implements KeyListener {
 
 	Board board;
 	int sq;
-	Image playerLeft, playerRight, playerUp, playerDown;
+	Image playerLeft, playerRight, playerUp, playerDown, ghost;
 	javax.swing.Timer frameTimer;
 	JLabel scoreLabel, pointsLabel;
+	JFrame frame;
 	
 	public static void main(String[] args){
 		JFrame frame = new JFrame("Namcap");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Board board = new Board();
-		BoardView boardGUI = new BoardView(board);
+		BoardView boardGUI = new BoardView(board, frame);
 		Player player = new Player(board);
+		Ghost ghost = new Ghost(board);
 		frame.setContentPane(boardGUI);
 		frame.setPreferredSize(new Dimension(437,450));
 		frame.pack();
 		frame.setVisible(true);
 	}
 	
-	public BoardView(Board board){
+	public BoardView(Board board, JFrame frame){
 		this.board = board;
 		this.board.setView(this);
 		this.setFocusable(true);
+		this.frame = frame;
 		//grid is 21x21 (19x19 with extra this.squares for thin borders)
 		this.sq = 20; //square size on the grid
 		/*
-		playerLeft = Toolkit.getDefaultToolkit().getImage(Player.class.getResource("assets/player_left.jpeg"));
-		playerRight = Toolkit.getDefaultToolkit().getImage(Player.class.getResource("assets/player_right.jpeg"));
-		playerUp = Toolkit.getDefaultToolkit().getImage(Player.class.getResource("assets/player_up.jpeg"));
-		playerDown = Toolkit.getDefaultToolkit().getImage(Player.class.getResource("assets/player_down.jpeg"));
+		playerLeft = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/player_left.jpeg"));
+		playerRight = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/player_right.jpeg"));
+		playerUp = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/player_up.jpeg"));
+		playerDown = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/player_down.jpeg"));
+		this.ghost = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("assets/ghost_red.png"));
 		*/
 		this.addKeyListener(this);
-		playerLeft = Toolkit.getDefaultToolkit().getImage("assets/player_left.jpeg");
-		playerRight = Toolkit.getDefaultToolkit().getImage("assets/player_right.jpeg");
-		playerUp = Toolkit.getDefaultToolkit().getImage("assets/player_up.jpeg");
-		playerDown = Toolkit.getDefaultToolkit().getImage("assets/player_down.jpeg");
-		frameTimer = new javax.swing.Timer(30, new ActionListener(){
+		
+		this.playerLeft = Toolkit.getDefaultToolkit().getImage("assets/player_left.jpeg");
+		this.playerRight = Toolkit.getDefaultToolkit().getImage("assets/player_right.jpeg");
+		this.playerUp = Toolkit.getDefaultToolkit().getImage("assets/player_up.jpeg");
+		this.playerDown = Toolkit.getDefaultToolkit().getImage("assets/player_down.jpeg");
+		this.ghost = Toolkit.getDefaultToolkit().getImage("assets/ghost_red.png");
+		
+		this.frameTimer = new javax.swing.Timer(30, new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				stepFrame();
 			}
 		});
 		
 		
-		frameTimer.start();
+		this.frameTimer.start();
 	
 		scoreLabel = new JLabel("SCORE:");
 		scoreLabel.setLocation(100,470);
@@ -70,6 +78,7 @@ public class BoardView extends JPanel implements KeyListener {
 	
 	public void stepFrame(){
 		this.board.getPlayer().move();
+		this.board.getGhost().ghostMove();
 		this.repaint();
 	}
 	
@@ -188,7 +197,7 @@ public class BoardView extends JPanel implements KeyListener {
 		polyPoints.add(new int[][]{{2,14},{3,14},{4,14},{4,15},{4,16}}); //left upside down L
 		polyPoints.add(new int[][]{{18,14},{17,14},{16,14},{16,15},{16,16}}); //right upside down L
 		polyPoints.add(new int[][]{{9,8},{8,8},{8,9},{8,10},{9,10},{10,10},{11,10},{12,10},{12,9},{12,8},{11,8}}); //left upside down T
-		polyPoints.add(new int[][]{{10,8}}); //blocks off enemy spawn
+		//polyPoints.add(new int[][]{{10,8}}); //blocks off enemy spawn
 		
 		this.board.updateBarrier(polyPoints);
 
@@ -243,6 +252,10 @@ public class BoardView extends JPanel implements KeyListener {
 			break;
 		}
 	}
+	
+	public void drawGhost(Graphics g){
+		g.drawImage(ghost, board.getGhost().getCurrX(), board.getGhost().getCurrY(), Color.BLACK, null);
+	}
 
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
@@ -250,12 +263,14 @@ public class BoardView extends JPanel implements KeyListener {
 		this.drawMap(g);
 		this.drawDots(g);
 		this.drawPlayer(g);
+		this.drawGhost(g);
 		
 	}
 	
 	public void repaint(Graphics g){
 		//this.drawPlayer(g);
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
+		super.repaint((this.board.getGhost().getCurrX())-20, (this.board.getGhost().getCurrY())-20, 80, 80);
 		//this.pointsLabel.setText(this.board.accessScore().getScore() + "");
 	}
 
@@ -288,5 +303,14 @@ public class BoardView extends JPanel implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void endGame() {
+		this.frameTimer.stop();
+		String message = "Your final score was: "+this.board.accessScore().getScore()+".";
+		JOptionPane.showMessageDialog(this.frame,
+			    message,
+			    "Game Over",
+			    JOptionPane.PLAIN_MESSAGE);
 	}
 }

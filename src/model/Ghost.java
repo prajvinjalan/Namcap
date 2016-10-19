@@ -1,6 +1,8 @@
 package model;
 
-public class Player {
+import java.util.Random;
+
+public class Ghost {
 	
 	char prevDirection, newDirection;
 	int prevX, prevY, currX, currY, sq;
@@ -8,18 +10,17 @@ public class Player {
 	int pixelInc = 4;
 	Board board;
 	
-	public Player(Board board){
+	public Ghost(Board board){
 		this.board = board;
-		this.board.setPlayer(this);
+		this.board.setGhost(this);
 		this.sq = 20;
 		this.stop = false;
 		this.prevX = 10*this.sq;
-		this.prevY = 15*this.sq;
+		this.prevY = 7*this.sq;
 		this.currX = 10*this.sq;
-		this.currY = 15*this.sq;
+		this.currY = 7*this.sq;
 		this.prevDirection = 'R';
 		this.newDirection = 'R';
-		
 	}
 	
 	public boolean isBarrier(int x, int y){
@@ -30,9 +31,45 @@ public class Player {
 		
 	}
 	
-	public void move(){
-		this.checkCollision();
-		this.checkDot();
+	public boolean keepMoving(char direction){
+		switch(direction){
+		case 'L':
+			return (!this.isBarrier(this.currX - this.pixelInc, this.currY));
+			
+		case 'R':
+			return (!this.isBarrier(this.currX + this.sq, this.currY));
+			
+		case 'U':
+			return (!this.isBarrier(this.currX, this.currY - this.pixelInc));
+			
+		case 'D':
+			return (!this.isBarrier(this.currX, this.currY + this.sq));
+		default:
+			return true;
+		}
+	}
+	
+	public void ghostMove(){
+		if (keepMoving(this.prevDirection)){
+			this.newDirection = this.prevDirection;
+		}else{
+			Random randomGenerator = new Random();
+			int randomDirection = randomGenerator.nextInt(4) + 1;
+			switch(randomDirection){
+				case 1:
+					this.newDirection = 'L';
+					break;
+				case 2:
+					this.newDirection = 'R';
+					break;
+				case 3:
+					this.newDirection = 'U';
+					break;
+				case 4:
+					this.newDirection = 'D';
+					break;
+			}
+		}
 		this.prevX = this.currX;
 		this.prevY = this.currY;
 		if (this.currX % 20 == 0 && this.currY % 20 == 0 || 
@@ -93,30 +130,6 @@ public class Player {
 			this.prevDirection = this.newDirection;
 		}
 	}
-
-	public void checkDot(){
-		int currDot = this.board.getDot(this.currX / 20, this.currY / 20);
-		if(currDot == 1){
-			this.board.updateDot(this.currX/20,this.currY/20,0);
-			this.board.accessScore().addScore(100);
-		}else{
-			//DO NOTHING
-		}
-		if (this.board.accessScore().getScore() == 16500){
-			this.endGame();
-		}
-	}
-	
-	public void checkCollision(){
-		if ((this.board.getGhost().getCurrX()>=this.currX-this.sq)&&(this.board.getGhost().getCurrX()<=this.currX+this.sq)&&((this.board.getGhost().getCurrY()>=this.currY-this.sq))&&(this.board.getGhost().getCurrY()<=this.currY+this.sq)){
-			this.endGame();
-		}
-		
-	}
-	
-	public void endGame(){
-		this.board.view.endGame();
-	}
 	
 	public int getCurrX(){
 		return this.currX;
@@ -133,6 +146,5 @@ public class Player {
 	public void setNewDirection(char dir){
 		this.newDirection = dir;
 	}
-	
-	
+
 }

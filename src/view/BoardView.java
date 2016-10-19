@@ -62,7 +62,7 @@ public class BoardView extends JPanel implements KeyListener {
 		scoreLabel.setForeground(Color.white);
 		this.add(scoreLabel);
 
-		pointsLabel = new JLabel(this.board.getScore() + "");
+		pointsLabel = new JLabel(this.board.accessScore().getScore() + "");
 		pointsLabel.setLocation(150,470);
 		pointsLabel.setForeground(Color.white);
 		this.add(pointsLabel);
@@ -196,6 +196,7 @@ public class BoardView extends JPanel implements KeyListener {
 	}
 	
 	public void drawDots(Graphics g){
+		this.pointsLabel.setText(this.board.accessScore().getScore() + "");
 		Graphics2D g2 = (Graphics2D) g;
 		
 		for (int i = 0; i < 21; i++){
@@ -255,7 +256,7 @@ public class BoardView extends JPanel implements KeyListener {
 	public void repaint(Graphics g){
 		//this.drawPlayer(g);
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
-		pointsLabel.setText(this.board.getScore() + "");
+		//this.pointsLabel.setText(this.board.accessScore().getScore() + "");
 	}
 
 	@Override

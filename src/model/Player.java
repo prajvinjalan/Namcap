@@ -31,6 +31,7 @@ public class Player {
 	}
 	
 	public void move(){
+		this.checkDot();
 		this.prevX = this.currX;
 		this.prevY = this.currY;
 		if (this.currX % 20 == 0 && this.currY % 20 == 0 || 
@@ -89,6 +90,16 @@ public class Player {
 			}
 		}else{
 			this.prevDirection = this.newDirection;
+		}
+	}
+
+	public void checkDot(){
+		int currDot = this.board.getDot(this.currX / 20, this.currY / 20);
+		if(currDot == 1){
+			this.board.updateDot(this.currX/20,this.currY/20,0);
+			this.board.accessScore().addScore(100);
+		}else{
+			//DO NOTHING
 		}
 	}
 	

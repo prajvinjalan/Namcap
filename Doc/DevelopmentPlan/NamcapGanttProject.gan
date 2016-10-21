@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="NAMCAP Gantt Project" company="VPB Game Studios" webLink="http://" view-date="2016-10-02" view-index="0" gantt-divider-location="364" resource-divider-location="300" version="2.8.1" locale="en_CA">
+<?xml version="1.0" encoding="UTF-8"?><project name="NAMCAP Gantt Project" company="VPB Game Studios" webLink="http://" view-date="2016-10-09" view-index="0" gantt-divider-location="364" resource-divider-location="300" version="2.8.1" locale="en_CA">
     <description/>
     <view zooming-state="default:5" id="gantt-chart">
         <field id="tpd3" name="Name" width="213" order="0"/>
@@ -8,8 +8,8 @@
         <option id="color.recent"><![CDATA[#33ff33 #ff3333 #f4f4f4 #ff0033 #0033ff]]></option>
     </view>
     <view id="resource-table">
-        <field id="0" name="Name" width="198" order="0"/>
-        <field id="1" name="Default role" width="98" order="1"/>
+        <field id="0" name="Name" width="188" order="0"/>
+        <field id="1" name="Default role" width="93" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -56,7 +56,7 @@
         </task>
         <task id="143" name="Team Meeting 01" color="#33ff33" meeting="false" start="2016-09-17" duration="1" complete="0" expand="true"/>
         <task id="24" name="Requirements Document R0" color="#8cb6ce" meeting="false" project="true" start="2016-10-01" duration="10" complete="100" priority="2" expand="true">
-            <depend id="27" type="1" difference="3" hardness="Rubber"/>
+            <depend id="27" type="1" difference="3" hardness="Strong"/>
             <task id="168" name="Product Constraints" color="#8cb6ce" meeting="false" start="2016-10-01" duration="3" complete="100" priority="2" expand="true"/>
             <task id="172" name="Functional Requirements" color="#8cb6ce" meeting="false" start="2016-10-01" duration="7" complete="100" priority="2" expand="true"/>
             <task id="173" name="Non-Functional Requirements" color="#8cb6ce" meeting="false" start="2016-10-01" duration="6" complete="100" priority="2" expand="true"/>
@@ -65,7 +65,7 @@
         </task>
         <task id="145" name="Team Meeting 02" color="#33ff33" meeting="false" start="2016-10-04" duration="1" complete="0" expand="true"/>
         <task id="27" name="Proof of Concept Demonstration" color="#8cb6ce" meeting="false" project="true" start="2016-10-11" duration="10" complete="97" expand="true">
-            <depend id="29" type="2" difference="0" hardness="Strong"/>
+            <depend id="29" type="2" difference="0" hardness="Rubber"/>
             <task id="89" name="GUI Programming" color="#ff3333" meeting="false" start="2016-10-11" duration="8" complete="100" expand="true"/>
             <task id="123" name="Scoring Mechanic Programming" color="#ff3333" meeting="false" start="2016-10-11" duration="8" complete="100" expand="true"/>
             <task id="119" name="Movement Programming" color="#ff3333" meeting="false" start="2016-10-11" duration="8" complete="100" expand="true"/>
@@ -74,15 +74,29 @@
             <task id="272" name="Demo Date" color="#8cb6ce" meeting="true" start="2016-10-21" duration="0" complete="0" expand="true"/>
         </task>
         <task id="147" name="Team Meeting 03" color="#33ff33" meeting="false" start="2016-10-18" duration="1" complete="0" expand="true"/>
-        <task id="29" name="Test Plan R0" color="#8cb6ce" meeting="false" project="true" start="2016-10-21" duration="10" complete="0" priority="2" expand="true">
-            <task id="258" name="1 - General Information" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
-            <task id="259" name="2 - Plan" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
-            <task id="261" name="3 - System Test Description" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
-            <task id="262" name="4 - Tests for Proof of Concept" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
-            <task id="263" name="5 - Comparison to Existing Implementation" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
-            <task id="264" name="6 - Unit Testing Plan" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
-            <task id="266" name="7 - Appendix" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
-            <task id="267" name="Test Plan Revision" color="#8cb6ce" meeting="false" start="2016-10-27" duration="4" complete="0" expand="true"/>
+        <task id="29" name="Test Plan R0" color="#8cb6ce" meeting="false" project="true" start="2016-10-21" duration="11" complete="0" priority="2" expand="true">
+            <task id="258" name="1 - General Information" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true">
+                <depend id="267" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="259" name="2 - Plan" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true">
+                <depend id="267" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="261" name="3 - System Test Description" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true">
+                <depend id="267" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="262" name="4 - Tests for Proof of Concept" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true">
+                <depend id="267" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="263" name="5 - Comparison to Existing Implementation" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true">
+                <depend id="267" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="264" name="6 - Unit Testing Plan" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true">
+                <depend id="267" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="266" name="7 - Appendix" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true">
+                <depend id="267" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="267" name="Test Plan Revision" color="#8cb6ce" meeting="false" start="2016-10-27" duration="5" complete="0" expand="true"/>
             <task id="282" name="Due Date" color="#8cb6ce" meeting="true" start="2016-10-31" duration="0" complete="0" priority="2" expand="true"/>
         </task>
         <task id="150" name="Team Meeting 04" color="#33ff33" meeting="false" start="2016-10-25" duration="1" complete="0" expand="true" cost-manual-value="10.0" cost-calculated="true"/>
@@ -148,10 +162,10 @@
         <allocation task-id="252" resource-id="3" function="1" responsible="false" load="10.0"/>
         <allocation task-id="173" resource-id="3" function="1" responsible="false" load="10.0"/>
         <allocation task-id="89" resource-id="3" function="1" responsible="false" load="20.0"/>
-        <allocation task-id="258" resource-id="3" function="1" responsible="true" load="20.0"/>
-        <allocation task-id="259" resource-id="3" function="1" responsible="true" load="30.0"/>
-        <allocation task-id="261" resource-id="3" function="1" responsible="false" load="20.0"/>
+        <allocation task-id="259" resource-id="3" function="1" responsible="true" load="25.0"/>
+        <allocation task-id="261" resource-id="3" function="1" responsible="false" load="30.0"/>
         <allocation task-id="267" resource-id="3" function="1" responsible="true" load="20.0"/>
+        <allocation task-id="258" resource-id="3" function="1" responsible="true" load="15.0"/>
         <allocation task-id="0" resource-id="4" function="Default:0" responsible="false" load="33.0"/>
         <allocation task-id="3" resource-id="4" function="1" responsible="false" load="33.0"/>
         <allocation task-id="5" resource-id="4" function="1" responsible="false" load="20.0"/>
@@ -183,10 +197,10 @@
         <allocation task-id="252" resource-id="4" function="1" responsible="false" load="10.0"/>
         <allocation task-id="173" resource-id="4" function="1" responsible="true" load="40.0"/>
         <allocation task-id="172" resource-id="4" function="1" responsible="false" load="10.0"/>
-        <allocation task-id="261" resource-id="4" function="1" responsible="true" load="30.0"/>
-        <allocation task-id="264" resource-id="4" function="1" responsible="true" load="40.0"/>
+        <allocation task-id="261" resource-id="4" function="1" responsible="false" load="30.0"/>
         <allocation task-id="266" resource-id="4" function="1" responsible="true" load="10.0"/>
         <allocation task-id="267" resource-id="4" function="1" responsible="false" load="10.0"/>
+        <allocation task-id="264" resource-id="4" function="1" responsible="true" load="20.0"/>
         <allocation task-id="0" resource-id="5" function="Default:0" responsible="false" load="33.0"/>
         <allocation task-id="3" resource-id="5" function="1" responsible="false" load="33.0"/>
         <allocation task-id="5" resource-id="5" function="1" responsible="false" load="20.0"/>
@@ -219,9 +233,9 @@
         <allocation task-id="125" resource-id="5" function="1" responsible="false" load="30.0"/>
         <allocation task-id="173" resource-id="5" function="1" responsible="false" load="10.0"/>
         <allocation task-id="261" resource-id="5" function="1" responsible="false" load="30.0"/>
-        <allocation task-id="262" resource-id="5" function="1" responsible="true" load="20.0"/>
-        <allocation task-id="263" resource-id="5" function="1" responsible="true" load="30.0"/>
+        <allocation task-id="262" resource-id="5" function="1" responsible="true" load="15.0"/>
         <allocation task-id="267" resource-id="5" function="1" responsible="false" load="10.0"/>
+        <allocation task-id="263" resource-id="5" function="1" responsible="true" load="10.0"/>
     </allocations>
     <vacations/>
     <previous/>

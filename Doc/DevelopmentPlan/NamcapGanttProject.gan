@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="NAMCAP Gantt Project" company="VPB Game Studios" webLink="http://" view-date="2016-10-16" view-index="0" gantt-divider-location="364" resource-divider-location="300" version="2.8.1" locale="en_CA">
+<?xml version="1.0" encoding="UTF-8"?><project name="NAMCAP Gantt Project" company="VPB Game Studios" webLink="http://" view-date="2016-10-02" view-index="0" gantt-divider-location="364" resource-divider-location="300" version="2.8.1" locale="en_CA">
     <description/>
     <view zooming-state="default:5" id="gantt-chart">
         <field id="tpd3" name="Name" width="213" order="0"/>
@@ -52,38 +52,43 @@
             <task id="69" name="Coding Style" color="#8cb6ce" meeting="false" start="2016-09-27" duration="1" complete="100" expand="true"/>
             <task id="70" name="Technology" color="#8cb6ce" meeting="false" start="2016-09-27" duration="1" complete="100" expand="true"/>
             <task id="71" name="Project Schedule" color="#8cb6ce" meeting="false" start="2016-09-29" duration="2" complete="100" expand="true"/>
+            <task id="268" name="Due Date" color="#8cb6ce" meeting="true" start="2016-09-30" duration="0" complete="100" expand="true"/>
         </task>
         <task id="143" name="Team Meeting 01" color="#33ff33" meeting="false" start="2016-09-17" duration="1" complete="0" expand="true"/>
-        <task id="24" name="Requirements Document R0" color="#8cb6ce" meeting="false" project="true" start="2016-10-01" duration="7" complete="100" priority="2" expand="true">
+        <task id="24" name="Requirements Document R0" color="#8cb6ce" meeting="false" project="true" start="2016-10-01" duration="10" complete="100" priority="2" expand="true">
             <depend id="27" type="1" difference="3" hardness="Rubber"/>
             <task id="168" name="Product Constraints" color="#8cb6ce" meeting="false" start="2016-10-01" duration="3" complete="100" priority="2" expand="true"/>
             <task id="172" name="Functional Requirements" color="#8cb6ce" meeting="false" start="2016-10-01" duration="7" complete="100" priority="2" expand="true"/>
             <task id="173" name="Non-Functional Requirements" color="#8cb6ce" meeting="false" start="2016-10-01" duration="6" complete="100" priority="2" expand="true"/>
             <task id="174" name="Project Issues" color="#8cb6ce" meeting="false" start="2016-10-04" duration="4" complete="100" priority="2" expand="true"/>
+            <task id="270" name="Due Date" color="#8cb6ce" meeting="true" start="2016-10-11" duration="0" complete="100" expand="true"/>
         </task>
         <task id="145" name="Team Meeting 02" color="#33ff33" meeting="false" start="2016-10-04" duration="1" complete="0" expand="true"/>
-        <task id="27" name="Proof of Concept Demonstration" color="#8cb6ce" meeting="false" project="true" start="2016-10-11" duration="9" complete="100" expand="true">
+        <task id="27" name="Proof of Concept Demonstration" color="#8cb6ce" meeting="false" project="true" start="2016-10-11" duration="10" complete="97" expand="true">
             <depend id="29" type="2" difference="0" hardness="Strong"/>
             <task id="89" name="GUI Programming" color="#ff3333" meeting="false" start="2016-10-11" duration="8" complete="100" expand="true"/>
             <task id="123" name="Scoring Mechanic Programming" color="#ff3333" meeting="false" start="2016-10-11" duration="8" complete="100" expand="true"/>
             <task id="119" name="Movement Programming" color="#ff3333" meeting="false" start="2016-10-11" duration="8" complete="100" expand="true"/>
             <task id="125" name="Collision Mechanics Programming" color="#ff3333" meeting="false" start="2016-10-11" duration="8" complete="100" expand="true"/>
             <task id="189" name="P.o.C. Implementation Review" color="#33ff33" meeting="false" start="2016-10-15" duration="5" complete="100" expand="true"/>
+            <task id="272" name="Demo Date" color="#8cb6ce" meeting="true" start="2016-10-21" duration="0" complete="0" expand="true"/>
         </task>
         <task id="147" name="Team Meeting 03" color="#33ff33" meeting="false" start="2016-10-18" duration="1" complete="0" expand="true"/>
-        <task id="29" name="Test Plan R0" color="#8cb6ce" meeting="false" project="true" start="2016-10-20" duration="9" complete="0" priority="2" expand="true">
-            <task id="258" name="1 - General Information" color="#8cb6ce" meeting="false" start="2016-10-20" duration="6" complete="0" expand="true"/>
-            <task id="259" name="2 - Plan" color="#8cb6ce" meeting="false" start="2016-10-20" duration="6" complete="0" expand="true"/>
-            <task id="261" name="3 - System Test Description" color="#8cb6ce" meeting="false" start="2016-10-20" duration="6" complete="0" expand="true"/>
-            <task id="262" name="4 - Tests for Proof of Concept" color="#8cb6ce" meeting="false" start="2016-10-20" duration="6" complete="0" expand="true"/>
-            <task id="263" name="5 - Comparison to Existing Implementation" color="#8cb6ce" meeting="false" start="2016-10-20" duration="6" complete="0" expand="true"/>
-            <task id="264" name="6 - Unit Testing Plan" color="#8cb6ce" meeting="false" start="2016-10-20" duration="6" complete="0" expand="true"/>
-            <task id="266" name="7 - Appendix" color="#8cb6ce" meeting="false" start="2016-10-20" duration="6" complete="0" expand="true"/>
-            <task id="267" name="Test Plan Revision" color="#8cb6ce" meeting="false" start="2016-10-25" duration="4" complete="0" expand="true"/>
+        <task id="29" name="Test Plan R0" color="#8cb6ce" meeting="false" project="true" start="2016-10-21" duration="10" complete="0" priority="2" expand="true">
+            <task id="258" name="1 - General Information" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
+            <task id="259" name="2 - Plan" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
+            <task id="261" name="3 - System Test Description" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
+            <task id="262" name="4 - Tests for Proof of Concept" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
+            <task id="263" name="5 - Comparison to Existing Implementation" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
+            <task id="264" name="6 - Unit Testing Plan" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
+            <task id="266" name="7 - Appendix" color="#8cb6ce" meeting="false" start="2016-10-21" duration="6" complete="0" expand="true"/>
+            <task id="267" name="Test Plan Revision" color="#8cb6ce" meeting="false" start="2016-10-27" duration="4" complete="0" expand="true"/>
+            <task id="282" name="Due Date" color="#8cb6ce" meeting="true" start="2016-10-31" duration="0" complete="0" priority="2" expand="true"/>
         </task>
         <task id="150" name="Team Meeting 04" color="#33ff33" meeting="false" start="2016-10-25" duration="1" complete="0" expand="true" cost-manual-value="10.0" cost-calculated="true"/>
         <task id="153" name="Team Meeting 05" color="#33ff33" meeting="false" start="2016-11-01" duration="1" complete="0" expand="true"/>
-        <task id="31" name="Design Document R0" color="#8cb6ce" meeting="false" start="2016-11-01" duration="9" complete="0" expand="true"/>
+        <task id="31" name="Design Document R0" color="#8cb6ce" meeting="false" start="2016-11-01" duration="10" complete="0" expand="true"/>
+        <task id="285" name="Due Date" color="#8cb6ce" meeting="true" start="2016-11-11" duration="0" complete="0" expand="true"/>
         <task id="33" name="R0 Demonstration" color="#8cb6ce" meeting="false" start="2016-11-07" duration="5" complete="0" expand="true"/>
         <task id="155" name="Team Meeting 06" color="#33ff33" meeting="false" start="2016-11-08" duration="1" complete="0" expand="true"/>
         <task id="157" name="Team Meeting 07" color="#33ff33" meeting="false" start="2016-11-15" duration="1" complete="0" expand="true"/>
@@ -100,6 +105,7 @@
             <task id="247" name="Review of Test Plan" color="#8cb6ce" meeting="false" start="2016-12-02" duration="6" complete="0" expand="true"/>
             <task id="250" name="Test Report" color="#8cb6ce" meeting="false" start="2016-11-30" duration="8" complete="0" expand="true"/>
             <task id="252" name="Review of Source Code" color="#8cb6ce" meeting="false" start="2016-12-05" duration="3" complete="0" expand="true"/>
+            <task id="286" name="Due Date" color="#8cb6ce" meeting="true" start="2016-12-07" duration="0" complete="0" expand="true"/>
         </task>
     </tasks>
     <resources>

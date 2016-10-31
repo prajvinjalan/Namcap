@@ -197,25 +197,27 @@ Move Player & Keyboard(arrow keys)/UI(ouput) & Player moves through the map.\\ \
 Enemies Move & UI(output) & The enemies move through the map.\\ \hline
 Player hits wall & Keyboard(arrow keys)/UI(output) & Player stops moving unless a valid move is made.\\ \hline
 Player collects dots & Keyboard(arrow keys)/UI(output) & Player collects dots which increases the game points.\\ \hline
-Player hits enemy & Keyboard(arrow keys)/UI(output) & Points are reset and UI changes to main menu.\\ \hline
-Player collects big dot & Keyboard(arrow keys)/UI(output) & Player collects big dot, enemies change colour and Player is able to hit the enemies and send them back to their cage. Points are incremented as Player hits enemies.\\ \hline
+Player hits enemy & Keyboard(arrow keys)/UI(output) & Points are reset and UI changes to main menu if player lives == 0. Lives decrement by 1 otherwise.\\ \hline
+Player collects big dot & Keyboard(arrow keys)/UI(output) & Player collects big dot, enemies change colour and Player is able to hit the enemies. Points are incremented as Player hits enemies.\\ \hline
 Player collects all dots & Keyboard(arrow keys)/UI(output) & Once Player collects all dots, the points are reset and UI switches back to main menu.\\ \hline
-Enemy hits wall & UI(output) & When enemies hit a wall, they will turn and start moving to a valid path.\\
+Enemy hits wall & UI(output) & When enemies hit a wall, they will turn and start moving to a valid path.\\ \hline
+Player collides with Enemy (with Big Dot consumed/active) & Keyboard(arrow keys)/UI(output) & Player collides with enemies with Big Dot consumed and points are incremented by double standard point value. Enemy is removed by collision and respawns in the center of the level.\\
 \bottomrule
 \end{tabularx}
 \end{table}
-\textcolor{red}{ Include Player colliding with Enemy when Big Dot is consumed - CM} \\
+%\textcolor{red}{ Include Player colliding with Enemy when Big Dot is consumed - CM} \\
+%Big Dot active collision functionality has been addressed and the appropriate requirements have been added
 \begin{itemize}
 \item
 Use Case Number: 1
 
 Name: Start Game
 
-Trigger: The user starts a new game
+Trigger: The user starts a new game.
 
-Precondition: The main menu is open
+Precondition: The main menu is open.
 
-Postcondition: The in-game UI is shown and the game is started
+Postcondition: The in-game UI is shown and the game is started.
 
 \end{itemize}
 
@@ -225,11 +227,11 @@ Use Case Number: 2
 
 Name: Move Player
 
-Trigger: User presses arrow keys from the keyboard
+Trigger: User presses arrow keys from the keyboard.
 
-Precondition: In-game UI is active
+Precondition: In-game UI is active.
 
-Postcondition: Player moves according to the arrow pressed
+Postcondition: Player moves according to the arrow pressed.
 \end{itemize}
 
 \begin{itemize}
@@ -238,11 +240,11 @@ Use Case Number: 3
 
 Name: Player contacts wall
 
-Trigger: Player moves towards a wall
+Trigger: Player moves towards a wall.
 
-Precondition: In-game UI is active
+Precondition: In-game UI is active.
 
-Postcondition: User presses an arrow key to move Player away from wall
+Postcondition: User presses an arrow key to move Player away from wall.
 
 \end{itemize}
 
@@ -252,11 +254,11 @@ Use Case Number: 4
 
 Name: Player contacts enemy
 
-Trigger: Player and enemy collide
+Trigger: Player and enemy collide.
 
-Precondition: In-game UI is active
+Precondition: In-game UI is active.
 
-Postcondition: Points are reset and main menu UI is active
+Postcondition: Points are reset and main menu UI is active if player lives == 0. Decrements lives by 1 otherwise.
 \end{itemize}
 
 \begin{itemize}
@@ -265,11 +267,11 @@ Use Case Number: 5
 
 Name: Enemies move
 
-Trigger: Enemies collide with wall
+Trigger: Enemies collide with wall.
 
-Precondition: In-game UI is active
+Precondition: In-game UI is active.
 
-Postcondition: Enemies move according to their AI
+Postcondition: Enemies move according to their AI.
 \end{itemize}
 
 \begin{itemize}
@@ -278,11 +280,11 @@ Use Case Number: 6
 
 Name: Player collects dots
 
-Trigger: User moves Player towards dots
+Trigger: User moves Player towards dots.
 
-Precondition: Dots exist and in-game UI is active
+Precondition: Dots exist and in-game UI is active.
 
-Postcondition: Points are incremented and the collected dot is no longer visible
+Postcondition: Points are incremented and the collected dot is no longer visible.
 \end{itemize}
 
 \begin{itemize}
@@ -291,11 +293,11 @@ Use Case Number: 7
 
 Name: Player collects big dot
 
-Trigger: User moves Player towards big dot
+Trigger: User moves Player towards big dot.
 
-Precondition: Big dot exists and in-game UI is active
+Precondition: Big dot exists and in-game UI is active.
 
-Postcondition: Enemies change colour and Player is able to collide with enemies
+Postcondition: Enemies change colour and Player is able to collide with enemies.
 \end{itemize}
 
 \begin{itemize}
@@ -304,24 +306,37 @@ Use Case Number: 8
 
 Name: Player collects last dot
 
-Trigger: User moves Player towards last dot
+Trigger: User moves Player towards last dot.
 
-Precondition: In-game UI is active
+Precondition: In-game UI is active.
 
-Postcondition: Points are rest and game over UI is active
+Postcondition: Points are rest and game over UI is active.
 \end{itemize}
 
 \begin{itemize}
 \item
 Use Case Number: 9
 
-Name: Name: Quit game
+Name: Quit game
 
-Trigger: User presses Escape on the keyboard
+Trigger: User presses Escape on the keyboard.
 
-Precondition: Main menu UI is active
+Precondition: Main menu UI is active.
 
-Postcondition: The game application is terminated
+Postcondition: The game application is terminated.
+\end{itemize}
+
+\begin{itemize}
+\item
+Use Case Number: 10
+
+Name: Player collides with Enemy (while Big Dot consumed)
+
+Trigger: User moves player towards enemy with Big Dot active.
+
+Precondition: In-game UI is active. Big Dot is active (indicated by different enemy colour).
+
+Postcondition: Points are incremented by double standard value per each enemy collision. Enemy is removed after collision and respawns at the center of the level.
 \end{itemize}
 
 
@@ -335,11 +350,11 @@ Requirement Type: 2.2
 
 Use Case: 1
 
-Description: User must have the ability to start a new game
+Description: User must have the ability to start a new game.
 
-Rationale: The user needs to have this ability in order to play the game
+Rationale: The user needs to have this ability in order to play the game.
 
-Fit Criterion: The game is able to be started
+Fit Criterion: The game is able to be started.
 
 Priority: High
 
@@ -453,7 +468,7 @@ Description: User must be able to collect dots. Dots must disappear after collec
 
 Rationale: User must be able to collect dots in order to gain points in the game.
 
-Fit Criterion: The user's points are increased upon collecting dots
+Fit Criterion: The user's points are increased upon collecting dots.
 
 Priority: Medium
 
@@ -468,11 +483,11 @@ Requirement Type: 2.2
 
 Use Case: 7
 
-Description: The user must be able to collect the big dot
+Description: The user must be able to collect the big dot.
 
-Rationale: The user must be able to collect the big dot in order to collide with the enemy
+Rationale: The user must be able to collect the big dot in order to collide with the enemy.
 
-Fit Criterion: The user's ability to collide with enemies is enabled upon collecting big dot
+Fit Criterion: The user's ability to collide with enemies is enabled upon collecting big dot.
 
 Priority: Medium
 
@@ -487,11 +502,11 @@ Requirement Type: 2.2
 
 Use Case: 7
 
-Description: User must be able to collide with enemies upon collecting big dot
+Description: User must be able to collide with enemies upon collecting big dot.
 
-Rationale: In order to knock the enemies back to their cage, user must collide with enemies
+Rationale: In order to remove enemies and respawn them back at the center, user must collide with enemies.
 
-Fit Criterion: User is able to collide with enemies to gain extra points
+Fit Criterion: User is able to collide with enemies to gain extra points. User's ability to collide with enemies is enabled.
 
 Priority: Medium
 
@@ -506,11 +521,11 @@ Requirement Type: 2.2
 
 Use Case: 7
 
-Description: Enemies must be able to run away from user upon collecting big dot
+Description: Enemies must change colour when user collects big dot.
 
-Rationale: Enemies will try to avoid being eaten by the user
+Rationale: Indicates to the user that the player is able to collide with enemies and increase score further.
 
-Fit Criterion: The enemy's AI will determine how they will run away from the user
+Fit Criterion: Enemies asset with refer to different coloured sprite.
 
 Priority: Low
 
@@ -574,6 +589,44 @@ Priority: High
 Conflicts: None
 \end{itemize}
 
+\begin{itemize}
+\item
+Requirement Number: F14
+
+Requirement Type: 2.2
+
+Use Case: 10
+
+Description: User's points must increase by double the standard rate when colliding with enemies with Big Dot active.
+
+Rationale: Big Dot provides a bonus for players to increase points at a faster rate, otherwise Big Dot has no purpose.
+
+Fit Criterion: Score is incremented by 2x standard value.
+
+Priority: Medium
+
+Conflicts: None
+\end{itemize}
+
+\begin{itemize}
+\item
+Requirement Number: F15
+
+Requirement Type: 2.2
+
+Use Case: 10
+
+Description: Enemies are removed from collision and respawn at level center upon collision with player with Big Dot active.
+
+Rationale: Big Dot provides ability to clear enemies from the level to open paths to further player progress score-wise.
+
+Fit Criterion: Enemy entity is reset and initialized back at the starting point.
+
+Priority: Medium
+
+Conflicts: None
+\end{itemize}
+
 
 \section{Non-functional Requirements}
 
@@ -582,22 +635,22 @@ Conflicts: None
 	\item
 	Requirement Number: NF1
 
-	Description: The application layout shall be similar to that of the original Pacman arcade game
+	Description: The application layout shall be similar to that of the original Pacman arcade game.
 
-	Rationale: The application is intended to make the enjoyable arcade-style of Pacman accessible to users without arcade machines (so the layout should comply with those standards)
+	Rationale: The application is intended to make the enjoyable arcade-style of Pacman accessible to users without arcade machines (so the layout should comply with those standards).
 
-	Fit Criterion: Testers will make a comparison between the application and the original Pacman arcade game to ensure the layout looks consistent
+	Fit Criterion: Testers will make a comparison between the application and the original Pacman arcade game to ensure the layout looks consistent.
 
 	Priority: High
 
 	\item
 	Requirement Number: NF2
 
-	Description: The application color scheme shall be similar to that of the original Pacman arcade game
+	Description: The application color scheme shall be similar to that of the original Pacman arcade game.
 
-	Rationale: The application is intended to make the enjoyable arcade-style of Pacman accessible to users without arcade machines (so the colors should match the original game)
+	Rationale: The application is intended to make the enjoyable arcade-style of Pacman accessible to users without arcade machines (so the colors should match the original game).
 
-	Fit Criterion: Testers will make a comparison between the application and the original Pacman arcade game to ensure the colors of the games are consistent
+	Fit Criterion: Testers will make a comparison between the application and the original Pacman arcade game to ensure the colors of the games are consistent.
 
 	Priority: High
 \end{itemize}
@@ -607,44 +660,44 @@ Conflicts: None
 	\item
 	Requirement Number: NF3
 
-	Description: The application shall be easy for any individual above the age of 10 to use
+	Description: The application shall be easy for any individual above the age of 10 to use.
 
-	Rationale: The original arcade game was accessible to all ages and was simple to understand even for elementary school students - this application should reflect that ease of use
+	Rationale: The original arcade game was accessible to all ages and was simple to understand even for elementary school students - this application should reflect that ease of use.
 
-	Fit Criterion: Part of the testers for the application will be younger children, who should be able to successfully maneuver the Player through the map (collecting points and dodging enemies)
+	Fit Criterion: Part of the testers for the application will be younger children, who should be able to successfully maneuver the Player through the map (collecting points and dodging enemies).
 
 	Priority: High
 
 	\item
 	Requirement Number: NF4
 
-	Description: The application interface shall be in English
+	Description: The application interface shall be in English.
 
-	Rationale: The game is intended for use by anyone who speaks English
+	Rationale: The game is intended for use by anyone who speaks English.
 
-	Fit Criterion: Testers will ensure that all parts of the application (instructions, game interface, etc.) are clearly understandable in English
+	Fit Criterion: Testers will ensure that all parts of the application (instructions, game interface, etc.) are clearly understandable in English.
 
 	Priority: High
 
 	\item
 	Requirement Number: NF5
 
-	Description: The game shall be easy for any player to learn within their first playthrough
+	Description: The game shall be easy for any player to learn within their first playthrough.
 
-	Rationale: Much of the popularity of the original arcade Pacman was in the simplicity of the game, so this redevelopment should reflect that
+	Rationale: Much of the popularity of the original arcade Pacman was in the simplicity of the game, so this redevelopment should reflect that.
 
-	Fit Criterion: Majority of testers should be able to understand how to play the game within their first playthrough (3 lives)
+	Fit Criterion: Majority of testers should be able to understand how to play the game within their first playthrough (3 lives).
 
 	Priority: High
 
 	\item
 	Requirement Number: NF6
 
-	Description: The application shall only provide information to users that is necessary for them to enjoy the game
+	Description: The application shall only provide information to users that is necessary for them to enjoy the game.
 
-	Rationale: In order to keep maintain simplicity in this game as per NF7, it should be easily understandable and anything not relevant to the user's experience should be kept away from them
+	Rationale: In order to keep maintain simplicity in this game as per NF7, it should be easily understandable and anything not relevant to the user's experience should be kept away from them.
 
-	Fit Criterion: Testers should not have trouble understanding the objectives of the game within their first playthrough (3 lives)
+	Fit Criterion: Testers should not have trouble understanding the objectives of the game within their first playthrough (3 lives).
 
 	Priority: Moderate
 \end{itemize}
@@ -654,33 +707,33 @@ Conflicts: None
 	\item
 	Requirement Number: NF7
 
-	Description: The response time between user actions and in-game operations shall be within a certain amount
+	Description: The response time between user actions and in-game operations shall be within a certain amount.
 
-	Rationale: If there is a delay in response time then users will not be able to enjoy the game to a full extent
+	Rationale: If there is a delay in response time then users will not be able to enjoy the game to a full extent.
 
-	Fit Criterion: 90\% of tests for response time will have a delay of less than $\hyperref[tab:constants]{\Theta}$
+	Fit Criterion: 90\% of tests for response time will have a delay of less than $\hyperref[tab:constants]{\Theta}$.
 
 	Priority: High
 
 	\item
 	Requirement Number: NF8
 
-	Description: The application shall not have unexpected failures
+	Description: The application shall not have unexpected failures.
 
-	Rationale: The application needs to be reliable so that users can spend time enjoying the game without worrying about downtime due to internal errors
+	Rationale: The application needs to be reliable so that users can spend time enjoying the game without worrying about downtime due to internal errors.
 
-	Fit Criterion: Unexpected crashes of the application will be within $\hyperref[tab:constants]{\Omega}$ of application tests
+	Fit Criterion: Unexpected crashes of the application will be within $\hyperref[tab:constants]{\Omega}$ of application tests.
 
 	Priority: High
 
 	\item
 	Requirement Number: NF9
 
-	Description: The application shall be expected to operate indefinitely
+	Description: The application shall be expected to operate indefinitely.
 
-	Rationale: The game is provided for free as a redevelopment of the original arcade Pacman and longevity of the application is necessary to fulfill the product's goal - lifetime enjoyment of a classic arcade game without the need for an arcade machine
+	Rationale: The game is provided for free as a redevelopment of the original arcade Pacman and longevity of the application is necessary to fulfill the product's goal - lifetime enjoyment of a classic arcade game without the need for an arcade machine.
 
-	Fit Criterion: The application is available for use as a jar file, so once the initial release is downloaded then the game shall be available to play at the user's leisure
+	Fit Criterion: The application is available for use as a jar file, so once the initial release is downloaded then the game shall be available to play at the user's leisure.
 
 	Priority: Moderate
 
@@ -691,11 +744,11 @@ Conflicts: None
 	\item
 	Requirement Number: NF10
 
-	Description: Application releases shall be offered to users once per year
+	Description: Application releases shall be offered to users once per year.
 
-	Rationale: In the future there may be additional features added to the game (such as sounds, more levels, more interactions, customizable options, etc.) so releases should be kept in mind
+	Rationale: In the future there may be additional features added to the game (such as sounds, more levels, more interactions, customizable options, etc.) so releases should be kept in mind.
 
-	Fit Criterion: When new releases are provided to users, previous releases shall not be updated and there shall be no maintenance on the user's part apart from downloading the update
+	Fit Criterion: When new releases are provided to users, previous releases shall not be updated and there shall be no maintenance on the user's part apart from downloading the update.
 
 	Priority: Low
 
@@ -706,22 +759,22 @@ Conflicts: None
 	\item
 	Requirement Number: NF11
 
-	Description: Bug fixes shall be provided within a few days to ensure application usability
+	Description: Bug fixes shall be provided within a few days to ensure application usability.
 
-	Rationale: Since the application code is open source, any unexpected errors in the game can be fixed by any developers so that users don't have to worry about the game crashing or behaving incorrectly (and decreasing enjoyment)
+	Rationale: Since the application code is open source, any unexpected errors in the game can be fixed by any developers so that users don't have to worry about the game crashing or behaving incorrectly (and decreasing enjoyment).
 
-	Fit Criterion: The code for the game is updated within one business week of an error being reported
+	Fit Criterion: The code for the game is updated within one business week of an error being reported.
 
 	Priority: Moderate
 
 	\item
 	Requirement Number: NF12
 
-	Description: The application is expected to run on all operating systems that have a JVM
+	Description: The application is expected to run on all operating systems that have a JVM.
 
-	Rationale: This game is being redeveloped as an application that is accessible to all users, so it should run independently of the user's platform in order to fulfill this goal
+	Rationale: This game is being redeveloped as an application that is accessible to all users, so it should run independently of the user's platform in order to fulfill this goal.
 
-	Fit Criterion: The application will be tested on multiple platforms to ensure that it can be accessible to all users
+	Fit Criterion: The application will be tested on multiple platforms to ensure that it can be accessible to all users.
 
 	Priority: Moderate
 \end{itemize}
@@ -731,11 +784,11 @@ Conflicts: None
 	\item
 	Requirement Number: NF13
 
-	Description: Access to application code shall be made available through an open-source repository
+	Description: Access to application code shall be made available through an open-source repository.
 
-	Rationale: Open-source code allows for easy maintainability of the application; any developer can efficiently fix errors in the code and improve on the design
+	Rationale: Open-source code allows for easy maintainability of the application; any developer can efficiently fix errors in the code and improve on the design.
 
-	Fit Criterion: Changes for the code can be requested through the open-source repository, with final confirmation for changes being made by the original developers of the product (VPB Game Studio)
+	Fit Criterion: Changes for the code can be requested through the open-source repository, with final confirmation for changes being made by the original developers of the product (VPB Game Studio).
 
 	Priority: Moderate
 \end{itemize}
@@ -745,11 +798,11 @@ Conflicts: None
 	\item
 	Requirement Number: NF14
 
-	Description: The application shall not contain symbols or text that can be seen as potentially offensive to religious or ethnic groups
+	Description: The application shall not contain symbols or text that can be seen as potentially offensive to religious or ethnic groups.
 
-	Rationale: The game is intended for use by anyone worldwide and shall not discriminate against its users, especially since this would result in a decline in user satisfaction
+	Rationale: The game is intended for use by anyone worldwide and shall not discriminate against its users, especially since this would result in a decline in user satisfaction.
 
-	Fit Criterion: During testing, application shall be verified to not contain any offensive symbols or text
+	Fit Criterion: During testing, application shall be verified to not contain any offensive symbols or text.
 
 	Priority: High
 \end{itemize}
@@ -761,7 +814,7 @@ Conflicts: None
 	\item
 	Requirement Number: NF15
 
-	Description: The application shall not commit copyright infringement on literary work of the original Pacman
+	Description: The application shall not commit copyright infringement on literary work of the original Pacman.
 
 	Rationale: Any literary work of Pacman (including artwork and sound) is protected under copyright law so it cannot be replicated.
 
@@ -772,7 +825,7 @@ Conflicts: None
 	\item
 	Requirement Number: NF16
 
-	Description: The application shall not commit trademark infringement on the product that is the original arcade Pacman
+	Description: The application shall not commit trademark infringement on the product that is the original arcade Pacman.
 
 	Rationale: Any similarities in Namcap to the original work of Pacman (including the game title, game characters, and other game entities) should be such that they do not break trademark agreements.
 
@@ -786,11 +839,11 @@ Conflicts: None
 	\item
 	Requirement Number: NF17
 
-	Description: The application shall remind the user not to play without breaks
+	Description: The application shall remind the user not to play without breaks.
 
-	Rationale: One's health comes into question whenever any software application is being used continuously for a long period of time, so it is important for users not to keep playing after a certain amount of time without taking a break in order to stay healthy
+	Rationale: One's health comes into question whenever any software application is being used continuously for a long period of time, so it is important for users not to keep playing after a certain amount of time without taking a break in order to stay healthy.
 
-	Fit Criterion: Every 2 hours of continuous playtime will pause the application and prompt the user to take a break
+	Fit Criterion: Every 2 hours of continuous playtime will pause the application and prompt the user to take a break.
 
 	Priority: Low
 \end{itemize}

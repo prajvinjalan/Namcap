@@ -160,7 +160,7 @@ How test will be performed: The robot class will virtually press the left/right/
 
 Type: Functional, Dynamic, Automated
 					
-Initial State: Player moving towards wall
+Initial State: Player comes in contact with wall
 					
 Input: No input
 					
@@ -168,42 +168,43 @@ Output: Player stops moving when coming in contact with the wall
 
 How test will be performed: The robot class will output a line of text to the console indicating that the player has stopped due to collision with a wall
 
-\item{GTF3\\}
+\item{GTF4\\}
 
 Type: Functional, Dynamic, Automated
 					
-Initial State: 
+Initial State: Player comes in contact with enemy
 					
-Input: 
+Input: No input
 					
-Output: 
+Output: If player has more than 1 life, decrement lives. If player has one life, end game.
 
-How test will be performed: 
+How test will be performed: The robot class will navigate the payer towards an enemy until they collide.
 
-\item{GTF3\\}
-
-Type: Functional, Dynamic, Automated
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-
-How test will be performed: 
-
-\item{GTF3\\}
+\item{GTF5\\}
 
 Type: Functional, Dynamic, Automated
 					
-Initial State: 
+Initial State: Within the game state
 					
-Input: 
+Input: No input
 					
-Output: 
+Output: Enemies move on a valid path
 
-How test will be performed: 
-\item{GTF3\\}
+How test will be performed: A JUnit test will be implemented to fail whenever the enemy moves through an obstacle.
+
+\item{GTF6\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Within game state
+					
+Input: Left/Right/Up/Down arrow keys pressed
+					
+Output: Player navigates through map and collects dots to increase points. Dots disappear upon collection.
+
+How test will be performed: The Robot class will navigate the player through the map and collect the dots. A function will be implemented to check if the points were increased and to check if the dots disappear upon collection.
+
+\item{GTF7\\}
 
 Type: Functional, Dynamic, Automated
 					

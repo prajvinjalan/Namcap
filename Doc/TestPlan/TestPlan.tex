@@ -150,7 +150,7 @@ Type: Functional, Dynamic, Automated
 					
 Initial State: Within the game state
 					
-Input: Left/Right/Up/Down arrow key pressed
+Input: Arrow keys
 					
 Output: Player moves in the respective direction (if path is clear)
 					
@@ -196,27 +196,39 @@ How test will be performed: A JUnit test will be implemented to fail whenever th
 
 Type: Functional, Dynamic, Automated
 					
-Initial State: Within game state
+Initial State: Player comes in contact with dots
 					
-Input: Left/Right/Up/Down arrow keys pressed
+Input: Arrow keys
 					
-Output: Player navigates through map and collects dots to increase points. Dots disappear upon collection.
+Output: Points are increased and dot disappears after collection
 
-How test will be performed: The Robot class will navigate the player through the map and collect the dots. A function will be implemented to check if the points were increased and to check if the dots disappear upon collection.
+How test will be performed: The Robot class will navigate the player through the map and collect the dots. A function will be implemented to check if the points were increased and to check if the dots disappear upon collection
 
 \item{GTF7\\}
 
 Type: Functional, Dynamic, Automated
 					
-Initial State: 
+Initial State: Player comes in contact with the big dot
 					
-Input: 
+Input: Arrow keys
 					
-Output: 
+Output: Points are increased and big dot disappears after collection
 
-How test will be performed: 
+How test will be performed: The robot class will navigate the player to the nearest big dot and collect it. A fucntion will be implemented to check if the points were increased and to check if the big dot dissapears upon collection
 
-\item{GTF3\\}
+\item{GTF8\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player collects the big dot
+					
+Input: Arrow keys
+					
+Output: Player is able to collide with enemies and send them back to their cell
+
+How test will be performed: The robot class will navigate the player to the nearest enemy, after colleting the big dot. A funciton will be implemented to check if the collision sends the enemy back to their cell and to check if the number of lives for the player stays the same
+
+\item{GTF9\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -228,7 +240,7 @@ Output:
 
 How test will be performed: 
 
-\item{GTF3\\}
+\item{GTF10\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -240,7 +252,7 @@ Output:
 
 How test will be performed: 
 
-\item{GTF3\\}
+\item{GTF11\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -252,7 +264,7 @@ Output:
 
 How test will be performed: 
 
-\item{GTF3\\}
+\item{GTF12\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -264,7 +276,7 @@ Output:
 
 How test will be performed: 
 
-\item{GTF3\\}
+\item{GTF13\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -276,7 +288,7 @@ Output:
 
 How test will be performed: 
 
-\item{GTF3\\}
+\item{GT14\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -288,19 +300,7 @@ Output:
 
 How test will be performed: 
 
-\item{GTF3\\}
-
-Type: Functional, Dynamic, Automated
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-
-How test will be performed: 
-
-\item{GTF3\\}
+\item{GTF15\\}
 
 Type: Functional, Dynamic, Automated
 					

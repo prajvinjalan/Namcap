@@ -11,6 +11,7 @@
     urlcolor=blue
 }
 %\usepackage[round]{natbib}
+\usepackage{float}
 
 \title{SE 3XA3: Test Plan\\Namcap}
 
@@ -41,7 +42,7 @@
 2016-10-30 & 1.0 & Addition of content to sections 1.1, 1.2 and 1.4\\
 2016-10-30 & 1.1 & Addition of content to sections 2.1 and 2.2\\
 2016-10-30 & 1.2 & Addition of content to sections 2.3 and 2.4\\
-Date 4 & 1.3 & Notes\\
+2016-10-30 & 1.3 & Addition of content to section 3.2\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -247,15 +248,74 @@ How test will be performed: User will play Namcap (one playthrough - 3 lives) an
 
 \subsubsection{Performance Requirements}
 
-...
+\paragraph{Response Time}
 
-\subsubsection{Operational and Environmental Requirements}
+\begin{enumerate}
 
-...
+\item{RT1\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: Application is displaying the game board with game entities
+					
+Input: Custom user input for gameplay
+					
+Output: Game display updates player movement based on keyboard input with a delay less than $\hyperref[tab:constants]{\Theta}$
+					
+How test will be performed: User will play Namcap and note down any instances where their player does not respond to their keyboard inputs within a delay of $\hyperref[tab:constants]{\Theta}$
+
+\end{enumerate}
+
+\paragraph{Unexpected Failures}
+
+\begin{enumerate}
+
+\item{UF1\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: Application is displaying the game board with game entities
+					
+Input: Custom user input for gameplay testing
+					
+Output: Game display updates for user input and application does not crash
+					
+How test will be performed: User will play Namcap and note down any instances where during their testing, the application unexpectedly crashes (the number of crashes will be within $\hyperref[tab:constants]{\Omega}$ of total user tests)
+
+\end{enumerate}
 
 \subsubsection{Maintainability and Support Requirements}
 
-...
+\paragraph{Operating System Support\\}
+The primary operating systems that Namcap is being tested on currently are Windows and Mac OS since these are the most readily available for testers.
+
+\begin{enumerate}
+
+\item{OSS1\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: A Namcap jar file is available on a machine running Windows
+					
+Input: User runs the jar file
+					
+Output: Namcap starts up and game can be played
+					
+How test will be performed: User will run the jar file on their computer (any Windows version with a JVM) and should be able to successfully play the game (one playthrough)
+
+\item{OSS2\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: A Namcap jar file is available on a machine running Mac OS
+					
+Input: User runs the jar file
+					
+Output: Namcap starts up and game can be played
+					
+How test will be performed: User will run the jar file on their computer (any Mac OS version with a JVM) and should be able to successfully play the game (one playthrough)
+
+\end{enumerate}
 
 \subsubsection{Security Requirements}
 
@@ -332,8 +392,18 @@ This is where you can place additional information.
 
 \subsection{Symbolic Parameters}
 
-The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.
+The definition of the test cases will call for SYMBOLIC\_CONSTANTS; their values are defined in this section for easy maintenance.
+
+\begin{table}[H]
+\caption{\bf Symbolic Constants} \label{tab:constants}
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Constant} & {\bf Value} & {\bf Description}\\
+\midrule
+$\Theta$ & 0.5 seconds & Response time between user actions and in-game operations\\
+$\Omega$ & 1 \% & Percent of application tests that will cause unexpected failures in the application\\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{Usability Survey Questions?}
 

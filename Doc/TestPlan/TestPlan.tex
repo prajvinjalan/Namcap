@@ -34,7 +34,7 @@
 \listoftables
 \listoffigures
 
-\begin{table}[bp]
+\begin{table}[h]
 \caption{\bf Revision History}
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
@@ -43,6 +43,8 @@
 2016-10-30 & 1.1 & Addition of content to sections 2.1 and 2.2\\
 2016-10-30 & 1.2 & Addition of content to sections 2.3 and 2.4\\
 2016-10-30 & 1.3 & Addition of content to section 3.2\\
+2016-10-30 & 1.4 & Updates to content of subsections of 3.2 and 7.1\\
+2016-10-30 & 1.5 & Completion of content for 3.2 and update to 7.1\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -476,19 +478,107 @@ How test will be performed: User will run the jar file on their computer (any Ma
 
 \subsubsection{Security Requirements}
 
-...
+\paragraph{Open-Source Code}
+
+\begin{enumerate}
+
+\item{OSC1\\}
+
+Type: Structural, Static, Manual
+					
+Initial State: Open-source repository is publicly accessible
+					
+Input: User accesses the open-source repository (visits the repository link)
+					
+Output: User is able to view the application source code
+					
+How test will be performed: User will visit the repository link and be able to view the application source code
+
+\end{enumerate}
 
 \subsubsection{Cultural Requirements}
 
-...
+\paragraph{Offensive Symbols or Text}
+
+\begin{enumerate}
+
+\item{OST1\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: Application is displaying the instructions page
+					
+Input: No user input
+					
+Output: Namcap instructions page
+					
+How test will be performed: User will look at the Namcap instructions page and ensure that it contains no offensive symbols or text
+					
+\item{OST2\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: Application is displaying the game board with game entities
+					
+Input: No user input
+					
+Output: Namcap game board with game entities
+					
+How test will be performed: User will look at the Namcap game board with its game entities and ensure that it contains no offensive symbols or text
+
+\end{enumerate}
 
 \subsubsection{Legal Requirements}
 
-...
+\paragraph{Legal Violation}
+
+\begin{enumerate}
+
+\item{LV1\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: Application is displaying the instructions page
+					
+Input: No user input
+					
+Output: Namcap instructions page
+					
+How test will be performed: User will look at the Namcap instructions page and ensure that literary work and listed game entities have been altered such that the redevelopment is not too similar to the original Pacman
+					
+\item{LV2\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: Application is displaying the game board with game entities
+					
+Input: No user input
+					
+Output: Namcap game board with game entities
+					
+How test will be performed: User will look at the Namcap game board with its game entities and ensure that literary work and game entities have been altered such that the redevelopment is not too similar to the original Pacman
+
+\end{enumerate}
 
 \subsubsection{Health and Safety Requirements}
 
-...
+\paragraph{Break Prompt}
+
+\begin{enumerate}
+
+\item{BP1\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: Application is displaying the instructions page
+					
+Input: No user input, application runs for $\hyperref[tab:constants]{\Phi}$
+					
+Output: After $\hyperref[tab:constants]{\Phi}$, application pauses and prompts the user to take a break
+					
+How test will be performed: User will let the application run for $\hyperref[tab:constants]{\Phi}$ and ensure that when the time passes the application pauses appropriately and prompts them to take a break
+
+\end{enumerate}
 
 \section{Tests for Proof of Concept}
 
@@ -558,6 +648,7 @@ The definition of the test cases will call for SYMBOLIC\_CONSTANTS; their values
 \midrule
 $\Theta$ & 0.5 seconds & Response time between user actions and in-game operations\\
 $\Omega$ & 1 \% & Percent of application tests that will cause unexpected failures in the application\\
+$\Phi$ & 2 hours & Duration that application runs for before prompting user to take a break\\
 \bottomrule
 \end{tabularx}
 \end{table}

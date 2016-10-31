@@ -53,6 +53,7 @@
 2016-10-29 & 1.7 & Revision of Mandated Constraints section to reference feedback\\
 2016-10-30 & 1.8 & Revision of Legal Requirements section to reference feedback\\
 2016-10-31 & 1.9 & Revision of Functional Requirements to address Big Dot functionality feedback\\
+2016-10-31 & 2.0 & Addition of Symbolic Constant for Health and Safety Requirements\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -844,7 +845,7 @@ Conflicts: None
 
 	Rationale: One's health comes into question whenever any software application is being used continuously for a long period of time, so it is important for users not to keep playing after a certain amount of time without taking a break in order to stay healthy.
 
-	Fit Criterion: Every 2 hours of continuous playtime will pause the application and prompt the user to take a break.
+	Fit Criterion: Every $\hyperref[tab:constants]{\Phi}$ of continuous playtime will pause the application and prompt the user to take a break.
 
 	Priority: Low
 \end{itemize}
@@ -972,6 +973,7 @@ The definition of the requirements call for SYMBOLIC\_CONSTANTS; their values ar
 \midrule
 $\Theta$ & 0.5 seconds & Response time between user actions and in-game operations\\
 $\Omega$ & 1 \% & Percent of application tests that will cause unexpected failures in the application\\
+$\Phi$ & 2 hours & Duration that application runs for before prompting user to take a break\\
 \bottomrule
 \end{tabularx}
 \end{table}

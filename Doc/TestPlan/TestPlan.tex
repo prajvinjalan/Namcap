@@ -53,7 +53,7 @@ Yes & No
 \listoftables
 \listoffigures
 
-\begin{table}[h]
+\begin{table}
 \caption{\bf Revision History}
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
@@ -71,7 +71,9 @@ Yes & No
 2016-10-31 & 1.9 & Addition of section 6.1 and 6.2\\
 2016-10-31 & 2.0 & Completion of section 5\\
 2016-10-31 & 2.1 & Updates to Sections 3.1 and 6.1\\
-2016-10-31 & 2.2 & Revision of System and Unit tests\\
+2016-10-31 & 2.2 & Completion of section 6.1\\
+2016-10-31 & 2.3 & Revision of System and Unit tests\\
+2016-10-31 & 2.4 & Addition to content to 6.1 and 3.2\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -479,6 +481,18 @@ Output: Game display updates for user input and application does not crash
 					
 How test will be performed: User will play Namcap and note down any instances where during their testing, the application unexpectedly crashes (the number of crashes will be within $\hyperref[tab:constants]{\Omega}$ of total user tests).
 
+\item{UF2\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: Application is displaying the game board with game entities
+					
+Input: Highscore text file for high score in game display [file exists, file does not exist, valid score in file, invalid input in file]
+					
+Output: Game display updates score or an exception occurs
+					
+How test will be performed: User will play Namcap (second playthrough) and a high score will be read from a text file if possible, and exceptions will be tested for based on the various inputs
+
 \end{enumerate}
 
 \subsubsection{Maintainability and Support Requirements}
@@ -764,7 +778,7 @@ Input: Start Game button action is performed
 					
 Output: New game is started and window is changed to reflect a new game state (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the method that opens a new frame containing the game and confirm that the new window has the appropriate game interface.
+How test will be performed: A JUnit method will test the method that opens a new frame containing the game and confirm that the new window has the appropriate game interface [refer to GFT1 test]
 
 \item{UT2\\}
 
@@ -812,7 +826,7 @@ Input: PlayerX, PlayerY, EnemyX, EnemyY
 					
 Output: End of game (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will set the player's position to be within collision range of an enemy, and the checkCollision method will be tested to ensure it properly checks player-to-enemy collision and ends the game.
+How test will be performed: A JUnit method will set the player's position to be within collision range of an enemy, and the checkCollision method will be tested to ensure it properly checks player-to-enemy collision and ends the game [refer to GFT4 test]
 
 \item{UT6\\}
 
@@ -824,7 +838,7 @@ Input: PlayerX, PlayerY (different parts of the map grid)
 					
 Output: Increase in score and dot disappearance (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they are on a dot that their score is increased and the dot has disappeared (board's getDot method).
+How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they are on a dot that their score is increased and the dot has disappeared (board's getDot method) [refer to GFT6 test]
 
 \item{UT7\\}
 
@@ -836,7 +850,7 @@ Input: PlayerX, PlayerY
 					
 Output: End of game (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they collect the final dot that the endGame method is called and the player wins the game.
+How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they collect the final dot that the endGame method is called and the player wins the game [refer to GFT10 test]
 
 \item{UT8\\}
 
@@ -848,7 +862,7 @@ Input: X and Y positions for barrier and non-barrier positions
 					
 Output: True or false for barriers (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the player's checkBarrier method to ensure that when a position is checked, the appropriate response is received for if barriers exist or not.
+How test will be performed: A JUnit method will test the player's checkBarrier method to ensure that when a position is checked, the appropriate response is received for if barriers exist or not [refer to GFT3 test]
 
 \item{UT9\\}
 
@@ -920,7 +934,7 @@ Input: Score values (negative, positive, values that increase the score past the
 					
 Output: Player score, and end game situation if applicable (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the Score class's addScore method to ensure that score can be appropriately added; the Player's checkDot method will be tested to see whether the game ends depending on the score
+How test will be performed: A JUnit method will test the Score class's addScore method to ensure that score can be appropriately added; the Player's checkDot method will be tested to see whether the game ends depending on the score [refer to GFT12 test]
 
 \end{enumerate}
 		
@@ -938,7 +952,7 @@ Input: High score within game and High Score stored in text file
 					
 Output: Pass or fail for JUnit method
 					
-How test will be performed: A JUnit class will test the method that reads a high score from the text file and check whether or not the in game high score matches that of the text file.
+How test will be performed: A JUnit class will test the method that reads a high score from the text file and check whether or not the in game high score matches that of the text file [refer to UF2 test]
 
 \end{enumerate}	
 

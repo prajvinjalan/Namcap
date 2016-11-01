@@ -68,8 +68,12 @@ Yes & No
 2016-10-31 & 1.6 & Completion of Section 7.2\\
 2016-10-31 & 1.7 & Completion of content for 4\\
 2016-10-31 & 1.8 & Completion of section 1.3; revision of sections 1, 2, and 4\\
+<<<<<<< Updated upstream
 2016-10-31 & 1.9 & Addition of section 6.1 and 6.2\\
 2016-10-31 & 2.0 & Completion of section 5\\
+=======
+2016-10-31 & 1.9 & Completion of section 5\\
+>>>>>>> Stashed changes
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -176,7 +180,25 @@ Input: Cursor clicked on Start Game button
 Output: New game is started and window is changed to reflect a new game state
 					
 How test will be performed: The robot class will place the cursor within the coordinates of the Start Game button and the robot will perform a left-click
+
+\item{GFT11\\}
+
+Type: Functional, Dynamic, Automated
 					
+Initial State: Within game state
+					
+Input: Cursor clicked on exit game
+					
+Output: Application must terminate
+
+How test will be performed: The robot class will move the cursor to the exit game button and perform a left-click. If the applictaion closes, the test is successful
+
+\end{enumerate}
+
+\subparagraph{Player Movement/Collision Testing}
+
+\begin{enumerate}
+
 \item{GFT2\\}
 
 Type: Functional, Dynamic, Automated
@@ -213,17 +235,6 @@ Output: If player has more than 1 life, decrement lives. If player has one life,
 
 How test will be performed: The robot class will navigate the payer towards an enemy until they collide.
 
-\item{GFT5\\}
-
-Type: Functional, Dynamic, Automated
-					
-Initial State: Within the game state
-					
-Input: No input
-					
-Output: Enemies move on a valid path
-
-How test will be performed: A JUnit test will be implemented to fail whenever the enemy moves through an obstacle.
 
 \item{GFT6\\}
 
@@ -261,6 +272,24 @@ Output: Player is able to collide with enemies
 
 How test will be performed: The robot class will navigate the player to the nearest enemy, after colleting the big dot. A funciton will be implemented to check if the collision doesn't decrement the player's lives
 
+\end{enumerate}
+
+\subparagraph{Enemy Movement/Collision Testing}
+
+\begin{enumerate}
+
+\item{GFT5\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Within the game state
+					
+Input: No input
+					
+Output: Enemies move on a valid path
+
+How test will be performed: A JUnit test will be implemented to fail whenever the enemy moves through an obstacle.
+
 \item{GFT9\\}
 
 Type: Functional, Dynamic, Automated
@@ -273,6 +302,24 @@ Output: Enemies change colour
 
 How test will be performed: A JUnit test will be iplemented to check if the asset used to view the enemies has changed.
 
+\item{GFT14\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player collides with enemy after collection of big dot
+					
+Input: Arrow keys
+					
+Output: Enemy is removed from game and respawned back to their original cell
+
+How test will be performed: A JUnit test will be implemented to check if the enemey's coordinates were reset to their original spot.
+
+\end{enumerate}
+
+\subparagraph{Scoring Testing}
+
+\begin{enumerate}
+
 \item{GFT10\\}
 
 Type: Functional, Dynamic, Automated
@@ -283,19 +330,7 @@ Input: Arrow keys
 					
 Output: Game over screen is activated
 
-How test will be performed: A JUnit test will be implemented to check which JFrame is currently active.
-
-\item{GFT11\\}
-
-Type: Functional, Dynamic, Automated
-					
-Initial State: Within game state
-					
-Input: Cursor clicked on exit game
-					
-Output: Application must terminate
-
-How test will be performed: The robot class will move the cursor to the exit game button and perform a left-click. If the applictaion closes, the test is successful.
+How test will be performed: A JUnit test will be implemented to check which JFrame is currently active
 
 \item{GFT12\\}
 
@@ -320,18 +355,6 @@ Input: Arrow keys
 Output: The points are increased at twice the rate
 
 How test will be performed: A JUnit test will be implmented to check if the player's points were increased by twice the standard rate
-
-\item{GFT14\\}
-
-Type: Functional, Dynamic, Automated
-					
-Initial State: Player collides with enemy after collection of big dot
-					
-Input: Arrow keys
-					
-Output: Enemy is removed from game and respawned back to their original cell
-
-How test will be performed: A JUnit test will be implemented to check if the enemey's coordinates were reset to their original spot.
 
 \end{enumerate}
 

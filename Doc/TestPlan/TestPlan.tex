@@ -68,6 +68,7 @@ Yes & No
 2016-10-31 & 1.6 & Completion of Section 7.2\\
 2016-10-31 & 1.7 & Completion of content for 4\\
 2016-10-31 & 1.8 & Completion of section 1.3; revision of sections 1, 2, and 4\\
+2016-10-31 & 1.9 & Addition of section 6.1 and 6.2\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -725,8 +726,115 @@ UF1
 \section{Unit Testing Plan}
 		
 \subsection{Unit testing of internal functions}
+
+\paragraph{}
+A JUnit testing class will be implemented and used to test specific aspects of the application. These tests will be more specific than the functional tests and will address methods within the source code.
+
+\begin{enumerate}
+
+\item{UT1\\}
+
+Type: Unit, Dynamic, Automated
+					
+Initial State: Application is displaying the main menu page
+					
+Input: Start Game button action is performed
+					
+Output: New game is started and window is changed to reflect a new game state (Pass or fail for JUnit method)
+					
+How test will be performed: A JUnit method will test the method that opens a new frame containing the game and confirm that the new window has the appropriate game interface
+
+\item{UT2\\}
+
+Type: Unit, Dynamic, Automated
+					
+Initial State: Player is in starting position at the start of the game
+					
+Input: Current X position of the player
+					
+Output: Pass or fail for JUnit method
+					
+How test will be performed: A JUnit method will test the player's getCurrentX method to ensure their current X position equals their initial start position of the game
+
+\item{UT3\\}
+
+Type: Unit, Dynamic, Automated
+					
+Initial State: Player is in starting position at the start of the game
+					
+Input: Current Y position of the player
+					
+Output: Pass or fail for JUnit method
+					
+How test will be performed: A JUnit method will test the player's getCurrentY method to ensure their current Y position equals their initial start position of the game
+
+\item{UT4\\}
+
+Type: Unit, Dynamic, Automated
+					
+Initial State: Player is in starting position at the start of the game
+					
+Input: Current direction of the player
+					
+Output: Pass or fail for JUnit method
+					
+How test will be performed: A JUnit method will test the player's getCurrentDirection method to ensure their current direction equals the direction of their initial start position of the game
+
+\item{UT5\\}
+
+Type: Unit, Dynamic, Automated
+					
+Initial State: Player is in starting position at the start of the game
+					
+Input: PlayerX, PlayerY, EnemyX, EnemyY
+					
+Output: End of game (Pass or fail for JUnit method)
+					
+How test will be performed: A JUnit method will set the player's position to be within collision range of an enemy, and the checkCollision method will be tested to ensure it properly checks player-to-enemy collision and ends the game
+
+\item{UT6\\}
+
+Type: Unit, Dynamic, Automated
+					
+Initial State: Player is in starting position at the start of the game, all dots are on map
+					
+Input: PlayerX, PlayerY (different parts of the map grid)
+					
+Output: Increase in score and dot disappearance (Pass or fail for JUnit method)
+					
+How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they are on a dot that their score is increased and the dot has disappeared (board's getDot method)
+
+\item{UT7\\}
+
+Type: Unit, Dynamic, Automated
+					
+Initial State: Player is in starting position at the start of the game, all dots on map are clear except one
+					
+Input: PlayerX, PlayerY
+					
+Output: End of game (Pass or fail for JUnit method)
+					
+How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they collect the final dot that the endGame method is called and the player wins the game
+
+\end{enumerate}
 		
-\subsection{Unit testing of output files}		
+\subsection{Unit testing of output files}	
+
+\begin{enumerate}
+
+\item{UTF1\\}
+
+Type: Unit, Dynamic, Automated
+					
+Initial State: Application is in gameplay state
+					
+Input: High score within game and High Score stored in text file
+					
+Output: Pass or fail for JUnit method
+					
+How test will be performed: A JUnit class will test the method that reads a high score from the text file and check whether or not the in game high score matches that of the text file
+
+\end{enumerate}	
 
 %\bibliographystyle{plainnat}
 
@@ -755,7 +863,7 @@ $\Phi$ & 2 hours & Duration that application runs for before prompting user to t
 
 \subsection{Usability Survey Questions}
 
-The following \hyperref[fig:survey]{usability survey} will be filled out by users to evaluate playability of the game and test for non-functional requirements where manual testing is required.
+The following \hyperref[fig:survey]{usability survey} will be filled out by users to evaluate playability of the game and test for some non-functional requirements where manual testing is required.
 
 \newpage
 \begin{figure}

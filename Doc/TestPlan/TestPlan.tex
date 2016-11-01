@@ -70,7 +70,8 @@ Yes & No
 2016-10-31 & 1.8 & Completion of section 1.3; revision of sections 1, 2, and 4\\
 2016-10-31 & 1.9 & Addition of section 6.1 and 6.2\\
 2016-10-31 & 2.0 & Completion of section 5\\
-2016-10-31 & 2.1 & Updates to Sections 3.1 and 6.1\\
+2016-10-31 & 2.1 & Updates to sections 3.1 and 6.1\\
+2016-10-31 & 2.1 & Completion of section 6.1\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -755,7 +756,7 @@ A JUnit testing class will be implemented and used to test specific aspects of t
 
 \item{UT1\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Application is displaying the main menu page
 					
@@ -767,7 +768,7 @@ How test will be performed: A JUnit method will test the method that opens a new
 
 \item{UT2\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Player is in starting position at the start of the game
 					
@@ -779,7 +780,7 @@ How test will be performed: A JUnit method will test the player's getCurrentX me
 
 \item{UT3\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Player is in starting position at the start of the game
 					
@@ -791,7 +792,7 @@ How test will be performed: A JUnit method will test the player's getCurrentY me
 
 \item{UT4\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Player is in starting position at the start of the game
 					
@@ -803,7 +804,7 @@ How test will be performed: A JUnit method will test the player's getCurrentDire
 
 \item{UT5\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Player is in starting position at the start of the game
 					
@@ -815,7 +816,7 @@ How test will be performed: A JUnit method will set the player's position to be 
 
 \item{UT6\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Player is in starting position at the start of the game, all dots are on map
 					
@@ -827,7 +828,7 @@ How test will be performed: A JUnit method will test the player's checkDot metho
 
 \item{UT7\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Player is in starting position at the start of the game, all dots on map are clear except one
 					
@@ -839,7 +840,7 @@ How test will be performed: A JUnit method will test the player's checkDot metho
 
 \item{UT8\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Player is in starting position at the start of the game
 					
@@ -851,7 +852,7 @@ How test will be performed: A JUnit method will test the player's checkBarrier m
 
 \item{UT9\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Board is created with only barrier and dot entities
 					
@@ -863,7 +864,7 @@ How test will be performed: A JUnit method will test the board's getBarrier meth
 
 \item{UT10\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Board is created with only barrier and dot entities
 					
@@ -875,7 +876,7 @@ How test will be performed: A JUnit method will test the board's updateBarrier m
 
 \item{UT11\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Board is created with only barrier and dot entities
 					
@@ -887,7 +888,7 @@ How test will be performed: A JUnit method will test the board's getDot method t
 
 \item{UT12\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Board is created with only barrier and dot entities
 					
@@ -899,7 +900,7 @@ How test will be performed: A JUnit method will test the board's updateDot metho
 
 \item{UT13\\}
 
-Type: Unit, Dynamic, Automated
+Type: Unit, Static, Automated
 					
 Initial State: Board is created with only barrier and dot entities
 					
@@ -908,6 +909,18 @@ Input: X and Y positions for locations without dots
 Output: Integer value for dot locations (type of dot that exists here) (Pass or fail for JUnit method)
 					
 How test will be performed: A JUnit method will test the board's updateDot method to ensure that dots can be successfully added to specific locations on the map (getDot to check)
+
+\item{UT14\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Board is created with game entities, player and score objects are created
+					
+Input: Score values (negative, positive, values that increase the score past the maximum)
+					
+Output: Player score, and end game situation if applicable (Pass or fail for JUnit method)
+					
+How test will be performed: A JUnit method will test the Score class's addScore method to ensure that score can be appropriately added; the Player's checkDot method will be tested to see whether the game ends depending on the score
 
 \end{enumerate}
 		

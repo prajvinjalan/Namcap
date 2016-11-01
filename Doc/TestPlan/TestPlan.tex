@@ -71,6 +71,7 @@ Yes & No
 2016-10-31 & 1.9 & Addition of section 6.1 and 6.2\\
 2016-10-31 & 2.0 & Completion of section 5\\
 2016-10-31 & 2.1 & Updates to Sections 3.1 and 6.1\\
+2016-10-31 & 2.2 & Revision of System and Unit tests\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -162,7 +163,7 @@ Follow this link to the [\href{run:../DevelopmentPlan/NamcapGanttProject.gan}{Na
 \subsubsection{Game Funcionality Testing}
 		
 \paragraph{}
-A robot (automated) unit testing class will be implemented and used to test the mechanics of the game.
+A Robot (automated) unit testing class will be implemented and used to test the mechanics of the game.
 
 \begin{enumerate}
 
@@ -176,7 +177,7 @@ Input: Cursor clicked on Start Game button
 					
 Output: New game is started and window is changed to reflect a new game state
 					
-How test will be performed: The robot class will place the cursor within the coordinates of the Start Game button and the robot will perform a left-click
+How test will be performed: The Robot class will place the cursor within the coordinates of the Start Game button and the Robot will perform a left-click.
 
 \item{GFT11\\}
 
@@ -188,7 +189,7 @@ Input: Cursor clicked on exit game
 					
 Output: Application must terminate
 
-How test will be performed: The robot class will move the cursor to the exit game button and perform a left-click. If the applictaion closes, the test is successful
+How test will be performed: The Robot class will move the cursor to the exit game button and perform a left-click. If the applictaion closes, the test is successful.
 
 \end{enumerate}
 
@@ -206,7 +207,7 @@ Input: Arrow keys
 					
 Output: Player moves in the respective direction (if path is clear)
 					
-How test will be performed: The robot class will virtually press the left/right/up/down arrow
+How test will be performed: The Robot class will virtually press the left/right/up/down arrow. The Robot class will output text indicating current player direction.
 
 \item{GFT3\\}
 
@@ -218,7 +219,7 @@ Input: No input
 					
 Output: Player stops moving when coming in contact with the wall
 
-How test will be performed: The robot class will output a line of text to the console indicating that the player has stopped due to collision with a wall
+How test will be performed: The Robot class will output a line of text to the console indicating that the player has stopped due to collision with a wall.
 
 \item{GFT4\\}
 
@@ -230,7 +231,7 @@ Input: No input
 					
 Output: If player has more than 1 life, decrement lives. If player has one life, end game.
 
-How test will be performed: The robot class will navigate the payer towards an enemy until they collide.
+How test will be performed: The Robot class will navigate the player towards an enemy until they collide.
 
 
 \item{GFT6\\}
@@ -243,7 +244,7 @@ Input: Arrow keys
 					
 Output: Dot disappears after collection
 
-How test will be performed: The Robot class will navigate the player through the map and collect the dots. A function will be implemented to check if the dots disappear upon collection
+How test will be performed: The Robot class will navigate the player through the map and collect the dots. A function will be implemented to check if the dots disappear upon collection. A text message will be printed to indicate dot consumption.
 
 \item{GFT7\\}
 
@@ -255,7 +256,7 @@ Input: Arrow keys
 					
 Output: Big dot disappears after collection
 
-How test will be performed: The robot class will navigate the player to the nearest big dot and collect it. A fucntion will be implemented to check if the big dot dissapears upon collection
+How test will be performed: The Robot class will navigate the player to the nearest big dot and collect it. A function will be implemented to check if the big dot dissapears upon collection. A message will be printed to indicate big dot consumption.
 
 \item{GFT8\\}
 
@@ -267,7 +268,7 @@ Input: Arrow keys
 					
 Output: Player is able to collide with enemies
 
-How test will be performed: The robot class will navigate the player to the nearest enemy, after colleting the big dot. A funciton will be implemented to check if the collision doesn't decrement the player's lives
+How test will be performed: The Robot class will navigate the player to the nearest enemy, after collecting the big dot. A function will be implemented to check if the collision does not decrement the player's lives.
 
 \end{enumerate}
 
@@ -285,7 +286,7 @@ Input: No input
 					
 Output: Enemies move on a valid path
 
-How test will be performed: A JUnit test will be implemented to fail whenever the enemy moves through an obstacle.
+How test will be performed: A JUnit test will be implemented to fail whenever the enemy moves through an obstacle. The coordinate of the breached wall will be printed to indicate where the error occurred.
 
 \item{GFT9\\}
 
@@ -297,7 +298,7 @@ Input: No input
 					
 Output: Enemies change colour
 
-How test will be performed: A JUnit test will be iplemented to check if the asset used to view the enemies has changed.
+How test will be performed: A JUnit test will be implemented to check if the asset used to view the enemies has changed. A message will be printed to indicate that the colour change has occurred.
 
 \item{GFT14\\}
 
@@ -309,7 +310,7 @@ Input: Arrow keys
 					
 Output: Enemy is removed from game and respawned back to their original cell
 
-How test will be performed: A JUnit test will be implemented to check if the enemey's coordinates were reset to their original spot.
+How test will be performed: A JUnit test will be implemented to check if the enemy's coordinates were reset to their original spot.
 
 \end{enumerate}
 
@@ -327,7 +328,7 @@ Input: Arrow keys
 					
 Output: Game over screen is activated
 
-How test will be performed: A JUnit test will be implemented to check which JFrame is currently active
+How test will be performed: A JUnit test will be implemented to check which JFrame is currently active. A message will be printed to indicate that the game responded with game over response.
 
 \item{GFT12\\}
 
@@ -339,7 +340,7 @@ Input: Arrow keys
 					
 Output: The points are increased
 
-How test will be performed: A JUnit test will be implemented to check if the player's points were increased
+How test will be performed: A JUnit test will be implemented to check if the player's points were increased. Message to be printed to the screen to indicate correct increment.
 
 \item{GFT13\\}
 
@@ -351,14 +352,14 @@ Input: Arrow keys
 					
 Output: The points are increased at twice the rate
 
-How test will be performed: A JUnit test will be implmented to check if the player's points were increased by twice the standard rate
+How test will be performed: A JUnit test will be implmented to check if the player's points were increased by twice the standard rate. Message to be printed to screen to indicate correct increment.
 
 \end{enumerate}
 
 \subsection{Tests for Non-functional Requirements}
 
 \paragraph{}
-This section of System Testing will consist of manual tests since it would be infeasible to implement automated tests for a majority of the subsections of Non-functional Requirements. Manual tests will be performed by users, therefore many of the tests will correspond with the Usability Survey so testers can ensure that these requirements are met.
+This section of System Testing will consist of manual tests since it would be infeasible to implement automated tests for a majority of the subsections of Non-Functional Requirements. Manual tests will be performed by users, therefore many of the tests will correspond with the Usability Survey such that testers can ensure that these requirements are met.
 
 \subsubsection{Look and Feel Requirements}
 		
@@ -376,7 +377,7 @@ Input: No user input
 					
 Output: Namcap instructions page
 					
-How test will be performed: User will look at the Namcap instructions page and ensure that the layout and color scheme of the display is similar (but not identical) to that of the original arcade Pacman
+How test will be performed: User will look at the Namcap instructions page and ensure that the layout and colour scheme of the display is similar (but not identical) to that of the original arcade Pacman.
 					
 \item{AL2\\}
 
@@ -388,7 +389,7 @@ Input: No user input
 					
 Output: Namcap game board with game entities
 					
-How test will be performed: User will look at the Namcap game board with its game entities and ensure that the layout and color scheme of the display is similar (but not identical) to that of the original arcade Pacman
+How test will be performed: User will look at the Namcap game board with its game entities and ensure that the layout and colour scheme of the display is similar (but not identical) to that of the original arcade Pacman.
 
 \end{enumerate}
 
@@ -408,7 +409,7 @@ Input: No user input
 					
 Output: Namcap instructions page in English
 					
-How test will be performed: User will look at the Namcap instructions page and ensure that the instructions are in English
+How test will be performed: User will look at the Namcap instructions page and ensure that the instructions are in English.
 					
 \item{UO2\\}
 
@@ -420,7 +421,7 @@ Input: No user input
 					
 Output: Namcap instructions page clearly defining objectives
 					
-How test will be performed: User will look at the Namcap instructions page and ensure that the objective of the game is clear before playing the game
+How test will be performed: User will look at the Namcap instructions page and ensure that the objective of the game is clear before playing the game.
 
 \end{enumerate}
 
@@ -438,7 +439,7 @@ Input: Custom user input for gameplay
 					
 Output: Game display updates accounting for movement, collision, scoring, and enemy mechanics
 					
-How test will be performed: User will play Namcap (one playthrough - 3 lives) and be able to successfully maneuver the Player through dots and enemies, reinforcing their understanding of the game's controls and objectives
+How test will be performed: User will play Namcap (one playthrough - 3 lives) and be able to successfully maneuver the Player through dots and enemies, reinforcing their understanding of the game's controls and objective.
 
 \end{enumerate}
 
@@ -458,7 +459,7 @@ Input: Custom user input for gameplay
 					
 Output: Game display updates player movement based on keyboard input with a delay less than $\hyperref[tab:constants]{\Theta}$
 					
-How test will be performed: User will play Namcap and note down any instances where their player does not respond to their keyboard inputs within a delay of $\hyperref[tab:constants]{\Theta}$
+How test will be performed: User will play Namcap and note down any instances where their player does not respond to their keyboard inputs within a delay of $\hyperref[tab:constants]{\Theta}$.
 
 \end{enumerate}
 
@@ -476,7 +477,7 @@ Input: Custom user input for gameplay testing
 					
 Output: Game display updates for user input and application does not crash
 					
-How test will be performed: User will play Namcap and note down any instances where during their testing, the application unexpectedly crashes (the number of crashes will be within $\hyperref[tab:constants]{\Omega}$ of total user tests)
+How test will be performed: User will play Namcap and note down any instances where during their testing, the application unexpectedly crashes (the number of crashes will be within $\hyperref[tab:constants]{\Omega}$ of total user tests).
 
 \end{enumerate}
 
@@ -491,25 +492,25 @@ The primary operating systems that Namcap is being tested on currently are Windo
 
 Type: Functional, Dynamic, Manual
 					
-Initial State: A Namcap jar file is available on a machine running Windows
+Initial State: A Namcap JAR file is available on a machine running Windows
 					
-Input: User runs the jar file
+Input: User runs the JAR file
 					
 Output: Namcap starts up and game can be played
 					
-How test will be performed: User will run the jar file on their computer (any Windows version with a JVM) and should be able to successfully play the game (one playthrough)
+How test will be performed: User will run the JAR file on their computer (any Windows version with a JVM) and should be able to successfully play the game (one playthrough).
 
 \item{OSS2\\}
 
 Type: Functional, Dynamic, Manual
 					
-Initial State: A Namcap jar file is available on a machine running Mac OS
+Initial State: A Namcap JAR file is available on a machine running Mac OS
 					
-Input: User runs the jar file
+Input: User runs the JAR file
 					
 Output: Namcap starts up and game can be played
 					
-How test will be performed: User will run the jar file on their computer (any Mac OS version with a JVM) and should be able to successfully play the game (one playthrough)
+How test will be performed: User will run the JAR file on their computer (any Mac OS version with a JVM) and should be able to successfully play the game (one playthrough).
 
 \end{enumerate}
 
@@ -529,7 +530,7 @@ Input: User accesses the open-source repository (visits the repository link)
 					
 Output: User is able to view the application source code
 					
-How test will be performed: User will visit the repository link and be able to view the application source code
+How test will be performed: User will visit the repository link and be able to view the application source code.
 
 \end{enumerate}
 
@@ -549,7 +550,7 @@ Input: No user input
 					
 Output: Namcap instructions page
 					
-How test will be performed: User will look at the Namcap instructions page and ensure that it contains no offensive symbols or text
+How test will be performed: User will look at the Namcap instructions page and ensure that it contains no offensive symbols or text.
 					
 \item{OST2\\}
 
@@ -561,7 +562,7 @@ Input: No user input
 					
 Output: Namcap game board with game entities
 					
-How test will be performed: User will look at the Namcap game board with its game entities and ensure that it contains no offensive symbols or text
+How test will be performed: User will look at the Namcap game board with its game entities and ensure that it contains no offensive symbols or text.
 
 \end{enumerate}
 
@@ -581,7 +582,7 @@ Input: No user input
 					
 Output: Namcap instructions page
 					
-How test will be performed: User will look at the Namcap instructions page and ensure that literary work and listed game entities have been altered such that the redevelopment is not too similar to the original Pacman
+How test will be performed: User will look at the Namcap instructions page and ensure that literary work and listed game entities have been altered such that the redevelopment is not too similar to the original Pacman.
 					
 \item{LV2\\}
 
@@ -593,7 +594,7 @@ Input: No user input
 					
 Output: Namcap game board with game entities
 					
-How test will be performed: User will look at the Namcap game board with its game entities and ensure that literary work and game entities have been altered such that the redevelopment is not too similar to the original Pacman
+How test will be performed: User will look at the Namcap game board with its game entities and ensure that literary work and game entities have been altered such that the redevelopment is not too similar to the original Pacman.
 
 \end{enumerate}
 
@@ -613,7 +614,7 @@ Input: No user input, application runs for $\hyperref[tab:constants]{\Phi}$
 					
 Output: After $\hyperref[tab:constants]{\Phi}$, application pauses and prompts the user to take a break
 					
-How test will be performed: User will let the application run for $\hyperref[tab:constants]{\Phi}$ and ensure that when the time passes the application pauses appropriately and prompts them to take a break
+How test will be performed: User will let the application run for $\hyperref[tab:constants]{\Phi}$ and ensure that when the time passes the application pauses appropriately and prompts them to take a break.
 
 \end{enumerate}
 
@@ -763,7 +764,7 @@ Input: Start Game button action is performed
 					
 Output: New game is started and window is changed to reflect a new game state (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the method that opens a new frame containing the game and confirm that the new window has the appropriate game interface
+How test will be performed: A JUnit method will test the method that opens a new frame containing the game and confirm that the new window has the appropriate game interface.
 
 \item{UT2\\}
 
@@ -775,7 +776,7 @@ Input: Current X position of the player
 					
 Output: Pass or fail for JUnit method
 					
-How test will be performed: A JUnit method will test the player's getCurrentX method to ensure their current X position equals their initial start position of the game
+How test will be performed: A JUnit method will test the player's getCurrentX method to ensure their current X position equals their initial start position of the game.
 
 \item{UT3\\}
 
@@ -787,7 +788,7 @@ Input: Current Y position of the player
 					
 Output: Pass or fail for JUnit method
 					
-How test will be performed: A JUnit method will test the player's getCurrentY method to ensure their current Y position equals their initial start position of the game
+How test will be performed: A JUnit method will test the player's getCurrentY method to ensure their current Y position equals their initial start position of the game.
 
 \item{UT4\\}
 
@@ -799,7 +800,7 @@ Input: Current direction of the player
 					
 Output: Pass or fail for JUnit method
 					
-How test will be performed: A JUnit method will test the player's getCurrentDirection method to ensure their current direction equals the direction of their initial start position of the game
+How test will be performed: A JUnit method will test the player's getCurrentDirection method to ensure their current direction equals the direction of their initial start position of the game.
 
 \item{UT5\\}
 
@@ -811,7 +812,7 @@ Input: PlayerX, PlayerY, EnemyX, EnemyY
 					
 Output: End of game (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will set the player's position to be within collision range of an enemy, and the checkCollision method will be tested to ensure it properly checks player-to-enemy collision and ends the game
+How test will be performed: A JUnit method will set the player's position to be within collision range of an enemy, and the checkCollision method will be tested to ensure it properly checks player-to-enemy collision and ends the game.
 
 \item{UT6\\}
 
@@ -823,7 +824,7 @@ Input: PlayerX, PlayerY (different parts of the map grid)
 					
 Output: Increase in score and dot disappearance (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they are on a dot that their score is increased and the dot has disappeared (board's getDot method)
+How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they are on a dot that their score is increased and the dot has disappeared (board's getDot method).
 
 \item{UT7\\}
 
@@ -835,7 +836,7 @@ Input: PlayerX, PlayerY
 					
 Output: End of game (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they collect the final dot that the endGame method is called and the player wins the game
+How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they collect the final dot that the endGame method is called and the player wins the game.
 
 \item{UT8\\}
 
@@ -847,7 +848,7 @@ Input: X and Y positions for barrier and non-barrier positions
 					
 Output: True or false for barriers (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the player's checkBarrier method to ensure that when a position is checked, the appropriate response is received for if barriers exist or not
+How test will be performed: A JUnit method will test the player's checkBarrier method to ensure that when a position is checked, the appropriate response is received for if barriers exist or not.
 
 \item{UT9\\}
 
@@ -859,7 +860,7 @@ Input: X and Y positions for barrier locations
 					
 Output: Expected true for all barrier locations (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the board's getBarrier method to ensure that barriers exist in all the appropriate locations
+How test will be performed: A JUnit method will test the board's getBarrier method to ensure that barriers exist in all the appropriate locations.
 
 \item{UT10\\}
 
@@ -871,7 +872,7 @@ Input: X and Y positions for locations without barriers
 					
 Output: True or false for new barrier locations (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the board's updateBarrier method to ensure that barriers can be successfully added to specific locations on the map (getBarrier to check)
+How test will be performed: A JUnit method will test the board's updateBarrier method to ensure that barriers can be successfully added to specific locations on the map (getBarrier to check).
 
 \item{UT11\\}
 
@@ -883,7 +884,7 @@ Input: X and Y positions for dot locations
 					
 Output: Expected true for all dot locations (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the board's getDot method to ensure that dots exist in all the appropriate locations
+How test will be performed: A JUnit method will test the board's getDot method to ensure that dots exist in all the appropriate locations.
 
 \item{UT12\\}
 
@@ -895,7 +896,7 @@ Input: X and Y positions for locations without dots
 					
 Output: Integer value for dot locations (type of dot that exists here) (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the board's updateDot method to ensure that dots can be successfully added to specific locations on the map (getDot to check)
+How test will be performed: A JUnit method will test the board's updateDot method to ensure that dots can be successfully added to specific locations on the map (getDot to check).
 
 \item{UT13\\}
 
@@ -907,7 +908,7 @@ Input: X and Y positions for locations without dots
 					
 Output: Integer value for dot locations (type of dot that exists here) (Pass or fail for JUnit method)
 					
-How test will be performed: A JUnit method will test the board's updateDot method to ensure that dots can be successfully added to specific locations on the map (getDot to check)
+How test will be performed: A JUnit method will test the board's updateDot method to ensure that dots can be successfully added to specific locations on the map (getDot to check).
 
 \end{enumerate}
 		
@@ -925,7 +926,7 @@ Input: High score within game and High Score stored in text file
 					
 Output: Pass or fail for JUnit method
 					
-How test will be performed: A JUnit class will test the method that reads a high score from the text file and check whether or not the in game high score matches that of the text file
+How test will be performed: A JUnit class will test the method that reads a high score from the text file and check whether or not the in game high score matches that of the text file.
 
 \end{enumerate}	
 

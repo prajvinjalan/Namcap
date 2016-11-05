@@ -1,17 +1,18 @@
 all: classes manifest run
 
 classes:
+	javac controller/*.java
 	javac model/*.java
 	javac view/*.java
 
 manifest: $(classes)
-	echo "Main-class: view/BoardView" > Manifest.txt
+	echo "Main-class: model/Namcap" > Manifest.txt
 
 run: $(classes)
 	echo "#!/bin/bash" > run
-	echo "java -jar view/BoardView.jar" >> run
-	jar cfm view/BoardView.jar Manifest.txt view/*.class model/*.class assets
+	echo "java -jar model/Namcap.jar" >> run
+	jar cfm model/Namcap.jar Manifest.txt view/*.class model/*.class controller/*.class assets
 	chmod 754 run
 
 clean:
-	$(RM) view/*.class model/*.class run Manifest.txt view/BoardView.jar
+	$(RM) view/*.class model/*.class controller/*.class run Manifest.txt model/Namcap.jar

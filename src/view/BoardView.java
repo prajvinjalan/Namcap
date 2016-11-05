@@ -3,15 +3,13 @@ package view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import javax.swing.*;
-import model.Board;
-import model.Ghost;
-import model.Player;
 
-public class BoardView extends JPanel implements KeyListener {
+import controller.KeyController;
+import model.Board;
+
+public class BoardView extends JPanel{
 
 	Board board;
 	int sq;
@@ -19,20 +17,6 @@ public class BoardView extends JPanel implements KeyListener {
 	javax.swing.Timer frameTimer;
 	JLabel scoreLabel, pointsLabel;
 	JFrame frame;
-	
-	public static void main(String[] args){
-		JFrame frame = new JFrame("Namcap");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		Board board = new Board();
-		BoardView boardGUI = new BoardView(board, frame);
-		Player player = new Player(board);
-		Ghost ghost = new Ghost(board);
-		frame.setContentPane(boardGUI);
-		frame.setPreferredSize(new Dimension(437,450));
-		frame.pack();
-		frame.setVisible(true);
-	}
 	
 	public BoardView(Board board, JFrame frame){
 		this.board = board;
@@ -48,7 +32,7 @@ public class BoardView extends JPanel implements KeyListener {
 		playerDown = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_down.jpeg"));
 		this.ghost = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/ghost_red.png"));
 		
-		this.addKeyListener(this);
+		this.registerControllers();
 		/*
 		this.playerLeft = Toolkit.getDefaultToolkit().getImage("assets/player_left.jpeg");
 		this.playerRight = Toolkit.getDefaultToolkit().getImage("assets/player_right.jpeg");
@@ -74,6 +58,11 @@ public class BoardView extends JPanel implements KeyListener {
 		pointsLabel.setLocation(150,470);
 		pointsLabel.setForeground(Color.white);
 		this.add(pointsLabel);
+	}
+
+	private void registerControllers() {
+		KeyController keysClicked = new KeyController(this.board);
+		this.addKeyListener(keysClicked);
 	}
 	
 	public void stepFrame(){
@@ -200,8 +189,6 @@ public class BoardView extends JPanel implements KeyListener {
 		//polyPoints.add(new int[][]{{10,8}}); //blocks off enemy spawn
 		
 		this.board.updateBarrier(polyPoints);
-
-		
 	}
 	
 	public void drawDots(Graphics g){
@@ -264,7 +251,6 @@ public class BoardView extends JPanel implements KeyListener {
 		this.drawDots(g);
 		this.drawPlayer(g);
 		this.drawGhost(g);
-		
 	}
 	
 	public void repaint(Graphics g){
@@ -272,37 +258,6 @@ public class BoardView extends JPanel implements KeyListener {
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
 		super.repaint((this.board.getGhost().getCurrX())-20, (this.board.getGhost().getCurrY())-20, 80, 80);
 		//this.pointsLabel.setText(this.board.accessScore().getScore() + "");
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		switch(e.getKeyCode()){
-		case KeyEvent.VK_LEFT:
-			board.getPlayer().setNewDirection('L');
-			break;
-		case KeyEvent.VK_RIGHT:
-			board.getPlayer().setNewDirection('R');
-			break;
-		case KeyEvent.VK_UP:
-			board.getPlayer().setNewDirection('U');
-			break;
-		case KeyEvent.VK_DOWN:
-			board.getPlayer().setNewDirection('D');
-			break;
-		}
-		this.repaint();
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void endGame() {

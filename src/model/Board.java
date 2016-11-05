@@ -88,4 +88,12 @@ public class Board {
 	public Score accessScore(){
 		return this.score;
 	}
+
+	public void changePlayerDirection(char dir){
+		this.getPlayer().setNewDirection(dir);
+	}
+	
+	public void updateView(){
+		this.view.repaint();
+	}
 }

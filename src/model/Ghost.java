@@ -2,34 +2,17 @@ package model;
 
 import java.util.Random;
 
-public class Ghost {
-	
-	char prevDirection, newDirection;
-	int prevX, prevY, currX, currY, sq;
-	boolean stop;
-	int pixelInc = 4;
-	Board board;
+public class Ghost extends Character {
 	
 	public Ghost(Board board){
-		this.board = board;
+		super(board);
 		this.board.setGhost(this);
-		this.sq = 20;
-		this.stop = false;
 		this.prevX = 10*this.sq;
 		this.prevY = 7*this.sq;
 		this.currX = 10*this.sq;
 		this.currY = 7*this.sq;
-		this.prevDirection = 'R';
-		this.newDirection = 'R';
 	}
 	
-	public boolean isBarrier(int x, int y){
-		if (this.board.getBarrier(x/this.sq, y/this.sq)){
-			return true;
-		}
-		return false;
-		
-	}
 	
 	public boolean keepMoving(char direction){
 		switch(direction){
@@ -130,21 +113,4 @@ public class Ghost {
 			this.prevDirection = this.newDirection;
 		}
 	}
-	
-	public int getCurrX(){
-		return this.currX;
-	}
-	
-	public int getCurrY(){
-		return this.currY;
-	}
-	
-	public char getCurrDirection(){
-		return this.prevDirection;
-	}
-	
-	public void setNewDirection(char dir){
-		this.newDirection = dir;
-	}
-
 }

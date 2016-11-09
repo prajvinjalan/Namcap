@@ -1,34 +1,17 @@
 package model;
 
-public class Player {
+public class Player extends Character {
 	
-	char prevDirection, newDirection;
-	int prevX, prevY, currX, currY, sq;
-	boolean stop;
-	int pixelInc = 4;
-	Board board;
-	
+
 	public Player(Board board){
-		this.board = board;
+		super(board);
 		this.board.setPlayer(this);
-		this.sq = 20;
-		this.stop = false;
 		this.prevX = 10*this.sq;
 		this.prevY = 15*this.sq;
 		this.currX = 10*this.sq;
 		this.currY = 15*this.sq;
-		this.prevDirection = 'R';
-		this.newDirection = 'R';
-		
 	}
 	
-	public boolean isBarrier(int x, int y){
-		if (this.board.getBarrier(x/this.sq, y/this.sq)){
-			return true;
-		}
-		return false;
-		
-	}
 	
 	public void move(){
 		this.checkCollision();
@@ -117,22 +100,4 @@ public class Player {
 	public void endGame(){
 		this.board.view.endGame();
 	}
-	
-	public int getCurrX(){
-		return this.currX;
-	}
-	
-	public int getCurrY(){
-		return this.currY;
-	}
-	
-	public char getCurrDirection(){
-		return this.prevDirection;
-	}
-	
-	public void setNewDirection(char dir){
-		this.newDirection = dir;
-	}
-	
-	
 }

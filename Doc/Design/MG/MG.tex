@@ -50,13 +50,13 @@
 \listoftables
 \listoffigures
 
-\begin{table}[bp]
+\begin{table}[h]
 \caption{\bf Revision History}
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+2016-11-09 & 1.0 & Addition of Introduction Section\\
+2016-11-09 & 1.1 & Completion of Module Hierarchy Section\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -125,11 +125,25 @@ decisions will be changed.
 This section provides an overview of the module design. Modules are summarized
 in a hierarchy decomposed by secrets in Table \ref{TblMH}. The modules listed
 below, which are leaves in the hierarchy tree, are the modules that will
-actually be implemented.
+actually be implemented. The Ghost Module has been implemented such that it only
+contains only the algorithm for movement for enemies in the game, so it is a generic
+module that can be used for the movement of any AI character that may be
+implemented in Namcap.
 
 \begin{description}
 \item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item ...
+\item [\refstepcounter{mnum} \mthemnum \label{mBH}:] Behaviour-Hiding Module
+\item [\refstepcounter{mnum} \mthemnum \label{mSD}:] Software Decision Module
+\item [\refstepcounter{mnum} \mthemnum \label{mMM}:] Main Menu Module
+\item [\refstepcounter{mnum} \mthemnum \label{mC}:] Character Module
+\item [\refstepcounter{mnum} \mthemnum \label{mP}:] Player Module
+\item [\refstepcounter{mnum} \mthemnum \label{mB}:] Board Module
+\item [\refstepcounter{mnum} \mthemnum \label{mS}:] Score Module
+\item [\refstepcounter{mnum} \mthemnum \label{mMV}:] Main Menu Viw Module
+\item [\refstepcounter{mnum} \mthemnum \label{mBV}:] Board View Module
+\item [\refstepcounter{mnum} \mthemnum \label{mBC}:] Button Controller Module
+\item [\refstepcounter{mnum} \mthemnum \label{mKC}:] Key Controller Module
+\item [\refstepcounter{mnum} \mthemnum \label{mG}:] Ghost Module
 \end{description}
 
 
@@ -143,19 +157,19 @@ actually be implemented.
 {Hardware-Hiding Module} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\ 
-& ?\\
+\multirow{9}{0.3\textwidth}{Behaviour-Hiding Module}
+& Main Menu\\
+& Character\\
+& Player\\
+& Board\\
+& Score\\
+& Main Menu View\\ 
+& Board View\\
+& Button Controller\\
+& Key Controller\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & {?}\\
-& ?\\
-& ?\\
+{Software Decision Module} & Ghost\\
 \bottomrule
 
 \end{tabular}
@@ -198,7 +212,7 @@ selected.
 \item[Implemented By:] OS
 \end{description}
 
-\subsection{Behaviour-Hiding Module}
+\subsection{Behaviour-Hiding Module (\mref{mBH})}
 
 \begin{description}
 \item[Secrets:]The contents of the required behaviours.
@@ -222,7 +236,7 @@ selected.
 \subsubsection{Etc.}
 
 
-\subsection{Software Decision Module}
+\subsection{Software Decision Module(\mref{mSD})}
 
 \begin{description}
 \item[Secrets:] The design decision based on mathematical theorems, physical

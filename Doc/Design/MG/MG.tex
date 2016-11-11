@@ -59,6 +59,7 @@
 2016-11-09 & 1.1 & Completion of Module Hierarchy Section\\
 2016-11-10 & 1.2 & Completion of Introduction Section\\
 2016-11-10 & 1.3 & Completion of Uses Hierarchy Section\\
+2016-11-10 & 1.4 & Completion of Module Decomposition Section\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -213,14 +214,7 @@ module. The \emph{Services} field specifies \emph{what} the module will do
 without documenting \emph{how} to do it. For each module, a suggestion for the
 implementing software is given under the \emph{Implemented By} title. If the
 entry is \emph{OS}, this means that the module is provided by the operating
-system or by standard programming language libraries.  Also indicate if the
-module will be implemented specifically for the software.
-
-Only the leaf modules in the
-hierarchy have to be implemented. If a dash (\emph{--}) is shown, this means
-that the module is not a leaf and will not have to be implemented. Whether or
-not this module is implemented depends on the programming language
-selected.
+system or by standard programming language libraries.
 
 \subsection{Hardware Hiding Modules (\mref{mHH})}
 
@@ -245,16 +239,77 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Format Module (\mref{mInput})}
+\subsubsection{Main Menu Module (\mref{mMMM})}
 
 \begin{description}
-\item[Secrets:]The format and structure of the input data.
-\item[Services:]Converts the input data into the data structure used by the
-  input parameters module.
-\item[Implemented By:] [Your Program Name Here]
+\item[Secrets:]The instantiation of a new game.
+\item[Services:]Starts a new game when user clicks on Start Game button.
+\item[Implemented By:] Namcap
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Character Module (\mref{mCM})}
+
+\begin{description}
+\item[Secrets:]Attributes of a character.
+\item[Services:]Acts as a super-class to the Player and Ghost modules. Provides the character's location on the map/grid.
+\item[Implemented By:] Namcap
+\end{description}
+
+\subsubsection{Player Module (\mref{mPM})}
+
+\begin{description}
+\item[Secrets:]The movement mechanics of the Player.
+\item[Services:]Allows the user to navigate the player across the map on a valid path.
+\item[Implemented By:] Namcap
+\end{description}
+
+\subsubsection{Board Module (\mref{mBM})}
+
+\begin{description}
+\item[Secrets:]The barrier detection mechanism.
+\item[Services:]Provides a layout of all the barriers on the map and a layout of all the dots on the map.
+\item[Implemented By:] Namcap
+\end{description}
+
+\subsubsection{Score Module (\mref{mSM})}
+
+\begin{description}
+\item[Secrets:]The scoring mechanism.
+\item[Services:]Provides the user's score.
+\item[Implemented By:] Namcap
+\end{description}
+
+\subsubsection{Main Menu View Module (\mref{mMMVM})}
+
+\begin{description}
+\item[Secrets:]The display of the main menu.
+\item[Services:]Displays the main menu to the user.
+\item[Implemented By:] Namcap
+\end{description}
+
+\subsubsection{Board View Module (\mref{mBVM})}
+
+\begin{description}
+\item[Secrets:]The main game display.
+\item[Services:]Displays the game's board/map to the user.
+\item[Implemented By:] Namcap
+\end{description}
+
+\subsubsection{Button Controller Module (\mref{mBCM})}
+
+\begin{description}
+\item[Secrets:]The actions performed by any buttons.
+\item[Services:]Performs the action 
+\item[Implemented By:] Namcap
+\end{description}
+
+\subsubsection{Key Controller Module (\mref{mKCM})}
+
+\begin{description}
+\item[Secrets:]The actions performed by key presses.
+\item[Services:]Provides a direction, based on what key is pressed, to the player's movement module.
+\item[Implemented By:] Namcap
+\end{description}
 
 
 \subsection{Software Decision Module(\mref{mSD})}
@@ -270,7 +325,14 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Ghost Module (\mref{mGM})}
+
+\begin{description}
+\item[Secrets:]The ghost's movement mechanism.
+\item[Services:]Implements an simple AI that moves te ghost on a valid path.
+\item[Implemented By:] Namcap
+\end{description}
+
 
 \section{Traceability Matrix} \label{SecTM}
 

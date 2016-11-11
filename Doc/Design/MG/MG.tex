@@ -57,6 +57,8 @@
 \midrule
 2016-11-09 & 1.0 & Addition of Introduction Section\\
 2016-11-09 & 1.1 & Completion of Module Hierarchy Section\\
+2016-11-10 & 1.2 & Completion of Introduction Section\\
+2016-11-10 & 1.3 & Completion of Uses Hierarchy Section\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -335,11 +337,17 @@ implementation of B.  Figure \ref{FigUH} illustrates the use relation between
 the modules. It can be seen that the graph is a directed acyclic graph
 (DAG). Each level of the hierarchy offers a testable and usable subset of the
 system, and modules in the higher level of the hierarchy are essentially simpler
-because they use modules from the lower levels.
+because they use modules from the lower levels.\\\\
+\noindent It should be noted that the design of the modules follows the model-view-controller
+architectural pattern so the Uses Hierarchy between modules has been colour-coded to differentiate
+the components. Red entities are controller modules (dealing with user input), yellow entities are view 
+modules (dealing with display), and green entities are model modules (dealing with game mechanisms).
+To ensure clarity, since all modules are connected to the Hardware-Hiding module - which directly interacts
+with system hardware for input and output - it has been shown seperately in the figure.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
+\includegraphics[width=1.0\textwidth]{UsesHierarchy.png}
 \caption{Use hierarchy among modules}
 \label{FigUH}
 \end{figure}

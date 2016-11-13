@@ -147,7 +147,7 @@ implemented in Namcap.
 \item [\refstepcounter{mnum} \mthemnum \label{mP}:] Player Module
 \item [\refstepcounter{mnum} \mthemnum \label{mB}:] Board Module
 \item [\refstepcounter{mnum} \mthemnum \label{mS}:] Score Module
-\item [\refstepcounter{mnum} \mthemnum \label{mMV}:] Main Menu Viw Module
+\item [\refstepcounter{mnum} \mthemnum \label{mMV}:] Main Menu View Module
 \item [\refstepcounter{mnum} \mthemnum \label{mBV}:] Board View Module
 \item [\refstepcounter{mnum} \mthemnum \label{mBC}:] Button Controller Module
 \item [\refstepcounter{mnum} \mthemnum \label{mKC}:] Key Controller Module
@@ -333,17 +333,38 @@ requirements and between the modules and the anticipated changes.
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-R1 & \mref{mHH}, \mref{mInput}, \mref{mParams}, \mref{mControl}\\
-R2 & \mref{mInput}, \mref{mParams}\\
-R3 & \mref{mVerify}\\
-R4 & \mref{mOutput}, \mref{mControl}\\
-R5 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R6 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R7 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R8 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R9 & \mref{mVerifyOut}\\
-R10 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}\\
-R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
+F1 & \mref{mMM}, \mref{mMV}, \mref{mBC}\\
+F2 & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mBV}, \mref{mKC}\\
+F3 & \mref{mC}, \mref{mP}, \mref{mBV}\\
+F4 & \mref{mP}, \mref{mBV}\\
+F5 & \mref{mC}, \mref{mG}\\
+F6 & \mref{mC}, \mref{mBV}, \mref{mG}\\
+F7 & \mref{mP}, \mref{mB}, \mref{mBV}\\
+F8 & \mref{mOutput}\\
+F9 & \mref{mVerifyOut}\\
+F10 & \mref{mOutput}\\
+F11 & \mref{mP}, \mref{mKC}\\
+F12 & \mref{mVerify}\\
+F13 & \mref{mP}, \mref{mS}\\
+F14 & \mref{mVerify}\\
+F15 & \mref{mVerify}\\
+NF1 & \mref{mMV}, \mref{mBV}\\
+NF2 & \mref{mMV}, \mref{mBV}\\
+NF3 & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mBV}, \mref{mKC}\\
+NF4 & \mref{mMV}, \mref{mBV}\\
+NF5 & \mref{mVerify}\\
+NF6 & \mref{BH}, \mref{SD}\\
+NF7 & \mref{mVerify}\\
+NF8 & \mref{mVerify}\\
+NF9 & \mref{mVerify}\\
+NF10 & \mref{mVerify}\\
+NF11 & \mref{mVerify}\\
+NF12 & \mref{mVerify}\\
+NF13 & \mref{mVerify}\\
+NF14 & \mref{mVerify}\\
+NF15 & \mref{mVerify}\\
+NF16 & \mref{mVerify}\\
+NF17 & \mref{mVerify}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}
@@ -356,18 +377,9 @@ R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
 \toprule
 \textbf{AC} & \textbf{Modules}\\
 \midrule
-\acref{acHardware} & \mref{mHH}\\
-\acref{acInput} & \mref{mInput}\\
-\acref{acParams} & \mref{mParams}\\
-\acref{acVerify} & \mref{mVerify}\\
-\acref{acOutput} & \mref{mOutput}\\
-\acref{acVerifyOut} & \mref{mVerifyOut}\\
-\acref{acODEs} & \mref{mODEs}\\
-\acref{acEnergy} & \mref{mEnergy}\\
-\acref{acControl} & \mref{mControl}\\
-\acref{acSeqDS} & \mref{mSeqDS}\\
-\acref{acSolver} & \mref{mSolver}\\
-\acref{acPlot} & \mref{mPlot}\\
+\acref{acSprites} & \mref{mHH}\\
+\acref{acStats} & \mref{mInput}\\
+\acref{acHScore} & \mref{mParams}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Anticipated Changes and Modules}

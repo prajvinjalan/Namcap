@@ -96,7 +96,7 @@ The document is organised as such:
 
 \item Section 5: Module Decomposition. Details for each module.
 
-\item Section 6: Tracability Matrix
+\item Section 6: Traceability Matrix
 
 \item Section 7: Uses Hierarchy Between Modules
 
@@ -111,35 +111,21 @@ unlikely changes are listed in Section \ref{SecUchange}.
 
 \subsection{Anticipated Changes} \label{SecAchange}
 
-Anticipated changes are the source of the information that is to be hidden
-inside the modules. Ideally, changing one of the anticipated changes will only
-require changing the one module that hides the associated decision. The approach
-adapted here is called design for
-change.
+The following are anticipated changes pertaining to the design of Namcap. The development team will approach the project with an adapted design for change methodology that will require only the one module that contains the decision elements for the change to be altered.
 
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific
-  hardware on which the software is running.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the
-  initial input data.
-\item ...
+\item[\refstepcounter{acnum} \actheacnum \label{acSprites}:] The graphical sprites for the Player and Ghost (enemy) entities in the game.
+\item[\refstepcounter{acnum} \actheacnum \label{acStats}:] The representation of the score and player lives on the GUI.
+\item[\refstepcounter{acnum} \actheacnum \label{acHScore}:] Tracking of the high score value to be instance-independent (high score will persist from program run to program run).
 \end{description}
 
 \subsection{Unlikely Changes} \label{SecUchange}
 
-The module design should be as general as possible. However, a general system is
-more complex. Sometimes this complexity is not necessary. Fixing some design
-decisions at the system architecture stage can simplify the software design. If
-these decision should later need to be changed, then many parts of the design
-will potentially need to be modified. Hence, it is not intended that these
-decisions will be changed.
+The following are changes that are unlikely to occur as many parts of the design will potentially need to be modified based on the decisions made. The referred-to decisions primarily pertain to system architecture and core functionalities.
 
 \begin{description}
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices
-  (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] There will always be
-  a source of input data external to the software.
-\item ...
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices (Input: File (high score) and Keyboard (player control), Output: FIle (high score), Screen (displays GUI)).
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] There will always be a source of input data external to the software.
 \end{description}
 
 \section{Module Hierarchy} \label{SecMH}

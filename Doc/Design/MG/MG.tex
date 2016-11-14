@@ -135,9 +135,9 @@ The following are changes that are unlikely to occur as many parts of the design
 
 This section provides an overview of the module design. Modules are summarized
 in a hierarchy decomposed by secrets in Table \ref{TblMH}. The modules listed
-below, which are leaves in the hierarchy tree, are the modules that will
+below, which are leaves in the hierarchy tree (with the exclusion of M1 - M3 representing generalized groups of modules), are the modules that will
 actually be implemented. The Ghost Module has been implemented such that it only
-contains only the algorithm for movement for enemies in the game, so it is a generic
+contains the algorithm for enemy movement in the game, so it is a generic
 module that can be used for the movement of any AI character that may be
 implemented in Namcap.
 
@@ -207,11 +207,11 @@ system or by standard programming language libraries.
 \subsection{Hardware Hiding Modules (\mref{mHH})}
 
 \begin{description}
-\item[Secrets:]The data structure and algorithm used to implement the virtual
+\item[Secrets:]The data structures and algorithms used to implement the virtual
   hardware.
 \item[Services:]Serves as a virtual hardware used by the rest of the
   system. This module provides the interface between the hardware and the
-  software. So, the system can use it to display outputs or to accept inputs.
+  software. Furthermore, the system can use it to display outputs or to accept inputs.
 \item[Implemented By:] OS
 \end{description}
 
@@ -221,7 +221,7 @@ system or by standard programming language libraries.
 \item[Secrets:]The contents of the required behaviours.
 \item[Services:]Includes programs that provide externally visible behaviour of
   the system as specified in the software requirements specification (SRS)
-  documents. This module serves as a communication layer between the
+  document. This module serves as a communication layer between the
   hardware-hiding module and the software decision module. The programs in this
   module will need to change if there are changes in the SRS.
 \item[Implemented By:] --
@@ -287,7 +287,7 @@ system or by standard programming language libraries.
 
 \begin{description}
 \item[Secrets:]The actions performed by any buttons.
-\item[Services:]Performs the action 
+\item[Services:]Performs the action. 
 \item[Implemented By:] Namcap
 \end{description}
 
@@ -317,7 +317,7 @@ system or by standard programming language libraries.
 
 \begin{description}
 \item[Secrets:]The ghost's movement mechanism.
-\item[Services:]Implements an simple AI that moves te ghost on a valid path.
+\item[Services:]Implements an simple AI that moves the ghost on a valid path.
 \item[Implemented By:] Namcap
 \end{description}
 
@@ -391,7 +391,7 @@ the modules. It can be seen that the graph is a directed acyclic graph
 system, and modules in the higher level of the hierarchy are essentially simpler
 because they use modules from the lower levels.\\\\
 \noindent It should be noted that the design of the modules follows the model-view-controller
-architectural pattern so the Uses Hierarchy between modules has been colour-coded to differentiate
+architectural pattern, thus the Uses Hierarchy between modules has been colour-coded to differentiate
 the components. Red entities are controller modules (dealing with user input), yellow entities are view 
 modules (dealing with display), and green entities are model modules (dealing with game mechanisms).
 To ensure clarity, since all modules are connected to the Hardware-Hiding module - which directly interacts

@@ -1,3 +1,11 @@
+/**
+* @file BoardView.java
+* @title BoardView
+* @author VPB Game Studio
+* @date 11/13/2016
+* @brief This class is the view (display) for the game board
+* @details This class extends JPanel to create a board using paint methods that the game is played on.
+*/
 package view;
 
 import java.awt.*;
@@ -17,7 +25,12 @@ public class BoardView extends JPanel{
 	javax.swing.Timer frameTimer;
 	JLabel scoreLabel, pointsLabel, highScoreLabel, highPointsLabel;
 	JFrame frame;
-	
+	/**
+	* @brief Constructor for the board display
+	* @details This method connects this board display to its model, sets up the images for the player and ghost, and starts a timer that controls the frames of the game
+	* @param board The model (in this case Board object) that this display is connected to
+	* @param frame The frame that this board display is created on
+	*/
 	public BoardView(Board board, JFrame frame){
 		this.board = board;
 		this.board.setView(this);
@@ -72,18 +85,27 @@ public class BoardView extends JPanel{
 
 
 	}
-
+/**
+	* @brief Registers a controller for key presses by the user (adds a listener)
+	*/
 	private void registerControllers() {
 		KeyController keysClicked = new KeyController(this.board);
 		this.addKeyListener(keysClicked);
 	}
-	
+	/**
+	* @brief Calls a step of the game's frame
+	* @details Directs board to move both the player and the ghost, and calls the repaint method to update the view
+	*/
 	public void stepFrame(){
 		this.board.getPlayer().move();
 		this.board.getGhost().ghostMove();
 		this.repaint();
 	}
-	
+	/**
+	* @brief Draws the map onto the board
+	* @details Sets up all the barriers on the map grid (drawn through graphics) and calls a method to update the barriers after creating them
+	* @param g The Graphics object that is needed to draw the appropriate pieces of the board
+	*/
 	public void drawMap(Graphics g){
 		Graphics2D g2 = (Graphics2D)g;
 		
@@ -166,7 +188,11 @@ public class BoardView extends JPanel{
 		this.updateAbnormalBarriers();
 	}
 	
-	//updates rectangular map pieces to be barriers
+	/**
+	* @brief Updates rectangular map pieces to be barriers
+	* @param x,y The starting coordinates for the rectangle barrier
+	* @param width,height The dimensions for rectangle barrier
+	*/
 	public void updateRectangleBarriers(int x, int y, int width, int height){
 		for (int i = x; i < x + width; i++){
 			for (int j = y; j < y + height; j++){
@@ -175,7 +201,10 @@ public class BoardView extends JPanel{
 		}
 	}
 	
-	//updates abnormal map pieces to be barriers (polygons and borders of map)
+	/**
+	* @brief Updates abnormal map pieces to be barriers (polygons and borders of map)
+	* @details Updates all the abnormal pieces manually and directs the board model to update the corresponding barrier points
+	*/
 	public void updateAbnormalBarriers(){
 		for (int i = 0; i < 21; i++){
 			this.board.updateBarrier(i, 0); //top border
@@ -204,6 +233,11 @@ public class BoardView extends JPanel{
 		this.board.updateBarrier(polyPoints);
 	}
 	
+	/**
+	* @brief Draws the dots onto the board
+	* @details Sets up all the dots on the map grid (drawn through graphics) and directs the board to update the dots after creating them
+	* @param g The Graphics object that is needed to draw the appropriate dots on the board
+	*/
 	public void drawDots(Graphics g){
 		this.pointsLabel.setText(this.board.accessScore().getScore() + "");
 		Graphics2D g2 = (Graphics2D) g;
@@ -235,7 +269,11 @@ public class BoardView extends JPanel{
 			}
 		}
 	}
-	
+	/**
+	* @brief Draws the player onto the board
+	* @details Sets up the player's appropriate image based on their direction
+	* @param g The Graphics object that is needed to draw the player
+	*/
 	public void drawPlayer(Graphics g){
 		switch(board.getPlayer().getCurrDirection()){
 		case 'L':
@@ -253,6 +291,10 @@ public class BoardView extends JPanel{
 		}
 	}
 	
+	/**
+	* @brief Draws the ghost onto the board
+	* @param g The Graphics object that is needed to draw the ghost
+	*/
 	public void drawGhost(Graphics g){
 		g.drawImage(ghost, board.getGhost().getCurrX(), board.getGhost().getCurrY(), Color.BLACK, null);
 	}
@@ -264,6 +306,11 @@ public class BoardView extends JPanel{
 		//g.drawImage(playerRight, 400, 10, Color.BLACK, null);
 	}
 
+/**
+	* @brief Paint method that calls internal functions to create the display
+	* @details Calls the super class's paintComponent method (as necessary) and calls internal functions to draw the map, dots, player and ghost
+	* @param g The Graphics object that is needed to draw the appropriate board
+	*/
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		
@@ -274,14 +321,21 @@ public class BoardView extends JPanel{
 		this.drawGhost(g);
 		
 	}
-	
+		/**
+	* @brief Repaints the appropriate parts of the board
+	* @details This class's repaint method that specifically repaints on the player and ghost in order to save processing power (as opposed to always redrawing the board with player and ghost movements)
+	* @param g The Graphics object that is needed to draw the appropriate pieces of the board
+	*/
 	public void repaint(Graphics g){
 		//this.drawPlayer(g);
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
 		super.repaint((this.board.getGhost().getCurrX())-20, (this.board.getGhost().getCurrY())-20, 80, 80);
 		//this.pointsLabel.setText(this.board.accessScore().getScore() + "");
 	}
-
+/**
+	* @brief Ends the game
+	* @details Stops the game timer and displays the final message to the player with their score
+	*/
 	public void endGame() {
 		this.frameTimer.stop();
 		String message = "Your final score was: "+this.board.accessScore().getScore()+".";

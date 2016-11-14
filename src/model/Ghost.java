@@ -1,9 +1,23 @@
+/**
+* @file Ghost.java
+* @title Ghost
+* @author VPB Game Studio
+* @date 13/11/2016
+* @brief This class represents a ghost in the game.
+* @details This class represents all the functionalities and attributes of a ghost in the game.	
+* @extends 
+* @todo Add test cases for the functions.
+*/
 package model;
 
 import java.util.Random;
 
 public class Ghost extends Character {
-	
+	 /** 
+	 * @brief Constructor for Ghost.
+	 * @details Constructor accepts one parameter for the game's board.
+     * @param Board object is passed in to add character functionality to it.
+     */
 	public Ghost(Board board){
 		super(board);
 		this.board.setGhost(this);
@@ -13,7 +27,13 @@ public class Ghost extends Character {
 		this.currY = 7*this.sq;
 	}
 	
-	
+	/**
+	* @brief returns whether or not ghost can keep moving in the same direction.
+	* @details This method determines whether the ghost can keep moving in the current direction it is headed.
+	* @param a character value representing the ghost's current direction
+	* @return boolean (true or false)
+	*/
+
 	public boolean keepMoving(char direction){
 		switch(direction){
 		case 'L':
@@ -31,7 +51,11 @@ public class Ghost extends Character {
 			return true;
 		}
 	}
-	
+	/**
+	* @brief determines a valid path for the ghost to move in
+	* @details This method is the Ghost's AI. It is used to change the direction of the ghost's movement when the ghost
+	* hits a barrier. The new direction is chosen randomly.
+	*/
 	public void ghostMove(){
 		if (keepMoving(this.prevDirection)){
 			this.newDirection = this.prevDirection;

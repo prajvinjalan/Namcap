@@ -1,6 +1,7 @@
 /**
 * @file ButtonController.java
 * @title ButtonController
+* @author VPB Game Studio
 * @data 13/11/2016
 * @brief This class handles any user input to buttons.
 * @details This class handles any user input to the buttons of the application (primarily the main menu). The input pertains only to the implemented 

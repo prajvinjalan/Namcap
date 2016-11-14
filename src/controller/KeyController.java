@@ -1,6 +1,7 @@
 /**
 * @file KeyController.java
 * @title KeyController
+* @author VPB Game Studio
 * @data 13/11/2016
 * @brief This class handles any user key inputs.
 * @details This class handles all user key inputs (primarily used for the movement of the player). Maps the corresponding keys to player movement.

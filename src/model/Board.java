@@ -81,10 +81,6 @@ public class Board {
 		return this.ghost;
 	}
 
-	//public int getScore(){
-	//	return this.score.getScore();
-	//}
-
 	public Score accessScore(){
 		return this.score;
 	}

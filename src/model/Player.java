@@ -2,6 +2,7 @@ package model;
 
 public class Player extends Character {
 	
+	private int lives;
 
 	public Player(Board board){
 		super(board);
@@ -10,8 +11,12 @@ public class Player extends Character {
 		this.prevY = 15*this.sq;
 		this.currX = 10*this.sq;
 		this.currY = 15*this.sq;
+		this.lives = 3;
 	}
 	
+	public int getLives(){
+		return this.lives;
+	}
 	
 	public void move(){
 		this.checkCollision();
@@ -92,12 +97,20 @@ public class Player extends Character {
 	
 	public void checkCollision(){
 		if ((this.board.getGhost().getCurrX()>=this.currX-this.sq)&&(this.board.getGhost().getCurrX()<=this.currX+this.sq)&&((this.board.getGhost().getCurrY()>=this.currY-this.sq))&&(this.board.getGhost().getCurrY()<=this.currY+this.sq)){
-			this.endGame();
+			if(this.lives == 0){
+				this.endGame();
+			}else{
+				this.lives--;
+				this.prevX = 10*this.sq;
+				this.prevY = 15*this.sq;
+				this.currX = 10*this.sq;
+				this.currY = 15*this.sq;
+			}
 		}
-		
 	}
 	
 	public void endGame(){
+		this.board.accessScore().updateHighScore(this.board.accessScore().getScore());
 		this.board.view.endGame();
 	}
 }

@@ -15,7 +15,7 @@ public class BoardView extends JPanel{
 	int sq;
 	Image playerLeft, playerRight, playerUp, playerDown, ghost;
 	javax.swing.Timer frameTimer;
-	JLabel scoreLabel, pointsLabel;
+	JLabel scoreLabel, pointsLabel, highScoreLabel, highPointsLabel;
 	JFrame frame;
 	
 	public BoardView(Board board, JFrame frame){
@@ -50,14 +50,27 @@ public class BoardView extends JPanel{
 		this.frameTimer.start();
 	
 		scoreLabel = new JLabel("SCORE:");
-		scoreLabel.setLocation(100,470);
+		scoreLabel.setLocation(100,0);
 		scoreLabel.setForeground(Color.white);
 		this.add(scoreLabel);
 
+
 		pointsLabel = new JLabel(this.board.accessScore().getScore() + "");
-		pointsLabel.setLocation(150,470);
+		pointsLabel.setLocation(150,0);
 		pointsLabel.setForeground(Color.white);
 		this.add(pointsLabel);
+
+		highScoreLabel = new JLabel("HIGHSCORE:");
+		highScoreLabel.setLocation(100,50);
+		highScoreLabel.setForeground(Color.white);
+		this.add(highScoreLabel);
+
+		highPointsLabel = new JLabel(this.board.accessScore().getHighScore() + "");
+		highPointsLabel.setLocation(150,10);
+		highPointsLabel.setForeground(Color.white);
+		this.add(highPointsLabel);
+
+
 	}
 
 	private void registerControllers() {
@@ -244,13 +257,22 @@ public class BoardView extends JPanel{
 		g.drawImage(ghost, board.getGhost().getCurrX(), board.getGhost().getCurrY(), Color.BLACK, null);
 	}
 
+	public void drawLives(Graphics g){
+		for(int i = 1; i <= this.board.getPlayer().getLives(); i++){
+			g.drawImage(playerRight, 400 - (i*20), 10, Color.BLACK, null);
+		}
+		//g.drawImage(playerRight, 400, 10, Color.BLACK, null);
+	}
+
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		
 		this.drawMap(g);
 		this.drawDots(g);
+		this.drawLives(g);
 		this.drawPlayer(g);
 		this.drawGhost(g);
+		
 	}
 	
 	public void repaint(Graphics g){

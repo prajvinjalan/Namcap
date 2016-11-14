@@ -3,20 +3,20 @@
 * @title Ghost
 * @author VPB Game Studio
 * @date 13/11/2016
-* @brief This class represents a ghost in the game.
-* @details This class represents all the functionalities and attributes of a ghost in the game.	
-* @extends 
-* @todo Add test cases for the functions.
+* @brief This class represents a Ghost in the game.
+* @details This class represents all the functionalities and attributes of a Ghost in the game.	
+* @extends Character
 */
 package model;
 
 import java.util.Random;
 
 public class Ghost extends Character {
+
 	 /** 
-	 * @brief Constructor for Ghost.
-	 * @details Constructor accepts one parameter for the game's board.
-     * @param Board object is passed in to add character functionality to it.
+	 * @brief Constructor for Ghost
+	 * @details Constructor accepts one parameter for the game's Board model.
+     * @param board - Board object that is passed in to add character (in this case, enemy) functionality.
      */
 	public Ghost(Board board){
 		super(board);
@@ -28,12 +28,11 @@ public class Ghost extends Character {
 	}
 	
 	/**
-	* @brief returns whether or not ghost can keep moving in the same direction.
+	* @brief Method returns whether or not Ghost can keep moving in the same direction
 	* @details This method determines whether the ghost can keep moving in the current direction it is headed.
-	* @param a character value representing the ghost's current direction
-	* @return boolean (true or false)
+	* @param direction - Char value representing the Ghost's current direction.
+	* @return Boolean value (true - direction remains valid, or false - direction invalid).
 	*/
-
 	public boolean keepMoving(char direction){
 		switch(direction){
 		case 'L':
@@ -51,8 +50,9 @@ public class Ghost extends Character {
 			return true;
 		}
 	}
+
 	/**
-	* @brief determines a valid path for the ghost to move in
+	* @brief Determines a valid path for the Ghost to move
 	* @details This method is the Ghost's AI. It is used to change the direction of the ghost's movement when the ghost
 	* hits a barrier. The new direction is chosen randomly.
 	*/

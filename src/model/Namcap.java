@@ -3,20 +3,18 @@
 * @title Namcap
 * @author VPB Game Studio
 * @date 11/13/2016
-* @brief This class instantiates the game's main menu
+* @brief This class instantiates the game's Main Menu
 */
 package model;
 
 import java.awt.Dimension;
-
 import javax.swing.JFrame;
-
 import view.MainMenuView;
 
 public class Namcap {
 
 	/**
-	* @brief Creates the inital frame and the main menu
+	* @brief Instantiates the initial frame and the Main Menu
 	* @param String[] args command line arguments.
 	*/
 	public static void main(String[] args){

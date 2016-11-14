@@ -3,7 +3,7 @@
 * @title MainMenu
 * @author VPB Game Studio
 * @date 11/13/2016
-* @brief This class is the model of the main menu in MVC architecture
+* @brief This class is the model of the Main Menu in MVC architecture
 */
 package model;
 
@@ -26,8 +26,8 @@ public class MainMenu {
 	}
 	
 	/**
-	* @brief Connects this model to a view (display)
-	* @param menuView The MainMenuView object that this model connects to for display.
+	* @brief Connects this model to a corresponding Main Menu View (GUI)
+	* @param menuView - MainMenuView object that this model initializes to for display.
 	*/
 	public void setView(MainMenuView menuView){
 		this.menuView = menuView;
@@ -36,7 +36,7 @@ public class MainMenu {
 
 	/**
 	* @brief Starts the game
-	* @details Creates the frame that will contain the board and connects a display to it; also instantiates the appropriate player and ghost characters on the board.
+	* @details Creates the frame that will contain the Board and connects a display to it; also instantiates the appropriate Player and Ghost characters on the Board.
 	*/
 	public void startGame(){
 		this.menuView.setFrameInvis();

@@ -3,17 +3,22 @@
 * @title Player
 * @author VPB Game Studio
 * @date 11/13/2016
-* @brief This class is the player for the game board
+* @brief This class is the Player for the game Board
+* @extends Character
 */
 package model;
 
 public class Player extends Character {
 	
+	/**
+	* Represents Player lives count (initialized to 3 lives).
+	*/
 	private int lives;
-/**
+
+	/**
 	* @brief Constructor for Player
-	* @details Initializes the player's initial coordinates on the board, and connects this player object to the board
-	* @param board The board that this player is connected to
+	* @details Initializes the Player's initial coordinates on the board, and connects this Player object to the Board model.
+	* @param board - Board model that this player is initialized to.
 	*/
 	public Player(Board board){
 		super(board);
@@ -25,12 +30,17 @@ public class Player extends Character {
 		this.lives = 3;
 	}
 	
+	/**
+	* @brief Accessor method for Player lives count
+	* @return Integer representing current count of Player lives.
+	*/
 	public int getLives(){
 		return this.lives;
 	}
+
 	/**
 	* @brief Controls player movement
-	* @details Checks for collisions with ghost or dots, sets up the players direction, and increments pixels to move the player
+	* @details Checks for collisions with Ghost(s) or dots, sets up the Player's direction, and increments pixels to move the Player.
 	*/
 	public void move(){
 		this.checkCollision();
@@ -95,9 +105,10 @@ public class Player extends Character {
 			this.prevDirection = this.newDirection;
 		}
 	}
-/**
-	* @brief Checks board for dots
-	* @details Checks if player collided with dots and directs the board to update the score and dots accordingly (if score is max, endGame is called)
+
+	/**
+	* @brief Checks Board for dots
+	* @details Checks if Player collided with dots and directs the Board to update the Score and dots accordingly (if Score is max, endGame is called).
 	*/
 	public void checkDot(){
 		int currDot = this.board.getDot(this.currX / 20, this.currY / 20);
@@ -111,11 +122,12 @@ public class Player extends Character {
 			this.endGame();
 		}
 	}
+
 	/**
-	* @brief Checks for ghost collision
-	* @details Checks if player collided with a ghost and calls the endGame method if that is the case
+	* @brief Checks for collision with Ghost
+	* @details Checks if Player collided with a Ghost and calls the endGame method if lives count == 0. Otherwise,
+	* Player lives are decremented by 1 and Player location is reset to initial position.
 	*/
-	
 	public void checkCollision(){
 		if ((this.board.getGhost().getCurrX()>=this.currX-this.sq)&&(this.board.getGhost().getCurrX()<=this.currX+this.sq)&&((this.board.getGhost().getCurrY()>=this.currY-this.sq))&&(this.board.getGhost().getCurrY()<=this.currY+this.sq)){
 			if(this.lives == 0){
@@ -129,8 +141,10 @@ public class Player extends Character {
 			}
 		}
 	}
+
 	/**
-	* @brief Directs the board display to end the game
+	* @brief Directs the Board display to end the game
+	* @details Updates the high score value for this game instance (if applicable) and calls view end game procedure.
 	*/
 	public void endGame(){
 		this.board.accessScore().updateHighScore(this.board.accessScore().getScore());

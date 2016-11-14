@@ -28,7 +28,7 @@ public class KeyController implements KeyListener{
 	/**
 	* @brief Constructor for a Key Controller
 	* @details Constructor accepts one parameter for the corresponding board object for the controller.
-	* @param Board board corresponding to the instance key controller.
+	* @param board - Board corresponding to the instance key controller.
 	*/
 	public KeyController(Board board){
 		this.board = board;
@@ -37,7 +37,7 @@ public class KeyController implements KeyListener{
 	/**
 	* @brief Handles key press events
 	* @details Handles key press events and maps to the correct player movement direction.
-	* @param KeyEvent e representing the current key press.
+	* @param e - KeyEvent representing the current key press.
 	*/
 	@Override
 	public void keyPressed(KeyEvent e) {

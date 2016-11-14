@@ -34,8 +34,8 @@ public class ButtonController implements ActionListener{
 	/**
 	* @brief Constructor for a Button Controller
 	* @details Constructor accepts two parameters for both the corresponding main menu and Jbutton objects.
-	* @param MainMenu menu corresponding to the implemented button.
-	* @param JButton button corresponding to the implemented menu (frame).
+	* @param menu - MainMenu corresponding to the implemented button.
+	* @param button - JButton corresponding to the implemented menu (frame).
 	*/
 	public ButtonController(MainMenu menu, JButton button){
 		this.menu = menu;
@@ -44,7 +44,7 @@ public class ButtonController implements ActionListener{
 	
 	/**
 	* @brief Handles button action occurrence
-	* @param ActionEvent e representing to the button press.
+	* @param e - ActionEvent representing a button press.
 	*/
 	@Override
 	public void actionPerformed(ActionEvent e) {

@@ -4,7 +4,7 @@
 * @author VPB Game Studio
 * @date 11/13/2016
 * @brief This class is the view (display) for the main menu
-* @details This class extends JPanel to create a main menu using buttons and labels
+* @details This class extends JPanel to create a main menu using buttons and labels.
 */
 package view;
 
@@ -16,17 +16,37 @@ import model.MainMenu;
 
 public class MainMenuView extends JPanel{
 
+	/**
+	* Corresponding Main Menu instance model for the Main Menu View.
+	*/
 	private MainMenu menuModel;
+	/**
+	* Corresponding Frame object to contain the Main Menu View (actual GUI element).
+	*/
 	private JFrame frame;
+	/**
+	* JPanel objects to organize image conten and menu (text) content of the frame.
+	*/
 	private JPanel imagePanel, menuPanel;
+	/**
+	* Button object representing the start game button on the Main Menu View.
+	*/
 	private JButton startGame;
+	/**
+	* Represents the layout format for the Main Menu View frame.
+	*/
 	private BorderLayout layout;
+	/**
+	* Corresponding label for image icron displayed on the Main Menu View.
+	*/
 	private JLabel imageLabel;
+
 	/**
 	* @brief Constructor for the main menu display
-	* @details This method connects this main menu display to its model, sets up the image labels and buttons and calls internal methods for the view's layout and controllers
-	* @param menuModel The model (in this case MainMenu object) that this display is connected to
-	* @param frame The frame that this menu display is created on
+	* @details This method connects the main menu display to its model, sets up the image labels 
+	* and buttons and calls internal methods for the view's layout and controllers.
+	* @param menuModel - Model (in this case MainMenu object) that this display is connects to.
+	* @param frame - Frame that the menu display initializes on.
 	*/
 	public MainMenuView(MainMenu menuModel, JFrame frame){
 		this.frame = frame;
@@ -40,9 +60,10 @@ public class MainMenuView extends JPanel{
 		this.layoutView();
 		this.registerControllers();
 	}
+
 	/**
 	* @brief Creates the layout for the menu
-	* @details Uses the the BorderLayout to place components and adds them appropriately (buttons and labels)
+	* @details Uses the the BorderLayout to place components and adds them appropriately (buttons and labels).
 	*/
 	private void layoutView(){
 		this.setLayout(layout);
@@ -53,6 +74,7 @@ public class MainMenuView extends JPanel{
 		this.add(imageLabel, BorderLayout.NORTH);
 		this.add(menuPanel, BorderLayout.SOUTH);
 	}
+
 	/**
 	* @brief Registers a controller for the buttons of the menu (adds listener)
 	*/
@@ -60,8 +82,9 @@ public class MainMenuView extends JPanel{
 		ButtonController startGameClicked = new ButtonController(this.menuModel, this.startGame);
 		this.startGame.addActionListener(startGameClicked);
 	}
+
 	/**
-	* @brief Sets the frame of this menu to be invisible
+	* @brief Sets the frame of this menu to be invisible (used on game start)
 	*/
 	public void setFrameInvis(){
 		this.frame.setVisible(false);

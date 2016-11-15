@@ -276,4 +276,13 @@ public class Board {
 		}
 		this.updateView();
 	}
+
+	/**
+	* @brief Resets the positions of all ghosts to their initial location
+	*/
+	public void resetGhosts() {
+		for (Ghost g : this.ghosts){
+			g.resetPosition();
+		}
+	}
 }

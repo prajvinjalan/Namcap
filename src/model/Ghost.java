@@ -166,4 +166,14 @@ public class Ghost extends Character {
 			}
 		}
 	}
+
+	/**
+	* @brief Resets the Ghost's position to its initial location
+	*/
+	public void resetPosition(){
+		this.prevX = 10*this.sq;
+		this.prevY = 9*this.sq;
+		this.currX = 10*this.sq;
+		this.currY = 9*this.sq;
+	}
 }

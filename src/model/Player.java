@@ -129,15 +129,18 @@ public class Player extends Character {
 	* Player lives are decremented by 1 and Player location is reset to initial position.
 	*/
 	public void checkCollision(){
-		if ((this.board.getGhost().getCurrX()>=this.currX-this.sq)&&(this.board.getGhost().getCurrX()<=this.currX+this.sq)&&((this.board.getGhost().getCurrY()>=this.currY-this.sq))&&(this.board.getGhost().getCurrY()<=this.currY+this.sq)){
-			if(this.lives == 0){
-				this.endGame();
-			}else{
-				this.lives--;
-				this.prevX = 10*this.sq;
-				this.prevY = 15*this.sq;
-				this.currX = 10*this.sq;
-				this.currY = 15*this.sq;
+		
+		for (Ghost gh : this.board.getGhost()){
+			if ((gh.getCurrX()>=this.currX-this.sq+5)&&(gh.getCurrX()<=this.currX+this.sq-5)&&((gh.getCurrY()>=this.currY-this.sq+5))&&(gh.getCurrY()<=this.currY+this.sq-5)){
+				if(this.lives == 0){
+					this.endGame();
+				}else{
+					this.lives--;
+					this.prevX = 10*this.sq;
+					this.prevY = 15*this.sq;
+					this.currX = 10*this.sq;
+					this.currY = 15*this.sq;
+				}
 			}
 		}
 	}

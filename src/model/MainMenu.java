@@ -8,6 +8,7 @@
 package model;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -42,11 +43,14 @@ public class MainMenu {
 		this.menuView.setFrameInvis();
 		JFrame frame = new JFrame("Namcap");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		ArrayList<Ghost> ghosts = new ArrayList<Ghost>();
 		Board board = new Board();
 		BoardView boardGUI = new BoardView(board, frame);
 		Player player = new Player(board);
-		Ghost ghost = new Ghost(board);
+		Ghost ghost1 = new Ghost(board);
+		Ghost ghost2 = new Ghost(board);
+		Ghost ghost3 = new Ghost(board);
+		Ghost ghost4 = new Ghost(board);
 		frame.setContentPane(boardGUI);
 		frame.setPreferredSize(new Dimension(450,450));
 		frame.pack();

@@ -18,6 +18,8 @@ import javax.swing.*;
 import controller.KeyController;
 import model.Board;
 import model.MainMenu;
+import model.Ghost;
+
 
 public class BoardView extends JPanel{
 
@@ -122,7 +124,9 @@ public class BoardView extends JPanel{
 	*/
 	public void stepFrame(){
 		this.board.getPlayer().move();
-		this.board.getGhost().ghostMove();
+		for (Ghost g : this.board.getGhost()){
+			g.ghostMove();
+		}
 		this.repaint();
 		this.board.checkTimeRunning();
 	}
@@ -321,12 +325,14 @@ public class BoardView extends JPanel{
 	}
 	
 	/**
-	* @brief Draws the ghost onto the board
+	* @brief Draws the ghosts onto the board
 	* @param g - Graphics object needed to draw the ghost (GUI element).
 	*/
 	public void drawGhost(Graphics g){
-		g.drawImage(ghost, board.getGhost().getCurrX(), board.getGhost().getCurrY(), Color.BLACK, null);
-	}
+		for (Ghost gh : this.board.getGhost()){
+			g.drawImage(ghost, gh.getCurrX(), gh.getCurrY(), Color.BLACK, null);
+		}
+	}	
 
 	public void drawLives(Graphics g){
 		for(int i = 1; i <= this.board.getPlayer().getLives(); i++){
@@ -359,7 +365,9 @@ public class BoardView extends JPanel{
 	public void repaint(Graphics g){
 		//this.drawPlayer(g);
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
-		super.repaint((this.board.getGhost().getCurrX())-20, (this.board.getGhost().getCurrY())-20, 80, 80);
+		for (Ghost gh : this.board.getGhost()){
+			super.repaint((gh.getCurrX())-20, (gh.getCurrY())-20, 80, 80);
+			}
 		//this.pointsLabel.setText(this.board.accessScore().getScore() + "");
 	}
 

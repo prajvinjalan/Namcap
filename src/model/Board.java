@@ -36,9 +36,9 @@ public class Board {
 	*/
 	Score score;
 	/**
-	* Represents the corresponding ghost object (usually multiple in-game) for the Board model.
+	* Represents the corresponding ghost objects (usually multiple in-game) for the Board model.
 	*/
-	Ghost ghost;
+	ArrayList<Ghost> ghosts;
 	/**
 	* Time that the game started (used to determine estimated time the game has been running)
 	*/
@@ -56,6 +56,7 @@ public class Board {
 		this.barriers = new boolean[21][21];
 		this.dots = new int[21][21];
 		this.score = new Score();
+		this.ghosts = new ArrayList<Ghost>();
 		
 		for (int i = 0; i < 21; i++){
 			for (int j = 0; j < 21; j++){
@@ -72,7 +73,7 @@ public class Board {
 	* @param ghost - Ghost(s) object for this game Board model.
 	*/
 	public void setGhost(Ghost ghost){
-		this.ghost = ghost;
+		this.ghosts.add(ghost);
 	}
 	
 	/**
@@ -171,11 +172,11 @@ public class Board {
 	}
 	
 	/**
-	* @brief Accessor method for the Board's ghost object
-	* @return The ghost object corresponding to the Board instance.
+	* @brief Accessor method for the Board's ghost objects
+	* @return The ghost objects (in an ArrayList) corresponding to the Board instance.
 	*/
-	public Ghost getGhost(){
-		return this.ghost;
+	public ArrayList<Ghost> getGhost(){
+		return this.ghosts;
 	}
 
 	/**

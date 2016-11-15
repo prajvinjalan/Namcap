@@ -9,6 +9,7 @@
 */
 package model;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Ghost extends Character {
@@ -22,9 +23,9 @@ public class Ghost extends Character {
 		super(board);
 		this.board.setGhost(this);
 		this.prevX = 10*this.sq;
-		this.prevY = 7*this.sq;
+		this.prevY = 9*this.sq;
 		this.currX = 10*this.sq;
-		this.currY = 7*this.sq;
+		this.currY = 9*this.sq;
 	}
 	
 	/**
@@ -33,7 +34,7 @@ public class Ghost extends Character {
 	* @param direction - Char value representing the Ghost's current direction.
 	* @return Boolean value (true - direction remains valid, or false - direction invalid).
 	*/
-	public boolean keepMoving(char direction){
+	public boolean keepMoving(char direction){		
 		switch(direction){
 		case 'L':
 			return (!this.isBarrier(this.currX - this.pixelInc, this.currY));
@@ -50,6 +51,62 @@ public class Ghost extends Character {
 			return true;
 		}
 	}
+	/**
+	 * @brief Method returns an array list of directions
+	 * @details This method determines if the ghost is in a position where it can go in multiple directions. It 
+	 * returns an array list of the available directions.
+	 * @return ArrayList<String> containing the letters corresponding to the available directions
+	 */
+	public ArrayList<String> newPath(){
+		ArrayList<String> directions = new ArrayList<String>();
+		
+		if((!this.isBarrier(this.currX - this.pixelInc, this.currY)) && this.prevDirection != 'R'){
+			directions.add("L");
+		}
+		if((!this.isBarrier(this.currX + this.sq, this.currY)) && this.prevDirection != 'L'){
+			directions.add("R");
+		}
+		if((!this.isBarrier(this.currX, this.currY - this.pixelInc)) && this.prevDirection != 'D'){
+			directions.add("U");
+		}
+		if((!this.isBarrier(this.currX, this.currY + this.sq)) && this.prevDirection != 'U'){
+			directions.add("D");
+		}
+		if((this.isBarrier(this.currX - this.pixelInc, this.currY)) && (this.isBarrier(this.currX, this.currY - this.pixelInc)) && (this.isBarrier(this.currX, this.currY + this.sq))){
+			directions.add("R");
+		}
+		if((this.isBarrier(this.currX + this.sq, this.currY)) && (this.isBarrier(this.currX, this.currY - this.pixelInc)) && (this.isBarrier(this.currX, this.currY + this.sq))){
+			directions.add("L");
+		}
+		return directions;
+	}
+	/**
+	 * @brief Method returns a random direction based on the array list of directions passed in
+	 * @details This method randomly picks a direction for the ghost to move to from the ArrayList of directions passed in.
+	 * @param directions - ArrayList<String> of letters representing the directions that the ghost is able to move in.
+	 * @return returns a char value of the new direction of the ghost
+	 */
+	public char randDirection(ArrayList<String> directions){
+		int size = directions.size();
+		if (directions.size() > 1){
+			Random randomGenerator = new Random();
+			int randomDirection = randomGenerator.nextInt(size) + 1;
+			switch(randomDirection){
+				case 1:
+					return directions.get(0).charAt(0);
+				case 2:
+					return directions.get(1).charAt(0);
+				case 3:
+					return directions.get(2).charAt(0);
+				case 4:
+					return directions.get(3).charAt(0);
+			}
+		}else{
+			return directions.get(0).charAt(0);
+		}
+		
+		return '!'; //code unreachable
+	}
 
 	/**
 	* @brief Determines a valid path for the Ghost to move
@@ -59,32 +116,14 @@ public class Ghost extends Character {
 	public void ghostMove(){
 		if (keepMoving(this.prevDirection)){
 			this.newDirection = this.prevDirection;
-		}else{
-			Random randomGenerator = new Random();
-			int randomDirection = randomGenerator.nextInt(4) + 1;
-			switch(randomDirection){
-				case 1:
-					this.newDirection = 'L';
-					break;
-				case 2:
-					this.newDirection = 'R';
-					break;
-				case 3:
-					this.newDirection = 'U';
-					break;
-				case 4:
-					this.newDirection = 'D';
-					break;
-			}
 		}
+		
 		this.prevX = this.currX;
 		this.prevY = this.currY;
-		if (this.currX % 20 == 0 && this.currY % 20 == 0 || 
-				(this.newDirection == 'L' && this.prevDirection == 'R') ||
-				(this.newDirection == 'U' && this.prevDirection == 'D') ||
-				(this.newDirection == 'R' && this.prevDirection == 'L') ||
-				(this.newDirection == 'D' && this.prevDirection == 'U')){
-			
+		
+		//if ghost in a grid square
+		if (this.currX % 20 == 0 && this.currY % 20 == 0){
+			this.newDirection = this.randDirection(this.newPath());
 			switch(this.newDirection){
 			case 'L':
 				if (!this.isBarrier(this.currX - this.pixelInc, this.currY)){
@@ -108,33 +147,23 @@ public class Ghost extends Character {
 				break;
 			}
 			
-		}
-		
-		if (this.prevX == this.currX && this.prevY == this.currY){
-			switch(this.prevDirection){
+			this.prevDirection = this.newDirection;
+			
+		}else{ //else if ghost not in grid square (i.e. ghost keeps moving)
+			switch(this.newDirection){
 				case 'L':
-					if (!this.isBarrier(this.currX - this.pixelInc, this.currY)){
-						this.currX -= this.pixelInc;
-					}
+					this.currX -= this.pixelInc;
 					break;
 				case 'R':
-					if (!this.isBarrier(this.currX + this.sq, this.currY)){
-						this.currX += this.pixelInc;
-					}
+					this.currX += this.pixelInc;
 					break;
 				case 'U':
-					if (!this.isBarrier(this.currX, this.currY - this.pixelInc)){
-						this.currY -= this.pixelInc;
-					}
+					this.currY -= this.pixelInc;
 					break;
 				case 'D':
-					if (!this.isBarrier(this.currX, this.currY + this.sq)){
-						this.currY += this.pixelInc;
-					}
+					this.currY += this.pixelInc;
 					break;
 			}
-		}else{
-			this.prevDirection = this.newDirection;
 		}
 	}
 }

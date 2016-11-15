@@ -36,7 +36,7 @@ public class KeyController implements KeyListener{
 
 	/**
 	* @brief Handles key press events
-	* @details Handles key press events and maps to the correct player movement direction.
+	* @details Handles key press events and maps to the correct player movement direction or informs the board that user wants to quit.
 	* @param e - KeyEvent representing the current key press.
 	*/
 	@Override
@@ -54,6 +54,8 @@ public class KeyController implements KeyListener{
 		case KeyEvent.VK_DOWN:
 			this.board.changePlayerDirection('D');
 			break;
+		case KeyEvent.VK_ESCAPE:
+			this.board.quitGame();
 		}
 		this.board.updateView();
 	}

@@ -16,6 +16,7 @@ import javax.swing.*;
 
 import controller.KeyController;
 import model.Board;
+import model.MainMenu;
 
 public class BoardView extends JPanel{
 
@@ -347,7 +348,8 @@ public class BoardView extends JPanel{
 		this.drawGhost(g);
 		
 	}
-		/**
+	
+	/**
 	* @brief Repaints (updates) the appropriate parts of the board
 	* @details This class's repaint method that specifically repaints on the player and ghost in order to save processing power (opposed to always redrawing the board for player and ghost movements).
 	* @param g - Graphics object needed to draw the appropriate pieces of the board (GUI element).
@@ -361,14 +363,52 @@ public class BoardView extends JPanel{
 
 	/**
 	* @brief Ends the game
-	* @details Stops the game timer and displays the final message to the player with their score.
+	* @details Stops the game timer and displays the final message to the player with their score. Goes back to the main menu when the player confirms the dialog box.
 	*/
 	public void endGame() {
 		this.frameTimer.stop();
 		String message = "Your final score was: "+this.board.accessScore().getScore()+".";
-		JOptionPane.showMessageDialog(this.frame,
-			    message,
-			    "Game Over",
-			    JOptionPane.PLAIN_MESSAGE);
+		
+		Object[] options = {"Okay"};
+		JOptionPane.showOptionDialog(frame,
+		message,
+		"Game Over",
+		JOptionPane.DEFAULT_OPTION,
+		JOptionPane.INFORMATION_MESSAGE,
+		null,
+		options,
+		options[0]);
+		
+		//go back to main menu
+		JFrame frame = new JFrame("Namcap");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		MainMenu menu = new MainMenu();
+		MainMenuView menuGUI = new MainMenuView(menu, frame);
+		frame.setContentPane(menuGUI);
+		frame.setPreferredSize(new Dimension(450,450));
+		frame.pack();
+		frame.setVisible(true);
+		this.frame.dispose(); //close this frame
+	}
+
+	/**
+	* @brief Quits the game
+	* @details Pauses the game timer and displays an option message to the user asking if they are sure they wish to quit; if they choose yes the game closes, if they choose no the game continues
+	*/
+	public void quitGame(){
+		this.frameTimer.stop();
+		String message = "Are you sure you want to quit the game?";
+		int choice = JOptionPane.showConfirmDialog(this.frame,
+			message,
+			"Quit Game",
+			JOptionPane.YES_NO_OPTION,
+			JOptionPane.ERROR_MESSAGE);
+		
+		if (choice == JOptionPane.YES_OPTION){
+			System.exit(0);
+		}else{
+			this.frameTimer.start();
+		}
 	}
 }

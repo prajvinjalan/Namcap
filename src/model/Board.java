@@ -182,4 +182,11 @@ public class Board {
 	public void updateView(){
 		this.view.repaint();
 	}
+
+	/**
+	* @brief Directs the display that the user wishes to quit the game
+	*/
+	public void quitGame(){
+		this.view.quitGame();
+	}
 }

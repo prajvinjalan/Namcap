@@ -48,7 +48,7 @@ public class MainMenu {
 		Player player = new Player(board);
 		Ghost ghost = new Ghost(board);
 		frame.setContentPane(boardGUI);
-		frame.setPreferredSize(new Dimension(437,450));
+		frame.setPreferredSize(new Dimension(450,450));
 		frame.pack();
 		frame.setVisible(true);
 	}

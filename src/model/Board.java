@@ -8,6 +8,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 import view.BoardView;
 
 public class Board {
@@ -38,10 +39,18 @@ public class Board {
 	* Represents the corresponding ghost object (usually multiple in-game) for the Board model.
 	*/
 	Ghost ghost;
+	/**
+	* Time that the game started (used to determine estimated time the game has been running)
+	*/
+	long startTime;
+	/**
+	* Time that the game has been running
+	*/
+	long estimatedTimeElapsed;
 	
 	/**
 	* @brief Constructor for Board
-	* @details Initializes all the barriers and dots for the Board grid with appropriate values for the initial game state (before the game starts); also creates a score object.
+	* @details Initializes all the barriers and dots for the Board grid with appropriate values for the initial game state (before the game starts); also creates a score object and initializes the game start timer.
 	*/
 	public Board(){
 		this.barriers = new boolean[21][21];
@@ -54,6 +63,8 @@ public class Board {
 				this.dots[i][j] = 1;
 			}
 		}
+
+		this.startTime = System.nanoTime(); //starts a timer
 	}
 	
 	/**
@@ -184,9 +195,28 @@ public class Board {
 	}
 
 	/**
-	* @brief Directs the display that the user wishes to quit the game
+	* @brief Directs the display (view) that the user wishes to quit the game
 	*/
 	public void quitGame(){
 		this.view.quitGame();
+	}
+
+	/**
+	* @brief Directs the display (view) to prompt the user to take a break if sufficient time has elapsed
+	*/
+	public void checkTimeRunning(){
+		long breakTime = 4L;
+		this.estimatedTimeElapsed = System.nanoTime() - this.startTime;
+
+		if (TimeUnit.NANOSECONDS.toSeconds(estimatedTimeElapsed) == breakTime){
+			this.view.promptBreak();
+		}
+	}
+
+	/**
+	* @brief Restarts the timer for the break prompt
+	*/
+	public void restartTimer(){
+		this.startTime = System.nanoTime();
 	}
 }

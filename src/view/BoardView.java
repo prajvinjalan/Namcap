@@ -123,6 +123,7 @@ public class BoardView extends JPanel{
 		this.board.getPlayer().move();
 		this.board.getGhost().ghostMove();
 		this.repaint();
+		this.board.checkTimeRunning();
 	}
 
 	/**
@@ -394,7 +395,7 @@ public class BoardView extends JPanel{
 
 	/**
 	* @brief Quits the game
-	* @details Pauses the game timer and displays an option message to the user asking if they are sure they wish to quit; if they choose yes the game closes, if they choose no the game continues
+	* @details Pauses the game timer and displays an option message to the user asking if they are sure they wish to quit; if they choose yes the game closes, if they choose no the game continues.
 	*/
 	public void quitGame(){
 		this.frameTimer.stop();
@@ -410,5 +411,27 @@ public class BoardView extends JPanel{
 		}else{
 			this.frameTimer.start();
 		}
+	}
+
+	/**
+	* @brief Prompts the user to take a break
+	* @details Stops the game timer (pausing the game) and displays a break message to the user. When they confirm it, the game continues and the break timer is reset.
+	*/
+	public void promptBreak() {
+		this.frameTimer.stop();
+		String message = "Playing for long periods of time is not\nhealthy so remember to take a break!\nPress 'Okay' to continue the game.";
+		
+		Object[] options = {"Okay"};
+		JOptionPane.showOptionDialog(frame,
+		message,
+		"Break Time!",
+		JOptionPane.DEFAULT_OPTION,
+		JOptionPane.INFORMATION_MESSAGE,
+		null,
+		options,
+		options[0]);
+
+		this.frameTimer.start();
+		this.board.restartTimer();
 	}
 }

@@ -90,6 +90,14 @@ public class Board {
 	public void setView(BoardView view){
 		this.view = view;
 	}
+
+	/**
+	* @brief Accessor method for this board's display
+	* @return The BoardView object that this board uses for display
+	*/
+	public BoardView getView(){
+		return this.view;
+	}
 	
 	/**
 	* @brief Updates a singular grid point for barrier existence

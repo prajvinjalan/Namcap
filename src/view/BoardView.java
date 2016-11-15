@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 import javax.swing.*;
 
 import controller.KeyController;
@@ -360,6 +361,21 @@ public class BoardView extends JPanel{
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
 		super.repaint((this.board.getGhost().getCurrX())-20, (this.board.getGhost().getCurrY())-20, 80, 80);
 		//this.pointsLabel.setText(this.board.accessScore().getScore() + "");
+	}
+
+	/**
+	* @brief Pauses the game timer
+	* @param pauseTime - The amount of time to pause the timer for.
+	*/
+	public void pauseTimer(long pauseTime){
+		long startTime = System.nanoTime();
+		long estimatedTimeElapsed = System.nanoTime() - startTime;
+		this.frameTimer.stop();
+		while (estimatedTimeElapsed < pauseTime){
+			//runs this loop until the pauseTime has passed
+			estimatedTimeElapsed = System.nanoTime() - startTime;
+		}
+		this.frameTimer.start();
 	}
 
 	/**

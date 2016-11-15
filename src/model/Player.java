@@ -140,6 +140,8 @@ public class Player extends Character {
 					this.prevY = 15*this.sq;
 					this.currX = 10*this.sq;
 					this.currY = 15*this.sq;
+					this.newDirection = 'L';
+					this.board.startPause();
 				}
 			}
 		}

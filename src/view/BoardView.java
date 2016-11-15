@@ -48,6 +48,10 @@ public class BoardView extends JPanel{
 	* Corresponding Frame object to contain the Board View (actual GUI element).
 	*/
 	JFrame frame;
+	/**
+	* Message that displays the "CONTINUING IN __" countdown when the player loses a life
+	*/
+	private String message = "";
 
 	/**
 	* @brief Constructor for the board display
@@ -122,13 +126,18 @@ public class BoardView extends JPanel{
 	* @brief Calls a step of the game frame
 	* @details Directs board to move both the player and the ghost, and calls the repaint method to update the view.
 	*/
-	public void stepFrame(){
-		this.board.getPlayer().move();
-		for (Ghost g : this.board.getGhost()){
-			g.ghostMove();
+	public void stepFrame(){		
+		if (this.board.getPause() == true){
+			this.board.checkPauseTime();
 		}
-		this.repaint();
-		this.board.checkTimeRunning();
+		else{
+			this.board.getPlayer().move();
+			for (Ghost g : this.board.getGhost()){
+				g.ghostMove();
+			}
+			this.repaint();
+			this.board.checkTimeRunning();
+		}
 	}
 
 	/**
@@ -334,11 +343,37 @@ public class BoardView extends JPanel{
 		}
 	}	
 
+	/**
+	* @brief Draws the player's lives onto the board
+	* @param g - Graphics object needed to draw the life images (GUI element).
+	*/
 	public void drawLives(Graphics g){
 		for(int i = 1; i <= this.board.getPlayer().getLives(); i++){
 			g.drawImage(playerRight, 400 - (i*20), 10, Color.BLACK, null);
 		}
 		//g.drawImage(playerRight, 400, 10, Color.BLACK, null);
+	}
+
+	/**
+	* @brief Draws the text for continuing the game (after losing a life)
+	* @param g - Graphics object needed to draw the text (GUI element).
+	*/
+	public void drawText(Graphics g){
+		Graphics2D g2 = (Graphics2D)g;
+		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		
+		Font font = new Font("Arial",Font.BOLD,12);
+		g2.setFont(font);
+		g2.setColor(Color.WHITE);
+		g2.drawString(this.message, 160, 235);
+	}
+
+	/**
+	* @brief Sets the message used for the continue countdown
+	* @param s - String text to set the message as
+	*/
+	public void setMessage(String s){
+		this.message = s;
 	}
 
 	/**
@@ -354,7 +389,7 @@ public class BoardView extends JPanel{
 		this.drawLives(g);
 		this.drawPlayer(g);
 		this.drawGhost(g);
-		
+		this.drawText(g);
 	}
 	
 	/**

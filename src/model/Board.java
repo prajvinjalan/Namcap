@@ -47,6 +47,18 @@ public class Board {
 	* Time that the game has been running
 	*/
 	long estimatedTimeElapsed;
+	/**
+	* Time that the game pauses at
+	*/
+	long startPauseTime;
+	/**
+	* Time that the game has been paused for
+	*/
+	long estimatedPauseTimeElapsed;
+	/**
+	* Whether or not the game is paused currently
+	*/
+	boolean pause;
 	
 	/**
 	* @brief Constructor for Board
@@ -227,5 +239,41 @@ public class Board {
 	*/
 	public void restartTimer(){
 		this.startTime = System.nanoTime();
+	}
+
+	/**
+	* @brief Starts the timer for game pause (when player loses a life)
+	*/
+	public void startPause() {
+		this.startPauseTime = System.nanoTime();
+		this.pause = true;
+	}
+
+	/**
+	* @brief Accessor for if the game is paused
+	* @return The boolean value for whether the game is paused or not
+	*/
+	public boolean getPause() {
+		return this.pause;
+	}
+	
+	/**
+	* @brief Checks how long the game has been paused for (after life loss)
+	* @details Depending on the time elapsed for the pause, the view will be directed to update the continue text that displays for the user (every second) and display nothing once the time has passed
+	*/
+	public void checkPauseTime(){
+		this.estimatedPauseTimeElapsed = System.nanoTime() - this.startPauseTime;
+
+		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedPauseTimeElapsed) < 1L){
+			this.view.setMessage("CONTINUING IN 3");
+		}else if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedPauseTimeElapsed) < 2L){
+			this.view.setMessage("CONTINUING IN 2");
+		}else if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedPauseTimeElapsed) < 3L){
+			this.view.setMessage("CONTINUING IN 1");
+		}else{
+			this.view.setMessage("");
+			this.pause = false;
+		}
+		this.updateView();
 	}
 }

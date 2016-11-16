@@ -171,6 +171,22 @@ public class Board {
 	}
 	
 	/**
+	 * @brief Checks if there are any dots left on the board
+	 * @return boolean value that is true if all the dots on boards have been collected,
+	 * else, returns false
+	 */
+	public boolean noDots(){
+		for (int i = 0; i < 21; i++){
+			for (int j = 0; j < 21; j++){
+				if (this.dots[i][j] != 0){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	/**
 	* @brief Accessor method for dot existence at a grid point
 	* @param x - The x-coordinate for the location of the potential dot on the Board's grid.
 	* @param y - The y-coordinate for the location of the potential dot on the Board's grid.

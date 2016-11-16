@@ -17,7 +17,7 @@ public class Ghost extends Character {
 	/**
 	 * Boolean that represents if player collected big dot or not.
 	 */
-	boolean bigDotEaten = false;
+	public boolean bigDotEaten = false;
 
 	 /** 
 	 * @brief Constructor for Ghost

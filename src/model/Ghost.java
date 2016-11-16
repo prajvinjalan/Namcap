@@ -13,6 +13,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Ghost extends Character {
+	
+	/**
+	 * Boolean that represents if player collected big dot or not.
+	 */
+	boolean bigDotEaten = false;
 
 	 /** 
 	 * @brief Constructor for Ghost
@@ -26,6 +31,7 @@ public class Ghost extends Character {
 		this.prevY = 9*this.sq;
 		this.currX = 10*this.sq;
 		this.currY = 9*this.sq;
+		this.bigDotEaten = false;
 	}
 	
 	/**
@@ -175,5 +181,34 @@ public class Ghost extends Character {
 		this.prevY = 9*this.sq;
 		this.currX = 10*this.sq;
 		this.currY = 9*this.sq;
+	}
+	
+	/**
+	 * @brief Reverses the Ghosts' direction.
+	 */
+	public void reverseDirection() {
+		switch (this.prevDirection){
+			case 'L':
+				this.prevDirection = 'R';
+				break;
+			case 'R':
+				this.prevDirection = 'L';
+				break;
+			case 'U':
+				this.prevDirection = 'D';
+				break;
+			case 'D':
+				this.prevDirection = 'U';
+				break;
+		}
+		
+	}
+	
+	/**
+	 * @brief Changes the speed of the Ghosts.
+	 * @param speed - the amount of pixels to move the ghosts.
+	 */
+	public void changeSpeed(int speed) {
+		this.pixelInc = speed;	
 	}
 }

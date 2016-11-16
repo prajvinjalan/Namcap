@@ -109,6 +109,7 @@ public class Player extends Character {
 	/**
 	* @brief Checks Board for dots
 	* @details Checks if Player collided with dots and directs the Board to update the Score and dots accordingly (if Score is max, endGame is called).
+	* Calls the bigDotEaten() method if Player collects the big dot.
 	*/
 	public void checkDot(){
 		int currDot = this.board.getDot(this.currX / 20, this.currY / 20);
@@ -120,8 +121,9 @@ public class Player extends Character {
 			//BIG DOT FUNCTIONALITY
 			this.board.updateDot(this.currX/20,this.currY/20,0);
 			this.board.accessScore().addScore(200);
+			this.board.bigDotEaten();
 		}
-		if (this.board.accessScore().getScore() == 16500){ //minimal highest score achievable is 16500
+		if (this.board.accessScore().getScore() >= 16500){ //minimal highest score achievable is 16500
 			this.endGame();
 		}
 	}
@@ -129,12 +131,12 @@ public class Player extends Character {
 	/**
 	* @brief Checks for collision with Ghost
 	* @details Checks if Player collided with a Ghost and calls the endGame method if lives count == 0. Otherwise,
-	* Player lives are decremented by 1 and Player location is reset to initial position.
+	* Player lives are decremented by 1 and Player location is reset to initial position. If the bog dot was eaten, the ghost is moved
+	* to it's start position and points are incremented by 500.
 	*/
 	public void checkCollision(){
-		
 		for (Ghost gh : this.board.getGhost()){
-			if ((gh.getCurrX()>=this.currX-this.sq+5)&&(gh.getCurrX()<=this.currX+this.sq-5)&&((gh.getCurrY()>=this.currY-this.sq+5))&&(gh.getCurrY()<=this.currY+this.sq-5)){
+			if (((gh.getCurrX()>=this.currX-this.sq+5)&&(gh.getCurrX()<=this.currX+this.sq-5)&&((gh.getCurrY()>=this.currY-this.sq+5))&&(gh.getCurrY()<=this.currY+this.sq-5)) && !gh.bigDotEaten){
 				if(this.lives == 0){
 					this.endGame();
 				}else{
@@ -146,6 +148,13 @@ public class Player extends Character {
 					this.newDirection = 'L';
 					this.board.resetGhosts();
 					this.board.startPause();
+				}
+			}else{
+				if (((gh.getCurrX()>=this.currX-this.sq+5)&&(gh.getCurrX()<=this.currX+this.sq-5)&&((gh.getCurrY()>=this.currY-this.sq+5))&&(gh.getCurrY()<=this.currY+this.sq-5)) && gh.bigDotEaten){
+					this.board.accessScore().addScore(500);
+					gh.resetPosition();
+					this.board.startPause();
+					gh.bigDotEaten = false;
 				}
 			}
 		}

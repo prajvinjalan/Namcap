@@ -287,7 +287,21 @@ public class Board {
 	*/
 	public void resetGhosts() {
 		for (Ghost g : this.ghosts){
+			g.bigDotEaten = false;
 			g.resetPosition();
 		}
 	}
+	
+	/**
+	 * @brief This method is called when the player eats the big dot
+	 * @details The ghost's directions will change
+	 */
+	public void bigDotEaten(){
+		for (Ghost g : this.ghosts){
+			g.bigDotEaten = true;
+			g.reverseDirection();
+			g.changeSpeed(2);
+		}
+	}
+	
 }

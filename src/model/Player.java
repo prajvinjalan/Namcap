@@ -123,7 +123,7 @@ public class Player extends Character {
 			this.board.accessScore().addScore(200);
 			this.board.bigDotEaten();
 		}
-		if (this.board.accessScore().getScore() >= 16500){ //minimal highest score achievable is 16500
+		if (this.board.noDots()){ //if all dots are gone
 			this.endGame();
 		}
 	}
@@ -155,6 +155,7 @@ public class Player extends Character {
 					gh.resetPosition();
 					this.board.startPause();
 					gh.bigDotEaten = false;
+					gh.changeSpeed(4);
 				}
 			}
 		}

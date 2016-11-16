@@ -303,9 +303,13 @@ public class BoardView extends JPanel{
 		g.setColor(new Color(255,184,151));
 		for (int i = 0; i < 21; i++){
 			for (int j = 0; j < 21; j++){
-				if (this.board.getDot(i, j) != 0){
+				if (this.board.getDot(i, j) == 1){
 					g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 					g2.fillOval(i*this.sq + 9, j*this.sq + 9, 4, 4);
+				}
+				if (this.board.getDot(i, j) == 2){
+					g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+					g2.fillOval(i*this.sq + 4, j*this.sq + 4, 12, 12);
 				}
 			}
 		}

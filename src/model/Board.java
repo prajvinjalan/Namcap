@@ -76,6 +76,11 @@ public class Board {
 				this.dots[i][j] = 1;
 			}
 		}
+		//manually updates the big dots
+		this.updateDot(1, 2, 2);
+		this.updateDot(19, 2, 2);
+		this.updateDot(1, 15, 2);
+		this.updateDot(19, 15, 2);
 
 		this.startTime = System.nanoTime(); //starts a timer
 	}
@@ -226,7 +231,7 @@ public class Board {
 	* @brief Directs the display (view) to prompt the user to take a break if sufficient time has elapsed
 	*/
 	public void checkTimeRunning(){
-		long breakTime = 4L;
+		long breakTime = 7200L; //2 hours
 		this.estimatedTimeElapsed = System.nanoTime() - this.startTime;
 
 		if (TimeUnit.NANOSECONDS.toSeconds(estimatedTimeElapsed) == breakTime){

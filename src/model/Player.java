@@ -115,10 +115,13 @@ public class Player extends Character {
 		if(currDot == 1){
 			this.board.updateDot(this.currX/20,this.currY/20,0);
 			this.board.accessScore().addScore(100);
-		}else{
-			//DO NOTHING
 		}
-		if (this.board.accessScore().getScore() == 16500){
+		if(currDot == 2){
+			//BIG DOT FUNCTIONALITY
+			this.board.updateDot(this.currX/20,this.currY/20,0);
+			this.board.accessScore().addScore(200);
+		}
+		if (this.board.accessScore().getScore() == 16500){ //minimal highest score achievable is 16500
 			this.endGame();
 		}
 	}

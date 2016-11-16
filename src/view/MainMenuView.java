@@ -56,7 +56,7 @@ public class MainMenuView extends JPanel{
 		this.menuPanel = new JPanel();
 		this.startGame = new JButton("Start Game");
 		this.layout = new BorderLayout();
-		this.imageLabel = new JLabel(new ImageIcon("assets/ghost_red.png"));
+		this.imageLabel = new JLabel(new ImageIcon(MainMenuView.class.getResource("/assets/instructions.png")));
 		this.layoutView();
 		this.registerControllers();
 	}

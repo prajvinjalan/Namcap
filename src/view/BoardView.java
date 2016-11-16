@@ -126,13 +126,16 @@ public class BoardView extends JPanel{
 
 	/**
 	* @brief Calls a step of the game frame
-	* @details Directs board to move both the player and the ghost, and calls the repaint method to update the view.
+	* @details Directs board to move both the player and the ghost, and calls the repaint method to update the view. If the board is paused or a big dot is on, the corresponding timers are run.
 	*/
 	public void stepFrame(){		
 		if (this.board.getPause() == true){
 			this.board.checkPauseTime();
 		}
 		else{
+			if (this.board.getBigDotOn() == true){
+				this.board.checkBigDotTimer();
+			}
 			this.board.getPlayer().move();
 			for (Ghost g : this.board.getGhost()){
 				g.ghostMove();

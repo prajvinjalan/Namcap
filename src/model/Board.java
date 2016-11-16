@@ -56,9 +56,21 @@ public class Board {
 	*/
 	long estimatedPauseTimeElapsed;
 	/**
+	* Time that the big dot gets eat
+	*/
+	long startBigDotTime;
+	/**
+	* Time that the big dot has been on for
+	*/
+	long estimatedBigDotTimeElapsed;
+	/**
 	* Whether or not the game is paused currently
 	*/
 	boolean pause;
+	/**
+	* Whether or not the big dot is currently on
+	*/
+	boolean bigDotOn;
 	
 	/**
 	* @brief Constructor for Board
@@ -81,6 +93,8 @@ public class Board {
 		this.updateDot(19, 2, 2);
 		this.updateDot(1, 15, 2);
 		this.updateDot(19, 15, 2);
+
+		this.bigDotOn = false;
 
 		this.startTime = System.nanoTime(); //starts a timer
 	}
@@ -250,7 +264,7 @@ public class Board {
 		long breakTime = 7200L; //2 hours
 		this.estimatedTimeElapsed = System.nanoTime() - this.startTime;
 
-		if (TimeUnit.NANOSECONDS.toSeconds(estimatedTimeElapsed) == breakTime){
+		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedTimeElapsed) == breakTime){
 			this.view.promptBreak();
 		}
 	}
@@ -299,6 +313,18 @@ public class Board {
 	}
 
 	/**
+	* @brief Stops enemies from being edible after big dot time has passed
+	*/
+	public void checkBigDotTimer(){
+		long bigDotTime = 10L; //10 seconds
+		this.estimatedBigDotTimeElapsed = System.nanoTime() - this.startBigDotTime;
+
+		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedBigDotTimeElapsed) == bigDotTime){
+			this.stopBigDot();
+		}
+	}
+
+	/**
 	* @brief Resets the positions of all ghosts to their initial location
 	*/
 	public void resetGhosts() {
@@ -313,11 +339,32 @@ public class Board {
 	 * @details The ghost's directions will change
 	 */
 	public void bigDotEaten(){
+		this.bigDotOn = true;
+		this.startBigDotTime = System.nanoTime();
 		for (Ghost g : this.ghosts){
 			g.bigDotEaten = true;
 			g.reverseDirection();
-			g.changeSpeed(2);
+			g.changeSpeed(4);
 		}
 	}
-	
+
+	/**
+	* @brief Accessor for if big dot is on
+	* @return The boolean value for whether big dot is on or not
+	*/
+	public boolean getBigDotOn() {
+		return this.bigDotOn;
+	}
+
+	/**
+	 * @brief Resets ghosts after big dot time has completed
+	 */
+	private void stopBigDot(){
+		this.bigDotOn = false;
+		for (Ghost g : this.ghosts){
+			g.bigDotEaten = false;
+			g.reverseDirection();
+			g.changeSpeed(4);
+		}
+	}
 }

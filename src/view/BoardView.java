@@ -34,7 +34,7 @@ public class BoardView extends JPanel{
 	/**
 	* Represent the GUI sprites used to display each player position and the ghost.
 	*/
-	Image playerLeft, playerRight, playerUp, playerDown, ghost;
+	Image playerLeft, playerRight, playerUp, playerDown, ghost, ghostBlue;
 	/**
 	* The frame timer for the game; used to set the frequency of BoardView repainting (update).
 	*/
@@ -67,11 +67,13 @@ public class BoardView extends JPanel{
 		//grid is 21x21 (19x19 with extra this.squares for thin borders)
 		this.sq = 20; //square size on the grid
 		
-		playerLeft = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_left.jpeg"));
-		playerRight = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_right.jpeg"));
-		playerUp = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_up.jpeg"));
-		playerDown = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_down.jpeg"));
+		this.playerLeft = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_left.jpeg"));
+		this.playerRight = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_right.jpeg"));
+		this.playerUp = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_up.jpeg"));
+		this.playerDown = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_down.jpeg"));
 		this.ghost = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/ghost_red.png"));
+		this.ghostBlue = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/ghost-blue.png"));
+
 		
 		this.registerControllers();
 		/*
@@ -343,7 +345,12 @@ public class BoardView extends JPanel{
 	*/
 	public void drawGhost(Graphics g){
 		for (Ghost gh : this.board.getGhost()){
-			g.drawImage(ghost, gh.getCurrX(), gh.getCurrY(), Color.BLACK, null);
+			if (!gh.bigDotEaten){
+				g.drawImage(ghost, gh.getCurrX(), gh.getCurrY(), Color.BLACK, null);
+			}else{
+				g.drawImage(ghostBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK, null);
+			}
+			
 		}
 	}	
 

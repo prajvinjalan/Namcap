@@ -286,7 +286,7 @@ Trigger: User moves Player towards dots.
 
 Precondition: Dots exist and in-game UI is active.
 
-Postcondition: Points are incremented and the collected dot is no longer visible.
+Postcondition: Points are incremented by $\hyperref[tab:constants]{\Psi}$ and the collected dot is no longer visible.
 \end{itemize}
 
 \begin{itemize}
@@ -299,7 +299,7 @@ Trigger: User moves Player towards big dot.
 
 Precondition: Big dot exists and in-game UI is active.
 
-Postcondition: Enemies change colour and Player is able to collide with enemies.
+Postcondition: Points are incremented by $\hyperref[tab:constants]{\Sigma}$ and the collected big dot is no longer visible. Enemies change colour and Player is able to collide with enemies.
 \end{itemize}
 
 \begin{itemize}
@@ -312,7 +312,7 @@ Trigger: User moves Player towards last dot.
 
 Precondition: In-game UI is active.
 
-Postcondition: Points are rest and game over UI is active.
+Postcondition: High score is updated if possible and game over UI is active, displaying player's points.
 \end{itemize}
 
 \begin{itemize}
@@ -338,7 +338,7 @@ Trigger: User moves player towards enemy with Big Dot active.
 
 Precondition: In-game UI is active. Big Dot is active (indicated by different enemy colour).
 
-Postcondition: Points are incremented by double standard value per each enemy collision. Enemy is removed after collision and respawns at the center of the level.
+Postcondition: Points are incremented by $\hyperref[tab:constants]{\Lambda}$ per enemy collision. Enemy is removed after collision and respawns at the center of the level.
 \end{itemize}
 
 
@@ -470,7 +470,7 @@ Description: User must be able to collect dots. Dots must disappear after collec
 
 Rationale: User must be able to collect dots in order to gain points in the game.
 
-Fit Criterion: The user's points are increased upon collecting dots.
+Fit Criterion: The user's points are increased by $\hyperref[tab:constants]{\Psi}$ upon collecting dots.
 
 Priority: Medium
 
@@ -489,7 +489,7 @@ Description: The user must be able to collect the big dot.
 
 Rationale: The user must be able to collect the big dot in order to collide with the enemy.
 
-Fit Criterion: The user's ability to collide with enemies is enabled upon collecting big dot.
+Fit Criterion: The user's points are increased by $\hyperref[tab:constants]{\Sigma}$ upon collecting a big dot. The user's ability to collide with enemies is enabled upon collecting big dot.
 
 Priority: Medium
 
@@ -508,7 +508,7 @@ Description: User must be able to collide with enemies upon collecting big dot.
 
 Rationale: In order to remove enemies and respawn them back at the center, user must collide with enemies.
 
-Fit Criterion: User is able to collide with enemies to gain extra points. User's ability to collide with enemies is enabled.
+Fit Criterion: User is able to collide with enemies and points are incremented by $\hyperref[tab:constants]{\Lambda}$ upon collision. User's ability to collide with enemies is enabled.
 
 Priority: Medium
 
@@ -527,7 +527,7 @@ Description: Enemies must change colour when user collects big dot.
 
 Rationale: Indicates to the user that the player is able to collide with enemies and increase score further.
 
-Fit Criterion: Enemies asset with refer to different coloured sprite.
+Fit Criterion: Each enemy's asset will refer to a different coloured sprite.
 
 Priority: Low
 
@@ -580,11 +580,11 @@ Requirement Type: 2.2
 
 Use Case: 6
 
-Description: User's points must increase when dots are collected.
+Description: User's points must increase when dots (or enemies when possible) are collected.
 
 Rationale: Points must be increased in order to give user a reason to play the game.
 
-Fit Criterion: User must collect dots in order for points to increase.
+Fit Criterion: User must collect dots (or enemies when possible) in order for points to increase by the appropriate amounts.
 
 Priority: High
 
@@ -599,11 +599,11 @@ Requirement Type: 2.2
 
 Use Case: 10
 
-Description: User's points must increase by double the standard rate when colliding with enemies with Big Dot active.
+Description: User's points must increase at a greater rate when colliding with enemies with Big Dot active.
 
 Rationale: Big Dot provides a bonus for players to increase points at a faster rate, otherwise Big Dot has no purpose.
 
-Fit Criterion: Score is incremented by 2x standard value.
+Fit Criterion: Score is incremented by $\hyperref[tab:constants]{\Lambda}$.
 
 Priority: Medium
 
@@ -974,6 +974,9 @@ The definition of the requirements call for SYMBOLIC\_CONSTANTS; their values ar
 $\Theta$ & 0.5 seconds & Response time between user actions and in-game operations\\
 $\Omega$ & 1 \% & Percent of application tests that will cause unexpected failures in the application\\
 $\Phi$ & 2 hours & Duration that application runs for before prompting user to take a break\\
+$\Psi$ & 100 points & Point increment when player collides with small dot\\
+$\Sigma$ & 200 points & Point increment when player collides with big dot\\
+$\Lambda$ & 500 points & Point increment when player collides with enemy during big dot stage\\
 \bottomrule
 \end{tabularx}
 \end{table}

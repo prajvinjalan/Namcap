@@ -476,7 +476,7 @@ public class BoardView extends JPanel{
 		MainMenu menu = new MainMenu();
 		MainMenuView menuGUI = new MainMenuView(menu, frame);
 		frame.setContentPane(menuGUI);
-		frame.setPreferredSize(new Dimension(450,460));
+		frame.setPreferredSize(new Dimension(450,560));
 		frame.pack();
 		frame.setVisible(true);
 		this.frame.dispose(); //close this frame

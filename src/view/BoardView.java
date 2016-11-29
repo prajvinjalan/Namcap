@@ -32,9 +32,9 @@ public class BoardView extends JPanel{
 	*/
 	int sq;
 	/**
-	* Represent the GUI sprites used to display each player position and the ghost.
+	* Represent the GUI sprites used to display each player position and the enemy.
 	*/
-	Image playerLeft, playerRight, playerUp, playerDown, ghost, ghostBlue;
+	Image enemyLeft, enemyRight, enemyUp, enemyDown, player, enemyLeftBlue, enemyRightBlue, enemyUpBlue, enemyDownBlue;
 	/**
 	* The frame timer for the game; used to set the frequency of BoardView repainting (update).
 	*/
@@ -67,13 +67,16 @@ public class BoardView extends JPanel{
 		//grid is 21x21 (19x19 with extra this.squares for thin borders)
 		this.sq = 20; //square size on the grid
 		
-		this.playerLeft = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_left.jpeg"));
-		this.playerRight = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_right.jpeg"));
-		this.playerUp = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_up.jpeg"));
-		this.playerDown = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player_down.jpeg"));
-		this.ghost = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/ghost_red.png"));
-		this.ghostBlue = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/ghost-blue.png"));
-
+		this.enemyLeft = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/enemy_left.jpeg"));
+		this.enemyRight = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/enemy_right.jpeg"));
+		this.enemyUp = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/enemy_up.jpeg"));
+		this.enemyDown = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/enemy_down.jpeg"));
+		this.player = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/player.png"));
+		this.enemyLeftBlue = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/enemy_blue_left.jpeg"));
+		this.enemyRightBlue = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/enemy_blue_right.jpeg"));
+		this.enemyUpBlue = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/enemy_blue_up.jpeg"));
+		this.enemyDownBlue = Toolkit.getDefaultToolkit().getImage(BoardView.class.getResource("/assets/enemy_blue_down.jpeg"));
+		
 		
 		this.registerControllers();
 		/*
@@ -322,36 +325,49 @@ public class BoardView extends JPanel{
 
 	/**
 	* @brief Draws the player onto the board
-	* @details Sets up the player's appropriate image based on their direction.
 	* @param g - Graphics object needed to draw the player (GUI element).
 	*/
 	public void drawPlayer(Graphics g){
-		switch(board.getPlayer().getCurrDirection()){
-		case 'L':
-			g.drawImage(playerLeft, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);
-			break;
-		case 'R':
-			g.drawImage(playerRight, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);
-			break;
-		case 'U':
-			g.drawImage(playerUp, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);
-			break;
-		case 'D':
-			g.drawImage(playerDown, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);
-			break;
-		}
+		g.drawImage(player, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);	
 	}
 	
 	/**
-	* @brief Draws the ghosts onto the board
-	* @param g - Graphics object needed to draw the ghost (GUI element).
+	* @brief Draws the enemies onto the board
+	* @details Sets up the enemy's appropriate image based on their direction.
+	* @param g - Graphics object needed to draw the enemy (GUI element).
 	*/
 	public void drawGhost(Graphics g){
 		for (Ghost gh : this.board.getGhost()){
 			if (!gh.bigDotEaten){
-				g.drawImage(ghost, gh.getCurrX(), gh.getCurrY(), Color.BLACK, null);
+				switch(gh.getCurrDirection()){
+				case 'L':
+					g.drawImage(enemyLeft, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					break;
+				case 'R':
+					g.drawImage(enemyRight, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					break;
+				case 'U':
+					g.drawImage(enemyUp, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					break;
+				case 'D':
+					g.drawImage(enemyDown, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					break;
+				}
 			}else{
-				g.drawImage(ghostBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK, null);
+				switch(gh.getCurrDirection()){
+				case 'L':
+					g.drawImage(enemyLeftBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					break;
+				case 'R':
+					g.drawImage(enemyRightBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					break;
+				case 'U':
+					g.drawImage(enemyUpBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					break;
+				case 'D':
+					g.drawImage(enemyDownBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					break;
+				}
 			}
 			
 		}
@@ -363,7 +379,7 @@ public class BoardView extends JPanel{
 	*/
 	public void drawLives(Graphics g){
 		for(int i = 1; i <= this.board.getPlayer().getLives(); i++){
-			g.drawImage(playerRight, 400 - (i*20), 10, Color.BLACK, null);
+			g.drawImage(player, 400 - (i*20), 10, Color.BLACK, null);
 		}
 		//g.drawImage(playerRight, 400, 10, Color.BLACK, null);
 	}

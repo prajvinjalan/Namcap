@@ -18,7 +18,7 @@ import javax.swing.*;
 import controller.KeyController;
 import model.Board;
 import model.MainMenu;
-import model.Ghost;
+import model.Enemy;
 
 
 public class BoardView extends JPanel{
@@ -55,7 +55,7 @@ public class BoardView extends JPanel{
 
 	/**
 	* @brief Constructor for the board display
-	* @details This method connects the board display to its model, sets up the images for the player and ghost, and starts a timer that controls the frames of the game.
+	* @details This method connects the board display to its model, sets up the images for the player and enemy, and starts a timer that controls the frames of the game.
 	* @param board - Primary model (in this case Board object) that the display connects to.
 	* @param frame - Frame object in which the board model is displayed (GUI).
 	*/
@@ -84,7 +84,7 @@ public class BoardView extends JPanel{
 		this.playerRight = Toolkit.getDefaultToolkit().getImage("assets/player_right.jpeg");
 		this.playerUp = Toolkit.getDefaultToolkit().getImage("assets/player_up.jpeg");
 		this.playerDown = Toolkit.getDefaultToolkit().getImage("assets/player_down.jpeg");
-		this.ghost = Toolkit.getDefaultToolkit().getImage("assets/ghost_red.png");
+		this.enemy = Toolkit.getDefaultToolkit().getImage("assets/enemy_red.png");
 		*/
 		this.frameTimer = new javax.swing.Timer(30, new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -129,7 +129,7 @@ public class BoardView extends JPanel{
 
 	/**
 	* @brief Calls a step of the game frame
-	* @details Directs board to move both the player and the ghost, and calls the repaint method to update the view. If the board is paused or a big dot is on, the corresponding timers are run.
+	* @details Directs board to move both the player and the enemy, and calls the repaint method to update the view. If the board is paused or a big dot is on, the corresponding timers are run.
 	*/
 	public void stepFrame(){		
 		if (this.board.getPause() == true){
@@ -140,8 +140,8 @@ public class BoardView extends JPanel{
 				this.board.checkBigDotTimer();
 			}
 			this.board.getPlayer().move();
-			for (Ghost g : this.board.getGhost()){
-				g.ghostMove();
+			for (Enemy g : this.board.getEnemy()){
+				g.enemyMove();
 			}
 			this.repaint();
 			this.board.checkTimeRunning();
@@ -336,8 +336,8 @@ public class BoardView extends JPanel{
 	* @details Sets up the enemy's appropriate image based on their direction.
 	* @param g - Graphics object needed to draw the enemy (GUI element).
 	*/
-	public void drawGhost(Graphics g){
-		for (Ghost gh : this.board.getGhost()){
+	public void drawEnemy(Graphics g){
+		for (Enemy gh : this.board.getEnemy()){
 			if (!gh.bigDotEaten){
 				switch(gh.getCurrDirection()){
 				case 'L':
@@ -408,7 +408,7 @@ public class BoardView extends JPanel{
 
 	/**
 	* @brief Paint method that calls internal functions to initialize the display
-	* @details Calls the super class's paintComponent method (as necessary) and calls internal functions to draw the map, dots, player and ghost.
+	* @details Calls the super class's paintComponent method (as necessary) and calls internal functions to draw the map, dots, player and enemy.
 	* @param g - Graphics object needed to draw the appropriate board (GUI element).
 	*/
 	public void paintComponent(Graphics g){
@@ -418,19 +418,19 @@ public class BoardView extends JPanel{
 		this.drawDots(g);
 		this.drawLives(g);
 		this.drawPlayer(g);
-		this.drawGhost(g);
+		this.drawEnemy(g);
 		this.drawText(g);
 	}
 	
 	/**
 	* @brief Repaints (updates) the appropriate parts of the board
-	* @details This class's repaint method that specifically repaints on the player and ghost in order to save processing power (opposed to always redrawing the board for player and ghost movements).
+	* @details This class's repaint method that specifically repaints on the player and enemy in order to save processing power (opposed to always redrawing the board for player and enemy movements).
 	* @param g - Graphics object needed to draw the appropriate pieces of the board (GUI element).
 	*/
 	public void repaint(Graphics g){
 		//this.drawPlayer(g);
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
-		for (Ghost gh : this.board.getGhost()){
+		for (Enemy gh : this.board.getEnemy()){
 			super.repaint((gh.getCurrX())-20, (gh.getCurrY())-20, 80, 80);
 			}
 		//this.pointsLabel.setText(this.board.accessScore().getScore() + "");

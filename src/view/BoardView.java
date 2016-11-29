@@ -140,8 +140,8 @@ public class BoardView extends JPanel{
 				this.board.checkBigDotTimer();
 			}
 			this.board.getPlayer().move();
-			for (Enemy g : this.board.getEnemy()){
-				g.enemyMove();
+			for (Enemy e : this.board.getEnemy()){
+				e.enemyMove();
 			}
 			this.repaint();
 			this.board.checkTimeRunning();
@@ -337,35 +337,35 @@ public class BoardView extends JPanel{
 	* @param g - Graphics object needed to draw the enemy (GUI element).
 	*/
 	public void drawEnemy(Graphics g){
-		for (Enemy gh : this.board.getEnemy()){
-			if (!gh.bigDotEaten){
-				switch(gh.getCurrDirection()){
+		for (Enemy e : this.board.getEnemy()){
+			if (!e.bigDotEaten){
+				switch(e.getCurrDirection()){
 				case 'L':
-					g.drawImage(enemyLeft, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					g.drawImage(enemyLeft, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
 					break;
 				case 'R':
-					g.drawImage(enemyRight, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					g.drawImage(enemyRight, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
 					break;
 				case 'U':
-					g.drawImage(enemyUp, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					g.drawImage(enemyUp, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
 					break;
 				case 'D':
-					g.drawImage(enemyDown, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					g.drawImage(enemyDown, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
 					break;
 				}
 			}else{
-				switch(gh.getCurrDirection()){
+				switch(e.getCurrDirection()){
 				case 'L':
-					g.drawImage(enemyLeftBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					g.drawImage(enemyLeftBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
 					break;
 				case 'R':
-					g.drawImage(enemyRightBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					g.drawImage(enemyRightBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
 					break;
 				case 'U':
-					g.drawImage(enemyUpBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					g.drawImage(enemyUpBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
 					break;
 				case 'D':
-					g.drawImage(enemyDownBlue, gh.getCurrX(), gh.getCurrY(), Color.BLACK,null);
+					g.drawImage(enemyDownBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
 					break;
 				}
 			}
@@ -430,8 +430,8 @@ public class BoardView extends JPanel{
 	public void repaint(Graphics g){
 		//this.drawPlayer(g);
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
-		for (Enemy gh : this.board.getEnemy()){
-			super.repaint((gh.getCurrX())-20, (gh.getCurrY())-20, 80, 80);
+		for (Enemy e : this.board.getEnemy()){
+			super.repaint((e.getCurrX())-20, (e.getCurrY())-20, 80, 80);
 			}
 		//this.pointsLabel.setText(this.board.accessScore().getScore() + "");
 	}

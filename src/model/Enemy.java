@@ -1,10 +1,10 @@
 /**
-* @file Ghost.java
-* @title Ghost
+* @file Enemy.java
+* @title Enemy
 * @author VPB Game Studio
 * @date 13/11/2016
-* @brief This class represents a Ghost in the game.
-* @details This class represents all the functionalities and attributes of a Ghost in the game.	
+* @brief This class represents an Enemy in the game.
+* @details This class represents all the functionalities and attributes of an Enemy in the game.	
 * @extends Character
 */
 package model;
@@ -12,7 +12,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Ghost extends Character {
+public class Enemy extends Character {
 	
 	/**
 	 * Boolean that represents if player collected big dot or not.
@@ -20,13 +20,13 @@ public class Ghost extends Character {
 	public boolean bigDotEaten = false;
 
 	 /** 
-	 * @brief Constructor for Ghost
+	 * @brief Constructor for Enemy
 	 * @details Constructor accepts one parameter for the game's Board model.
      * @param board - Board object that is passed in to add character (in this case, enemy) functionality.
      */
-	public Ghost(Board board){
+	public Enemy(Board board){
 		super(board);
-		this.board.setGhost(this);
+		this.board.setEnemy(this);
 		this.prevX = 10*this.sq;
 		this.prevY = 9*this.sq;
 		this.currX = 10*this.sq;
@@ -35,9 +35,9 @@ public class Ghost extends Character {
 	}
 	
 	/**
-	* @brief Method returns whether or not Ghost can keep moving in the same direction
-	* @details This method determines whether the ghost can keep moving in the current direction it is headed.
-	* @param direction - Char value representing the Ghost's current direction.
+	* @brief Method returns whether or not Enemy can keep moving in the same direction
+	* @details This method determines whether the Enemy can keep moving in the current direction it is headed.
+	* @param direction - Char value representing the Enemy's current direction.
 	* @return Boolean value (true - direction remains valid, or false - direction invalid).
 	*/
 	public boolean keepMoving(char direction){		
@@ -59,7 +59,7 @@ public class Ghost extends Character {
 	}
 	/**
 	 * @brief Method returns an array list of directions
-	 * @details This method determines if the ghost is in a position where it can go in multiple directions. It 
+	 * @details This method determines if the Enemy is in a position where it can go in multiple directions. It 
 	 * returns an array list of the available directions.
 	 * @return ArrayList<String> containing the letters corresponding to the available directions
 	 */
@@ -88,9 +88,9 @@ public class Ghost extends Character {
 	}
 	/**
 	 * @brief Method returns a random direction based on the array list of directions passed in
-	 * @details This method randomly picks a direction for the ghost to move to from the ArrayList of directions passed in.
-	 * @param directions - ArrayList<String> of letters representing the directions that the ghost is able to move in.
-	 * @return returns a char value of the new direction of the ghost
+	 * @details This method randomly picks a direction for the Enemy to move to from the ArrayList of directions passed in.
+	 * @param directions - ArrayList<String> of letters representing the directions that the Enemy is able to move in.
+	 * @return returns a char value of the new direction of the Enemy
 	 */
 	public char randDirection(ArrayList<String> directions){
 		int size = directions.size();
@@ -115,11 +115,11 @@ public class Ghost extends Character {
 	}
 
 	/**
-	* @brief Determines a valid path for the Ghost to move
-	* @details This method is the Ghost's AI. It is used to change the direction of the ghost's movement when the ghost
+	* @brief Determines a valid path for the Enemy to move
+	* @details This method is the Enemy's AI. It is used to change the direction of the Enemy's movement when the Enemy
 	* hits a barrier. The new direction is chosen randomly.
 	*/
-	public void ghostMove(){
+	public void enemyMove(){
 		if (keepMoving(this.prevDirection)){
 			this.newDirection = this.prevDirection;
 		}
@@ -127,7 +127,7 @@ public class Ghost extends Character {
 		this.prevX = this.currX;
 		this.prevY = this.currY;
 		
-		//if ghost in a grid square
+		//if Enemy in a grid square
 		if (this.currX % 20 == 0 && this.currY % 20 == 0){
 			this.newDirection = this.randDirection(this.newPath());
 			switch(this.newDirection){
@@ -155,7 +155,7 @@ public class Ghost extends Character {
 			
 			this.prevDirection = this.newDirection;
 			
-		}else{ //else if ghost not in grid square (i.e. ghost keeps moving)
+		}else{ //else if Enemy not in grid square (i.e. Enemy keeps moving)
 			switch(this.newDirection){
 				case 'L':
 					this.currX -= this.pixelInc;
@@ -174,7 +174,7 @@ public class Ghost extends Character {
 	}
 
 	/**
-	* @brief Resets the Ghost's position to its initial location
+	* @brief Resets the Enemy's position to its initial location
 	*/
 	public void resetPosition(){
 		this.prevX = 10*this.sq;
@@ -184,7 +184,7 @@ public class Ghost extends Character {
 	}
 	
 	/**
-	 * @brief Reverses the Ghosts' direction.
+	 * @brief Reverses the Enemies' direction.
 	 */
 	public void reverseDirection() {
 		switch (this.prevDirection){
@@ -205,8 +205,8 @@ public class Ghost extends Character {
 	}
 	
 	/**
-	 * @brief Changes the speed of the Ghosts.
-	 * @param speed - the amount of pixels to move the ghosts.
+	 * @brief Changes the speed of the Enemies.
+	 * @param speed - the amount of pixels to move the Enemies.
 	 */
 	public void changeSpeed(int speed) {
 		this.pixelInc = speed;	

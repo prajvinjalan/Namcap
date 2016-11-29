@@ -36,9 +36,9 @@ public class Board {
 	*/
 	Score score;
 	/**
-	* Represents the corresponding ghost objects (usually multiple in-game) for the Board model.
+	* Represents the corresponding enemy objects (usually multiple in-game) for the Board model.
 	*/
-	ArrayList<Ghost> ghosts;
+	ArrayList<Enemy> enemies;
 	/**
 	* Time that the game started (used to determine estimated time the game has been running)
 	*/
@@ -80,7 +80,7 @@ public class Board {
 		this.barriers = new boolean[21][21];
 		this.dots = new int[21][21];
 		this.score = new Score();
-		this.ghosts = new ArrayList<Ghost>();
+		this.enemies = new ArrayList<Enemy>();
 		
 		for (int i = 0; i < 21; i++){
 			for (int j = 0; j < 21; j++){
@@ -100,11 +100,11 @@ public class Board {
 	}
 	
 	/**
-	* @brief Connects model to a corresponding ghost character
-	* @param ghost - Ghost(s) object for this game Board model.
+	* @brief Connects model to a corresponding enemy character
+	* @param enemy - Enemy(s) object for this game Board model.
 	*/
-	public void setGhost(Ghost ghost){
-		this.ghosts.add(ghost);
+	public void setEnemy(Enemy enemy){
+		this.enemies.add(enemy);
 	}
 	
 	/**
@@ -219,11 +219,11 @@ public class Board {
 	}
 	
 	/**
-	* @brief Accessor method for the Board's ghost objects
-	* @return The ghost objects (in an ArrayList) corresponding to the Board instance.
+	* @brief Accessor method for the Board's enemy objects
+	* @return The enemy objects (in an ArrayList) corresponding to the Board instance.
 	*/
-	public ArrayList<Ghost> getGhost(){
-		return this.ghosts;
+	public ArrayList<Enemy> getEnemy(){
+		return this.enemies;
 	}
 
 	/**
@@ -325,26 +325,26 @@ public class Board {
 	}
 
 	/**
-	* @brief Resets the positions of all ghosts to their initial location
+	* @brief Resets the positions of all enemies to their initial location
 	*/
-	public void resetGhosts() {
-		for (Ghost g : this.ghosts){
-			g.bigDotEaten = false;
-			g.resetPosition();
+	public void resetEnemies() {
+		for (Enemy e : this.enemies){
+			e.bigDotEaten = false;
+			e.resetPosition();
 		}
 	}
 	
 	/**
 	 * @brief This method is called when the player eats the big dot
-	 * @details The ghost's directions will change
+	 * @details The enemy's directions will change
 	 */
 	public void bigDotEaten(){
 		this.bigDotOn = true;
 		this.startBigDotTime = System.nanoTime();
-		for (Ghost g : this.ghosts){
-			g.bigDotEaten = true;
-			g.reverseDirection();
-			g.changeSpeed(4);
+		for (Enemy e : this.enemies){
+			e.bigDotEaten = true;
+			e.reverseDirection();
+			e.changeSpeed(4);
 		}
 	}
 
@@ -357,14 +357,14 @@ public class Board {
 	}
 
 	/**
-	 * @brief Resets ghosts after big dot time has completed
+	 * @brief Resets enemies after big dot time has completed
 	 */
 	private void stopBigDot(){
 		this.bigDotOn = false;
-		for (Ghost g : this.ghosts){
-			g.bigDotEaten = false;
-			g.reverseDirection();
-			g.changeSpeed(4);
+		for (Enemy e : this.enemies){
+			e.bigDotEaten = false;
+			e.reverseDirection();
+			e.changeSpeed(4);
 		}
 	}
 }

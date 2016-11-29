@@ -37,20 +37,20 @@ public class MainMenu {
 
 	/**
 	* @brief Starts the game
-	* @details Creates the frame that will contain the Board and connects a display to it; also instantiates the appropriate Player and Ghost characters on the Board.
+	* @details Creates the frame that will contain the Board and connects a display to it; also instantiates the appropriate Player and Enemy characters on the Board.
 	*/
 	public void startGame(){
 		this.menuView.setFrameInvis();
 		JFrame frame = new JFrame("Namcap");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ArrayList<Ghost> ghosts = new ArrayList<Ghost>();
+		ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 		Board board = new Board();
 		BoardView boardGUI = new BoardView(board, frame);
 		Player player = new Player(board);
-		Ghost ghost1 = new Ghost(board);
-		Ghost ghost2 = new Ghost(board);
-		Ghost ghost3 = new Ghost(board);
-		Ghost ghost4 = new Ghost(board);
+		Enemy enemy1 = new Enemy(board);
+		Enemy enemy2 = new Enemy(board);
+		Enemy enemy3 = new Enemy(board);
+		Enemy enemy4 = new Enemy(board);
 		frame.setContentPane(boardGUI);
 		frame.setPreferredSize(new Dimension(450,450));
 		frame.pack();

@@ -40,7 +40,7 @@ public class Player extends Character {
 
 	/**
 	* @brief Controls player movement
-	* @details Checks for collisions with Ghost(s) or dots, sets up the Player's direction, and increments pixels to move the Player.
+	* @details Checks for collisions with Enemy(s) or dots, sets up the Player's direction, and increments pixels to move the Player.
 	*/
 	public void move(){
 		this.checkCollision();
@@ -129,14 +129,14 @@ public class Player extends Character {
 	}
 
 	/**
-	* @brief Checks for collision with Ghost
-	* @details Checks if Player collided with a Ghost and calls the endGame method if lives count == 0. Otherwise,
-	* Player lives are decremented by 1 and Player location is reset to initial position. If the bog dot was eaten, the ghost is moved
+	* @brief Checks for collision with Enemy
+	* @details Checks if Player collided with a Enemy and calls the endGame method if lives count == 0. Otherwise,
+	* Player lives are decremented by 1 and Player location is reset to initial position. If the bog dot was eaten, the enemy is moved
 	* to it's start position and points are incremented by 500.
 	*/
 	public void checkCollision(){
-		for (Ghost gh : this.board.getGhost()){
-			if (((gh.getCurrX()>=this.currX-this.sq+5)&&(gh.getCurrX()<=this.currX+this.sq-5)&&((gh.getCurrY()>=this.currY-this.sq+5))&&(gh.getCurrY()<=this.currY+this.sq-5)) && !gh.bigDotEaten){
+		for (Enemy en : this.board.getEnemy()){
+			if (((en.getCurrX()>=this.currX-this.sq+5)&&(en.getCurrX()<=this.currX+this.sq-5)&&((en.getCurrY()>=this.currY-this.sq+5))&&(en.getCurrY()<=this.currY+this.sq-5)) && !en.bigDotEaten){
 				if(this.lives == 0){
 					this.endGame();
 				}else{
@@ -146,16 +146,16 @@ public class Player extends Character {
 					this.currX = 10*this.sq;
 					this.currY = 15*this.sq;
 					this.newDirection = 'L';
-					this.board.resetGhosts();
+					this.board.resetEnemies();
 					this.board.startPause();
 				}
 			}else{
-				if (((gh.getCurrX()>=this.currX-this.sq+5)&&(gh.getCurrX()<=this.currX+this.sq-5)&&((gh.getCurrY()>=this.currY-this.sq+5))&&(gh.getCurrY()<=this.currY+this.sq-5)) && gh.bigDotEaten){
+				if (((en.getCurrX()>=this.currX-this.sq+5)&&(en.getCurrX()<=this.currX+this.sq-5)&&((en.getCurrY()>=this.currY-this.sq+5))&&(en.getCurrY()<=this.currY+this.sq-5)) && en.bigDotEaten){
 					this.board.accessScore().addScore(500);
-					gh.resetPosition();
+					en.resetPosition();
 					this.board.startPause();
-					gh.bigDotEaten = false;
-					gh.changeSpeed(4);
+					en.bigDotEaten = false;
+					en.changeSpeed(4);
 				}
 			}
 		}

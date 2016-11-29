@@ -119,7 +119,7 @@ unlikely changes are listed in Section \ref{SecUchange}.
 The following are anticipated changes pertaining to the design of Namcap. The development team will approach the project with an adapted design for change methodology that will require only the one module that contains the decision elements for the change to be altered.
 
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acSprites}:] The graphical sprites for the Player and Ghost (enemy) entities in the game.
+\item[\refstepcounter{acnum} \actheacnum \label{acSprites}:] The graphical sprites for the Player and Enemy entities in the game.
 \item[\refstepcounter{acnum} \actheacnum \label{acStats}:] The representation of the score and player lives on the GUI.
 \item[\refstepcounter{acnum} \actheacnum \label{acHScore}:] Tracking of the high score value to be instance-independent (high score will persist from program run to program run).
 \end{description}
@@ -138,7 +138,7 @@ The following are changes that are unlikely to occur as many parts of the design
 This section provides an overview of the module design. Modules are summarized
 in a hierarchy decomposed by secrets in Table \ref{TblMH}. The modules listed
 below, which are leaves in the hierarchy tree (with the exclusion of M1 - M3 representing generalized groups of modules), are the modules that will
-actually be implemented. The Ghost Module has been implemented such that it only
+actually be implemented. The Enemy Module has been implemented such that it only
 contains the algorithm for enemy movement in the game, so it is a generic
 module that can be used for the movement of any AI character that may be
 implemented in Namcap.
@@ -156,7 +156,7 @@ implemented in Namcap.
 \item [\refstepcounter{mnum} \mthemnum \label{mBV}:] Board View Module
 \item [\refstepcounter{mnum} \mthemnum \label{mBC}:] Button Controller Module
 \item [\refstepcounter{mnum} \mthemnum \label{mKC}:] Key Controller Module
-\item [\refstepcounter{mnum} \mthemnum \label{mG}:] Ghost Module
+\item [\refstepcounter{mnum} \mthemnum \label{mG}:] Enemy Module
 \end{description}
 \textcolor{red}{M1 - M3 should not be modules, but groups of modules - CM} \\
 
@@ -182,7 +182,7 @@ implemented in Namcap.
 & Key Controller\\
 \midrule
 
-{Software Decision Module} & Ghost\\
+{Software Decision Module} & Enemy\\
 \bottomrule
 
 \end{tabular}
@@ -241,7 +241,7 @@ system or by standard programming language libraries.
 
 \begin{description}
 \item[Secrets:]Attributes of a character.
-\item[Services:]Acts as a super-class to the Player and Ghost modules. Provides the character's location on the map/grid.
+\item[Services:]Acts as a super-class to the Player and Enemy modules. Provides the character's location on the map/grid.
 \item[Implemented By:] Namcap
 \end{description}
 
@@ -315,11 +315,11 @@ system or by standard programming language libraries.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Ghost Module (\mref{mG})}
+\subsubsection{Enemy Module (\mref{mG})}
 
 \begin{description}
-\item[Secrets:]The ghost's movement mechanism.
-\item[Services:]Implements an \textcolor{red}{(I am being picky, but fix these typos) - CM} simple AI that moves the ghost on a valid path.
+\item[Secrets:]The enemy's movement mechanism.
+\item[Services:]Implements an \textcolor{red}{(I am being picky, but fix these typos) - CM} simple AI that moves the enemy on a valid path.
 \item[Implemented By:] Namcap
 \end{description}
 
@@ -398,7 +398,7 @@ the components. Red entities are controller modules (dealing with user input), y
 modules (dealing with display), and green entities are model modules (dealing with game mechanisms).
 To ensure clarity, since all modules are connected to the Hardware-Hiding module - which directly interacts
 with system hardware for input and output - it has been shown seperately \textcolor{red}{spelling - CM} in the figure. \\
-\textcolor{red}{I like the design overall. If the board does in fact, hold / contain the player and ghosts, it does work. An exception to this is if a player is abstracted from the level and can function on its own. Also, the model never interfaces with the view. The controller \textit{controls} how the model is displayed and thus should handle that - CM} \\
+\textcolor{red}{I like the design overall. If the board does in fact, hold / contain the player and enemies, it does work. An exception to this is if a player is abstracted from the level and can function on its own. Also, the model never interfaces with the view. The controller \textit{controls} how the model is displayed and thus should handle that - CM} \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=1.0\textwidth]{UsesHierarchy.png}

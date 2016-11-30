@@ -166,7 +166,7 @@ public class BoardView extends JPanel{
 		}
 		
 		//draws rectangles onto the map and updates them as barriers
-		g.setColor(Color.BLUE);
+		g.setColor(Color.RED);
 		g.drawRect(this.sq*2, this.sq*2, this.sq*3, this.sq);
 		this.updateRectangleBarriers(2, 2, 3, 1);
 		g.drawRect(this.sq*6, this.sq*2, this.sq*3, this.sq);

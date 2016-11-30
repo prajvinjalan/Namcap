@@ -15,4 +15,4 @@ run: $(classes)
 	chmod 754 run
 
 clean:
-	$(RM) view/*.class model/*.class controller/*.class run Manifest.txt model/Namcap.jar
+	$(RM) view/*.class model/*.class controller/*.class run Manifest.txt model/Namcap.jar high_score

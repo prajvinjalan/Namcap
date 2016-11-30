@@ -65,7 +65,8 @@ public class Score {
 	public void updateHighScore(int pts){
 		if(this.value > this.highScore){
 			try{
-				FileWriter scoreFile = new FileWriter(new File("model/high_score"));
+				File hsFile = new File("high_score");
+				FileWriter scoreFile = new FileWriter(hsFile);
 				scoreFile.append(this.value + "");
 				scoreFile.close();
 			}catch(Exception e){
@@ -81,7 +82,14 @@ public class Score {
 	*/
 	public void readHighScore(){
 		try{
-			Scanner scoreFile = new Scanner(new File("model/high_score"));
+			File hsFile = new File("high_score");
+			if(!hsFile.exists()){
+				hsFile.createNewFile();
+				FileWriter scoreFile = new FileWriter(hsFile);
+				scoreFile.append(0 + "");
+				scoreFile.close();
+			}
+			Scanner scoreFile = new Scanner(hsFile);
 			this.highScore = Integer.parseInt(scoreFile.next());
 		}catch(Exception e){
 			e.printStackTrace();

@@ -319,7 +319,7 @@ public class Board {
 		long bigDotTime = 10L; //10 seconds
 		this.estimatedBigDotTimeElapsed = System.nanoTime() - this.startBigDotTime;
 
-		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedBigDotTimeElapsed) == bigDotTime){
+		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedBigDotTimeElapsed) >= bigDotTime){
 			this.stopBigDot();
 		}
 	}

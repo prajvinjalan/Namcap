@@ -24,7 +24,7 @@ public class Namcap {
 		MainMenu menu = new MainMenu();
 		MainMenuView menuGUI = new MainMenuView(menu, frame);
 		frame.setContentPane(menuGUI);
-		frame.setPreferredSize(new Dimension(450,560));
+		frame.setPreferredSize(new Dimension(450,620));
 		frame.pack();
 		frame.setVisible(true);
 	}

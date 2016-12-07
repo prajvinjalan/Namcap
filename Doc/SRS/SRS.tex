@@ -54,6 +54,7 @@
 2016-10-30 & 1.8 & Revision of Legal Requirements section to reference feedback\\
 2016-10-31 & 1.9 & Revision of Functional Requirements to address Big Dot functionality feedback\\
 2016-10-31 & 2.0 & Addition of Symbolic Constant for Health and Safety Requirements\\
+2016-12-07 & 2.1 & Final revision of SRS based on given feedback, made adjustments to use cases, environment and constraints; Use Case 10 references big dot collision with enemy\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -102,7 +103,7 @@ The implementation shall be based on the same mechanics as the original implemen
 \paragraph{}
 %\textcolor{red}{Consider any libraries or development kits that could fall in this category - CM} \\
 %The section now specifies the JDK and built-in libraries as possible partner/collaborative applications.
-The implementation requires the Java Development Kit along with several built-in libraries. The libraries to be utilized will cover various aspects of the implementation from GUI to testing elements.
+\textcolor{red}{The implementation requires the Java Development Kit along with several built-in libraries. The development will primarily focus on use of the Java Swing and AWT libraries in order to implement GUI elements. The development will also make use of various other built-in libraries such as the File and Scanner libraries for file I/O functionalities.}
 
 \subsubsection{Off-the-Shelf Software}
 \paragraph{}
@@ -115,14 +116,14 @@ The application shall be usable on desktop and laptop computer platforms. This a
 \subsubsection{Schedule Constraints}
 \paragraph{}
 %\textcolor{red}{ The self imposed deadlines are perfectly applicable as valid schedule constraints - CM} \\
-%Provided reference to the Gantt Project for detailed description of the project scheduling constraints.
-Self-imposed scheduling deadlines have been put in place for the development process. Specifically, the development team is aiming to have the initial implementation fully functioning by December 2016. For a more specific break-down of the established development deadlines, refer to the Namcap Gantt Project.
+%Provided reference to the Gantt Project for detailed description of the project scheduling constraints and added link to Namcap Gantt Project.
+Self-imposed scheduling deadlines have been put in place for the development process. Specifically, the development team is aiming to have the initial implementation fully functioning by December 2016. For a more specific break-down of the established development deadlines, \textcolor{red}{refer to the [\href{run:../DevelopmentPlan/NamcapGanttProject.gan}{Namcap Gantt Project}] (click to be open the gantt).}
 
 \subsubsection{Budget Constraints}
 \paragraph{}
 %\textcolor{red}{In this case, I would consider using "Man-Hours" as a budget of which is constrained by other projects / school - CM} \\
 %Reference to man-hours as a budgetary constraint.
-In terms of this redevelopment project, man-hours is the primary budgetary constraint. The time of the developers is split between this redevelopment and other projects/ courses varying for each individual. This results in a man-hour constraint of 10 hours/week to account for the individual schedules of the development team.  Since the redevelopment is based on an open-source implementation, any and all additional resources for the project are readily and freely available.
+\textcolor{red}{In terms of this redevelopment project, man-hours is the primary budgetary constraint. The time of the developers is split between this redevelopment and other projects/ courses varying for each individual. This results in a man-hour constraint of 10 hours/week to account for the individual schedules of the development team.  Since the redevelopment is based on an open-source implementation, any and all additional resources for the project are readily and freely available.}
 
 \subsubsection{Enterprise Constraints}
 \paragraph{}
@@ -208,7 +209,7 @@ Player collides with Enemy (with Big Dot consumed/active) & Keyboard(arrow keys)
 \end{tabularx}
 \end{table}
 %\textcolor{red}{ Include Player colliding with Enemy when Big Dot is consumed - CM} \\
-%Big Dot active collision functionality has been addressed and the appropriate requirements have been added
+%Big Dot active collision functionality has been addressed and the appropriate requirements have been added (US 10)
 \begin{itemize}
 \item
 Use Case Number: 1

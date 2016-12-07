@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="NAMCAP Gantt Project" company="VPB Game Studios" webLink="http://" view-date="2016-10-23" view-index="0" gantt-divider-location="364" resource-divider-location="300" version="2.8.1" locale="en_CA">
+<?xml version="1.0" encoding="UTF-8"?><project name="NAMCAP Gantt Project" company="VPB Game Studios" webLink="http://" view-date="2016-10-30" view-index="0" gantt-divider-location="364" resource-divider-location="300" version="2.8.1" locale="en_CA">
     <description/>
-    <view zooming-state="default:4" id="gantt-chart">
+    <view zooming-state="default:5" id="gantt-chart">
         <field id="tpd3" name="Name" width="213" order="0"/>
         <field id="tpd4" name="Begin date" width="65" order="1"/>
         <field id="tpd5" name="End date" width="67" order="2"/>
@@ -101,47 +101,47 @@
         </task>
         <task id="150" name="Team Meeting 04" color="#33ff33" meeting="false" start="2016-10-25" duration="1" complete="0" expand="true" cost-manual-value="10.0" cost-calculated="true"/>
         <task id="153" name="Team Meeting 05" color="#33ff33" meeting="false" start="2016-11-01" duration="1" complete="0" expand="true"/>
-        <task id="327" name="R0 Demo Implementation" color="#ff3333" meeting="false" start="2016-11-02" duration="12" complete="0" expand="true"/>
-        <task id="31" name="Design Document R0" color="#8cb6ce" meeting="false" start="2016-11-02" duration="10" complete="0" expand="true">
-            <task id="331" name="MG" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="0" expand="true">
-                <task id="334" name="1 - Introduction" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="0" expand="true"/>
-                <task id="335" name="2 - Anticipated and Unlikely Changes" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="0" expand="true"/>
-                <task id="336" name="3 - Module Hierarchy" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="0" expand="true"/>
-                <task id="337" name="4 - Connection Between Requirements and Design" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="0" expand="true"/>
-                <task id="338" name="5 - Module Decomposition" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="0" expand="true"/>
-                <task id="339" name="6 - Traceability Matrix" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="0" expand="true"/>
-                <task id="341" name="7 - Use Hierarchy Between Modules" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="0" expand="true"/>
+        <task id="327" name="R0 Demo Implementation" color="#ff3333" meeting="false" start="2016-11-02" duration="12" complete="100" expand="true"/>
+        <task id="31" name="Design Document R0" color="#8cb6ce" meeting="false" start="2016-11-02" duration="10" complete="86" expand="true">
+            <task id="331" name="MG" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="100" expand="true">
+                <task id="334" name="1 - Introduction" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="100" expand="true"/>
+                <task id="335" name="2 - Anticipated and Unlikely Changes" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="100" expand="true"/>
+                <task id="336" name="3 - Module Hierarchy" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="100" expand="true"/>
+                <task id="337" name="4 - Connection Between Requirements and Design" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="100" expand="true"/>
+                <task id="338" name="5 - Module Decomposition" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="100" expand="true"/>
+                <task id="339" name="6 - Traceability Matrix" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="100" expand="true"/>
+                <task id="341" name="7 - Use Hierarchy Between Modules" color="#8cb6ce" meeting="false" start="2016-11-02" duration="9" complete="100" expand="true"/>
             </task>
-            <task id="329" name="MIS" color="#8cb6ce" meeting="false" start="2016-11-07" duration="4" complete="0" expand="true"/>
+            <task id="329" name="MIS" color="#8cb6ce" meeting="false" start="2016-11-07" duration="4" complete="100" expand="true"/>
             <task id="349" name="Design Document Revision" color="#33ff33" meeting="false" start="2016-11-10" duration="2" complete="0" expand="true"/>
         </task>
-        <task id="287" name="Testing" color="#8cb6ce" meeting="false" start="2016-11-05" duration="9" complete="0" expand="true">
-            <task id="289" name="Functional Testing" color="#8cb6ce" meeting="false" start="2016-11-05" duration="9" complete="0" expand="true">
-                <task id="300" name="Player Movement/Collision Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="0" expand="true"/>
-                <task id="302" name="Enemy Movement/Collision Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="0" expand="true"/>
-                <task id="304" name="Scoring Mechanic Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="0" expand="true"/>
+        <task id="287" name="Testing" color="#8cb6ce" meeting="false" start="2016-11-05" duration="9" complete="100" expand="true">
+            <task id="289" name="Functional Testing" color="#8cb6ce" meeting="false" start="2016-11-05" duration="9" complete="100" expand="true">
+                <task id="300" name="Player Movement/Collision Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="100" expand="true"/>
+                <task id="302" name="Enemy Movement/Collision Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="100" expand="true"/>
+                <task id="304" name="Scoring Mechanic Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="100" expand="true"/>
             </task>
-            <task id="290" name="Tests for NF Requirements" color="#8cb6ce" meeting="false" start="2016-11-10" duration="4" complete="0" expand="true">
-                <task id="306" name="Application Layout Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="0" expand="true"/>
-                <task id="307" name="Understandable Gameplay Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="0" expand="true"/>
-                <task id="308" name="Understandable Objectives Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="0" expand="true"/>
-                <task id="310" name="Response Time Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="0" expand="true"/>
-                <task id="311" name="Unexpected Failure Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="0" expand="true"/>
-                <task id="312" name="OS Support Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="0" expand="true"/>
-                <task id="313" name="Offensivity Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="0" expand="true"/>
-                <task id="314" name="Legal &amp; Break Prompt Checks" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="0" expand="true"/>
+            <task id="290" name="Tests for NF Requirements" color="#8cb6ce" meeting="false" start="2016-11-10" duration="4" complete="100" expand="true">
+                <task id="306" name="Application Layout Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="100" expand="true"/>
+                <task id="307" name="Understandable Gameplay Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="100" expand="true"/>
+                <task id="308" name="Understandable Objectives Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="100" expand="true"/>
+                <task id="310" name="Response Time Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="100" expand="true"/>
+                <task id="311" name="Unexpected Failure Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="100" expand="true"/>
+                <task id="312" name="OS Support Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="100" expand="true"/>
+                <task id="313" name="Offensivity Testing" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="100" expand="true"/>
+                <task id="314" name="Legal &amp; Break Prompt Checks" color="#00ffcc" meeting="false" start="2016-11-10" duration="4" complete="100" expand="true"/>
             </task>
-            <task id="291" name="Unit Testing" color="#8cb6ce" meeting="false" start="2016-11-05" duration="9" complete="0" expand="true">
-                <task id="295" name="Internal Function Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="0" expand="true"/>
-                <task id="296" name="Output File Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="0" expand="true"/>
+            <task id="291" name="Unit Testing" color="#8cb6ce" meeting="false" start="2016-11-05" duration="9" complete="100" expand="true">
+                <task id="295" name="Internal Function Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="100" expand="true"/>
+                <task id="296" name="Output File Testing" color="#00ffcc" meeting="false" start="2016-11-05" duration="9" complete="100" expand="true"/>
             </task>
         </task>
         <task id="33" name="R0 Demonstration" color="#8cb6ce" meeting="true" start="2016-11-16" duration="0" complete="0" expand="true"/>
         <task id="155" name="Team Meeting 06" color="#33ff33" meeting="false" start="2016-11-08" duration="1" complete="0" expand="true"/>
         <task id="157" name="Team Meeting 07" color="#33ff33" meeting="false" start="2016-11-15" duration="1" complete="0" expand="true"/>
         <task id="158" name="Team Meeting 08" color="#33ff33" meeting="false" start="2016-11-22" duration="1" complete="0" expand="true"/>
-        <task id="36" name="Final Demo (R1)" color="#8cb6ce" meeting="false" start="2016-11-22" duration="8" complete="0" expand="true"/>
-        <task id="38" name="Peer Evaluation" color="#8cb6ce" meeting="false" start="2016-11-28" duration="5" complete="0" expand="true"/>
+        <task id="36" name="Final Demo (R1)" color="#8cb6ce" meeting="false" start="2016-11-22" duration="8" complete="100" expand="true"/>
+        <task id="38" name="Peer Evaluation" color="#8cb6ce" meeting="false" start="2016-11-28" duration="5" complete="100" expand="true"/>
         <task id="161" name="Team Meeting 09" color="#33ff33" meeting="false" start="2016-11-29" duration="1" complete="0" expand="true"/>
         <task id="163" name="Team Meeting 10" color="#33ff33" meeting="false" start="2016-12-06" duration="1" complete="0" expand="true"/>
         <task id="40" name="Final Documentation R1" color="#8cb6ce" meeting="false" start="2016-11-30" duration="8" complete="0" expand="true">

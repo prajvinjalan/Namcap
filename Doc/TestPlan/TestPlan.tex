@@ -841,19 +841,22 @@ Output: Increase in score and dot disappearance (Pass or fail for JUnit method)
 					
 How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they are on a dot that their score is increased and the dot has disappeared (board's getDot method) [refer to GFT6 test]
 
-\item{UT7\\}
+%Removal of Unit Test 7 since GFT10 covers this test case
+%\item{UT7\\}
 
-Type: Unit, Static, Automated
-					
-Initial State: Player is in starting position at the start of the game, all dots on map are clear except one
-					
-Input: PlayerX, PlayerY
-					
-Output: End of game (Pass or fail for JUnit method)
-					
-How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they collect the final dot that the endGame method is called and the player wins the game [refer to GFT10 test]
+%Type: Unit, Static, Automated
 
-\item{UT8\\}
+%Initial State: Player is in starting position at the start of the game, all dots on map are clear except one
+
+%Input: PlayerX, PlayerY
+					
+%Output: End of game (Pass or fail for JUnit method)
+					
+%How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they collect the final dot that the endGame method is called and the player wins the game [refer to GFT10 test]
+
+%%%%%%%%%%%%%%%   REFACTOR OF UNIT TEST NAMES   %%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{\textcolor{red}{UT7}\\}
 
 Type: Unit, Static, Automated
 					
@@ -865,7 +868,7 @@ Output: True or false for barriers (Pass or fail for JUnit method)
 					
 How test will be performed: A JUnit method will test the player's checkBarrier method to ensure that when a position is checked, the appropriate response is received for if barriers exist or not [refer to GFT3 test]
 
-\item{UT9\\}
+\item{\textcolor{red}{UT8}\\}
 
 Type: Unit, Static, Automated
 					
@@ -877,7 +880,7 @@ Output: Expected true for all barrier locations (Pass or fail for JUnit method)
 					
 How test will be performed: A JUnit method will test the board's getBarrier method to ensure that barriers exist in all the appropriate locations.
 
-\item{UT10\\}
+\item{\textcolor{red}{UT9}\\}
 
 Type: Unit, Static, Automated
 					
@@ -889,7 +892,7 @@ Output: True or false for new barrier locations (Pass or fail for JUnit method)
 					
 How test will be performed: A JUnit method will test the board's updateBarrier method to ensure that barriers can be successfully added to specific locations on the map (getBarrier to check).
 
-\item{UT11\\}
+\item{\textcolor{red}{UT10}\\}
 
 Type: Unit, Static, Automated
 					
@@ -901,7 +904,7 @@ Output: Expected true for all dot locations (Pass or fail for JUnit method)
 					
 How test will be performed: A JUnit method will test the board's getDot method to ensure that dots exist in all the appropriate locations.
 
-\item{UT12\\}
+\item{\textcolor{red}{UT11}\\}
 
 Type: Unit, Static, Automated
 					
@@ -913,19 +916,7 @@ Output: Integer value for dot locations (type of dot that exists here) (Pass or 
 					
 How test will be performed: A JUnit method will test the board's updateDot method to ensure that dots can be successfully added to specific locations on the map (getDot to check).
 
-\item{UT13\\}
-
-Type: Unit, Static, Automated
-					
-Initial State: Board is created with only barrier and dot entities
-					
-Input: X and Y positions for locations without dots
-					
-Output: Integer value for dot locations (type of dot that exists here) (Pass or fail for JUnit method)
-					
-How test will be performed: A JUnit method will test the board's updateDot method to ensure that dots can be successfully added to specific locations on the map (getDot to check).
-
-\item{UT14\\}
+\item{\textcolor{red}{UT12}\\}
 
 Type: Unit, Static, Automated
 					

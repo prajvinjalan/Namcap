@@ -234,22 +234,6 @@ public class UnitTests {
 		}
 	}
 	
-	@Test
-	public void testEndGame() {
-		createBoard();
-		Player p = new Player(board);
-		
-		for (int i = 0; i < 21; i++){
-			for (int j = 0; j < 21; j++){
-				board.updateDot(i, j, 0);
-			}
-		}
-		board.updateDot(9,15,1);
-		p.setCurrX(180);
-		p.setCurrY(300);
-		//board.getPlayer().checkDot();
-	}
-	
 	/**
 	* @brief Unit Test 8 to test Player's collision with a barrier
 	* @details Board is created and initialized with a player - test checks every position next to the player for barriers. 
@@ -273,9 +257,9 @@ public class UnitTests {
 			assertEquals(false, testP.isBarrier(testP.getCurrX() + 20, testP.getCurrY())); //R
 			assertEquals(true, testP.isBarrier(testP.getCurrX(), testP.getCurrY() - 4)); //U
 			assertEquals(true, testP.isBarrier(testP.getCurrX(), testP.getCurrY() + 20)); //D
-			message += "Test:\t UT8 - Player Barrier Collision\nResult:\t Test succeeded.";
+			message += "Test:\t UT7 - Player Barrier Collision\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
-			message += "Test:\t UT8 - Player Barrier Collision\nResult:\t Test failed.\nError:\t " + e.toString();
+			message += "Test:\t UT7 - Player Barrier Collision\nResult:\t Test failed.\nError:\t " + e.toString();
 		}
 	}
 	
@@ -300,9 +284,9 @@ public class UnitTests {
 					assertEquals(true, board.getBarrier(x[i][0], x[i][1]));
 				}
 			}
-			message += "Test:\t UT9 - All Map Barriers\nResult:\t Test succeeded.";
+			message += "Test:\t UT8 - All Map Barriers\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
-			message += "Test:\t UT9 - All Map Barriers\nResult:\t Test failed.\nError:\t " + e.toString();
+			message += "Test:\t UT8 - All Map Barriers\nResult:\t Test failed.\nError:\t " + e.toString();
 		}
 	}
 	
@@ -318,9 +302,9 @@ public class UnitTests {
 			assertEquals(false, board.getBarrier(10, 15));
 			board.updateBarrier(10, 15);
 			assertEquals(true, board.getBarrier(10, 15));
-			message += "Test:\t UT10 - Individual Map Barriers\nResult:\t Test succeeded.";
+			message += "Test:\t UT9 - Individual Map Barriers\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
-			message += "Test:\t UT10 - Individual Map Barriers\nResult:\t Test failed.\nError:\t " + e.toString();
+			message += "Test:\t UT9 - Individual Map Barriers\nResult:\t Test failed.\nError:\t " + e.toString();
 		}
 	}
 	
@@ -364,9 +348,9 @@ public class UnitTests {
 			for (int[] x : allDots){
 				assertNotEquals(0, board.getDot(x[0], x[1]));
 			}
-			message += "Test:\t UT11 - All Map Dots\nResult:\t Test succeeded.";
+			message += "Test:\t UT10 - All Map Dots\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
-			message += "Test:\t UT11 - All Map Dots\nResult:\t Test failed.\nError:\t " + e.toString();
+			message += "Test:\t UT10 - All Map Dots\nResult:\t Test failed.\nError:\t " + e.toString();
 		}
 		
 	}
@@ -388,9 +372,9 @@ public class UnitTests {
 			assertEquals(0, board.getDot(0, 0));
 			board.updateDot(0, 0, 1);
 			assertEquals(1, board.getDot(0, 0));
-			message += "Test:\t UT12 - Individual Map Dots\nResult:\t Test succeeded.";
+			message += "Test:\t UT11 - Individual Map Dots\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
-			message += "Test:\t UT12 - Individual Map Dots\nResult:\t Test failed.\nError:\t " + e.toString();
+			message += "Test:\t UT11 - Individual Map Dots\nResult:\t Test failed.\nError:\t " + e.toString();
 		}
 	}
 	
@@ -406,9 +390,9 @@ public class UnitTests {
 			assertEquals(0, board.accessScore().getScore());
 			board.accessScore().addScore(1000);
 			assertEquals(1000, board.accessScore().getScore());
-			message += "Test:\t UT13 - Score Addition\nResult:\t Test succeeded.";
+			message += "Test:\t UT12 - Score Addition\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
-			message += "Test:\t UT13 - Score Addition\nResult:\t Test failed.\nError:\t " + e.toString();
+			message += "Test:\t UT12 - Score Addition\nResult:\t Test failed.\nError:\t " + e.toString();
 		}
 	}
 	
@@ -426,9 +410,9 @@ public class UnitTests {
 			board.accessScore().addScore(4000);
 			board.accessScore().readHighScore();
 			assertEquals(16000, board.accessScore().getHighScore());
-			message += "Test:\t UT14 - High Score Functionality\nResult:\t Test succeeded.";
+			message += "Test:\t UT13 - High Score Functionality\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
-			message += "Test:\t UT14 - High Score Functionality\nResult:\t Test failed.\nError:\t " + e.toString();
+			message += "Test:\t UT13 - High Score Functionality\nResult:\t Test failed.\nError:\t " + e.toString();
 		}
 	}
 	

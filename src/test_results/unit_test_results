@@ -2,14 +2,13 @@ UNIT TEST RESULTS
 
 Test:	 UT5 - Player Enemy Collision
 Result:	 Test succeeded.
-
-Test:	 UT11 - All Map Dots
+Test:	 UT10 - All Map Dots
 Result:	 Test succeeded.
 Test:	 UT4 - Player Start Direction
 Result:	 Test succeeded.
-Test:	 UT13 - Score Addition
+Test:	 UT12 - Score Addition
 Result:	 Test succeeded.
-Test:	 UT14 - High Score Functionality
+Test:	 UTF1 - High Score Functionality
 Result:	 Test succeeded.
 Test:	 UT6 - Player Dot Collision
 Result:	 Test succeeded.
@@ -17,13 +16,13 @@ Test:	 UT2 - Player X
 Result:	 Test succeeded.
 Test:	 UT3 - Player Y
 Result:	 Test succeeded.
-Test:	 UT8 - Player Barrier Collision
+Test:	 UT7 - Player Barrier Collision
 Result:	 Test succeeded.
-Test:	 UT12 - Individual Map Dots
+Test:	 UT11 - Individual Map Dots
 Result:	 Test succeeded.
 Test:	 UT1 - Game Start
 Result:	 Test succeeded.
-Test:	 UT10 - Individual Map Barriers
+Test:	 UT9 - Individual Map Barriers
 Result:	 Test succeeded.
-Test:	 UT9 - All Map Barriers
+Test:	 UT8 - All Map Barriers
 Result:	 Test succeeded.

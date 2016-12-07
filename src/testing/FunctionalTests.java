@@ -1,9 +1,5 @@
 /**
-* @file FunctionalTests.java
-* @title FunctionalTests
-* @author VPB Game Studio
-* @date 12/07/2016
-* @brief This class tests every functional requirement of the project.
+* This class tests every functional requirement of the project.
 */
 package testing;
 
@@ -28,44 +24,23 @@ import model.Player;
 import view.BoardView;
 
 public class FunctionalTests {
-	/**
-	* Corresponding Frame object to contain the Board View (actual GUI element).
-	*/
+	//Corresponding Frame object to contain the Board View (actual GUI element).
 	private static JFrame frame;
-	
-	/**
-	* Corresponding Board model for the current Board View.
-	*/
+	//Corresponding Board model for the current Board View.
 	private static Board board;
-	
-	/**
-	* Corresponding view object for the Board model component (following MVC).
-	*/
+	//Corresponding view object for the Board model component (following MVC).
 	private static BoardView boardGUI;
-	
-	/**
-	* Represents corresponding player object for the Board model (instance).
-	*/
+	//Represents corresponding player object for the Board model (instance).
 	private static Player player;
-	
-	/**
-	* Represents the corresponding enemy object.
-	*/
+	//Represents the corresponding enemy object.
 	private static Enemy enemy;
-	
-	/**
-	 * Represents a robot object that simulates key presses.
-	 */
+	//Represents a robot object that simulates key presses.
 	private static Robot robot;
-
-	/**
-	 * Represents the final message (test results) that gets written to a file.
-	 */
+	//Represents the final message (test results) that gets written to a file.
 	private static String message;
 	
 	/**
-	 * @brief Main method that runs all the other test methods.
-	 * @throws AWTException - for Robot Object
+	 * Main method that runs all the other test methods.
 	 */
 	public static void main(String[] args) throws AWTException{
 		message = "FUNCTIONAL TEST RESULTS\n\n";
@@ -93,8 +68,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This method instantiates every object used for testing.
-	 * @throws AWTException - for Robot Class
+	 * This method instantiates every object used for testing.
 	 */
 	public static void setUp() throws AWTException{
 		frame = new JFrame("Namcap");
@@ -111,7 +85,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This method disposes or every object after a test has been completed.
+	 * This method disposes or every object after a test has been completed.
 	 */
 	public static void tearDown(){
 		frame.dispose();
@@ -122,9 +96,9 @@ public class FunctionalTests {
 	}
 	
 	/**
-	* @brief File writing method
-	* @details Final message is written to a file called "functional_test_results"
-	* @param s - Message being written to file
+	* File writing method
+	* Final message is written to a file called "functional_test_results"
+	* s - Message being written to file
 	*/
 	public static void writeToFile(String s){
 		try{
@@ -138,8 +112,7 @@ public class FunctionalTests {
 	}
 
 	/**
-	 * @details This test verifies that the player moves up when the Up arrow is pressed.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the player moves up when the Up arrow is pressed.
 	 */
 	public static void upDirectionTest() throws AWTException{
 		setUp();
@@ -175,8 +148,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the player moves down when the Down arrow is pressed.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the player moves down when the Down arrow is pressed.
 	 */
 	public static void downDirectionTest() throws AWTException{
 		setUp();
@@ -214,8 +186,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the player moves Left when the Left arrow is pressed.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the player moves Left when the Left arrow is pressed.
 	 */
 	public static void leftDirectionTest() throws AWTException{
 		setUp();
@@ -251,8 +222,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the player moves Right when the Right arrow is pressed.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the player moves Right when the Right arrow is pressed.
 	 */
 	public static void rightDirectionTest() throws AWTException{
 		setUp();
@@ -290,8 +260,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the player is stopped when coming in contact with a barrier.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the player is stopped when coming in contact with a barrier.
 	 */
 	public static void wallCollisionTest() throws AWTException{
 		setUp();
@@ -322,8 +291,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the player loses a life when colliding with an enemy.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the player loses a life when colliding with an enemy.
 	 */
 	public static void enemyCollision() throws AWTException{
 		setUp();
@@ -352,8 +320,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the game is over when player collides with enemy on their last life.
-	 * @throws AWTException
+	 * This test verifies that the game is over when player collides with enemy on their last life.
 	 */
 	public static void enemyCollisionOneLife() throws AWTException{
 		setUp();
@@ -395,8 +362,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that a dot is not visible once player collects it.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that a dot is not visible once player collects it.
 	 */
 	public static void dotCollection() throws AWTException{
 		setUp();
@@ -426,8 +392,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the big dot is not visible once the player collects it.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the big dot is not visible once the player collects it.
 	 */
 	public static void bigDotCollection() throws AWTException{
 		setUp();
@@ -455,8 +420,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the user does not lose a life when colliding with an enemy after collecting the big dot.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the user does not lose a life when colliding with an enemy after collecting the big dot.
 	 */
 	public static void bigDotEnemyCollision() throws AWTException{
 		setUp();
@@ -488,8 +452,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the enemy is able to move in a valid path.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the enemy is able to move in a valid path.
 	 */
 	public static void enemyPath() throws AWTException{
 		setUp();
@@ -507,8 +470,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the enemy's color changes when the player collects the big dot.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the enemy's color changes when the player collects the big dot.
 	 */
 	public static void bigDotEnemyColour() throws AWTException{
 		setUp();
@@ -539,8 +501,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the enemy is respawned in the center after being "eaten" by the player.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the enemy is respawned in the center after being "eaten" by the player.
 	 */
 	public static void bigDotEnemyRespawn() throws AWTException{
 		setUp();
@@ -571,8 +532,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This dot verifies that the game is ended upon collecting the last dot on the screen.
-	 * @throws AWTException - for Robot object
+	 * This dot verifies that the game is ended upon collecting the last dot on the screen.
 	 */
 	public static void lastDot() throws AWTException{
 		setUp();
@@ -616,8 +576,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the player's score increments by 100 when collecting a regular dot.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the player's score increments by 100 when collecting a regular dot.
 	 */
 	public static void dotScoreIncrement() throws AWTException{
 		setUp();
@@ -641,8 +600,7 @@ public class FunctionalTests {
 	}
 	
 	/**
-	 * @details This test verifies that the player's score is incremented by 200 when collecting the big dot.
-	 * @throws AWTException - for Robot object
+	 * This test verifies that the player's score is incremented by 200 when collecting the big dot.
 	 */
 	public static void bigDotScoreIncrement() throws AWTException{
 		setUp();
@@ -661,6 +619,6 @@ public class FunctionalTests {
 			message += "Big Dot Score Increment Test Failed\n";
 		}
 		
-		tearDown();	
+		tearDown();
 	}
 }

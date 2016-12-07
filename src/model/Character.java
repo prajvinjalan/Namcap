@@ -132,16 +132,14 @@ public class Character {
 	}
 	
 	/**
-	 * @brief Mutator method to set the stop boolean of the character.
-	 * @param stop - boolean value
+	 * Mutator method to set the stop boolean of the character - used for testing
 	 */
 	public void setStop(boolean stop){
 		this.stop = stop;
 	}
 
 	/**
-	* @brief Returns the character's stop value (boolean)
-	* @return Character's stop value (whether they are moving or not)
+	* Returns the character's stop value (boolean) - used for testing
 	*/
 	public boolean getStop(){
 		return this.stop;

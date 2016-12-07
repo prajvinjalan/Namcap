@@ -1,9 +1,5 @@
 /**
-* @file UnitTests.java
-* @title UnitTests
-* @author VPB Game Studio
-* @date 12/07/2016
-* @brief This class runs JUnit test cases for Namcap's Unit Tests.
+* This class runs JUnit test cases for Namcap's Unit Tests.
 */
 package testing;
 
@@ -31,38 +27,24 @@ import view.*;
 
 public class UnitTests {
 
-	/**
-	* JFrame objects (menu and game windows) that are tested for and used in other tests.
-	*/
+	//JFrame objects (menu and game windows) that are tested for and used in other tests.
 	private static JFrame mainMenuFrame, boardFrame;
-	/**
-	* Main Menu's model whose functionality gets tested. 
-	*/
+	//Main Menu's model whose functionality gets tested. 
 	private static MainMenu menu;
-	/**
-	* Main Menu's view whose functionality gets tested.
-	*/
+	//Main Menu's view whose functionality gets tested.
 	private static MainMenuView menuGUI;
-	/**
-	* Board's model whose functionality gets tested (this model is also used for multiple other tests). 
-	*/
+	//Board's model whose functionality gets tested (this model is also used for multiple other tests). 
 	private static Board board;
-	/**
-	* View of the board whose functionality gets tested (also the game map that is set up for multiple other tests). 
-	*/
+	//View of the board whose functionality gets tested (also the game map that is set up for multiple other tests). 
 	private static BoardView boardGUI;
-	/**
-	* ArrayList that holds all the points of the barriers on the map
-	*/
+	//ArrayList that holds all the points of the barriers on the map
 	private static ArrayList<int[][]> polyPoints;
-	/**
-	* Message containing test results that is written to a file (initialized with a heading) 
-	*/
+	//Message containing test results that is written to a file (initialized with a heading) 
 	private static String message = "UNIT TEST RESULTS\n\n";
 	
 	/**
-	* @brief Occurs after each test case
-	* @details Nullifies all fields in this class (essentially reseting the game environment) and disposes of open frames. A new line is also appended to "message" for output file formatting.
+	* Occurs after each test case
+	* Nullifies all fields in this class (essentially reseting the game environment) and disposes of open frames. A new line is also appended to "message" for output file formatting.
 	*/
 	@After
 	public void tearDown() throws Exception {
@@ -77,8 +59,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Occurs after all test cases have run
-	* @details After the completion of every unit test, the final message is written to an output file. 
+	* Occurs after all test cases have run
+	* After the completion of every unit test, the final message is written to an output file. 
 	*/
 	@AfterClass
 	public static void finalMessage() {
@@ -86,9 +68,9 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief File writing method
-	* @details Final message is written to a file called "unit_test_results"
-	* @param s - Message being written to file
+	* File writing method
+	* Final message is written to a file called "unit_test_results"
+	* s - Message being written to file
 	*/
 	public static void writeToFile(String s){
 		try{
@@ -102,7 +84,7 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Creates the main menu objects to be used for testing. 
+	* Creates the main menu objects to be used for testing. 
 	*/
 	public static void createMenu() {
 		mainMenuFrame = new JFrame("Namcap");
@@ -117,8 +99,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 1 to test Game Start from main menu
-	* @details Menu is created and startGame method is run - test checks whether a new frame was opened. 
+	* Unit Test 1 to test Game Start from main menu
+	* Menu is created and startGame method is run - test checks whether a new frame was opened. 
 	*/
 	@Test
 	public void testGameStart() {
@@ -138,8 +120,8 @@ public class UnitTests {
 	}
 
 	/**
-	* @brief Unit Test 2 to test Player's starting X position
-	* @details Board is created and initialized with a player - test checks whether player's starting X coordinate is at 200.
+	* Unit Test 2 to test Player's starting X position
+	* Board is created and initialized with a player - test checks whether player's starting X coordinate is at 200.
 	*/
 	@Test
 	public void testPlayerStartX() {
@@ -155,8 +137,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 3 to test Player's starting Y position
-	* @details Board is created and initialized with a player - test checks whether player's starting Y coordinate is at 300. 
+	* Unit Test 3 to test Player's starting Y position
+	* Board is created and initialized with a player - test checks whether player's starting Y coordinate is at 300. 
 	*/
 	@Test
 	public void testPlayerStartY() {
@@ -172,8 +154,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 4 to test Player's starting direction
-	* @details Board is created and initialized with a player - test checks whether the player starts facing right. 
+	* Unit Test 4 to test Player's starting direction
+	* Board is created and initialized with a player - test checks whether the player starts facing right. 
 	*/
 	@Test
 	public void testPlayerStartDirection() {
@@ -189,8 +171,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 5 to test Player's collision with an enemy
-	* @details Board is created and initialized with a player and enemy - test places them next to each other and checks whether the checkCollision method can detect the collision. 
+	* Unit Test 5 to test Player's collision with an enemy
+	* Board is created and initialized with a player and enemy - test places them next to each other and checks whether the checkCollision method can detect the collision. 
 	*/
 	@Test
 	public void testPlayerEnemyCollision() {
@@ -213,8 +195,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 6 to test Player's collision with a dot
-	* @details Board is created and initialized with a player - test places player next to a dot and checks whether the checkDot method can detect the collision.  
+	* Unit Test 6 to test Player's collision with a dot
+	* Board is created and initialized with a player - test places player next to a dot and checks whether the checkDot method can detect the collision.  
 	*/
 	@Test
 	public void testPlayerDotCollision() {
@@ -235,8 +217,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 8 to test Player's collision with a barrier
-	* @details Board is created and initialized with a player - test checks every position next to the player for barriers. 
+	* Unit Test 7 to test Player's collision with a barrier
+	* Board is created and initialized with a player - test checks every position next to the player for barriers. 
 	*/
 	@Test
 	public void testPlayerBarrierCollision() {
@@ -264,8 +246,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 9 to test all barriers on the map
-	* @details Board is created and initialized with barriers - test checks every position manually for appropriate barrier locations. 
+	* Unit Test 8 to test all barriers on the map
+	* Board is created and initialized with barriers - test checks every position manually for appropriate barrier locations. 
 	*/
 	@Test
 	public void testAllBarriers() {
@@ -291,8 +273,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 10 to test an individual barrier update on the map
-	* @details Board is created - test checks a position for a barrier, updates it, then checks whether it was updated. 
+	* Unit Test 9 to test an individual barrier update on the map
+	* Board is created - test checks a position for a barrier, updates it, then checks whether it was updated. 
 	*/
 	@Test
 	public void testIndividualBarrier() {
@@ -309,8 +291,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 11 to test all dots on the map
-	* @details Board is created and initialized with barriers and dots - test checks every position manually for appropriate dot locations 
+	* Unit Test 10 to test all dots on the map
+	* Board is created and initialized with barriers and dots - test checks every position manually for appropriate dot locations 
 	*/
 	@Test
 	public void testAllDots(){
@@ -356,8 +338,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 12 to test an individual dot update on the map
-	* @details Board is created - test checks a position for a dot, updates it, then checks whether it was updated. 
+	* Unit Test 11 to test an individual dot update on the map
+	* Board is created - test checks a position for a dot, updates it, then checks whether it was updated. 
 	*/
 	@Test
 	public void testIndividualDot() {
@@ -379,8 +361,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 13 to test a score update for the game
-	* @details Board is created - test checks the current score, increments it, then checks whether score increased. 
+	* Unit Test 12 to test a score update for the game
+	* Board is created - test checks the current score, increments it, then checks whether score increased. 
 	*/
 	@Test
 	public void testAddScore() {
@@ -397,8 +379,8 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Unit Test 14 to test high score update for the game
-	* @details Board is created - test updates the high score file, increases the current score for the board, and checks whether the high score remained as last updated (high score was successfully read from the file)
+	* Unit Test F1 to test high score update for the game
+	* Board is created - test updates the high score file, increases the current score for the board, and checks whether the high score remained as last updated (high score was successfully read from the file)
 	*/
 	@Test
 	public void testHighScore() {
@@ -410,14 +392,14 @@ public class UnitTests {
 			board.accessScore().addScore(4000);
 			board.accessScore().readHighScore();
 			assertEquals(16000, board.accessScore().getHighScore());
-			message += "Test:\t UT13 - High Score Functionality\nResult:\t Test succeeded.";
+			message += "Test:\t UTF1 - High Score Functionality\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
-			message += "Test:\t UT13 - High Score Functionality\nResult:\t Test failed.\nError:\t " + e.toString();
+			message += "Test:\t UTF1 - High Score Functionality\nResult:\t Test failed.\nError:\t " + e.toString();
 		}
 	}
 	
 	/**
-	* @brief Creates the board (model and view) to be used for testing 
+	* Creates the board (model and view) to be used for testing 
 	*/
 	public static void createBoard(){
 		boardFrame = new JFrame("Namcap");
@@ -431,7 +413,7 @@ public class UnitTests {
 	}
 	
 	/**
-	* @brief Sets up all barriers on the map in an ArrayList of coordinates. 
+	* Sets up all barriers on the map in an ArrayList of coordinates. 
 	*/
 	public static void setupBarriers(){
 		polyPoints = new ArrayList<int[][]>();

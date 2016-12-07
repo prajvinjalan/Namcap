@@ -14,7 +14,7 @@ public class Player extends Character {
 	* Represents Player lives count (initialized to 3 lives).
 	*/
 	private int lives;
-
+	
 	/**
 	* @brief Constructor for Player
 	* @details Initializes the Player's initial coordinates on the board, and connects this Player object to the Board model.
@@ -36,6 +36,14 @@ public class Player extends Character {
 	*/
 	public int getLives(){
 		return this.lives;
+	}
+	
+	/**
+	* @brief Mutator method for Player lives count
+	* @param int - representing the number of lives to set to
+	*/
+	public void setLives(int lives){
+		this.lives = lives;
 	}
 
 	/**
@@ -169,4 +177,5 @@ public class Player extends Character {
 		this.board.accessScore().updateHighScore(this.board.accessScore().getScore());
 		this.board.view.endGame();
 	}
+	
 }

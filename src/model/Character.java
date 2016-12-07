@@ -89,5 +89,54 @@ public class Character {
 	*/
 	public void setNewDirection(char dir){
 		this.newDirection = dir;
-	}	
+	}
+	
+	/**
+	* @brief Sets the character's current direction
+	* @param dir - Char value to represent the character's previous direction (char correspondence represented above).
+	*/
+	public void setPrevDirection(char dir){
+		this.prevDirection = dir;
+	}
+	
+	/**
+	* @brief Sets the character's new x-coordinate
+	* @param x - int value to represent the character's new x-coordinate.
+	*/
+	public void setPrevX(int x){
+		this.prevX = x;
+	}
+	
+	/**
+	* @brief Sets the character's new y-coordinate
+	* @param y - int value to represent the character's new y-coordinate.
+	*/
+	public void setPrevY(int y){
+		this.prevY = y;
+	}
+	
+	/**
+	* @brief Sets the character's new x-coordinate
+	* @param x - int value to represent the character's new x-coordinate.
+	*/
+	public void setCurrX(int x){
+		this.currX = x;
+	}
+	
+	/**
+	* @brief Sets the character's new y-coordinate
+	* @param y - int value to represent the character's new y-coordinate.
+	*/
+	public void setCurrY(int y){
+		this.currY = y;
+	}
+	
+	/**
+	 * @brief Mutator method to set the stop boolean of the character.
+	 * @param stop - boolean value
+	 */
+	public void setStop(boolean stop){
+		this.stop = stop;
+	}
+
 }

@@ -141,7 +141,9 @@ public class BoardView extends JPanel{
 			}
 			this.board.getPlayer().move();
 			for (Enemy e : this.board.getEnemy()){
-				e.enemyMove();
+				if (!e.getStop()){
+					e.enemyMove();
+				}
 			}
 			this.repaint();
 			this.board.checkTimeRunning();

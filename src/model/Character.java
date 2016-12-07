@@ -139,4 +139,12 @@ public class Character {
 		this.stop = stop;
 	}
 
+	/**
+	* @brief Returns the character's stop value (boolean)
+	* @return Character's stop value (whether they are moving or not)
+	*/
+	public boolean getStop(){
+		return this.stop;
+	}
+
 }

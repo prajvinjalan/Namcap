@@ -4,7 +4,7 @@ classes:
 	javac controller/*.java
 	javac model/*.java
 	javac view/*.java
-	javac testing/*.java
+	javac testing/FunctionalTests.java
 
 manifest: $(classes)
 	echo "Main-class: model/Namcap" > Manifest.txt

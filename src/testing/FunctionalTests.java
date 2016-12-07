@@ -16,6 +16,8 @@ import java.awt.Window;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileWriter;
 
 import javax.swing.JFrame;
 
@@ -55,13 +57,19 @@ public class FunctionalTests {
 	 * Represents a robot object that simulates key presses.
 	 */
 	private static Robot robot;
+
+	/**
+	 * Represents the final message (test results) that gets written to a file.
+	 */
+	private static String message;
 	
 	/**
 	 * @brief Main method that runs all the other test methods.
 	 * @throws AWTException - for Robot Object
 	 */
 	public static void main(String[] args) throws AWTException{
-		
+		message = "FUNCTIONAL TEST RESULTS\n\n";
+
 		upDirectionTest();
 		downDirectionTest();
 		leftDirectionTest();
@@ -78,6 +86,8 @@ public class FunctionalTests {
 		lastDot();
 		dotScoreIncrement();
 		bigDotScoreIncrement();
+
+		writeToFile(message);
 		
 		System.exit(0);
 	}
@@ -112,6 +122,22 @@ public class FunctionalTests {
 	}
 	
 	/**
+	* @brief File writing method
+	* @details Final message is written to a file called "functional_test_results"
+	* @param s - Message being written to file
+	*/
+	public static void writeToFile(String s){
+		try{
+			File f = new File("test_results/functional_test_results");
+			FileWriter writer = new FileWriter(f);
+			writer.append(s);
+			writer.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	/**
 	 * @details This test verifies that the player moves up when the Up arrow is pressed.
 	 * @throws AWTException - for Robot object
 	 */
@@ -140,9 +166,9 @@ public class FunctionalTests {
 		up = newY < currY;
 		
 		if (up){
-			System.out.println("Up Direction Passed");
+			message += "Up Direction Passed\n";
 		}else{
-			System.out.println("Up Direction Failed");
+			message += "Up Direction Failed\n";
 		}
 		
 		tearDown();
@@ -179,9 +205,9 @@ public class FunctionalTests {
 		down = newY > currY;
 		
 		if (down){
-			System.out.println("Down Direction Passed");
+			message += "Down Direction Passed\n";
 		}else{
-			System.out.println("Down Direction Failed");
+			message += "Down Direction Failed\n";
 		}
 		
 		tearDown();
@@ -216,9 +242,9 @@ public class FunctionalTests {
 		left = newX < currX;
 		
 		if (left){
-			System.out.println("Left Direction Passed");
+			message += "Left Direction Passed\n";
 		}else{
-			System.out.println("Left Direction Failed");
+			message += "Left Direction Failed\n";
 		}
 		
 		tearDown();
@@ -255,9 +281,9 @@ public class FunctionalTests {
 		right = newX > currX;
 		
 		if (right){
-			System.out.println("Right Direction Passed");
+			message += "Right Direction Passed\n";
 		}else{
-			System.out.println("Right Direction Failed");
+			message += "Right Direction Failed\n";
 		}
 		
 		tearDown();
@@ -287,9 +313,9 @@ public class FunctionalTests {
 		pass = (newX == currX);
 		
 		if (pass){
-			System.out.println("Wall Collision Passed");
+			message += "Wall Collision Passed\n";
 		}else{
-			System.out.println("Wall Collision Failed");
+			message += "Wall Collision Failed\n";
 		}
 		
 		tearDown();
@@ -307,17 +333,18 @@ public class FunctionalTests {
 		player.setCurrX(1*20);
 		player.setCurrY(20);
 		
-		enemy.setPrevX(3*20);
-		enemy.setPrevY(20);
+		enemy.setCurrX(3*20);
+		enemy.setCurrY(20);
+		enemy.setPrevDirection('L');
 		enemy.setStop(true);
 		
 		currTime = System.nanoTime();
 		while (System.nanoTime() - currTime <= 500000000L);
 		
 		if (player.getLives() < 3){
-			System.out.println("Enemy Collision Test Passed");
+			message += "Enemy Collision Test Passed\n";
 		}else{
-			System.out.println("Enemy Collision Test Failed");
+			message += "Enemy Collision Test Failed\n";
 		}
 		
 		tearDown();
@@ -346,9 +373,9 @@ public class FunctionalTests {
 		while (System.nanoTime() - currTime <= 500000000L);
 		
 		if (!frame.hasFocus()){
-			System.out.println("Enemy Collision (One Life) Test Passed");
+			message += "Enemy Collision (One Life) Test Passed\n";
 		}else{
-			System.out.println("Enemy Collision (One Life) Test Failed");
+			message += "Enemy Collision (One Life) Test Failed\n";
 		}
 		
 		currTime = System.nanoTime();
@@ -389,9 +416,9 @@ public class FunctionalTests {
 		}
 		
 		if (pass){
-			System.out.println("Dot Disappearing Test Passed");
+			message += "Dot Disappearing Test Passed\n";
 		}else{
-			System.out.println("Dot Disappearing Test Failed");
+			message += "Dot Disappearing Test Failed\n";
 		}
 		
 		tearDown();
@@ -418,9 +445,9 @@ public class FunctionalTests {
 		}
 		
 		if (pass){
-			System.out.println("Big Dot Disappearing Test Passed");
+			message += "Big Dot Disappearing Test Passed\n";
 		}else{
-			System.out.println("Big Dot Disappearing Test Failed");
+			message += "Big Dot Disappearing Test Failed\n";
 		}
 		
 		tearDown();
@@ -451,9 +478,9 @@ public class FunctionalTests {
 		
 		
 		if (player.getLives() == 3){
-			System.out.println("Big Dot Enemy Collision Test Passed");
+			message += "Big Dot Enemy Collision Test Passed\n";
 		}else{
-			System.out.println("Big Dot Enemy Collision Test Failed");
+			message += "Big Dot Enemy Collision Test Failed\n";
 		}
 		
 		tearDown();
@@ -473,7 +500,7 @@ public class FunctionalTests {
 		currTime = System.nanoTime();
 		while (System.nanoTime() - currTime <= 10000000000L);
 		
-		System.out.println("Valid Enemy Path Test Passed");
+		message += "Valid Enemy Path Test Passed\n";
 		
 		tearDown();
 		
@@ -502,9 +529,9 @@ public class FunctionalTests {
 		}
 		
 		if (pass){
-			System.out.println("Big Dot Enemy Colour Change Test Passed");
+			message += "Big Dot Enemy Colour Change Test Passed\n";
 		}else{
-			System.out.println("Big Dot Enemy Colour Change Test Failed");
+			message += "Big Dot Enemy Colour Change Test Failed\n";
 		}
 		
 		tearDown();
@@ -534,9 +561,9 @@ public class FunctionalTests {
 		while (System.nanoTime() - currTime <= 1000000000L);
 		
 		if (enemy.getCurrX() == 10*20 && enemy.getCurrY() == 9*20){
-			System.out.println("Big Dot Enemy Respawn Test Passed");
+			message += "Big Dot Enemy Respawn Test Passed\n";
 		}else{
-			System.out.println("Big Dot Enemy Respawn Test Failed");
+			message += "Big Dot Enemy Respawn Test Failed\n";
 		}
 		
 		tearDown();
@@ -569,9 +596,9 @@ public class FunctionalTests {
 		while (System.nanoTime() - currTime <= 2000000000L);
 		
 		if (!frame.hasFocus()){
-			System.out.println("Last Dot Test Passed");
+			message += "Last Dot Test Passed\n";
 		}else{
-			System.out.println("Last Dot Test Failed");
+			message += "Last Dot Test Failed\n";
 		}
 		
 		tearDown();
@@ -604,9 +631,9 @@ public class FunctionalTests {
 		while (System.nanoTime() - currTime <= 3400000000L);
 		
 		if (board.accessScore().getScore() == 1900){
-			System.out.println("Dot Score Increment Test Passed");
+			message += "Dot Score Increment Test Passed\n";
 		}else{
-			System.out.println("Dot Score Increment Test Failed");
+			message += "Dot Score Increment Test Failed\n";
 		}
 		
 		tearDown();
@@ -629,9 +656,9 @@ public class FunctionalTests {
 		while (System.nanoTime() - currTime <= 500000000L);
 	
 		if (board.accessScore().getScore() == 400){
-			System.out.println("Big Dot Score Increment Test Passed");
+			message += "Big Dot Score Increment Test Passed\n";
 		}else{
-			System.out.println("Big Dot Score Increment Test Failed");
+			message += "Big Dot Score Increment Test Failed\n";
 		}
 		
 		tearDown();	

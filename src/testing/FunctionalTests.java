@@ -621,4 +621,51 @@ public class FunctionalTests {
 		
 		tearDown();
 	}
+
+	/**
+	 * @details This test verifies that a new game is started when the "Start Game" button is pressed on the main menu.
+	 */
+	public static void startGameTest(){
+		JFrame frame = new JFrame("Namcap");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		MainMenu menu = new MainMenu();
+		MainMenuView menuGUI = new MainMenuView(menu, frame);
+		frame.setContentPane(menuGUI);
+		frame.setPreferredSize(new Dimension(450,620));
+		frame.pack();
+		frame.setVisible(true);
+		
+		menuGUI.getButton().doClick();
+		
+		if (!frame.hasFocus()){
+			message+=("Start Game Test Passed\n");
+		}else{
+			message+=("Start Game Test Failed\n");
+		}
+		
+		for (Window w : java.awt.Window.getWindows()){
+			w.dispose();
+			w = null;
+		}
+	}
+	
+	/**
+	 * @details This test verifies that the game is paused when the Escape key is pressed during the game.
+	 * @throws AWTException - for Robot object
+	 */
+	public static void pauseGameTest() throws AWTException{
+		setUp();
+		
+		robot.keyPress(KeyEvent.VK_ESCAPE);
+		
+		long currTime = System.nanoTime();
+		while (System.nanoTime() - currTime <= 200000000L);
+		
+		if (!frame.hasFocus()){
+			message+=("Pause Game Test Passed\n");
+		}else{
+			message+=("Pause Game Test Failed\n");
+		}
+		tearDown();
+	}
 }

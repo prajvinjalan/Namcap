@@ -89,4 +89,12 @@ public class MainMenuView extends JPanel{
 	public void setFrameInvis(){
 		this.frame.setVisible(false);
 	}
+
+	/**
+	 * @brief Returns the start game button
+	 * @return JButton - start game button.
+	 */
+	public JButton getButton(){
+		return this.startGame;
+	}
 }

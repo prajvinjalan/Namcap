@@ -11,10 +11,11 @@
 \hypersetup{
     colorlinks,
     citecolor=black,
-    filecolor=black,
+    filecolor=red,
     linkcolor=red,
     urlcolor=blue
 }
+
 \usepackage[round]{natbib}
 
 \newcounter{acnum}
@@ -66,6 +67,7 @@
 2016-11-13 & 1.8 & Addition of remaining Traceability Matrix mapping, initial revision\\
 2016-11-29 & 1.9 & Modifications for Ghost to Enemy refactoring\\
 2016-12-07 & 2.0 & Corrections to typos and other sections based on feedback\\
+2016-12-07 & 2.1 & Alteration to document structure, removed `module groups' as their own modules in decomp. based on feedback, added requirements hyper-references\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -136,6 +138,7 @@ The following are changes that are unlikely to occur as many parts of the design
 \item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] There will always be a source of input data external to the software.
 \end{description}
 
+%Removed groups of modules as modules in decomposition
 \section{Module Hierarchy} \label{SecMH}
 
 This section provides an overview of the module design. Modules are summarized
@@ -147,9 +150,9 @@ module that can be used for the movement of any AI character that may be
 implemented in Namcap.
 
 \begin{description}
-\item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item [\refstepcounter{mnum} \mthemnum \label{mBH}:] Behaviour-Hiding Module
-\item [\refstepcounter{mnum} \mthemnum \label{mSD}:] Software Decision Module
+%\item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
+%\item [\refstepcounter{mnum} \mthemnum \label{mBH}:] Behaviour-Hiding Module
+%\item [\refstepcounter{mnum} \mthemnum \label{mSD}:] Software Decision Module
 \item [\refstepcounter{mnum} \mthemnum \label{mMM}:] Main Menu Module
 \item [\refstepcounter{mnum} \mthemnum \label{mC}:] Character Module
 \item [\refstepcounter{mnum} \mthemnum \label{mP}:] Player Module
@@ -161,7 +164,7 @@ implemented in Namcap.
 \item [\refstepcounter{mnum} \mthemnum \label{mKC}:] Key Controller Module
 \item [\refstepcounter{mnum} \mthemnum \label{mG}:] Enemy Module
 \end{description}
-\textcolor{red}{M1 - M3 should not be modules, but groups of modules - CM} \\
+%\textcolor{red}{M1 - M3 should not be modules, but groups of modules - CM} \\
 
 \begin{table}[h!]
 \centering
@@ -211,7 +214,7 @@ implementing software is given under the \emph{Implemented By} title. If the
 entry is \emph{OS}, this means that the module is provided by the operating
 system or by standard programming language libraries.
 
-\subsection{Hardware Hiding Modules (\mref{mHH})}
+\subsection{Hardware Hiding Modules}
 
 \begin{description}
 \item[Secrets:]The data structures and algorithms used to implement the virtual
@@ -222,7 +225,7 @@ system or by standard programming language libraries.
 \item[Implemented By:] OS
 \end{description}
 
-\subsection{Behaviour-Hiding Module (\mref{mBH})}
+\subsection{Behaviour-Hiding Module}
 
 \begin{description}
 \item[Secrets:]The contents of the required behaviours.
@@ -307,8 +310,8 @@ system or by standard programming language libraries.
 \end{description}
 
 
-\subsection{Software Decision Module(\mref{mSD})}
-\textcolor{red}{I really like that you define what these are, just in the wrong place - CM} \\
+\subsection{Software Decision Module}
+%\textcolor{red}{I really like that you define what these are, just in the wrong place - CM} \\
 \begin{description}
 \item[Secrets:] The design decision based on mathematical theorems, physical
   facts, or programming considerations. The secrets of this module are
@@ -334,36 +337,35 @@ system or by standard programming language libraries.
 This section shows two traceability matrices: between the modules and the
 requirements and between the modules and the anticipated changes.
 
-% the table should use mref, the requirements should be named, use something
-% like fref
+%Used hypertarget to add traceability to SRS document for individual requirements
 \begin{table}[H]
 \centering
 \begin{tabular}{p{0.2\textwidth} p{0.6\textwidth}}
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-F1 & \mref{mMM}, \mref{mMV}, \mref{mBC}\\
-F2 & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mBV}, \mref{mKC}\\
-F3 & \mref{mC}, \mref{mP}, \mref{mBV}\\
-F4 & \mref{mP}, \mref{mBV}\\
-F5 & \mref{mC}, \mref{mG}\\
-F6 & \mref{mC}, \mref{mBV}, \mref{mG}\\
-F7 & \mref{mP}, \mref{mB}, \mref{mBV}\\
-F8 & \mref{mP}, \mref{mB}, \mref{mBV}\\
-F9 & \mref{mP}, \mref{mBV}\\
-F10 & \mref{mP}, \mref{mB}, \mref{mBV}\\
-F11 & \mref{mP}, \mref{mKC}\\
-F12 & \mref{mKC}\\
-F13 & \mref{mP}, \mref{mS}\\
-F14 & \mref{mP}, \mref{mB}, \mref{mS}\\
-F15 & \mref{mP}, \mref{mBV}\\
-NF1 & \mref{mMV}, \mref{mBV}\\
-NF2 & \mref{mMV}, \mref{mBV}\\
-NF3 & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mBV}, \mref{mKC}\\
-NF4 & \mref{mMV}, \mref{mBV}\\
-NF5 & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mS}, \mref{mBV}, \mref{mKC}\\
-NF6 & \mref{mBH}, \mref{mSD}\\
-NF7 & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mBV}, \mref{mKC}\\
+\href{../../SRS/SRS.pdf#f1}{F1} & \mref{mMM}, \mref{mMV}, \mref{mBC}\\
+\href{../../SRS/SRS.pdf#f2}{F2} & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mBV}, \mref{mKC}\\
+\href{../../SRS/SRS.pdf#f3}{F3} & \mref{mC}, \mref{mP}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#f4}{F4} & \mref{mP}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#f5}{F5} & \mref{mC}, \mref{mG}\\
+\href{../../SRS/SRS.pdf#f6}{F6} & \mref{mC}, \mref{mBV}, \mref{mG}\\
+\href{../../SRS/SRS.pdf#f7}{F7} & \mref{mP}, \mref{mB}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#f8}{F8} & \mref{mP}, \mref{mB}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#f9}{F9} & \mref{mP}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#f10}{F10} & \mref{mP}, \mref{mB}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#f11}{F11} & \mref{mP}, \mref{mKC}\\
+\href{../../SRS/SRS.pdf#f12}{F12} & \mref{mKC}\\
+\href{../../SRS/SRS.pdf#f13}{F13} & \mref{mP}, \mref{mS}\\
+\href{../../SRS/SRS.pdf#f14}{F14} & \mref{mP}, \mref{mB}, \mref{mS}\\
+\href{../../SRS/SRS.pdf#f15}{F15} & \mref{mP}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#nf1}{NF1} & \mref{mMV}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#nf2}{NF2} & \mref{mMV}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#nf3}{NF3} & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mBV}, \mref{mKC}\\
+\href{../../SRS/SRS.pdf#nf4}{NF4} & \mref{mMV}, \mref{mBV}\\
+\href{../../SRS/SRS.pdf#nf5}{NF5} & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mS}, \mref{mBV}, \mref{mKC}\\
+\href{../../SRS/SRS.pdf#nf6}{NF6} & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mS}, \mref{mBV}, \mref{mKC}, \mref{mG}\\
+\href{../../SRS/SRS.pdf#nf7}{NF7} & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mBV}, \mref{mKC}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}

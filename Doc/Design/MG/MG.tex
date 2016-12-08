@@ -65,6 +65,7 @@
 2016-11-13 & 1.7 & Addition of Connection Between Requirements and Design\\
 2016-11-13 & 1.8 & Addition of remaining Traceability Matrix mapping, initial revision\\
 2016-11-29 & 1.9 & Modifications for Ghost to Enemy refactoring\\
+2016-12-07 & 2.0 & Corrections to typos and other sections based on feedback\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -78,11 +79,12 @@
 \subsection{Overview}
 Namcap is a re-implementation of an open-source project for the classic arcade game, Pacman.
 
+%Addressed that MIS is not responsible for explaining syntax and the correction has been made.
 \subsection{Context}
 This is the Module Guide (MG) document, following the Software Requirements Specification (SRS). The SRS document specifies the functional and non-functional requirements for the project, where as the MG provides a modular decomposition of the system and shows the modular structure.
 
-  After MG is documented, the Module Interface Specification (MIS) is generated. The MIS is responsible for explaining the semantics and syntax of exported functions for each module.
-  \textcolor{red}{Semantics, sure but syntax no. It should be more or less a blueprint of your modules. The framework is there, implementation is not. - CM} \\
+  After MG is documented, the Module Interface Specification (MIS) is generated. \textcolor{red}{The MIS is responsible for explaining the semantics of exported functions for each module.}
+ % \textcolor{red}{Semantics, sure but syntax no. It should be more or less a blueprint of your modules. The framework is there, implementation is not. - CM} \\
 
 \subsection{Design Principles}
 
@@ -191,15 +193,17 @@ implemented in Namcap.
 \label{TblMH}
 \end{table}
 
+%Corrected `usability' typo
 \section{Connection Between Requirements and Design} \label{SecConnection}
 
 The design of the system is intended to satisfy the requirements detailed in the project SRS. The connection
-between requirements and modules is listed in Table \ref{TblRT}. The Traceability Matrix maps the project modules to the corresponding requirements and anticipated changes. For these purposes only requirements that specify the code and/or implementation of the redevelopment are included. Non-functional requirements NF8 - NF17 are withheld from the traceability matrix as those requirements pertain primarily to environmental, maintainability, cultural, and legal aspects of the development. More specifically, the non-functional requirements that are included in the requirements traceability matrix have been approximated in terms of the modules that represent the respective requirement. Usabiliy \textcolor{red}{(typo! - CM)} and performance envelope the modules that implement the major mechanical and input functionalities of the application. For NF6, the matrix uses the non-leaf modules to generalize that the implementation as a whole implements the requirement.
+between requirements and modules is listed in Table \ref{TblRT}. The Traceability Matrix maps the project modules to the corresponding requirements and anticipated changes. For these purposes only requirements that specify the code and/or implementation of the redevelopment are included. Non-functional requirements NF8 - NF17 are withheld from the traceability matrix as those requirements pertain primarily to environmental, maintainability, cultural, and legal aspects of the development. More specifically, the non-functional requirements that are included in the requirements traceability matrix have been approximated in terms of the modules that represent the respective requirement. \textcolor{red}{Usability} and performance envelope the modules that implement the major mechanical and input functionalities of the application. For NF6, the matrix uses the non-leaf modules to generalize that the implementation as a whole implements the requirement.
 
+%Reference seems to redirect to References section correctly
 \section{Module Decomposition} \label{SecMD}
 
 Modules are decomposed according to the principle of ``information hiding''
-proposed by \citet{ParnasEtAl1984} \textcolor{red}{fix reference - CM}. The \emph{Secrets} field in a module
+proposed by \citet{ParnasEtAl1984}. The \emph{Secrets} field in a module
 decomposition is a brief statement of the design decision hidden by the
 module. The \emph{Services} field specifies \emph{what} the module will do
 without documenting \emph{how} to do it. For each module, a suggestion for the
@@ -315,12 +319,12 @@ system or by standard programming language libraries.
   % improve performance than by externally imposed changes.
 \item[Implemented By:] --
 \end{description}
-
+%Addressed `an' typo
 \subsubsection{Enemy Module (\mref{mG})}
 
 \begin{description}
 \item[Secrets:]The enemy's movement mechanism.
-\item[Services:]Implements an \textcolor{red}{(I am being picky, but fix these typos) - CM} simple AI that moves the enemy on a valid path.
+\item[Services:]Implements a simple AI that moves the enemy on a valid path.
 \item[Implemented By:] Namcap
 \end{description}
 
@@ -381,6 +385,7 @@ NF7 & \mref{mC}, \mref{mP}, \mref{mB}, \mref{mBV}, \mref{mKC}\\
 \label{TblACT}
 \end{table}
 
+%Addressed `separately' typo
 \section{Use Hierarchy Between Modules} \label{SecUse}
 
 In this section, the uses hierarchy between modules is
@@ -398,8 +403,8 @@ architectural pattern, thus the Uses Hierarchy between modules has been colour-c
 the components. Red entities are controller modules (dealing with user input), yellow entities are view 
 modules (dealing with display), and green entities are model modules (dealing with game mechanisms).
 To ensure clarity, since all modules are connected to the Hardware-Hiding module - which directly interacts
-with system hardware for input and output - it has been shown seperately \textcolor{red}{spelling - CM} in the figure. \\
-\textcolor{red}{I like the design overall. If the board does in fact, hold / contain the player and enemies, it does work. An exception to this is if a player is abstracted from the level and can function on its own. Also, the model never interfaces with the view. The controller \textit{controls} how the model is displayed and thus should handle that - CM} \\
+with system hardware for input and output - it has been shown \textcolor{red}{separately} in the figure. \\
+%\textcolor{red}{I like the design overall. If the board does in fact, hold / contain the player and enemies, it does work. An exception to this is if a player is abstracted from the level and can function on its own. Also, the model never interfaces with the view. The controller \textit{controls} how the model is displayed and thus should handle that - CM} \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=1.0\textwidth]{UsesHierarchy.png}

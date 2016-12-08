@@ -38,8 +38,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+2016-12-08 & 1.0 & Completion of Functional Requirements Evaluation\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -51,6 +50,230 @@ Date 2 & 1.1 & Notes\\
 This document ...
 
 \section{Functional Requirements Evaluation}
+
+\subsection{Game Functionality Testing}
+
+\paragraph{}
+A Robot (automated) unit testing class was implemented and used to test the mechanics of the game.
+
+\begin{enumerate}
+
+\item{GFT1\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Application is displaying the main menu page
+					
+Input: Cursor clicked on Start Game button
+					
+Expected Output: New game is started and window is changed to reflect a new game state
+
+Output: New game was started and window was changed to reflect a new game state
+
+Result: PASS
+
+
+\item{GFT11\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Within game state
+					
+Input: Escape button pressed
+					
+Expected Output: Application must pause and ask user if they want to quit
+
+Output: Game was paused and user was asked to quit or continue
+
+Result: PASS
+
+\end{enumerate}
+
+\subparagraph{Player Movement/Collision Testing}
+
+\begin{enumerate}
+
+\item{GFT2\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Within the game state
+					
+Input: Arrow keys
+					
+Expected Output: Player moves in the respective direction (if path is clear)
+
+Output: Player moved in the respective direction when path was clear
+					
+Result: PASS
+
+\item{GFT3\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player comes in contact with wall
+					
+Input: No input
+					
+Expected Output: Player stops moving when coming in contact with the wall
+
+Output: Player's x and y coordinates were not changed when in contact with the wall
+
+Result: PASS
+
+\item{GFT4\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player comes in contact with enemy
+					
+Input: No input
+					
+Expected Output: If player has more than 1 life, decrement lives. If player has one life, end game.
+
+Output: Player's life was decremented by 1 when player had more than one life. The game was ended if player was on their last life.
+
+Result: PASS
+
+\item{GFT6\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player comes in contact with dots
+					
+Input: Arrow keys
+					
+Expected Output: Dot disappears after collection
+
+Output: Dot disappeared afer player colletcted it
+
+Result: PASS
+
+\item{GFT7\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player collects the big dot
+					
+Input: Arrow keys
+					
+Expected Output: Big dot disappears after collection
+
+Output: Big dot disappeared after player collected it
+
+Result: PASS
+
+\item{GFT8\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player collects the big dot
+					
+Input: Arrow keys
+					
+Expected Output: Player is able to collide with enemies
+
+Output: Player does not lose any lives when colliding with enemy
+
+Result: PASS
+
+\end{enumerate}
+
+\subparagraph{Enemy Movement/Collision Testing}
+
+\begin{enumerate}
+
+\item{GFT5\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Within the game state
+					
+Input: No input
+					
+Expected Output: Enemies move on a valid path
+
+Output: Enemy does not go through barriers
+
+Result: PASS
+
+\item{GFT9\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player collects the big dot
+					
+Input: No input
+					
+Expected Output: Enemies change colour
+
+Output: Enemies changed colours
+
+Result: PASS
+
+\item{GFT14\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player collides with enemy after collection of big dot
+					
+Input: Arrow keys
+					
+Expected Output: Enemy is removed from game and respawned back to their original cell
+
+Output: Enemy is respawned back to the center of the game
+
+Result: PASS
+
+\end{enumerate}
+
+\subparagraph{Scoring Testing}
+
+\begin{enumerate}
+
+\item{GFT10\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player collects all dots
+					
+Input: Arrow keys
+					
+Expected Output: Game over screen is activated
+
+Output: Player's score is displayed along with the Game Over screen
+
+Result: PASS
+
+\item{GFT12\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player collects dot
+					
+Input: Arrow keys
+					
+Expected Output: The points are increased
+
+Output: Player's score is increased by 100
+
+Result: PASS
+
+\item{GFT13\\}
+
+Type: Functional, Dynamic, Automated
+					
+Initial State: Player collects big dot
+					
+Input: Arrow keys
+					
+Expected Output: The points are increased at twice the rate
+
+Output: Player's score is increased by 200
+
+Result: PASS
+
+\end{enumerate}
 
 \section{Nonfunctional Requirements Evaluation}
 

@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import model.Board;
 import model.Enemy;
 import model.MainMenu;
+import view.MainMenuView;
 import model.Player;
 import view.BoardView;
 

@@ -116,8 +116,8 @@ public class Player extends Character {
 
 	/**
 	* @brief Checks Board for dots
-	* @details Checks if Player collided with dots and directs the Board to update the Score and dots accordingly (if Score is max, endGame is called).
-	* Calls the bigDotEaten() method if Player collects the big dot.
+	* @details Checks if Player collided with dots and directs the Board to update the Score and dots accordingly (if Score is max, game is ended).
+	* Calls the bigDotEaten method if Player collects the big dot.
 	*/
 	public void checkDot(){
 		int currDot = this.board.getDot(this.currX / 20, this.currY / 20);
@@ -138,7 +138,7 @@ public class Player extends Character {
 
 	/**
 	* @brief Checks for collision with Enemy
-	* @details Checks if Player collided with a Enemy and calls the endGame method if lives count == 0. Otherwise,
+	* @details Checks if Player collided with a Enemy and calls the endGame method if the number of lives is 0. Otherwise,
 	* Player lives are decremented by 1 and Player location is reset to initial position. If the bog dot was eaten, the enemy is moved
 	* to it's start position and points are incremented by 500.
 	*/
@@ -174,7 +174,7 @@ public class Player extends Character {
 	* @details Updates the high score value for this game instance (if applicable) and calls view end game procedure.
 	*/
 	public void endGame(){
-		this.board.accessScore().updateHighScore(this.board.accessScore().getScore());
+		this.board.accessScore().updateHighScore();
 		this.board.view.endGame();
 	}
 	

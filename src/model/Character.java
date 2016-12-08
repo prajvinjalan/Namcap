@@ -27,7 +27,7 @@ public class Character {
 	/**
 	* Represents the pixel increment for Character movement in level per frame. 
 	*/
-	int pixelInc = 4;
+	int pixelInc;
 	/**
 	* Corresponding Board model for the given Character object.
 	*/
@@ -41,6 +41,7 @@ public class Character {
 	public Character(Board board){
 		this.board = board;
 		this.sq=20;
+		this.pixelInc = 4;
 		this.stop = false;
 		this.prevDirection = 'R';
 		this.newDirection = 'R';

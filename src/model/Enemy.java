@@ -184,7 +184,7 @@ public class Enemy extends Character {
 	}
 	
 	/**
-	 * @brief Reverses the Enemies' direction.
+	 * @brief Reverses the Enemy's direction.
 	 */
 	public void reverseDirection() {
 		switch (this.prevDirection){
@@ -205,8 +205,8 @@ public class Enemy extends Character {
 	}
 	
 	/**
-	 * @brief Changes the speed of the Enemies.
-	 * @param speed - the amount of pixels to move the Enemies.
+	 * @brief Changes the speed of the Enemy.
+	 * @param speed - the amount of pixels to move the Enemy.
 	 */
 	public void changeSpeed(int speed) {
 		this.pixelInc = speed;	

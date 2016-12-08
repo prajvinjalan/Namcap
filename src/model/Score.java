@@ -60,9 +60,8 @@ public class Score {
 	* @brief Updates the high score log file
 	* @details Appends to the high score log file ('high_score') in the case that the achieved score is greater than the 
 	* previously recorded high score.
-	* @param pts - Achieved Score for the current instance of the game (Score value).
 	*/
-	public void updateHighScore(int pts){
+	public void updateHighScore(){
 		if(this.value > this.highScore){
 			try{
 				File hsFile = new File("high_score");

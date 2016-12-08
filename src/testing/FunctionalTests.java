@@ -45,6 +45,8 @@ public class FunctionalTests {
 	public static void main(String[] args) throws AWTException{
 		message = "FUNCTIONAL TEST RESULTS\n\n";
 
+		startGameTest();
+		pauseGameTest();
 		upDirectionTest();
 		downDirectionTest();
 		leftDirectionTest();

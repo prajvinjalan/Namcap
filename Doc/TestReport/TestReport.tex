@@ -2,7 +2,9 @@
 
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{float}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -39,6 +41,7 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 2016-12-08 & 1.0 & Completion of Functional Requirements Evaluation\\
+2016-12-08 & 1.1 & Completion of Unit Testing Section\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -289,6 +292,203 @@ This section will not be appropriate for every project.
 
 \section{Unit Testing}
 
+Unit Testing for Namcap was done using Java's JUnit testing suite, and results of all tests were written and summarized to a text file. If any tests failed, the exception would be included so the development team could analyze and repair any errors. Figure \ref{FigUTR} is an example of the text file.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{UnitTestResults.png}
+\caption{Unit Test Results}
+\label{FigUTR}
+\end{figure}
+
+{\bf Test Cases}
+
+\begin{enumerate}
+
+\item{UT1\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Application is displaying the main menu page
+					
+Input: Start Game button action is performed
+					
+Expected Output: New game is started and window is changed to reflect a new game state
+					
+Output: New window (game board) successfully opened
+
+JUnit Test Result: PASS
+
+\item{UT2\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Player is in starting position at the start of the game
+					
+Input: Current X accessor method for the player
+					
+Expected Output: 200 (start X position)
+					
+Output: 200
+
+JUnit Test Result: PASS
+
+\item{UT3\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Player is in starting position at the start of the game
+					
+Input: Current Y accessor method for the player
+					
+Expected Output: 300 (start Y position)
+					
+Output: 300
+
+JUnit Test Result: PASS
+
+\item{UT4\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Player is in starting position at the start of the game
+					
+Input: Current direction of the player
+					
+Expected Output: 'R' (player starting direction)
+					
+Output: 'R'
+
+JUnit Test Result: PASS
+
+\item{UT5\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Player is in starting position at the start of the game
+					
+Input: PlayerX, PlayerY, EnemyX, EnemyY (200,300,185,300)
+					
+Expected Output: Player lives decremented (player to enemy collision succeeded)
+					
+Output: 2 (player lives left)
+
+JUnit Test Result: PASS
+
+\item{UT6\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Player is in starting position at the start of the game, all dots are on map
+					
+Input: PlayerX, PlayerY ([180,300],[20,180],[20,180])
+					
+Expected Output: Score increases the first two times, but not the last
+					
+Output: ([score increases to 100, no dot],[score increases to 200, no dot],[score remains at 200, no dot])
+
+Junit Test Result: PASS
+
+\item{UT7\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Player is in starting position at the start of the game
+					
+Input: X and Y positions around the player (Player Positions tested (X,Y): [200,300],[20,20],[100,180])
+					
+Expected Output: 2 barriers around the first position, 2 barriers around the second position, 0 barriers around the third position - true and false values
+					
+Output: ([false,false,true,true],[true,false,true,false],[false,false,false,false])
+
+Junit Test Result: PASS
+
+\item{UT8\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Board is created with only barrier and dot entities
+					
+Input: X and Y positions for all barrier locations
+					
+Expected Output: True for all barrier locations (manually stated in JUnit class)
+					
+Output: True for all barrier locations
+
+JUnit Test Result: PASS
+
+\item{UT9\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Board is created with only barrier and dot entities
+					
+Input: X and Y positions for a location without a barrier, and an update to that location (to create a barrier) [10,15]
+					
+Expected Output: True, a barrier exists for that location [10,15]
+					
+Output: True
+
+JUnit Test Result: PASS
+
+\item{UT10\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Board is created with only barrier and dot entities
+					
+Input: X and Y positions for dot locations
+					
+Expected Output: True for all dot locations (manually stated in JUnit class)
+					
+Output: True for all dot locations (true that they are all 1)
+
+JUnit Test Result: PASS
+
+\item{UT11\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Board is created with only barrier and dot entities
+					
+Input: X and Y positions for a location without a dot, and an update to that location (to create a dot) [0,0]
+					
+Expected Output: True, a dot exists for that location [0,0]
+					
+Output: True
+
+JUnit Test Result: PASS
+
+\item{UT12\\}
+
+Type: Unit, Static, Automated
+					
+Initial State: Board is created with game entities, player and score objects are created
+					
+Input: Score values to increase by ([1000],[1313232],[0])
+					
+Expected Output: Updated score value after each addition ([1000],[1314232],[1314232])
+					
+Output: Score updated successfully ([1000],[1314232],[1314232])
+
+JUnit Test Result: PASS
+
+\item{UTF1\\}
+
+Type: Unit, Dynamic, Automated
+					
+Initial State: Application is in gameplay state
+					
+Input: Score addition (16000); High score update; Score addition (4000); High score read from file
+					
+Expected Output: High score not affected by score addition within game (should be read as 16000)
+					
+Output: High score remains as updated (16000)
+
+JUnit Test Result: PASS
+
+\end{enumerate}
+
 \section{Changes Due to Testing}
 
 \section{Automated Testing}
@@ -299,8 +499,8 @@ This section will not be appropriate for every project.
 
 \section{Code Coverage Metrics}
 
-\bibliographystyle{plainnat}
+%\bibliographystyle{plainnat}
 
-\bibliography{SRS}
+%\bibliography{SRS}
 
 \end{document}

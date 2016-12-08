@@ -203,13 +203,26 @@ public class UnitTests {
 		createBoard();
 		Player p = new Player(board);
 		
-		p.setCurrX(180);
-		p.setCurrY(300);
-		board.getPlayer().checkDot();
-		
 		try{
+			p.setCurrX(180);
+			p.setCurrY(300);
+			p.setPrevDirection('U');
+			p.setNewDirection('U');
+			board.getPlayer().checkDot();
 			assertEquals(100, board.accessScore().getScore());
 			assertEquals(0, board.getDot(9, 15));
+			
+			p.setCurrX(20);
+			p.setCurrY(180);
+			board.getPlayer().checkDot();
+			assertEquals(200, board.accessScore().getScore());
+			assertEquals(0, board.getDot(1, 9));
+			
+			p.setCurrX(20);
+			p.setCurrY(180);
+			board.getPlayer().checkDot();
+			assertEquals(200, board.accessScore().getScore());
+			assertEquals(0, board.getDot(1, 9));
 			message += "Test:\t UT6 - Player Dot Collision\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
 			message += "Test:\t UT6 - Player Dot Collision\nResult:\t Test failed.\nError:\t " + e.toString();
@@ -231,14 +244,28 @@ public class UnitTests {
 			}
 		} 
 		
-		//p.setCurrX(200);
-		//p.setCurrY(300);
-		
 		try{
 			assertEquals(false, testP.isBarrier(testP.getCurrX() - 4, testP.getCurrY())); //L
 			assertEquals(false, testP.isBarrier(testP.getCurrX() + 20, testP.getCurrY())); //R
 			assertEquals(true, testP.isBarrier(testP.getCurrX(), testP.getCurrY() - 4)); //U
 			assertEquals(true, testP.isBarrier(testP.getCurrX(), testP.getCurrY() + 20)); //D
+			
+			p.setCurrX(20);
+			p.setCurrY(20);
+			
+			assertEquals(true, testP.isBarrier(testP.getCurrX() - 4, testP.getCurrY())); //L
+			assertEquals(false, testP.isBarrier(testP.getCurrX() + 20, testP.getCurrY())); //R
+			assertEquals(true, testP.isBarrier(testP.getCurrX(), testP.getCurrY() - 4)); //U
+			assertEquals(false, testP.isBarrier(testP.getCurrX(), testP.getCurrY() + 20)); //D
+			
+			p.setCurrX(100);
+			p.setCurrY(180);
+			
+			assertEquals(false, testP.isBarrier(testP.getCurrX() - 4, testP.getCurrY())); //L
+			assertEquals(false, testP.isBarrier(testP.getCurrX() + 20, testP.getCurrY())); //R
+			assertEquals(false, testP.isBarrier(testP.getCurrX(), testP.getCurrY() - 4)); //U
+			assertEquals(false, testP.isBarrier(testP.getCurrX(), testP.getCurrY() + 20)); //D
+			
 			message += "Test:\t UT7 - Player Barrier Collision\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
 			message += "Test:\t UT7 - Player Barrier Collision\nResult:\t Test failed.\nError:\t " + e.toString();
@@ -372,6 +399,10 @@ public class UnitTests {
 			assertEquals(0, board.accessScore().getScore());
 			board.accessScore().addScore(1000);
 			assertEquals(1000, board.accessScore().getScore());
+			board.accessScore().addScore(1313232);
+			assertEquals(1314232, board.accessScore().getScore());
+			board.accessScore().addScore(0);
+			assertEquals(1314232, board.accessScore().getScore());
 			message += "Test:\t UT12 - Score Addition\nResult:\t Test succeeded.";
 		} catch (AssertionError e){
 			message += "Test:\t UT12 - Score Addition\nResult:\t Test failed.\nError:\t " + e.toString();

@@ -13,6 +13,7 @@
 %\usepackage[round]{natbib}
 \usepackage{float}
 \usepackage{mdframed}
+\usepackage[normalem]{ulem}
 
 \title{SE 3XA3: Test Plan\\Namcap}
 
@@ -843,17 +844,17 @@ Output: Increase in score and dot disappearance (Pass or fail for JUnit method)
 How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they are on a dot that their score is increased and the dot has disappeared (board's getDot method) [refer to GFT6 test]
 
 %Removal of Unit Test 7 since GFT10 covers this test case
-%\item{UT7\\}
+\item{\sout{UT7}\\}
 
-%Type: Unit, Static, Automated
+\sout{Type: Unit, Static, Automated}
 
-%Initial State: Player is in starting position at the start of the game, all dots on map are clear except one
+\sout{Initial State: Player is in starting position at the start of the game, all dots on map are clear except one}
 
-%Input: PlayerX, PlayerY
+\sout{Input: PlayerX, PlayerY}
 					
-%Output: End of game (Pass or fail for JUnit method)
+\sout{Output: End of game (Pass or fail for JUnit method)}
 					
-%How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they collect the final dot that the endGame method is called and the player wins the game [refer to GFT10 test]
+\sout{How test will be performed: A JUnit method will test the player's checkDot method to ensure that when they collect the final dot that the endGame method is called and the player wins the game [refer to GFT10 test]}
 
 %%%%%%%%%%%%%%%   REFACTOR OF UNIT TEST NAMES   %%%%%%%%%%%%%%%%%%%%%%%%
 

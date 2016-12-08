@@ -51,6 +51,7 @@ public class Score {
 	/**
 	* @brief Increments the score
 	* @param pts - Integer points value to add to the current score value.
+	* @exception If pts is (-), addScore allows for decrementing (future feature plan)
 	*/
 	public void addScore(int pts){
 		this.value += pts;

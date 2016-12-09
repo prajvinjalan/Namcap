@@ -1,0 +1,11 @@
+This text document outlines the procedure to run Namcap.
+
+(1) Download [src] folder
+(2) Open console (shell, etc.)
+(3) Navigate into [src] directory
+(4) Type 'make' (runs Makefile)
+(5) Type './run' (runs Namcap application)
+(6) Namcap will start and display game instructions page
+(7) After usage, return to console
+(8) Type 'make clean' (will remove all additional created files)
+(9) Proceed to delete [src] directory as needed

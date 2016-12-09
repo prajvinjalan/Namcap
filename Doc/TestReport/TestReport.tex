@@ -42,6 +42,8 @@
 \midrule
 2016-12-08 & 1.0 & Completion of Functional Requirements Evaluation\\
 2016-12-08 & 1.1 & Completion of Unit Testing Section\\
+2016-12-08 & 1.2 & Completion of Changes Due to Testing\\
+2016-12-08 & 1.3 & Completion of Automated Testing\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -58,6 +60,8 @@ This document ...
 
 \paragraph{}
 A Robot (automated) unit testing class was implemented and used to test the mechanics of the game.
+
+\subparagraph{General Testing}
 
 \begin{enumerate}
 
@@ -491,7 +495,12 @@ JUnit Test Result: PASS
 
 \section{Changes Due to Testing}
 
+There were virtually no changes we made to the actual functionality of the game based on the testing. All of the performed tests were passed with no issues. On the other hand, based on the feedback we received from the usability survey, 30\% of the users stated that the game looked too similar to the original Pacman game. Thus, we decided to change the colour of the map from Blue to Red, we switched the roles of the Ghost and the Pacman and added a little backstory to reflect that change and to add a unique persepctive to Namcap. Other than the mentioned changes, we did not see any reason to change anything else since it was functioning perfectly well.
+
+
 \section{Automated Testing}
+
+As discussed in the test plan, the automated testing was used to test the Functional Requirements and the Unit Tests. For the functional requirements/scenarios, a java Robot class was used to simulate button presses and key presses to verify that the requirements are met. For example, the Robot class was used to simulate the pressing of the arrow keys in order to test if the player moves in the correct direction. The JUnit testing framework was used to validate that every game mechanic (scoring, barriers, player/enemy positions, etc.) is working as required.
 		
 \section{Trace to Requirements}
 This section shows the traceability matrix between test cases and requirements. Non-functional requirements are limited to . Non-functional test cases are excluded as they will cover all requirements as application-wide qualities.

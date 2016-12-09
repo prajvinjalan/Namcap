@@ -28,7 +28,8 @@ public class MainMenuView extends JPanel {
 	/**
 	* JPanel objects to organize image conten and menu (text) content of the frame.
 	*/
-	private JPanel imagePanel, menuPanel;
+	private JPanel imagePanel;
+	private JPanel menuPanel;
 	/**
 	* Button object representing the start game button on the Main Menu View.
 	*/

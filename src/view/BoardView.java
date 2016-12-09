@@ -35,7 +35,15 @@ public class BoardView extends JPanel {
 	/**
 	* Represent the GUI sprites used to display each player position and the enemy.
 	*/
-	Image enemyLeft, enemyRight, enemyUp, enemyDown, player, enemyLeftBlue, enemyRightBlue, enemyUpBlue, enemyDownBlue;
+	Image enemyLeft;
+	Image enemyRight;
+	Image enemyUp;
+	Image enemyDown;
+	Image player;
+	Image enemyLeftBlue;
+	Image enemyRightBlue;
+	Image enemyUpBlue;
+	Image enemyDownBlue;
 	/**
 	* The frame timer for the game; used to set the frequency of BoardView repainting (update).
 	*/
@@ -44,7 +52,10 @@ public class BoardView extends JPanel {
 	* Represent the text label and corresponding number labels for both score and high score values
 	* shown on screen. Points labels are number values and score labels are the corresponding text.
 	*/
-	JLabel scoreLabel, pointsLabel, highScoreLabel, highPointsLabel;
+	JLabel scoreLabel;
+	JLabel pointsLabel;
+	JLabel highScoreLabel;
+	JLabel highPointsLabel;
 	/**
 	* Corresponding Frame object to contain the Board View (actual GUI element).
 	*/

@@ -44,6 +44,7 @@
 2016-12-08 & 1.1 & Completion of Unit Testing Section\\
 2016-12-08 & 1.2 & Completion of Changes Due to Testing\\
 2016-12-08 & 1.3 & Completion of Automated Testing\\
+2016-12-08 & 1.4 & Addition of Traceability Matrices and explanation of code coverage metrics\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -503,7 +504,7 @@ There were virtually no changes we made to the actual functionality of the game 
 As discussed in the test plan, the automated testing was used to test the Functional Requirements and the Unit Tests. For the functional requirements/scenarios, a java Robot class was used to simulate button presses and key presses to verify that the requirements are met. For example, the Robot class was used to simulate the pressing of the arrow keys in order to test if the player moves in the correct direction. The JUnit testing framework was used to validate that every game mechanic (scoring, barriers, player/enemy positions, etc.) is working as required.
 		
 \section{Trace to Requirements}
-This section shows the traceability matrix between test cases and requirements. Non-functional requirements are limited to . Non-functional test cases are excluded as they will cover all requirements as application-wide qualities.
+This section shows the traceability matrix between test cases and requirements. Non-functional requirements are not referenced as they pertain to primarily, application-wide qualities and are trace-able to all tests. Non-functional test cases are excluded as they will cover all requirements as application-wide qualities.
 
 \begin{table}[H]
 \centering
@@ -526,13 +527,13 @@ This section shows the traceability matrix between test cases and requirements. 
 \href{../SRS/SRS.pdf#f13}{F13} & GFT\ref{gft12}, UT\ref{ut12}, UTF\ref{utf1}\\
 \href{../SRS/SRS.pdf#f14}{F14} & GFT\ref{gft13}, UT\ref{ut12}, UTF\ref{utf1}\\
 \href{../SRS/SRS.pdf#f15}{F15} & GFT\ref{gft14}\\
-\href{../SRS/SRS.pdf#nf1}{NF1} & \\
-\href{../SRS/SRS.pdf#nf2}{NF2} & \\
-\href{../SRS/SRS.pdf#nf3}{NF3} & \\
-\href{../SRS/SRS.pdf#nf4}{NF4} & \\
-\href{../SRS/SRS.pdf#nf5}{NF5} & \\
-\href{../SRS/SRS.pdf#nf6}{NF6} & \\
-\href{../SRS/SRS.pdf#nf7}{NF7} & \\
+%\href{../SRS/SRS.pdf#nf1}{NF1} & \\
+%\href{../SRS/SRS.pdf#nf2}{NF2} & \\
+%\href{../SRS/SRS.pdf#nf3}{NF3} & \\
+%\href{../SRS/SRS.pdf#nf4}{NF4} & \\
+%\href{../SRS/SRS.pdf#nf5}{NF5} & \\
+%\href{../SRS/SRS.pdf#nf6}{NF6} & \\
+%\href{../SRS/SRS.pdf#nf7}{NF7} & \\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Tests}
@@ -565,6 +566,7 @@ This section shows the traceability matrix between test cases and modules. Non-f
 \end{table}
 
 \section{Code Coverage Metrics}
+JaCoCo is the planned code coverage tool to be utilized to act as a metric for code coverage of the implementation. By default, a JaCoCo agent can be attached to a JVM on start. Whenever a class is loaded JaCoCo instruments the class in order to see when it is called and which lines are executed. It then uses this information to build the coverage statistics which creates a results file when the JVM terminates. Based on time constraints for this development, the code coverage metrics tasks have been moved to future development.
 
 %\bibliographystyle{plainnat}
 

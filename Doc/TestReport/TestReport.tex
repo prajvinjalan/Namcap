@@ -45,6 +45,7 @@
 2016-12-08 & 1.2 & Completion of Changes Due to Testing\\
 2016-12-08 & 1.3 & Completion of Automated Testing\\
 2016-12-08 & 1.4 & Addition of Traceability Matrices and explanation of code coverage metrics\\
+2016-12-08 & 1.5 & Completion of Non-Functional Testing, and Comparison to Existing Implementation\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -285,15 +286,107 @@ Result: PASS
 
 \section{Nonfunctional Requirements Evaluation}
 
+Test cases will be referenced in this section using their names from the Test Plan - descriptions have been omitted in order to avoid unecessary repetition.
+
 \subsection{Usability}
+
+To test usability, a small test group of users (which included acquaintances of the VPB Game Studio development team) were given a copy of the game and a survey to fill out about the application. A Google Form was used to generate the survey and gather results.\\
+
+\noindent Figures \ref{FigSQ1}, \ref{FigSQ2}, and \ref{FigSQ3} show the results of the general usability questions that was asked of the users. From the figures we can see that 70\% of testers gave Namcap a 10 out of 10 for entertainment value and a user-friendly interface. This was important as the main goal that drove the creation of Namcap was to provide an entertaining game for users that allowed them play from the comfort of their homes (as is the case with any game). Figure \ref{FigSQ3} shows that 30\% of testers gave the game less than 5 out of 10 for difficulty, 30\% gave it 5 out of 5, and 40\% gave the game greater than 5 out of 5. This shows that Namcap is well balanced and will keep providing users with entertainment.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion1.png}
+\caption{Survey Question: Entertainment}
+\label{FigSQ1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion2.png}
+\caption{Survey Question: User-friendliness}
+\label{FigSQ2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion3.png}
+\caption{Survey Question: Difficulty}
+\label{FigSQ3}
+\end{figure}
+
+\noindent To address non-functional requirements UO1, UO2, and UG1, the survey included the questions shown in figures \ref{FigSQ6} and \ref{FigSQ7}. All of the testers found the instructions page to clearly define the objective, and were able to grasp the over gameplay of Namcap in one play-through. This shows that due to its low learnability curve, Namcap wil be able to attract a wide variety of users.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion6.png}
+\caption{Survey Question: Definition of Objective}
+\label{FigSQ6}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion7.png}
+\caption{Survey Question: Understandable Gameplay}
+\label{FigSQ7}
+\end{figure}
+
+\subsection{Graphical User Interface}
+
+The Graphical User Interface of the game was another portion tested by our users through the usability survey. To test requirements AL1 and AL2, users compared the layout of Namcap to that of the original Pacman game. Figures \ref{FigSQ4} and \ref{FigSQ5} show that 30\% of users found the instructions page and game interface to look identical to the original Pacman. The changes made due to these results are mentioned in a later section of this document. Figure \ref{FigSQ8} addresses requirements OST1 and OST2, and it is evident that none of the users found any symbol or text in Namcap offensive. This is an important part of the application since Namcap's ultimate goal is to be accessible to any and all users.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion4.png}
+\caption{Survey Question: Instructions Page Layout}
+\label{FigSQ4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion5.png}
+\caption{Survey Question: Game Layout}
+\label{FigSQ5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion8.png}
+\caption{Survey Question: Offensive Media}
+\label{FigSQ8}
+\end{figure}
 		
 \subsection{Performance}
 
-\subsection{etc.}
+The final two questions on the usability survey addressed the performance of the application. Requirement RT1 was covered in the last survey question (figure \ref{FigSQ10}), and the results show that none of the users experienced delays in response with respect to their keyboard input. Question 9 in figure \ref{FigSQ9} shows that none of the testers experienced any unexpected crashes with the application, therefore requirements UF1 and UF2 are also accounted for. It is imperative that Namcap users don't experience technical issues when playing the game, and it is evident from the survey that Namcap's performance meets the requirements.\\
+
+\noindent Formal testing with regards to robustness was not a part of the usability survey for testers. This is because the application accepts user inputs on a set of defined keystrokes - game variables are controlled entirely by the source code so a user is never able to directly affect the game with erroneous input. In this way the application is inherently robust and no explicit testing is required.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion9.png}
+\caption{Survey Question: Unexpected Crashes}
+\label{FigSQ9}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{SurveyQuestion10.png}
+\caption{Survey Question: Response Delays}
+\label{FigSQ10}
+\end{figure}
+
+\subsection{Other}
+
+With regards to the remaining non-functional tests, the development team manually confirmed that the application met the requirements. \\
+{\bf Maintainability \& Support}: OSS1 and OSS2 tested that the jar file containing the application could run on multiple operating systems. This follows suit with Namcap's goal of being accessible to all users.\\
+{\bf Security}: OSC1 is accounted for because Namcap's source code is stored in a public repository, allowing future development and maintenance updates to be reviewed publicly.\\
+{\bf Legal}: After looking over the application, the development team concluded that requirements LV1 and LV2 were met.\\
+{\bf Health \& Safety}: BP1 was manually tested, and the game successfully pauses if it has been running for a set amount of time.
 	
 \section{Comparison to Existing Implementation}	
 
-This section will not be appropriate for every project.
+As per our Test Plan, we manually performed our system tests on the existing implementation in order to compare game outputs. Since the existing implementation is coded differently, many of these system tests were altered in a way that the two games could be properly compared. We ran the tests in parallel and focused on core functionality and mechanics of the game over other tests. Since Namcap added features that are not present in the existing implementation, only the following funcional tests from the Test Plan were tested for comparison between the applications: GFT2, GFT3, GFT4, GFT6, GFT10, GFT12, RT1, UF1. These tests included those for player movement, player collision with game entities, scoring, and performance measures of response time and application crashes. Namcap was correctly implemented as these tests all produced the same output as those that the tests produced for the existing application.
 
 \section{Unit Testing}
 

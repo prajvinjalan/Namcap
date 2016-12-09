@@ -15,12 +15,17 @@ public class Character {
 	* Chars representing the previous and new (current) directions of the Character.
 	* L - Left, R - Right, U - Up, D - Down.
 	*/
-	char prevDirection, newDirection;
+	char prevDirection; 
+	char newDirection;
 	/**
 	* Integer values representing the previous and current Character x- and y-coordinate locations on
 	* the grid, with corresponding grid square size parameter 'sq' (pixels).
 	*/
-	int prevX, prevY, currX, currY, sq;
+	int prevX; 
+	int prevY;
+	int currX; 
+	int currY; 
+	int sq;
 	/**
 	* Boolean value representing Character movement stopped (barrier met/game ended).
 	*/

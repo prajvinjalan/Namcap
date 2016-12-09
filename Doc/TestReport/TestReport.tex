@@ -8,7 +8,7 @@
 \hypersetup{
     colorlinks,
     citecolor=black,
-    filecolor=black,
+    filecolor=red,
     linkcolor=red,
     urlcolor=blue
 }
@@ -35,7 +35,7 @@
 \listoftables
 \listoffigures
 
-\begin{table}[bp]
+\begin{table}[h]
 \caption{\bf Revision History}
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
@@ -61,7 +61,7 @@ A Robot (automated) unit testing class was implemented and used to test the mech
 
 \begin{enumerate}
 
-\item{GFT1\\}
+\item{\label{gft1}{GFT1}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -75,8 +75,8 @@ Output: New game was started and window was changed to reflect a new game state
 
 Result: PASS
 
-
-\item{GFT11\\}
+\setcounter{enumi}{10}
+\item{\label{gft11}{GFT11}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -95,8 +95,8 @@ Result: PASS
 \subparagraph{Player Movement/Collision Testing}
 
 \begin{enumerate}
-
-\item{GFT2\\}
+\setcounter{enumi}{1}
+\item{\label{gft2}{GFT2}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -110,7 +110,7 @@ Output: Player moved in the respective direction when path was clear
 					
 Result: PASS
 
-\item{GFT3\\}
+\item{\label{gft3}{GFT3}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -124,7 +124,7 @@ Output: Player's x and y coordinates were not changed when in contact with the w
 
 Result: PASS
 
-\item{GFT4\\}
+\item{\label{gft4}{GFT4}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -137,8 +137,8 @@ Expected Output: If player has more than 1 life, decrement lives. If player has 
 Output: Player's life was decremented by 1 when player had more than one life. The game was ended if player was on their last life.
 
 Result: PASS
-
-\item{GFT6\\}
+\setcounter{enumi}{5}
+\item{\label{gft6}{GFT6}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -152,7 +152,7 @@ Output: Dot disappeared afer player colletcted it
 
 Result: PASS
 
-\item{GFT7\\}
+\item{\label{gft7}{GFT7}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -166,7 +166,7 @@ Output: Big dot disappeared after player collected it
 
 Result: PASS
 
-\item{GFT8\\}
+\item{\label{gft8}{GFT8}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -185,8 +185,8 @@ Result: PASS
 \subparagraph{Enemy Movement/Collision Testing}
 
 \begin{enumerate}
-
-\item{GFT5\\}
+\setcounter{enumi}{4}
+\item{\label{gft5}{GFT5}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -199,8 +199,8 @@ Expected Output: Enemies move on a valid path
 Output: Enemy does not go through barriers
 
 Result: PASS
-
-\item{GFT9\\}
+\setcounter{enumi}{8}
+\item{\label{gft9}{GFT9}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -213,8 +213,8 @@ Expected Output: Enemies change colour
 Output: Enemies changed colours
 
 Result: PASS
-
-\item{GFT14\\}
+\setcounter{enumi}{13}
+\item{\label{gft14}{GFT14}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -233,8 +233,8 @@ Result: PASS
 \subparagraph{Scoring Testing}
 
 \begin{enumerate}
-
-\item{GFT10\\}
+\setcounter{enumi}{9}
+\item{\label{gft10}{GFT10}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -247,8 +247,8 @@ Expected Output: Game over screen is activated
 Output: Player's score is displayed along with the Game Over screen
 
 Result: PASS
-
-\item{GFT12\\}
+\setcounter{enumi}{11}
+\item{\label{gft12}{GFT12}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -262,7 +262,7 @@ Output: Player's score is increased by 100
 
 Result: PASS
 
-\item{GFT13\\}
+\item{\label{gft13}{GFT13}\\}
 
 Type: Functional, Dynamic, Automated
 					
@@ -305,7 +305,7 @@ Unit Testing for Namcap was done using Java's JUnit testing suite, and results o
 
 \begin{enumerate}
 
-\item{UT1\\}
+\item{\label{ut1}{UT1}\\}
 
 Type: Unit, Static, Automated
 					
@@ -319,7 +319,7 @@ Output: New window (game board) successfully opened
 
 JUnit Test Result: PASS
 
-\item{UT2\\}
+\item{\label{ut2}{UT2}\\}
 
 Type: Unit, Static, Automated
 					
@@ -333,7 +333,7 @@ Output: 200
 
 JUnit Test Result: PASS
 
-\item{UT3\\}
+\item{\label{ut3}{UT3}\\}
 
 Type: Unit, Static, Automated
 					
@@ -347,7 +347,7 @@ Output: 300
 
 JUnit Test Result: PASS
 
-\item{UT4\\}
+\item{\label{ut4}{UT4}\\}
 
 Type: Unit, Static, Automated
 					
@@ -361,7 +361,7 @@ Output: 'R'
 
 JUnit Test Result: PASS
 
-\item{UT5\\}
+\item{\label{ut5}{UT5}\\}
 
 Type: Unit, Static, Automated
 					
@@ -375,7 +375,7 @@ Output: 2 (player lives left)
 
 JUnit Test Result: PASS
 
-\item{UT6\\}
+\item{\label{ut6}{UT6}\\}
 
 Type: Unit, Static, Automated
 					
@@ -389,7 +389,7 @@ Output: ([score increases to 100, no dot],[score increases to 200, no dot],[scor
 
 Junit Test Result: PASS
 
-\item{UT7\\}
+\item{\label{ut7}{UT7}\\}
 
 Type: Unit, Static, Automated
 					
@@ -403,7 +403,7 @@ Output: ([false,false,true,true],[true,false,true,false],[false,false,false,fals
 
 Junit Test Result: PASS
 
-\item{UT8\\}
+\item{\label{ut8}{UT8}\\}
 
 Type: Unit, Static, Automated
 					
@@ -417,7 +417,7 @@ Output: True for all barrier locations
 
 JUnit Test Result: PASS
 
-\item{UT9\\}
+\item{\label{ut9}{UT9}\\}
 
 Type: Unit, Static, Automated
 					
@@ -431,7 +431,7 @@ Output: True
 
 JUnit Test Result: PASS
 
-\item{UT10\\}
+\item{\label{ut10}{UT10}\\}
 
 Type: Unit, Static, Automated
 					
@@ -445,7 +445,7 @@ Output: True for all dot locations (true that they are all 1)
 
 JUnit Test Result: PASS
 
-\item{UT11\\}
+\item{\label{ut11}{UT11}\\}
 
 Type: Unit, Static, Automated
 					
@@ -459,7 +459,7 @@ Output: True
 
 JUnit Test Result: PASS
 
-\item{UT12\\}
+\item{\label{ut12}{UT12}\\}
 
 Type: Unit, Static, Automated
 					
@@ -473,7 +473,7 @@ Output: Score updated successfully ([1000],[1314232],[1314232])
 
 JUnit Test Result: PASS
 
-\item{UTF1\\}
+\item{\label{utf1}{UTF1}\\}
 
 Type: Unit, Dynamic, Automated
 					
@@ -494,8 +494,66 @@ JUnit Test Result: PASS
 \section{Automated Testing}
 		
 \section{Trace to Requirements}
+This section shows the traceability matrix between test cases and requirements. Non-functional requirements are limited to . Non-functional test cases are excluded as they will cover all requirements as application-wide qualities.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.2\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Req.} & \textbf{Tests}\\
+\midrule
+\href{../SRS/SRS.pdf#f1}{F1} & GFT\ref{gft1}, UT\ref{ut1}. UT\ref{ut2}, UT\ref{ut3}, UT\ref{ut4}, UT\ref{ut10}, UT\ref{ut11}, UT\ref{ut12}\\
+\href{../SRS/SRS.pdf#f2}{F2} & GFT\ref{gft2}\\
+\href{../SRS/SRS.pdf#f3}{F3} & GFT\ref{gft3}, UT\ref{ut7}, UT\ref{ut8}, UT\ref{ut9}\\
+\href{../SRS/SRS.pdf#f4}{F4} & GFT\ref{gft4}, UT\ref{ut5}\\
+\href{../SRS/SRS.pdf#f5}{F5} & GFT\ref{gft5}\\
+\href{../SRS/SRS.pdf#f6}{F6} & GFT\ref{gft5}\\
+\href{../SRS/SRS.pdf#f7}{F7} & GFT\ref{gft6}, GFT\ref{gft10}, GFT\ref{gft12}, UT\ref{ut6}, UT\ref{ut8}, UT\ref{ut10}, UT\ref{ut11}\\
+\href{../SRS/SRS.pdf#f8}{F8} & GFT\ref{gft7}, GFT\ref{gft9}, GFT\ref{gft13}, GFT\ref{gft14}, UT\ref{ut6}, UT\ref{ut8}, UT\ref{ut10}, UT\ref{ut11}\\
+\href{../SRS/SRS.pdf#f9}{F9} & GFT\ref{gft8}, GFT\ref{gft13}, GFT\ref{gft14}\\
+\href{../SRS/SRS.pdf#f10}{F10} & GFT\ref{gft9}\\
+\href{../SRS/SRS.pdf#f11}{F11} & GFT\ref{gft10}\\
+\href{../SRS/SRS.pdf#f12}{F12} & GFT\ref{gft11}\\
+\href{../SRS/SRS.pdf#f13}{F13} & GFT\ref{gft12}, UT\ref{ut12}, UTF\ref{utf1}\\
+\href{../SRS/SRS.pdf#f14}{F14} & GFT\ref{gft13}, UT\ref{ut12}, UTF\ref{utf1}\\
+\href{../SRS/SRS.pdf#f15}{F15} & GFT\ref{gft14}\\
+\href{../SRS/SRS.pdf#nf1}{NF1} & \\
+\href{../SRS/SRS.pdf#nf2}{NF2} & \\
+\href{../SRS/SRS.pdf#nf3}{NF3} & \\
+\href{../SRS/SRS.pdf#nf4}{NF4} & \\
+\href{../SRS/SRS.pdf#nf5}{NF5} & \\
+\href{../SRS/SRS.pdf#nf6}{NF6} & \\
+\href{../SRS/SRS.pdf#nf7}{NF7} & \\
+\bottomrule
+\end{tabular}
+\caption{Trace Between Requirements and Tests}
+\label{TblRT}
+\end{table}
 		
-\section{Trace to Modules}		
+\section{Trace to Modules}
+This section shows the traceability matrix between test cases and modules. Non-functional test cases are excluded as they will cover all modules as application-wide qualities.		
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.2\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Mod.} & \textbf{Tests}\\
+\midrule
+\href{../Design/MG/MG.pdf#m1}{M1} & GFT\ref{gft1}, UT\ref{ut1}\\
+\href{../Design/MG/MG.pdf#m2}{M2} & GFT\ref{gft2}, GFT\ref{gft3}, GFT\ref{gft4},  UT\ref{ut2},  UT\ref{ut3},  UT\ref{ut4},  UT\ref{ut5}\\
+\href{../Design/MG/MG.pdf#m3}{M3} & GFT\ref{gft2}, GFT\ref{gft3}, GFT\ref{gft4}, GFT\ref{gft6}, GFT\ref{gft7}, GFT\ref{gft8}, GFT\ref{gft12}, GFT\ref{gft13}, GFT\ref{gft14}, UT\ref{ut2}, UT\ref{ut3}, UT\ref{ut4}, UT\ref{ut5}, UT\ref{ut6}, UT\ref{ut7}, UT\ref{ut8}, UT\ref{ut9}, UT\ref{ut12}\\
+\href{../Design/MG/MG.pdf#m4}{M4} & GFT\ref{gft2}, GFT\ref{gft3}, GFT\ref{gft4}, GFT\ref{gft5}, GFT\ref{gft6}, GFT\ref{gft7}, GFT\ref{gft8}, GFT\ref{gft10}, GFT\ref{gft11}, GFT\ref{gft12}, GFT\ref{gft13}, GFT\ref{gft14}, UT\ref{ut2}, UT\ref{ut3}, UT\ref{ut4}, UT\ref{ut5}, UT\ref{ut7}, UT\ref{ut8}, UT\ref{ut9}, UT\ref{ut10}, UT\ref{ut11}, UT\ref{ut12}\\
+\href{../Design/MG/MG.pdf#m5}{M5} & GFT\ref{gft12}, GFT\ref{gft13}, GFT\ref{gft14}, UT\ref{ut6}, UT\ref{ut12}, UTF\ref{utf1},\\
+\href{../Design/MG/MG.pdf#m6}{M6} & GFT\ref{gft1}\\
+\href{../Design/MG/MG.pdf#m7}{M7} & GFT\ref{gft2}, GFT\ref{gft3}, GFT\ref{gft4}, GFT\ref{gft5}, GFT\ref{gft6}, GFT\ref{gft7}, GFT\ref{gft8}, GFT\ref{gft9}, GFT\ref{gft10}, GFT\ref{gft11}, GFT\ref{gft12}, GFT\ref{gft13}, GFT\ref{gft14}, UT\ref{ut12}\\
+\href{../Design/MG/MG.pdf#m8}{M8} & GFT\ref{gft11}, UT\ref{ut12}\\
+\href{../Design/MG/MG.pdf#m9}{M9} & GFT\ref{gft2}, UT\ref{ut4}, UT\ref{ut12}\\
+\href{../Design/MG/MG.pdf#m10}{M10} & GFT\ref{gft4}, GFT\ref{gft5}, GFT\ref{gft8}, GFT\ref{gft9}, GFT\ref{gft14}, UT\ref{ut5}, UT\ref{ut12}\\
+\bottomrule
+\end{tabular}
+\caption{Trace Between Modules and Tests}
+\label{TblMT}
+\end{table}
 
 \section{Code Coverage Metrics}
 

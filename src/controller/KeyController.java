@@ -1,3 +1,4 @@
+//This code follows the Google Java Standards referenced at https://google.github.io/styleguide/javaguide.html
 /**
 * @file KeyController.java
 * @title KeyController

@@ -64,6 +64,10 @@ public class BoardView extends JPanel {
 	* Message that displays the "CONTINUING IN __" countdown when the player loses a life
 	*/
 	private String message = "";
+	/**
+	* Maximum number of squares in one axis of the grid for the map layout
+	*/
+	static final int GRIDSQUARES = 21;
 
 	/**
 	* @brief Constructor for the board display
@@ -268,12 +272,12 @@ public class BoardView extends JPanel {
 	* @details Updates all the abnormal pieces manually and directs the board model to update the corresponding barrier points.
 	*/
 	public void updateAbnormalBarriers() {
-		for (int i = 0; i < 21; i++) {
+		for (int i = 0; i < GRIDSQUARES; i++) {
 			this.board.updateBarrier(i, 0); //top border
 			this.board.updateBarrier(i, 20); //bottom border
 		}
 		
-		for (int j = 0; j < 21; j++) {
+		for (int j = 0; j < GRIDSQUARES; j++) {
 			this.board.updateBarrier(0, j); //left border
 			this.board.updateBarrier(20, j); //right border
 		}
@@ -304,8 +308,8 @@ public class BoardView extends JPanel {
 		this.pointsLabel.setText(this.board.accessScore().getScore() + "");
 		Graphics2D g2 = (Graphics2D) g;
 		
-		for (int i = 0; i < 21; i++) {
-			for (int j = 0; j < 21; j++) {
+		for (int i = 0; i < GRIDSQUARES; i++) {
+			for (int j = 0; j < GRIDSQUARES; j++) {
 				if (this.board.getBarrier(i, j)) {
 					this.board.updateDot(i, j, 0);
 				}
@@ -322,8 +326,8 @@ public class BoardView extends JPanel {
 		this.board.updateDot(dots);
 		
 		g.setColor(new Color(255,184,151));
-		for (int i = 0; i < 21; i++) {
-			for (int j = 0; j < 21; j++) {
+		for (int i = 0; i < GRIDSQUARES; i++) {
+			for (int j = 0; j < GRIDSQUARES; j++) {
 				if (this.board.getDot(i, j) == 1) {
 					g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 					g2.fillOval(i*this.sq + 9, j*this.sq + 9, 4, 4);

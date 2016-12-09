@@ -46,6 +46,7 @@
 2016-12-08 & 1.3 & Completion of Automated Testing\\
 2016-12-08 & 1.4 & Addition of Traceability Matrices and explanation of code coverage metrics\\
 2016-12-08 & 1.5 & Completion of Non-Functional Testing, and Comparison to Existing Implementation\\
+2016-12-08 & 1.6 & Spelling corrections to document\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -54,7 +55,7 @@
 
 \pagenumbering{arabic}
 
-This document ...
+This document serves as a test report for the Namcap redevelopment based on the established test plan. All requirements and modules stated in the document are traceable to the corresponding SRS and MG for this development.
 
 \section{Functional Requirements Evaluation}
 
@@ -154,7 +155,7 @@ Input: Arrow keys
 					
 Expected Output: Dot disappears after collection
 
-Output: Dot disappeared afer player colletcted it
+Output: Dot disappeared after player collected it
 
 Result: PASS
 
@@ -286,7 +287,7 @@ Result: PASS
 
 \section{Nonfunctional Requirements Evaluation}
 
-Test cases will be referenced in this section using their names from the Test Plan - descriptions have been omitted in order to avoid unecessary repetition.
+Test cases will be referenced in this section using their names from the Test Plan - descriptions have been omitted in order to avoid unnecessary repetition.
 
 \subsection{Usability}
 
@@ -315,7 +316,7 @@ To test usability, a small test group of users (which included acquaintances of 
 \label{FigSQ3}
 \end{figure}
 
-\noindent To address non-functional requirements UO1, UO2, and UG1, the survey included the questions shown in figures \ref{FigSQ6} and \ref{FigSQ7}. All of the testers found the instructions page to clearly define the objective, and were able to grasp the over gameplay of Namcap in one play-through. This shows that due to its low learnability curve, Namcap wil be able to attract a wide variety of users.
+\noindent To address non-functional requirements UO1, UO2, and UG1, the survey included the questions shown in figures \ref{FigSQ6} and \ref{FigSQ7}. All of the testers found the instructions page to clearly define the objective, and were able to grasp the over gameplay of Namcap in one play-through. This shows that due to its low learnability curve, Namcap will be able to attract a wide variety of users.
 
 \begin{figure}[H]
 \centering
@@ -386,7 +387,7 @@ With regards to the remaining non-functional tests, the development team manuall
 	
 \section{Comparison to Existing Implementation}	
 
-As per our Test Plan, we manually performed our system tests on the existing implementation in order to compare game outputs. Since the existing implementation is coded differently, many of these system tests were altered in a way that the two games could be properly compared. We ran the tests in parallel and focused on core functionality and mechanics of the game over other tests. Since Namcap added features that are not present in the existing implementation, only the following funcional tests from the Test Plan were tested for comparison between the applications: GFT2, GFT3, GFT4, GFT6, GFT10, GFT12, RT1, UF1. These tests included those for player movement, player collision with game entities, scoring, and performance measures of response time and application crashes. Namcap was correctly implemented as these tests all produced the same output as those that the tests produced for the existing application.
+As per our Test Plan, we manually performed our system tests on the existing implementation in order to compare game outputs. Since the existing implementation is coded differently, many of these system tests were altered in a way that the two games could be properly compared. We ran the tests in parallel and focused on core functionality and mechanics of the game over other tests. Since Namcap added features that are not present in the existing implementation, only the following functional tests from the Test Plan were tested for comparison between the applications: GFT2, GFT3, GFT4, GFT6, GFT10, GFT12, RT1, UF1. These tests included those for player movement, player collision with game entities, scoring, and performance measures of response time and application crashes. Namcap was correctly implemented as these tests all produced the same output as those that the tests produced for the existing application.
 
 \section{Unit Testing}
 
@@ -589,7 +590,7 @@ JUnit Test Result: PASS
 
 \section{Changes Due to Testing}
 
-There were virtually no changes we made to the actual functionality of the game based on the testing. All of the performed tests were passed with no issues. On the other hand, based on the feedback we received from the usability survey, 30\% of the users stated that the game looked too similar to the original Pacman game. Thus, we decided to change the colour of the map from Blue to Red, we switched the roles of the Ghost and the Pacman and added a little backstory to reflect that change and to add a unique persepctive to Namcap. Other than the mentioned changes, we did not see any reason to change anything else since it was functioning perfectly well.
+There were virtually no changes we made to the actual functionality of the game based on the testing. All of the performed tests were passed with no issues. On the other hand, based on the feedback we received from the usability survey, 30\% of the users stated that the game looked too similar to the original Pacman game. Thus, we decided to change the colour of the map from Blue to Red, we switched the roles of the Ghost and the Pacman and added a little backstory to reflect that change and to add a unique perspective to Namcap. Other than the mentioned changes, we did not see any reason to change anything else since it was functioning perfectly well.
 
 
 \section{Automated Testing}

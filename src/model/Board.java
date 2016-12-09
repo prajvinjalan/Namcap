@@ -72,19 +72,22 @@ public class Board {
 	* Whether or not the big dot is currently on
 	*/
 	boolean bigDotOn;
-	
+	/**
+	* Maximum number of squares in one axis of the grid for the map layout
+	*/
+	static final int GRIDSQUARES = 21;
 	/**
 	* @brief Constructor for Board
 	* @details Initializes all the barriers and dots for the Board grid with appropriate values for the initial game state (before the game starts); also creates a score object and initializes the game start timer.
 	*/
 	public Board() {
-		this.barriers = new boolean[21][21];
-		this.dots = new int[21][21];
+		this.barriers = new boolean[GRIDSQUARES][GRIDSQUARES];
+		this.dots = new int[GRIDSQUARES][GRIDSQUARES];
 		this.score = new Score();
 		this.enemies = new ArrayList<Enemy>();
 		
-		for (int i = 0; i < 21; i++){
-			for (int j = 0; j < 21; j++){
+		for (int i = 0; i < GRIDSQUARES; i++){
+			for (int j = 0; j < GRIDSQUARES; j++){
 				this.barriers[i][j] = false;
 				this.dots[i][j] = 1;
 			}
@@ -191,8 +194,8 @@ public class Board {
 	 * else, returns false
 	 */
 	public boolean noDots() {
-		for (int i = 0; i < 21; i++) {
-			for (int j = 0; j < 21; j++) {
+		for (int i = 0; i < GRIDSQUARES; i++) {
+			for (int j = 0; j < GRIDSQUARES; j++) {
 				if (this.dots[i][j] != 0) {
 					return false;
 				}

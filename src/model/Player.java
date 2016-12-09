@@ -15,7 +15,22 @@ public class Player extends Character {
 	* Represents Player lives count (initialized to 3 lives).
 	*/
 	private int lives;
-	
+	/**
+	* Square grid width (pixels)
+	*/
+	static final int SQUAREWIDTH = 20;
+	/**
+	* Score increment on dot consumption
+	*/
+	static final int SCOREINC = 100;
+	/**
+	* Constant for starting grid position
+	*/
+	static final int STARTX = 10;
+	/**
+	* Constant for starting grid position
+	*/
+	static final int STARTY = 15;
 	/**
 	* @brief Constructor for Player
 	* @details Initializes the Player's initial coordinates on the board, and connects this Player object to the Board model.
@@ -24,10 +39,10 @@ public class Player extends Character {
 	public Player(Board board) {
 		super(board);
 		this.board.setPlayer(this);
-		this.prevX = 10*this.sq;
-		this.prevY = 15*this.sq;
-		this.currX = 10*this.sq;
-		this.currY = 15*this.sq;
+		this.prevX = STARTX*this.sq;
+		this.prevY = STARTY*this.sq;
+		this.currX = STARTX*this.sq;
+		this.currY = STARTY*this.sq;
 		this.lives = 3;
 	}
 	
@@ -56,7 +71,7 @@ public class Player extends Character {
 		this.checkDot();
 		this.prevX = this.currX;
 		this.prevY = this.currY;
-		if (this.currX % 20 == 0 && this.currY % 20 == 0 || 
+		if (this.currX % SQUAREWIDTH == 0 && this.currY % SQUAREWIDTH == 0 || 
 				(this.newDirection == 'L' && this.prevDirection == 'R') ||
 				(this.newDirection == 'U' && this.prevDirection == 'D') ||
 				(this.newDirection == 'R' && this.prevDirection == 'L') ||
@@ -121,15 +136,15 @@ public class Player extends Character {
 	* Calls the bigDotEaten method if Player collects the big dot.
 	*/
 	public void checkDot() {
-		int currDot = this.board.getDot(this.currX / 20, this.currY / 20);
+		int currDot = this.board.getDot(this.currX / SQUAREWIDTH, this.currY / SQUAREWIDTH);
 		if (currDot == 1) {
-			this.board.updateDot(this.currX/20,this.currY/20,0);
-			this.board.accessScore().addScore(100);
+			this.board.updateDot(this.currX/SQUAREWIDTH,this.currY/SQUAREWIDTH,0);
+			this.board.accessScore().addScore(SCOREINC);
 		}
 		if (currDot == 2) {
 			//BIG DOT FUNCTIONALITY
-			this.board.updateDot(this.currX/20,this.currY/20,0);
-			this.board.accessScore().addScore(200);
+			this.board.updateDot(this.currX/SQUAREWIDTH,this.currY/SQUAREWIDTH,0);
+			this.board.accessScore().addScore(2*SCOREINC);
 			this.board.bigDotEaten();
 		}
 		if (this.board.noDots()) { //if all dots are gone
@@ -150,17 +165,17 @@ public class Player extends Character {
 					this.endGame();
 				} else {
 					this.lives--;
-					this.prevX = 10*this.sq;
-					this.prevY = 15*this.sq;
-					this.currX = 10*this.sq;
-					this.currY = 15*this.sq;
+					this.prevX = STARTX*this.sq;
+					this.prevY = STARTY*this.sq;
+					this.currX = STARTX*this.sq;
+					this.currY = STARTY*this.sq;
 					this.newDirection = 'L';
 					this.board.resetEnemies();
 					this.board.startPause();
 				}
 			} else {
 				if (((en.getCurrX()>=this.currX-this.sq+5)&&(en.getCurrX()<=this.currX+this.sq-5)&&((en.getCurrY()>=this.currY-this.sq+5))&&(en.getCurrY()<=this.currY+this.sq-5)) && en.bigDotEaten) {
-					this.board.accessScore().addScore(500);
+					this.board.accessScore().addScore(5*SCOREINC);
 					en.resetPosition();
 					this.board.startPause();
 					en.bigDotEaten = false;

@@ -19,7 +19,18 @@ public class Enemy extends Character {
 	 * Boolean that represents if player collected big dot or not.
 	 */
 	public boolean bigDotEaten = false;
-
+	/**
+	* Square grid width (pixels)
+	*/
+	static final int SQUAREWIDTH = 20;
+	/**
+	* Constant for starting grid position
+	*/
+	static final int STARTX = 10;
+	/**
+	* Constant for starting grid position
+	*/
+	static final int STARTY = 9;
 	 /** 
 	 * @brief Constructor for Enemy
 	 * @details Constructor accepts one parameter for the game's Board model.
@@ -28,10 +39,10 @@ public class Enemy extends Character {
 	public Enemy(Board board) {
 		super(board);
 		this.board.setEnemy(this);
-		this.prevX = 10*this.sq;
-		this.prevY = 9*this.sq;
-		this.currX = 10*this.sq;
-		this.currY = 9*this.sq;
+		this.prevX = STARTX*this.sq;
+		this.prevY = STARTY*this.sq;
+		this.currX = STARTX*this.sq;
+		this.currY = STARTY*this.sq;
 		this.bigDotEaten = false;
 	}
 	
@@ -126,7 +137,7 @@ public class Enemy extends Character {
 		this.prevY = this.currY;
 		
 		//if Enemy in a grid square
-		if (this.currX % 20 == 0 && this.currY % 20 == 0){
+		if (this.currX % SQUAREWIDTH == 0 && this.currY % SQUAREWIDTH == 0){
 			this.newDirection = this.randDirection(this.newPath());
 			switch(this.newDirection) {
 			case 'L':
@@ -175,10 +186,10 @@ public class Enemy extends Character {
 	* @brief Resets the Enemy's position to its initial location
 	*/
 	public void resetPosition() {
-		this.prevX = 10*this.sq;
-		this.prevY = 9*this.sq;
-		this.currX = 10*this.sq;
-		this.currY = 9*this.sq;
+		this.prevX = STARTX*this.sq;
+		this.prevY = STARTY*this.sq;
+		this.currX = STARTX*this.sq;
+		this.currY = STARTY*this.sq;
 	}
 	
 	/**

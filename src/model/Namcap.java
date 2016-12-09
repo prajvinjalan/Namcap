@@ -18,7 +18,7 @@ public class Namcap {
 	* @brief Instantiates the initial frame and the Main Menu
 	* @param String[] args command line arguments.
 	*/
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		JFrame frame = new JFrame("Namcap");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

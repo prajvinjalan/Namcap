@@ -23,7 +23,7 @@ public class MainMenu {
 	/**
 	* @brief Constructor for the Main Menu
 	*/
-	public MainMenu(){
+	public MainMenu() { 
 		super();
 	}
 	
@@ -31,7 +31,7 @@ public class MainMenu {
 	* @brief Connects this model to a corresponding Main Menu View (GUI)
 	* @param menuView - MainMenuView object that this model initializes to for display.
 	*/
-	public void setView(MainMenuView menuView){
+	public void setView(MainMenuView menuView) {
 		this.menuView = menuView;
 	}
 	
@@ -40,7 +40,7 @@ public class MainMenu {
 	* @brief Starts the game
 	* @details Creates the frame that will contain the Board and connects a display to it; also instantiates the appropriate Player and Enemy characters on the Board.
 	*/
-	public void startGame(){
+	public void startGame() {
 		this.menuView.setFrameInvis();
 		JFrame frame = new JFrame("Namcap");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

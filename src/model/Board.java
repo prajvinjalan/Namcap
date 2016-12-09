@@ -77,7 +77,7 @@ public class Board {
 	* @brief Constructor for Board
 	* @details Initializes all the barriers and dots for the Board grid with appropriate values for the initial game state (before the game starts); also creates a score object and initializes the game start timer.
 	*/
-	public Board(){
+	public Board() {
 		this.barriers = new boolean[21][21];
 		this.dots = new int[21][21];
 		this.score = new Score();
@@ -104,7 +104,7 @@ public class Board {
 	* @brief Connects model to a corresponding enemy character
 	* @param enemy - Enemy(s) object for this game Board model.
 	*/
-	public void setEnemy(Enemy enemy){
+	public void setEnemy(Enemy enemy) {
 		this.enemies.add(enemy);
 	}
 	
@@ -112,7 +112,7 @@ public class Board {
 	* @brief Connects the model to a corresponding player character
 	* @param player - Player object for this game Board model.
 	*/
-	public void setPlayer(Player player){
+	public void setPlayer(Player player) {
 		this.player = player;
 	}
 	
@@ -120,7 +120,7 @@ public class Board {
 	* @brief Connects the model to a corresponding view (display)
 	* @param view - BoardView object that this model connects to for display (GUI).
 	*/
-	public void setView(BoardView view){
+	public void setView(BoardView view) {
 		this.view = view;
 	}
 
@@ -128,7 +128,7 @@ public class Board {
 	* @brief Accessor method for this board's display
 	* @return The BoardView object that this board uses for display
 	*/
-	public BoardView getView(){
+	public BoardView getView() {
 		return this.view;
 	}
 	
@@ -137,7 +137,7 @@ public class Board {
 	* @param x - The x-coordinate for the location of the barrier on the Board's grid.
 	* @param y - The y-coordinate for the location of the barrier on the Board's grid.
 	*/
-	public void updateBarrier(int x, int y){
+	public void updateBarrier(int x, int y) { 
 		this.barriers[x][y] = true;
 	}
 	
@@ -145,9 +145,9 @@ public class Board {
 	* @brief Updates multiple grid points for barrier existence
 	* @param points - ArrayList of 2D Integer arrays that contains the (x,y) tuple locations of barriers on the map.
 	*/
-	public void updateBarrier(ArrayList<int[][]> points){
-		for (int[][] list : points){
-			for (int[] location : list){
+	public void updateBarrier(ArrayList<int[][]> points) {
+		for (int[][] list : points) {
+			for (int[] location : list) {
 				this.barriers[location[0]][location[1]] = true;
 			}
 		}
@@ -159,7 +159,7 @@ public class Board {
 	* @param y - The y-coordinate for the location of the potential barrier on the Board's grid.
 	* @return A boolean value for whether a barrier exists at the specified point.
 	*/
-	public boolean getBarrier(int x, int y){
+	public boolean getBarrier(int x, int y) {
 		return this.barriers[x][y];
 	}
 	
@@ -169,7 +169,7 @@ public class Board {
 	* @param y - The y-coordinate for the location of the dot on the Board's grid.
 	* @param type - The type of dot for this specified location (0 - no dot, 1 - regular (default) dot, 2 - big dot).
 	*/
-	public void updateDot(int x, int y, int type){
+	public void updateDot(int x, int y, int type) {
 		this.dots[x][y] = type;
 	}
 	
@@ -177,9 +177,9 @@ public class Board {
 	* @brief Updates mutliple grid points for dot existence
 	* @param points - ArrayList of 2D Integer arrays that contains the (x,y) tuple locations of dots on the map.
 	*/
-	public void updateDot(ArrayList<int[][]> points){
-		for (int[][] list : points){
-			for (int[] location : list){
+	public void updateDot(ArrayList<int[][]> points) {
+		for (int[][] list : points) {
+			for (int[] location : list) {
 				this.dots[location[0]][location[1]] = 0;
 			}
 		}
@@ -190,10 +190,10 @@ public class Board {
 	 * @return boolean value that is true if all the dots on boards have been collected,
 	 * else, returns false
 	 */
-	public boolean noDots(){
-		for (int i = 0; i < 21; i++){
-			for (int j = 0; j < 21; j++){
-				if (this.dots[i][j] != 0){
+	public boolean noDots() {
+		for (int i = 0; i < 21; i++) {
+			for (int j = 0; j < 21; j++) {
+				if (this.dots[i][j] != 0) {
 					return false;
 				}
 			}
@@ -207,7 +207,7 @@ public class Board {
 	* @param y - The y-coordinate for the location of the potential dot on the Board's grid.
 	* @return An integer value for the type of dot that exists at the specified point.
 	*/
-	public int getDot(int x, int y){
+	public int getDot(int x, int y) {
 		return this.dots[x][y];
 	}
 	
@@ -215,7 +215,7 @@ public class Board {
 	* @brief Accessor method for the Board's player object
 	* @return The player object corresponding to the Board instance.
 	*/
-	public Player getPlayer(){
+	public Player getPlayer() {
 		return this.player;
 	}
 	
@@ -223,7 +223,7 @@ public class Board {
 	* @brief Accessor method for the Board's enemy objects
 	* @return The enemy objects (in an ArrayList) corresponding to the Board instance.
 	*/
-	public ArrayList<Enemy> getEnemy(){
+	public ArrayList<Enemy> getEnemy() {
 		return this.enemies;
 	}
 
@@ -231,7 +231,7 @@ public class Board {
 	* @brief Accessor method for the Board's score object
 	* @return The score on the Board (player's current score state).
 	*/
-	public Score accessScore(){
+	public Score accessScore() {
 		return this.score;
 	}
 
@@ -239,7 +239,7 @@ public class Board {
 	* @brief Manipulates the player's direction on the Board
 	* @param dir - New direction that the player is facing on the Board.
 	*/
-	public void changePlayerDirection(char dir){
+	public void changePlayerDirection(char dir) {
 		this.getPlayer().setNewDirection(dir);
 	}
 	
@@ -247,25 +247,25 @@ public class Board {
 	* @brief Updates the display (view) of this Board instance
 	* @details Calls the repaint method on the Board's view to redraw the paint components of the view (most of the Board is manually painted).
 	*/
-	public void updateView(){
+	public void updateView() {
 		this.view.repaint();
 	}
 
 	/**
 	* @brief Directs the display (view) that the user wishes to quit the game
 	*/
-	public void quitGame(){
+	public void quitGame() {
 		this.view.quitGame();
 	}
 
 	/**
 	* @brief Directs the display (view) to prompt the user to take a break if sufficient time has elapsed
 	*/
-	public void checkTimeRunning(){
+	public void checkTimeRunning() {
 		long breakTime = 7200L; //2 hours
 		this.estimatedTimeElapsed = System.nanoTime() - this.startTime;
 
-		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedTimeElapsed) == breakTime){
+		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedTimeElapsed) == breakTime) {
 			this.view.promptBreak();
 		}
 	}
@@ -273,7 +273,7 @@ public class Board {
 	/**
 	* @brief Restarts the timer for the break prompt
 	*/
-	public void restartTimer(){
+	public void restartTimer() {
 		this.startTime = System.nanoTime();
 	}
 
@@ -297,16 +297,16 @@ public class Board {
 	* @brief Checks how long the game has been paused for (after life loss)
 	* @details Depending on the time elapsed for the pause, the view will be directed to update the continue text that displays for the user (every second) and display nothing once the time has passed
 	*/
-	public void checkPauseTime(){
+	public void checkPauseTime() {
 		this.estimatedPauseTimeElapsed = System.nanoTime() - this.startPauseTime;
 
-		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedPauseTimeElapsed) < 1L){
+		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedPauseTimeElapsed) < 1L) {
 			this.view.setMessage("CONTINUING IN 3");
-		}else if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedPauseTimeElapsed) < 2L){
+		} else if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedPauseTimeElapsed) < 2L) { 
 			this.view.setMessage("CONTINUING IN 2");
-		}else if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedPauseTimeElapsed) < 3L){
+		} else if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedPauseTimeElapsed) < 3L) {
 			this.view.setMessage("CONTINUING IN 1");
-		}else{
+		} else {
 			this.view.setMessage("");
 			this.pause = false;
 		}
@@ -316,11 +316,11 @@ public class Board {
 	/**
 	* @brief Stops enemies from being edible after big dot time has passed
 	*/
-	public void checkBigDotTimer(){
+	public void checkBigDotTimer() {
 		long bigDotTime = 10L; //10 seconds
 		this.estimatedBigDotTimeElapsed = System.nanoTime() - this.startBigDotTime;
 
-		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedBigDotTimeElapsed) >= bigDotTime){
+		if (TimeUnit.NANOSECONDS.toSeconds(this.estimatedBigDotTimeElapsed) >= bigDotTime) {
 			this.stopBigDot();
 		}
 	}
@@ -329,7 +329,7 @@ public class Board {
 	* @brief Resets the positions of all enemies to their initial location
 	*/
 	public void resetEnemies() {
-		for (Enemy e : this.enemies){
+		for (Enemy e : this.enemies) {
 			e.bigDotEaten = false;
 			e.resetPosition();
 		}
@@ -339,10 +339,10 @@ public class Board {
 	 * @brief This method is called when the player eats the big dot
 	 * @details The enemy's directions will change
 	 */
-	public void bigDotEaten(){
+	public void bigDotEaten() {
 		this.bigDotOn = true;
 		this.startBigDotTime = System.nanoTime();
-		for (Enemy e : this.enemies){
+		for (Enemy e : this.enemies) {
 			e.bigDotEaten = true;
 			e.reverseDirection();
 			e.changeSpeed(4);
@@ -360,9 +360,9 @@ public class Board {
 	/**
 	 * @brief Resets enemies after big dot time has completed
 	 */
-	private void stopBigDot(){
+	private void stopBigDot() {
 		this.bigDotOn = false;
-		for (Enemy e : this.enemies){
+		for (Enemy e : this.enemies) {
 			e.bigDotEaten = false;
 			e.reverseDirection();
 			e.changeSpeed(4);

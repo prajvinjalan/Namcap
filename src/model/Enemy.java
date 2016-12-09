@@ -25,7 +25,7 @@ public class Enemy extends Character {
 	 * @details Constructor accepts one parameter for the game's Board model.
      * @param board - Board object that is passed in to add character (in this case, enemy) functionality.
      */
-	public Enemy(Board board){
+	public Enemy(Board board) {
 		super(board);
 		this.board.setEnemy(this);
 		this.prevX = 10*this.sq;
@@ -41,17 +41,14 @@ public class Enemy extends Character {
 	* @param direction - Char value representing the Enemy's current direction.
 	* @return Boolean value (true - direction remains valid, or false - direction invalid).
 	*/
-	public boolean keepMoving(char direction){		
-		switch(direction){
+	public boolean keepMoving(char direction) {		
+		switch(direction) {
 		case 'L':
 			return (!this.isBarrier(this.currX - this.pixelInc, this.currY));
-			
 		case 'R':
 			return (!this.isBarrier(this.currX + this.sq, this.currY));
-			
 		case 'U':
 			return (!this.isBarrier(this.currX, this.currY - this.pixelInc));
-			
 		case 'D':
 			return (!this.isBarrier(this.currX, this.currY + this.sq));
 		default:
@@ -64,25 +61,25 @@ public class Enemy extends Character {
 	 * returns an array list of the available directions.
 	 * @return ArrayList<String> containing the letters corresponding to the available directions
 	 */
-	public ArrayList<String> newPath(){
+	public ArrayList<String> newPath() {
 		ArrayList<String> directions = new ArrayList<String>();
 		
-		if((!this.isBarrier(this.currX - this.pixelInc, this.currY)) && this.prevDirection != 'R'){
+		if ((!this.isBarrier(this.currX - this.pixelInc, this.currY)) && this.prevDirection != 'R') {
 			directions.add("L");
 		}
-		if((!this.isBarrier(this.currX + this.sq, this.currY)) && this.prevDirection != 'L'){
+		if ((!this.isBarrier(this.currX + this.sq, this.currY)) && this.prevDirection != 'L') {
 			directions.add("R");
 		}
-		if((!this.isBarrier(this.currX, this.currY - this.pixelInc)) && this.prevDirection != 'D'){
+		if ((!this.isBarrier(this.currX, this.currY - this.pixelInc)) && this.prevDirection != 'D') {
 			directions.add("U");
 		}
-		if((!this.isBarrier(this.currX, this.currY + this.sq)) && this.prevDirection != 'U'){
+		if ((!this.isBarrier(this.currX, this.currY + this.sq)) && this.prevDirection != 'U') {
 			directions.add("D");
 		}
-		if((this.isBarrier(this.currX - this.pixelInc, this.currY)) && (this.isBarrier(this.currX, this.currY - this.pixelInc)) && (this.isBarrier(this.currX, this.currY + this.sq))){
+		if ((this.isBarrier(this.currX - this.pixelInc, this.currY)) && (this.isBarrier(this.currX, this.currY - this.pixelInc)) && (this.isBarrier(this.currX, this.currY + this.sq))) {
 			directions.add("R");
 		}
-		if((this.isBarrier(this.currX + this.sq, this.currY)) && (this.isBarrier(this.currX, this.currY - this.pixelInc)) && (this.isBarrier(this.currX, this.currY + this.sq))){
+		if ((this.isBarrier(this.currX + this.sq, this.currY)) && (this.isBarrier(this.currX, this.currY - this.pixelInc)) && (this.isBarrier(this.currX, this.currY + this.sq))) {
 			directions.add("L");
 		}
 		return directions;
@@ -93,12 +90,12 @@ public class Enemy extends Character {
 	 * @param directions - ArrayList<String> of letters representing the directions that the Enemy is able to move in.
 	 * @return returns a char value of the new direction of the Enemy
 	 */
-	public char randDirection(ArrayList<String> directions){
+	public char randDirection(ArrayList<String> directions) {
 		int size = directions.size();
-		if (directions.size() > 1){
+		if (directions.size() > 1) {
 			Random randomGenerator = new Random();
 			int randomDirection = randomGenerator.nextInt(size) + 1;
-			switch(randomDirection){
+			switch(randomDirection) {
 				case 1:
 					return directions.get(0).charAt(0);
 				case 2:
@@ -108,7 +105,7 @@ public class Enemy extends Character {
 				case 4:
 					return directions.get(3).charAt(0);
 			}
-		}else{
+		} else {
 			return directions.get(0).charAt(0);
 		}
 		
@@ -120,8 +117,8 @@ public class Enemy extends Character {
 	* @details This method is the Enemy's AI. It is used to change the direction of the Enemy's movement when the Enemy
 	* hits a barrier. The new direction is chosen randomly.
 	*/
-	public void enemyMove(){
-		if (keepMoving(this.prevDirection)){
+	public void enemyMove() {
+		if (keepMoving(this.prevDirection)) {
 			this.newDirection = this.prevDirection;
 		}
 		
@@ -131,24 +128,24 @@ public class Enemy extends Character {
 		//if Enemy in a grid square
 		if (this.currX % 20 == 0 && this.currY % 20 == 0){
 			this.newDirection = this.randDirection(this.newPath());
-			switch(this.newDirection){
+			switch(this.newDirection) {
 			case 'L':
-				if (!this.isBarrier(this.currX - this.pixelInc, this.currY)){
+				if (!this.isBarrier(this.currX - this.pixelInc, this.currY)) {
 					this.currX -= this.pixelInc;
 				}
 				break;
 			case 'R':
-				if (!this.isBarrier(this.currX + this.sq, this.currY)){
+				if (!this.isBarrier(this.currX + this.sq, this.currY)) {
 					this.currX += this.pixelInc;
 				}
 				break;
 			case 'U':
-				if (!this.isBarrier(this.currX, this.currY - this.pixelInc)){
+				if (!this.isBarrier(this.currX, this.currY - this.pixelInc)) {
 					this.currY -= this.pixelInc;
 				}
 				break;
 			case 'D':
-				if (!this.isBarrier(this.currX, this.currY + this.sq)){
+				if (!this.isBarrier(this.currX, this.currY + this.sq)) {
 					this.currY += this.pixelInc;
 				}
 				break;
@@ -156,8 +153,8 @@ public class Enemy extends Character {
 			
 			this.prevDirection = this.newDirection;
 			
-		}else{ //else if Enemy not in grid square (i.e. Enemy keeps moving)
-			switch(this.newDirection){
+		} else { //else if Enemy not in grid square (i.e. Enemy keeps moving)
+			switch(this.newDirection) {
 				case 'L':
 					this.currX -= this.pixelInc;
 					break;
@@ -177,7 +174,7 @@ public class Enemy extends Character {
 	/**
 	* @brief Resets the Enemy's position to its initial location
 	*/
-	public void resetPosition(){
+	public void resetPosition() {
 		this.prevX = 10*this.sq;
 		this.prevY = 9*this.sq;
 		this.currX = 10*this.sq;
@@ -188,7 +185,7 @@ public class Enemy extends Character {
 	 * @brief Reverses the Enemy's direction.
 	 */
 	public void reverseDirection() {
-		switch (this.prevDirection){
+		switch (this.prevDirection) {
 			case 'L':
 				this.prevDirection = 'R';
 				break;

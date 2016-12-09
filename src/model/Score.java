@@ -27,7 +27,7 @@ public class Score {
 	/**
 	* @brief Constructor for the Score state object
 	*/
-	public Score(){
+	public Score() {
 		this.value = 0;
 		this.readHighScore();
 	}
@@ -36,7 +36,7 @@ public class Score {
 	* @brief Method returns the current Score
 	* @return Current Score value for the game instance.
 	*/
-	public int getScore(){
+	public int getScore() {
 		return this.value;
 	}
 
@@ -45,7 +45,7 @@ public class Score {
 	* @details The method returns the currently stored high score value (read from file) for this game instance.
 	* @return Current high score value for the game instance.
 	*/
-	public int getHighScore(){
+	public int getHighScore() {
 		return this.highScore;
 	}
 
@@ -54,7 +54,7 @@ public class Score {
 	* @param pts - Integer points value to add to the current score value.
 	* @exception If pts is (-), addScore allows for decrementing (future feature plan)
 	*/
-	public void addScore(int pts){
+	public void addScore(int pts) {
 		this.value += pts;
 	}
 
@@ -63,14 +63,14 @@ public class Score {
 	* @details Appends to the high score log file ('high_score') in the case that the achieved score is greater than the 
 	* previously recorded high score.
 	*/
-	public void updateHighScore(){
-		if(this.value > this.highScore){
-			try{
+	public void updateHighScore() {
+		if (this.value > this.highScore) {
+			try {
 				File hsFile = new File("high_score");
 				FileWriter scoreFile = new FileWriter(hsFile);
 				scoreFile.append(this.value + "");
 				scoreFile.close();
-			}catch(Exception e){
+			} catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -81,10 +81,10 @@ public class Score {
 	* @details Reads the high score value from the high score log file ('high_score') and
 	* updates the current Score states high score value consequently.
 	*/
-	public void readHighScore(){
-		try{
+	public void readHighScore() {
+		try {
 			File hsFile = new File("high_score");
-			if(!hsFile.exists()){
+			if (!hsFile.exists()) {
 				hsFile.createNewFile();
 				FileWriter scoreFile = new FileWriter(hsFile);
 				scoreFile.append(0 + "");
@@ -92,7 +92,7 @@ public class Score {
 			}
 			Scanner scoreFile = new Scanner(hsFile);
 			this.highScore = Integer.parseInt(scoreFile.next());
-		}catch(Exception e){
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}

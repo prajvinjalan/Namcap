@@ -21,8 +21,8 @@ import model.MainMenu;
 * This class handles any user input to the buttons of the application. The input pertains only to the implemented
 * butons of the program.
 */
-public class ButtonController implements ActionListener{
-
+public class ButtonController implements ActionListener {
+	
 	/**
 	* Corresponding main menu for this instance of the program.
 	*/
@@ -38,7 +38,7 @@ public class ButtonController implements ActionListener{
 	* @param menu - MainMenu corresponding to the implemented button.
 	* @param button - JButton corresponding to the implemented menu (frame).
 	*/
-	public ButtonController(MainMenu menu, JButton button){
+	public ButtonController(MainMenu menu, JButton button) {
 		this.menu = menu;
 		this.button = button;
 	}
@@ -49,9 +49,8 @@ public class ButtonController implements ActionListener{
 	*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (this.button.getText() == "Start Game"){
+		if (this.button.getText() == "Start Game") {
 			this.menu.startGame();
 		}
 	}
-
 }

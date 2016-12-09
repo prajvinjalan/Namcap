@@ -19,7 +19,7 @@ import model.Board;
 *
 * This class handles all user key inputs (primarily used for the movement of the player). Maps the corresponding keys to player movement.
 */
-public class KeyController implements KeyListener{
+public class KeyController implements KeyListener {
 
 	/**
 	* Corresponding game board object for the this instance of the program.
@@ -31,7 +31,7 @@ public class KeyController implements KeyListener{
 	* @details Constructor accepts one parameter for the corresponding board object for the controller.
 	* @param board - Board corresponding to the instance key controller.
 	*/
-	public KeyController(Board board){
+	public KeyController(Board board) {
 		this.board = board;
 	}
 
@@ -42,7 +42,7 @@ public class KeyController implements KeyListener{
 	*/
 	@Override
 	public void keyPressed(KeyEvent e) {
-		switch(e.getKeyCode()){
+		switch(e.getKeyCode()) {
 		case KeyEvent.VK_LEFT:
 			this.board.changePlayerDirection('L');
 			break;
@@ -67,7 +67,6 @@ public class KeyController implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	/**
@@ -76,7 +75,6 @@ public class KeyController implements KeyListener{
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }

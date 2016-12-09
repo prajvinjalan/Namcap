@@ -39,7 +39,7 @@ public class Character {
 	 * @details Constructor accepts one parameter for the game Board model.
      * @param board - Board object is passed in to which to add character functionality.
      */
-	public Character(Board board){
+	public Character(Board board) {
 		this.board = board;
 		this.sq=20;
 		this.pixelInc = 4;
@@ -54,8 +54,8 @@ public class Character {
 	* @param y - Character's current y-coordinate location.
 	* @return Boolean value (true - Character has met barrier, false - otherwise).
 	*/
-	public boolean isBarrier(int x, int y){
-		if (this.board.getBarrier(x/this.sq, y/this.sq)){
+	public boolean isBarrier(int x, int y) {
+		if (this.board.getBarrier(x/this.sq, y/this.sq)) {
 			return true;
 		}
 		return false;
@@ -65,7 +65,7 @@ public class Character {
 	* @brief Method returns character's current x-coordinate location
 	* @return Character's current x-coordinate location.
 	*/
-	public int getCurrX(){
+	public int getCurrX() {
 		return this.currX;
 	}
 
@@ -73,7 +73,7 @@ public class Character {
 	* @brief Method returns character's current y-coordinate location
 	* @return Character's current y-coordinate location.
 	*/
-	public int getCurrY(){
+	public int getCurrY() {
 		return this.currY;
 	}
 
@@ -81,7 +81,7 @@ public class Character {
 	* @brief Returns the character's previous direction
 	* @return Character's previous direction (corresponding char value).
 	*/
-	public char getCurrDirection(){
+	public char getCurrDirection() {
 		return this.prevDirection;
 	}
 
@@ -89,7 +89,7 @@ public class Character {
 	* @brief Sets the character's new direction
 	* @param dir - Char value to represent the character's new direction (char correspondence represented above).
 	*/
-	public void setNewDirection(char dir){
+	public void setNewDirection(char dir) {
 		this.newDirection = dir;
 	}
 	
@@ -97,7 +97,7 @@ public class Character {
 	* @brief Sets the character's current direction
 	* @param dir - Char value to represent the character's previous direction (char correspondence represented above).
 	*/
-	public void setPrevDirection(char dir){
+	public void setPrevDirection(char dir) {
 		this.prevDirection = dir;
 	}
 	
@@ -105,7 +105,7 @@ public class Character {
 	* @brief Sets the character's new x-coordinate
 	* @param x - int value to represent the character's new x-coordinate.
 	*/
-	public void setPrevX(int x){
+	public void setPrevX(int x) {
 		this.prevX = x;
 	}
 	
@@ -113,7 +113,7 @@ public class Character {
 	* @brief Sets the character's new y-coordinate
 	* @param y - int value to represent the character's new y-coordinate.
 	*/
-	public void setPrevY(int y){
+	public void setPrevY(int y) {
 		this.prevY = y;
 	}
 	
@@ -121,7 +121,7 @@ public class Character {
 	* @brief Sets the character's new x-coordinate
 	* @param x - int value to represent the character's new x-coordinate.
 	*/
-	public void setCurrX(int x){
+	public void setCurrX(int x) {
 		this.currX = x;
 	}
 	
@@ -129,21 +129,21 @@ public class Character {
 	* @brief Sets the character's new y-coordinate
 	* @param y - int value to represent the character's new y-coordinate.
 	*/
-	public void setCurrY(int y){
+	public void setCurrY(int y) {
 		this.currY = y;
 	}
 	
 	/**
 	 * Mutator method to set the stop boolean of the character - used for testing
 	 */
-	public void setStop(boolean stop){
+	public void setStop(boolean stop) {
 		this.stop = stop;
 	}
 
 	/**
 	* Returns the character's stop value (boolean) - used for testing
 	*/
-	public boolean getStop(){
+	public boolean getStop() {
 		return this.stop;
 	}
 

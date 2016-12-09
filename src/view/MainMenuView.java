@@ -15,7 +15,7 @@ import javax.swing.*;
 import controller.ButtonController;
 import model.MainMenu;
 
-public class MainMenuView extends JPanel{
+public class MainMenuView extends JPanel {
 
 	/**
 	* Corresponding Main Menu instance model for the Main Menu View.
@@ -49,7 +49,7 @@ public class MainMenuView extends JPanel{
 	* @param menuModel - Model (in this case MainMenu object) that this display is connects to.
 	* @param frame - Frame that the menu display initializes on.
 	*/
-	public MainMenuView(MainMenu menuModel, JFrame frame){
+	public MainMenuView(MainMenu menuModel, JFrame frame) {
 		this.frame = frame;
 		this.menuModel = menuModel;
 		this.menuModel.setView(this);
@@ -66,7 +66,7 @@ public class MainMenuView extends JPanel{
 	* @brief Creates the layout for the menu
 	* @details Uses the the BorderLayout to place components and adds them appropriately (buttons and labels).
 	*/
-	private void layoutView(){
+	private void layoutView() {
 		this.setLayout(layout);
 		
 		this.imagePanel.add(this.imageLabel);
@@ -79,7 +79,7 @@ public class MainMenuView extends JPanel{
 	/**
 	* @brief Registers a controller for the buttons of the menu (adds listener)
 	*/
-	private void registerControllers(){
+	private void registerControllers() {
 		ButtonController startGameClicked = new ButtonController(this.menuModel, this.startGame);
 		this.startGame.addActionListener(startGameClicked);
 	}
@@ -87,7 +87,7 @@ public class MainMenuView extends JPanel{
 	/**
 	* @brief Sets the frame of this menu to be invisible (used on game start)
 	*/
-	public void setFrameInvis(){
+	public void setFrameInvis() {
 		this.frame.setVisible(false);
 	}
 
@@ -95,7 +95,7 @@ public class MainMenuView extends JPanel{
 	 * @brief Returns the start game button
 	 * @return JButton - start game button.
 	 */
-	public JButton getButton(){
+	public JButton getButton() {
 		return this.startGame;
 	}
 }

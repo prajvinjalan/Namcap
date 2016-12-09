@@ -22,7 +22,7 @@ import model.MainMenu;
 import model.Enemy;
 
 
-public class BoardView extends JPanel{
+public class BoardView extends JPanel {
 
 	/**
 	* Corresponding Board model for the current Board View.
@@ -60,7 +60,7 @@ public class BoardView extends JPanel{
 	* @param board - Primary model (in this case Board object) that the display connects to.
 	* @param frame - Frame object in which the board model is displayed (GUI).
 	*/
-	public BoardView(Board board, JFrame frame){
+	public BoardView(Board board, JFrame frame) {
 		this.board = board;
 		this.board.setView(this);
 		this.setFocusable(true);
@@ -87,8 +87,8 @@ public class BoardView extends JPanel{
 		this.playerDown = Toolkit.getDefaultToolkit().getImage("assets/player_down.jpeg");
 		this.enemy = Toolkit.getDefaultToolkit().getImage("assets/enemy_red.png");
 		*/
-		this.frameTimer = new javax.swing.Timer(30, new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+		this.frameTimer = new javax.swing.Timer(30, new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				stepFrame();
 			}
 		});
@@ -132,17 +132,16 @@ public class BoardView extends JPanel{
 	* @brief Calls a step of the game frame
 	* @details Directs board to move both the player and the enemy, and calls the repaint method to update the view. If the board is paused or a big dot is on, the corresponding timers are run.
 	*/
-	public void stepFrame(){		
-		if (this.board.getPause() == true){
+	public void stepFrame() {		
+		if (this.board.getPause() == true) {
 			this.board.checkPauseTime();
-		}
-		else{
-			if (this.board.getBigDotOn() == true){
+		} else {
+			if (this.board.getBigDotOn() == true) {
 				this.board.checkBigDotTimer();
 			}
 			this.board.getPlayer().move();
-			for (Enemy e : this.board.getEnemy()){
-				if (!e.getStop()){
+			for (Enemy e : this.board.getEnemy()) {
+				if (!e.getStop()) {
 					e.enemyMove();
 				}
 			}
@@ -156,14 +155,14 @@ public class BoardView extends JPanel{
 	* @details Sets up all the barriers on the map grid (drawn through graphics) and calls a method to update the barriers after initialization.
 	* @param g - Graphics object needed to draw the appropriate pieces of the board on the GUI.
 	*/
-	public void drawMap(Graphics g){
+	public void drawMap(Graphics g) {
 		Graphics2D g2 = (Graphics2D)g;
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, 420, 420);
 		g.setColor(Color.yellow);
-		for (int i = 0; i < 420; i += this.sq){
-			for (int j = 0; j < 420; j+= this.sq){
+		for (int i = 0; i < 420; i += this.sq) {
+			for (int j = 0; j < 420; j+= this.sq) {
 				//g.drawRect(i, j, this.sq, this.sq);
 			}
 		}
@@ -245,9 +244,9 @@ public class BoardView extends JPanel{
 	* @param width - Width dimension for the currently handled rectangular barrier.
 	* @param height - Height dimension for the currently handled rectangular barrier.
 	*/
-	public void updateRectangleBarriers(int x, int y, int width, int height){
-		for (int i = x; i < x + width; i++){
-			for (int j = y; j < y + height; j++){
+	public void updateRectangleBarriers(int x, int y, int width, int height) {
+		for (int i = x; i < x + width; i++) {
+			for (int j = y; j < y + height; j++) {
 				this.board.updateBarrier(i, j);
 			}
 		}
@@ -257,13 +256,13 @@ public class BoardView extends JPanel{
 	* @brief Updates abnormal map pieces to be barriers (polygons and borders of map)
 	* @details Updates all the abnormal pieces manually and directs the board model to update the corresponding barrier points.
 	*/
-	public void updateAbnormalBarriers(){
-		for (int i = 0; i < 21; i++){
+	public void updateAbnormalBarriers() {
+		for (int i = 0; i < 21; i++) {
 			this.board.updateBarrier(i, 0); //top border
 			this.board.updateBarrier(i, 20); //bottom border
 		}
 		
-		for (int j = 0; j < 21; j++){
+		for (int j = 0; j < 21; j++) {
 			this.board.updateBarrier(0, j); //left border
 			this.board.updateBarrier(20, j); //right border
 		}
@@ -290,13 +289,13 @@ public class BoardView extends JPanel{
 	* @details Sets up all the dots on the map grid (drawn through graphics) and directs the board to update the dots after initialization.
 	* @param g - Graphics object needed to draw the appropriate dots on the board (GUI element).
 	*/
-	public void drawDots(Graphics g){
+	public void drawDots(Graphics g) {
 		this.pointsLabel.setText(this.board.accessScore().getScore() + "");
 		Graphics2D g2 = (Graphics2D) g;
 		
-		for (int i = 0; i < 21; i++){
-			for (int j = 0; j < 21; j++){
-				if (this.board.getBarrier(i, j)){
+		for (int i = 0; i < 21; i++) {
+			for (int j = 0; j < 21; j++) {
+				if (this.board.getBarrier(i, j)) {
 					this.board.updateDot(i, j, 0);
 				}
 			}
@@ -312,13 +311,13 @@ public class BoardView extends JPanel{
 		this.board.updateDot(dots);
 		
 		g.setColor(new Color(255,184,151));
-		for (int i = 0; i < 21; i++){
-			for (int j = 0; j < 21; j++){
-				if (this.board.getDot(i, j) == 1){
+		for (int i = 0; i < 21; i++) {
+			for (int j = 0; j < 21; j++) {
+				if (this.board.getDot(i, j) == 1) {
 					g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 					g2.fillOval(i*this.sq + 9, j*this.sq + 9, 4, 4);
 				}
-				if (this.board.getDot(i, j) == 2){
+				if (this.board.getDot(i, j) == 2) {
 					g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 					g2.fillOval(i*this.sq + 4, j*this.sq + 4, 12, 12);
 				}
@@ -330,7 +329,7 @@ public class BoardView extends JPanel{
 	* @brief Draws the player onto the board
 	* @param g - Graphics object needed to draw the player (GUI element).
 	*/
-	public void drawPlayer(Graphics g){
+	public void drawPlayer(Graphics g) {
 		g.drawImage(player, board.getPlayer().getCurrX(), board.getPlayer().getCurrY(), Color.BLACK,null);	
 	}
 	
@@ -339,40 +338,39 @@ public class BoardView extends JPanel{
 	* @details Sets up the enemy's appropriate image based on their direction.
 	* @param g - Graphics object needed to draw the enemy (GUI element).
 	*/
-	public void drawEnemy(Graphics g){
-		for (Enemy e : this.board.getEnemy()){
-			if (!e.bigDotEaten){
-				switch(e.getCurrDirection()){
-				case 'L':
-					g.drawImage(enemyLeft, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
-					break;
-				case 'R':
-					g.drawImage(enemyRight, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
-					break;
-				case 'U':
-					g.drawImage(enemyUp, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
-					break;
-				case 'D':
-					g.drawImage(enemyDown, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
-					break;
+	public void drawEnemy(Graphics g) {
+		for (Enemy e : this.board.getEnemy()) {
+			if (!e.bigDotEaten) {
+				switch(e.getCurrDirection()) {
+					case 'L':
+						g.drawImage(enemyLeft, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
+						break;
+					case 'R':
+						g.drawImage(enemyRight, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
+						break;
+					case 'U':
+						g.drawImage(enemyUp, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
+						break;
+					case 'D':
+						g.drawImage(enemyDown, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
+						break;
 				}
-			}else{
-				switch(e.getCurrDirection()){
-				case 'L':
-					g.drawImage(enemyLeftBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
-					break;
-				case 'R':
-					g.drawImage(enemyRightBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
-					break;
-				case 'U':
-					g.drawImage(enemyUpBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
-					break;
-				case 'D':
-					g.drawImage(enemyDownBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
-					break;
+			} else {
+				switch(e.getCurrDirection()) {
+					case 'L':
+						g.drawImage(enemyLeftBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
+						break;
+					case 'R':
+						g.drawImage(enemyRightBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
+						break;
+					case 'U':
+						g.drawImage(enemyUpBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
+						break;
+					case 'D':
+						g.drawImage(enemyDownBlue, e.getCurrX(), e.getCurrY(), Color.BLACK,null);
+						break;
 				}
 			}
-			
 		}
 	}	
 
@@ -380,18 +378,17 @@ public class BoardView extends JPanel{
 	* @brief Draws the player's lives onto the board
 	* @param g - Graphics object needed to draw the life images (GUI element).
 	*/
-	public void drawLives(Graphics g){
-		for(int i = 1; i <= this.board.getPlayer().getLives(); i++){
+	public void drawLives(Graphics g) {
+		for(int i = 1; i <= this.board.getPlayer().getLives(); i++) {
 			g.drawImage(player, 400 - (i*20), 10, Color.BLACK, null);
 		}
-		//g.drawImage(playerRight, 400, 10, Color.BLACK, null);
 	}
 
 	/**
 	* @brief Draws the text for continuing the game (after losing a life)
 	* @param g - Graphics object needed to draw the text (GUI element).
 	*/
-	public void drawText(Graphics g){
+	public void drawText(Graphics g) {
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
@@ -405,7 +402,7 @@ public class BoardView extends JPanel{
 	* @brief Sets the message used for the continue countdown
 	* @param s - String text to set the message as
 	*/
-	public void setMessage(String s){
+	public void setMessage(String s) {
 		this.message = s;
 	}
 
@@ -414,7 +411,7 @@ public class BoardView extends JPanel{
 	* @details Calls the super class's paintComponent method (as necessary) and calls internal functions to draw the map, dots, player and enemy.
 	* @param g - Graphics object needed to draw the appropriate board (GUI element).
 	*/
-	public void paintComponent(Graphics g){
+	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
 		this.drawMap(g);
@@ -430,24 +427,23 @@ public class BoardView extends JPanel{
 	* @details This class's repaint method that specifically repaints on the player and enemy in order to save processing power (opposed to always redrawing the board for player and enemy movements).
 	* @param g - Graphics object needed to draw the appropriate pieces of the board (GUI element).
 	*/
-	public void repaint(Graphics g){
+	public void repaint(Graphics g) {
 		//this.drawPlayer(g);
 		super.repaint((this.board.getPlayer().getCurrX())-20, (this.board.getPlayer().getCurrY())-20, 80, 80);
-		for (Enemy e : this.board.getEnemy()){
+		for (Enemy e : this.board.getEnemy()) {
 			super.repaint((e.getCurrX())-20, (e.getCurrY())-20, 80, 80);
-			}
-		//this.pointsLabel.setText(this.board.accessScore().getScore() + "");
+		}
 	}
 
 	/**
 	* @brief Pauses the game timer
 	* @param pauseTime - The amount of time to pause the timer for.
 	*/
-	public void pauseTimer(long pauseTime){
+	public void pauseTimer(long pauseTime) {
 		long startTime = System.nanoTime();
 		long estimatedTimeElapsed = System.nanoTime() - startTime;
 		this.frameTimer.stop();
-		while (estimatedTimeElapsed < pauseTime){
+		while (estimatedTimeElapsed < pauseTime) {
 			//runs this loop until the pauseTime has passed
 			estimatedTimeElapsed = System.nanoTime() - startTime;
 		}
@@ -489,7 +485,7 @@ public class BoardView extends JPanel{
 	* @brief Quits the game
 	* @details Pauses the game timer and displays an option message to the user asking if they are sure they wish to quit; if they choose yes the game closes, if they choose no the game continues.
 	*/
-	public void quitGame(){
+	public void quitGame() {
 		this.frameTimer.stop();
 		String message = "Are you sure you want to quit the game?";
 		int choice = JOptionPane.showConfirmDialog(this.frame,
@@ -498,9 +494,9 @@ public class BoardView extends JPanel{
 			JOptionPane.YES_NO_OPTION,
 			JOptionPane.ERROR_MESSAGE);
 		
-		if (choice == JOptionPane.YES_OPTION){
+		if (choice == JOptionPane.YES_OPTION) {
 			System.exit(0);
-		}else{
+		} else {
 			this.frameTimer.start();
 		}
 	}
